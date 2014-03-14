@@ -1,4 +1,76 @@
-phaser-examples
+![Phaser Logo](http://www.photonstorm.com/wp-content/uploads/2013/09/phaser_10_release.jpg)
+
+Phaser Examples
 ===============
 
-Contains hundreds of source code examples and related media for the Phaser HTML5 Game Framework.
+Phaser is a fast, free and fun open source game framework for making desktop and mobile browser HTML5 games. It uses [Pixi.js](https://github.com/GoodBoyDigital/pixi.js/) internally for fast 2D Canvas and WebGL rendering. This repository is specifically for all of the Examples we produce to go with it.
+
+Learn By Example
+----------------
+
+Ever since we started Phaser we've been growing and expanding our extensive set of Examples. Currently over 250 of them!
+
+They used to be bundled in the main Phaser repo, but because they got so large and in order to help with versioning we've moved them to their own repo.
+
+Go please go and checkout https://github.com/photonstorm/phaser-examples
+
+Phaser comes with an ever growing suite of Examples. Personally I feel that we learn better by looking at small refined code examples, so we created over 250 of them and create new ones to test every new feature added. Inside the `examples` repo you'll find the current set. If you write a particularly good example then please send it to us.
+
+The examples need to be run through a local web server (in order to avoid file access permission errors from your browser). You can use your own web server, or start the included web server using grunt.
+
+Using a locally installed web server browse to the examples folder:
+
+    examples/index.html
+
+Alternatively in order to start the included web server, after you've cloned the repo, run `npm install` to install all dependencies, then `grunt connect` to start a local server. After running this command you should be able to access your local webserver at `http://127.0.0.1:8000`. Then browse to the examples folder: `http://127.0.0.1:8000/examples/index.html`
+
+There is a new 'Side View' example viewer as well. This loads all the examples into a left-hand frame for faster navigation.
+
+You can also browse all [Phaser Examples](http://examples.phaser.io) online.
+
+
+Contributing
+------------
+
+- If you find a bug in an example then please report it on [GitHub Issues][issues] or our [Support Forum][forum].
+
+- You can issue Pull Requests for new examples or fixes to existing ones against the `master` branch.
+
+- If you have a feature request, or have written a game or demo that shows Phaser in use, then please get in touch. We'd love to hear from you! Either post to our [forum][forum] or email: rich@photonstorm.com
+
+
+Bugs?
+-----
+
+Please add them to the [Issue Tracker][issues] with as much info as possible, especially source code demonstrating the issue.
+
+
+About Phaser
+------------
+
+By Richard Davey, [Photon Storm](http://www.photonstorm.com)
+
+* View the [Official Website](http://phaser.io)
+* Follow on [Twitter](https://twitter.com/photonstorm)
+* Join the [Forum](http://www.html5gamedevs.com/forum/14-phaser/)
+* Try out 250+ [Phaser Examples](http://examples.phaser.io)
+* Read the [documentation online](http://docs.phaser.io)
+* Join our [#phaserio IRC channel](http://www.html5gamedevs.com/topic/4470-official-phaserio-irc-channel-phaserio-on-freenode/) on freenode
+
+[Subscribe to our new Phaser Newsletter](https://confirmsubscription.com/h/r/369DE48E3E86AF1E). We'll email you when new versions are released as well as send you our regular Phaser game making magazine.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/photonstorm/phaser/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
+
+License
+-------
+
+Phaser and all examples are released under the [MIT License](http://opensource.org/licenses/MIT). This does not include any assets (art, music, sounds)
+
+[issues]: https://github.com/photonstorm/phaser-examples/issues
+[contribute]: https://github.com/photonstorm/phaser/blob/master/CONTRIBUTING.md
+[phaser]: https://github.com/photonstorm/phaser-examples
+[forum]: http://www.html5gamedevs.com/forum/14-phaser/
+
+[![Analytics](https://ga-beacon.appspot.com/UA-44006568-2/phaser/index)](https://github.com/igrigorik/ga-beacon)
+
