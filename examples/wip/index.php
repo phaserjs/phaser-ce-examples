@@ -83,7 +83,8 @@
         <base href="../" />
         <script src="_site/js/jquery-2.0.3.min.js" type="text/javascript"></script>
         <?php
-            require('../../build/config.php');
+            $path = '/phaser';
+            require('../../../phaser/build/config.php');
 
             if (isset($_GET['f']))
             {

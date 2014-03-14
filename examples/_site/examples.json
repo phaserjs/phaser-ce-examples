@@ -689,6 +689,10 @@
       "title": "contact events"
     },
     {
+      "file": "contact+material.js",
+      "title": "contact material"
+    },
+    {
       "file": "distance+constraint.js",
       "title": "distance constraint"
     },
