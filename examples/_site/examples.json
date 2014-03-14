@@ -951,6 +951,14 @@
       "title": "map collide"
     },
     {
+      "file": "mapcollide.js",
+      "title": "mapcollide"
+    },
+    {
+      "file": "mario.js",
+      "title": "mario"
+    },
+    {
       "file": "paint+tiles.js",
       "title": "paint tiles"
     },
