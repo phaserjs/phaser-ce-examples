@@ -19,6 +19,8 @@ var cursors;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     map = game.add.tilemap('map');
 
     map.addTilesetImage('ground_1x1');
@@ -26,33 +28,27 @@ function create() {
 
     map.setCollisionBetween(1, 12);
 
+    //  This will set Tile ID 26 (the coin) to call the hitCoin function when collided with
     map.setTileIndexCallback(26, hitCoin, this);
 
+    //  This will set the map location 2, 0 to call the function
     map.setTileLocationCallback(2, 0, 1, 1, hitCoin, this);
 
     layer = map.createLayer('Tile Layer 1');
 
-    // layer.debug = true;
-
     layer.resizeWorld();
 
-    game.physics.gravity.y = 100;
-
     sprite = game.add.sprite(260, 100, 'phaser');
-    sprite.anchor.setTo(0.5, 0.5);
+    sprite.anchor.set(0.5);
+    game.physics.enable(sprite);
 
-    sprite.body.setRectangle(16, 16, 8, 8);
+    sprite.body.setSize(16, 16, 8, 8);
 
     //  We'll set a lower max angular velocity here to keep it from going totally nuts
     sprite.body.maxAngular = 500;
 
     //  Apply a drag otherwise the sprite will just spin and never slow down
     sprite.body.angularDrag = 50;
-
-    // sprite.body.bounce.x = 0.8;
-    // sprite.body.bounce.y = 0.8;
-
-    debugSprite = sprite;
 
     game.camera.follow(sprite);
 
@@ -62,7 +58,7 @@ function create() {
 
 function hitCoin(sprite, tile) {
 
-    tile.tile.alpha = 0.2;
+    tile.alpha = 0.2;
 
     layer.dirty = true;
 
@@ -72,7 +68,7 @@ function hitCoin(sprite, tile) {
 
 function update() {
 
-    game.physics.collide(sprite, layer);
+    game.physics.arcade.collide(sprite, layer);
 
     sprite.body.velocity.x = 0;
     sprite.body.velocity.y = 0;
@@ -89,14 +85,13 @@ function update() {
 
     if (cursors.up.isDown)
     {
-        game.physics.velocityFromAngle(sprite.angle, 300, sprite.body.velocity);
+        game.physics.arcade.velocityFromAngle(sprite.angle, 300, sprite.body.velocity);
     }
 
 }
 
 function render() {
 
-    // game.debug.bodyInfo(sprite, 16, 24);
-    // game.debug.physicsBody(sprite.body);
+    game.debug.body(sprite);
 
 }

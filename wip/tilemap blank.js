@@ -39,6 +39,8 @@ function create() {
 
     game.input.setMoveCallback(updateMarker, this);
 
+    console.log(map.tiles);
+
     cursors = game.input.keyboard.createCursorKeys();
 
 }
@@ -46,6 +48,8 @@ function create() {
 function pickTile(sprite, pointer) {
 
     currentTile = game.math.snapToFloor(pointer.x, 32) / 32;
+
+    console.log(map.tiles[currentTile]);
 
 }
 
