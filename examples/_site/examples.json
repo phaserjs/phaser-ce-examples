@@ -701,6 +701,10 @@
       "title": "gear constraint"
     },
     {
+      "file": "gravity+scale.js",
+      "title": "gravity scale"
+    },
+    {
       "file": "gravity.js",
       "title": "gravity"
     },
