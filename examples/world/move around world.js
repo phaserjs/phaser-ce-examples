@@ -87,7 +87,5 @@ function update() {
 function render() {
 
     game.debug.cameraInfo(game.camera, 32, 32);
-    game.debug.spriteInfo(d, 32, 200);
-    game.debug.spriteCorners(d, false, true);
 
 }
