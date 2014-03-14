@@ -11,13 +11,7 @@ Phaser is a fast, free and fun open source game framework for making desktop and
 Learn By Example
 ----------------
 
-Ever since we started Phaser we've been growing and expanding our extensive set of Examples. Currently over 250 of them!
-
-They used to be bundled in the main Phaser repo, but because they got so large and in order to help with versioning we've moved them to their own repo.
-
-Go please go and checkout https://github.com/photonstorm/phaser-examples
-
-Phaser comes with an ever growing suite of Examples. Personally I feel that we learn better by looking at small refined code examples, so we created over 250 of them and create new ones to test every new feature added. Inside the `examples` repo you'll find the current set. If you write a particularly good example then please send it to us.
+Phaser comes with an ever growing suite of Examples. Personally we feel that you learn better by looking at small refined code examples. So we created over 250 of them, and create new ones to test nearly every feature added to Phaser. Inside this `examples` repo you'll find the current set. If you write a particularly good example then please send it to us.
 
 The examples need to be run through a local web server (in order to avoid file access permission errors from your browser). You can use your own web server, or start the included web server using grunt.
 
@@ -27,7 +21,7 @@ Using a locally installed web server browse to the examples folder:
 
 Alternatively in order to start the included web server, after you've cloned the repo, run `npm install` to install all dependencies, then `grunt connect` to start a local server. After running this command you should be able to access your local webserver at `http://127.0.0.1:8000`. Then browse to the examples folder: `http://127.0.0.1:8000/examples/index.html`
 
-There is a new 'Side View' example viewer as well. This loads all the examples into a left-hand frame for faster navigation.
+There is a 'Side View' example viewer as well as the default. This loads all the examples into a left-hand frame for faster navigation.
 
 You can also browse all [Phaser Examples](http://examples.phaser.io) online.
 
