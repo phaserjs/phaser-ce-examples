@@ -21,6 +21,8 @@ function create() {
 	sprite = game.add.sprite(0.5, 0, 'pic');
 	// sprite2 = game.add.sprite(0, 300, 'pic');
 
+	game.physics.enable(sprite);
+
 	sprite.inputEnabled = true;
 	sprite.events.onInputDown.add(tint, this);
 	sprite.events.onInputUp.add(wibble, this);

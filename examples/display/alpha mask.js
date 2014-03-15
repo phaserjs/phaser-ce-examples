@@ -28,5 +28,4 @@ function create() {
 	//	to actually display it:
 	game.add.image(game.world.centerX, 320, bmd).anchor.set(0.5, 0);
 
-
 }

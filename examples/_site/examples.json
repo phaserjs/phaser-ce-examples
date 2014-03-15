@@ -271,6 +271,10 @@
   ],
   "display": [
     {
+      "file": "alpha+mask.js",
+      "title": "alpha mask"
+    },
+    {
       "file": "bitmapdata+wobble.js",
       "title": "bitmapdata wobble"
     },
