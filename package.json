@@ -1,8 +1,8 @@
 {
-  "name": "Phaser",
-  "version": "2.0.0",
-  "release": "Aes Sedai",
-  "description": "A fast, free and fun HTML5 Game Framework for Desktop and Mobile web browsers.",
+  "name": "Phaser Examples",
+  "version": "0.0.0",
+  "release": "None",
+  "description": "Contains hundreds of source code examples and related media for the Phaser HTML5 Game Framework.",
   "author": "Richard Davey",
   "logo": "https://raw.github.com/photonstorm/phaser/master/phaser-logo-small.png",
   "homepage": "http://phaser.io",
