@@ -749,6 +749,10 @@
       "title": "thrust"
     },
     {
+      "file": "tilemap.js",
+      "title": "tilemap"
+    },
+    {
       "file": "world+move.js",
       "title": "world move"
     }
