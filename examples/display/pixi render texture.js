@@ -1,7 +1,7 @@
 //	Original version by @author Mat Groves http://matgroves.com/ @Doormat23 from the Pixi.js examples
 //	Ported to Phaser by Richard Davey
 
-var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
 
@@ -26,8 +26,8 @@ var count = 0;
 function create() {
 
 	// create two render textures.. these dynamic textures will be used to draw the scene into itself
-	renderTexture = game.add.renderTexture('texture1', 800, 600);
-	renderTexture2 = game.add.renderTexture('textur2e', 800, 600);
+	renderTexture = game.add.renderTexture(800, 600, 'texture1');
+	renderTexture2 = game.add.renderTexture(800, 600, 'texture2');
 	currentTexture = renderTexture;
 
 	// create a new sprite that uses the render texture we created above

@@ -10,25 +10,31 @@ function preload() {
 var mushroom;
 var texture;
 var image;
+var renderTexture;
 
 function create() {
 
-	texture = game.add.renderTexture('mousetrail', 800, 600);
+	texture = game.add.renderTexture(800, 600, 'mousetrail');
 
 	//	We create a sprite (rather than using the factory) so it doesn't get added to the display, as we only need its texture data.
 	mushroom = new Phaser.Sprite(game, 0, 0, 'mushroom');
 	mushroom.anchor.setTo(0.5, 0.5);
 
 	//	This is the sprite that is drawn to the display. We've given it the renderTexture as its texture.
-	image = game.add.image(0, 0, texture);
 
-	game.input.onDown.add(tint, this);
+	// renderTexture = new PIXI.RenderTexture(800, 600);
+
+	image = game.add.image(0, 0, texture);
+	// image.setTexture(renderTexture);
+	// image.setTexture(texture);
+
+	// game.input.onDown.add(tint, this);
 
 }
 
 function tint() {
 
-	image.tint = Math.random() * 0xFFFFFF;
+	// image.tint = Math.random() * 0xFFFFFF;
 
 }
 
@@ -39,6 +45,7 @@ function update() {
 		//	Here we draw the mushroom sprite to the renderTexture at the pointer coordinates.
 		//	The 'false' parameter 2nd from the end tells it not to clear itself, causing the trail effect you see.
 		texture.render(mushroom, game.input.activePointer.position, false);
+		// renderTexture.render(mushroom, game.input.activePointer.position, false);
 	}
 
 }

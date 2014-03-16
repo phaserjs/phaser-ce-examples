@@ -15,15 +15,15 @@ var stars = [];
 
 function create() {
 
-	//	This is the sprite that will be drawn to the texture, we set it to visible false as we only need its texture data.
-	star = game.add.sprite(0, 0, 'star');
-	star.visible = false;
+	//	This is the sprite that will be drawn to the texture
+	//	Note that we 'make' it, not 'add' it, as we don't want it on the display list
+	star = game.make.sprite(0, 0, 'star');
 
 	//	For this effect we'll create a vertical scrolling starfield with 300 stars split across 3 layers.
 	//	This will use only 3 textures / sprites in total.
-	texture1 = game.add.renderTexture('texture1', 800, 600);
-	texture2 = game.add.renderTexture('texture2', 800, 600);
-	texture3 = game.add.renderTexture('texture3', 800, 600);
+	texture1 = game.add.renderTexture(800, 600, 'texture1');
+	texture2 = game.add.renderTexture(800, 600, 'texture2');
+	texture3 = game.add.renderTexture(800, 600, 'texture3');
 	
 	game.add.sprite(0, 0, texture1);
 	game.add.sprite(0, 0, texture2);
@@ -69,12 +69,12 @@ function update() {
 		if (i == 0 || i == 100 || i == 200)
 		{
 			//	If it's the first star of the layer then we clear the texture
-			stars[i].texture.renderXY(star, stars[i].x, stars[i].y, true, true);
+			stars[i].texture.renderXY(star, stars[i].x, stars[i].y, true);
 		}
 		else
 		{
 			//	Otherwise just draw the star sprite where we need it
-			stars[i].texture.renderXY(star, stars[i].x, stars[i].y, false, true);
+			stars[i].texture.renderXY(star, stars[i].x, stars[i].y, false);
 		}
 	}
 
