@@ -16,6 +16,8 @@ function create() {
 
     game.stage.backgroundColor = '#2d2d2d';
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     //  Set the world (global) gravity
     game.physics.arcade.gravity.y = 100;
 

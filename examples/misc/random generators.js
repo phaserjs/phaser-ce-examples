@@ -7,9 +7,9 @@ function create() {
 
     var style = { font: "14px Arial", fill: "#ff0044", align: "center" };
 
-    game.add.text(10, 20, game.rnd.integer());
-    game.add.text(10, 40, game.rnd.frac());
-    game.add.text(10, 60, game.rnd.real());
-    game.add.text(10, 80, game.rnd.integerInRange(100, 200));
+    game.add.text(32, 30, 'Integer: ' + game.rnd.integer(), style);
+    game.add.text(32, 60, 'Frac: ' + game.rnd.frac(), style);
+    game.add.text(32, 90, 'Real: ' + game.rnd.real(), style);
+    game.add.text(32, 120, 'Integer in Range (100-200): ' + game.rnd.integerInRange(100, 200), style);
 
 }
