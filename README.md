@@ -19,7 +19,7 @@ Using a locally installed web server browse to the examples folder:
 
     examples/index.html
 
-Alternatively in order to start the included web server, after you've cloned the repo, run `npm install` to install all dependencies, then `grunt connect` to start a local server. After running this command you should be able to access your local webserver at `http://127.0.0.1:8000`. Then browse to the examples folder: `http://127.0.0.1:8000/examples/index.html`
+Alternatively in order to start the included web server, after you've cloned the repo, run `npm install` to install all dependencies, then `grunt connect` to start a local server. After running this command you should be able to access your local webserver at `http://127.0.0.1:8001`. Then browse to the examples folder: `http://127.0.0.1:8001/examples/index.html`
 
 There is a 'Side View' example viewer as well as the default. This loads all the examples into a left-hand frame for faster navigation.
 
