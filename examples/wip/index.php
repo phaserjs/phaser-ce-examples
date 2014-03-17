@@ -32,7 +32,7 @@
 
     function dirToArray($dir) { 
 
-        $ignore = array('.', '..', '_site', 'assets', 'gfx', 'states', 'book', 'filters', 'misc');
+        $ignore = array('.', '..', '_site', 'assets', 'gfx', 'states', 'book', 'filters', 'misc', 'golf');
         $result = array(); 
         $root = scandir($dir); 
         $dirs = array_diff($root, $ignore);
@@ -61,24 +61,31 @@
 
         foreach ($files as $key => $value)
         {
-            $value2 = substr($value, 0, -3);
-            $file = urlencode($value);
+            if (is_string($value))
+            {
+                $value2 = substr($value, 0, -3);
+                $file = urlencode($value);
 
-            $output .= "<tr><td><a href=\"wip/index.php?f=$file\">$value2</a></td>";
-            $output .= "<td><a href=\"wip/index-lib.php?f=$file\">[ single lib ]</a></td>";
-            $output .= "<td><a href=\"wip/index-fs.php?f=$file\">[ full screen ]</a></td>";
-            $output .= "<td><a href=\"wip/index-cocoon.php?f=$file\">[ cocoon ]</a></td></tr>";
+                $output .= "<tr><td><a href=\"wip/index.php?f=$file\">$value2</a></td>";
+                $output .= "<td><a href=\"wip/index-lib.php?f=$file\">[ single lib ]</a></td>";
+                $output .= "<td><a href=\"wip/index-fs.php?f=$file\">[ full screen ]</a></td>";
+                $output .= "<td><a href=\"wip/index-cocoon.php?f=$file\">[ cocoon ]</a></td></tr>";
+            }
         }
 
         return $output;
 
     }
+
+    /*
+<meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />
+    */
 ?>
 <!doctype html>
 <html>
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />
+        
         <title>phaser</title>
         <base href="../" />
         <script src="_site/js/jquery-2.0.3.min.js" type="text/javascript"></script>

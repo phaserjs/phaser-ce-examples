@@ -13,7 +13,14 @@ var text2;
 
 function create() {
 
-    text = game.add.bitmapText(100, 100, 'carrier', 'Phaser and Pixi\nrocking!', 32);
+	if (game.device.isConsoleOpen())
+	{
+	    text = game.add.bitmapText(100, 100, 'carrier', 'console is open', 32);
+	}
+	else
+	{
+	    text = game.add.bitmapText(100, 100, 'carrier', 'console is closed', 32);
+	}
 
     text2 = game.add.bitmapText(100, 300, 'desyrel', 'Phaser & Pixi\nrocking!', 64);
 

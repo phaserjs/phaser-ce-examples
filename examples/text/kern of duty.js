@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 480, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 480, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
 
 var content = [
     " ",
@@ -16,8 +16,7 @@ var content = [
     "mission control bravo ...",
 ];
 
-var t = 0;
-var s;
+var text;
 var index = 0;
 var line = '';
 
@@ -29,34 +28,35 @@ function create() {
 
     game.add.sprite(0, 0, 'cod');
 
-    var style = { font: "30pt Courier", fill: "#19cb65", stroke: "#119f4e", strokeThickness: 2 };
+    text = game.add.text(32, 380, '', { font: "30pt Courier", fill: "#19cb65", stroke: "#119f4e", strokeThickness: 2 });
 
-    s = game.add.text(32, 380, '', style);
-    t = game.time.now + 80;
+    nextLine();
 
 }
 
-function update() {
-    
-    if (game.time.now > t && index < content.length)
-    {
-        //  get the next character in the line
-        if (line.length < content[index].length)
-        {
-            line = content[index].substr(0, line.length + 1);
-            s.setText(line);
-            t = game.time.now + 80;
-        }
-        else
-        {
-            t = game.time.now + 2000;
+function updateLine() {
 
-            if (index < content.length)
-            {
-                index++;
-                line = '';
-            }
-        }
+    if (line.length < content[index].length)
+    {
+        line = content[index].substr(0, line.length + 1);
+        text.text = line;
+    }
+    else
+    {
+        //  Wait 2 seconds then start a new line
+        game.time.events.add(Phaser.Timer.SECOND * 2, nextLine, this);
+    }
+
+}
+
+function nextLine() {
+
+    index++;
+
+    if (index < content.length)
+    {
+        line = '';
+        game.time.events.repeat(80, content[index].length + 1, updateLine, this);
     }
 
 }
