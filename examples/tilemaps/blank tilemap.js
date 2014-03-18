@@ -23,13 +23,15 @@ function create() {
 
     //  Creates a layer and sets-up the map dimensions.
     //  In this case the map is 30x30 tiles in size and the tiles are 32x32 pixels in size.
-    map.create('level1', 30, 30, 32, 32);
+    layer = map.create('level1', 30, 30, 32, 32);
 
     //  Add a Tileset image to the map
     map.addTilesetImage('ground_1x1');
     
     //  Create a layer. This is where the map is rendered to.
-    layer = map.createLayer('level1');
+    // map.createLayer('level1');
+
+    // layer = map.createBlankLayer('level2', 30, 30, 32, 32);
 
     //  Resize the world
     layer.resizeWorld();
@@ -46,6 +48,7 @@ function create() {
 function pickTile(sprite, pointer) {
 
     currentTile = game.math.snapToFloor(pointer.x, 32) / 32;
+    console.log(currentTile);
 
 }
 
@@ -56,7 +59,7 @@ function updateMarker() {
 
     if (game.input.mousePointer.isDown)
     {
-        map.putTile(currentTile, layer.getTileX(marker.x), layer.getTileY(marker.y))
+        map.putTile(currentTile, layer.getTileX(marker.x), layer.getTileY(marker.y), layer)
     }
 
 }

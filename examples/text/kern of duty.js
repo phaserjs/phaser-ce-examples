@@ -39,7 +39,8 @@ function updateLine() {
     if (line.length < content[index].length)
     {
         line = content[index].substr(0, line.length + 1);
-        text.text = line;
+        // text.text = line;
+        text.setText(line);
     }
     else
     {
