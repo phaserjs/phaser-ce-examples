@@ -79,6 +79,10 @@
       "title": "bounding box"
     },
     {
+      "file": "gravity+and+drag.js",
+      "title": "gravity and drag"
+    },
+    {
       "file": "gravity.js",
       "title": "gravity"
     },
@@ -749,6 +753,10 @@
       "title": "springs"
     },
     {
+      "file": "static+body.js",
+      "title": "static body"
+    },
+    {
       "file": "thrust.js",
       "title": "thrust"
     },
@@ -847,6 +855,10 @@
     {
       "file": "shared+sprite+textures.js",
       "title": "shared sprite textures"
+    },
+    {
+      "file": "sprite+from+bitmapdata.js",
+      "title": "sprite from bitmapdata"
     },
     {
       "file": "sprite+rotation.js",
