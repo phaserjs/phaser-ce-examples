@@ -1,4 +1,3 @@
-
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
@@ -44,6 +43,7 @@ function create() {
     bullets.createMultiple(30, 'bullet');
     bullets.setAll('anchor.x', 0.5);
     bullets.setAll('anchor.y', 1);
+    bullets.setAll('checkWorldBounds', true);
     bullets.setAll('outOfBoundsKill', true);
 
     // The enemy's bullets
@@ -53,6 +53,7 @@ function create() {
     enemyBullets.createMultiple(30, 'enemyBullet');
     enemyBullets.setAll('anchor.x', 0.5);
     enemyBullets.setAll('anchor.y', 1);
+    enemyBullets.setAll('checkWorldBounds', true);
     enemyBullets.setAll('outOfBoundsKill', true);
 
     //  The hero!
