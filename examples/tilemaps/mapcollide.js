@@ -18,6 +18,7 @@ var cursors;
 function create() {
 
     game.stage.backgroundColor = '#787878';
+    game.physics.startSystem(Phaser.Physics.ARCADE);
 
     map = game.add.tilemap('mario');
 
@@ -39,8 +40,9 @@ function create() {
     layer.resizeWorld();
 
     p = game.add.sprite(32, 32, 'player');
+    game.physics.enable(p);
 
-    game.physics.gravity.y = 250;
+    game.physics.arcade.gravity.y = 250;
 
     p.body.bounce.y = 0.2;
     p.body.linearDamping = 1;
@@ -54,7 +56,7 @@ function create() {
 
 function update() {
 
-    game.physics.collide(p, layer);
+    game.physics.arcade.collide(p, layer);
 
     p.body.velocity.x = 0;
 
@@ -80,6 +82,6 @@ function update() {
 function render() {
 
     game.debug.cameraInfo(game.camera, 420, 320);
-    game.debug.physicsBody(p.body);
+    game.debug.bodyInfo(p, 32, 320);
 
 }
