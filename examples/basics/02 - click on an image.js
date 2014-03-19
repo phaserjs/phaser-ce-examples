@@ -37,6 +37,6 @@ function create() {
 function listener () {
 
     counter++;
-    text.text = "You clicked " + counter + " times!";
+    text.setText("You clicked " + counter + " times!");
 
 }
