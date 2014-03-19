@@ -12,6 +12,8 @@ var sprite2;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
 	game.stage.backgroundColor = '#124184';
 
 	//	Here we're tweening the scale of the sprite, which translates to the scale of the Body as well
@@ -35,6 +37,9 @@ function create() {
 
 function update() {
 
+	//	If you change the scale of your sprite, you must adjust the body bounds to compensate:
+	sprite.body.updateBounds(sprite.scale.x, sprite.scale.y);
+
 	sprite2.body.velocity.x = -200;
 
 	game.physics.arcade.collide(sprite, sprite2);
@@ -43,7 +48,7 @@ function update() {
 
 function render() {
 
-    // game.debug.physicsBody(sprite.body);
-    // game.debug.physicsBody(sprite2.body);
+    // game.debug.body(sprite);
+    // game.debug.body(sprite2);
 
 }
