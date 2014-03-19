@@ -25,39 +25,49 @@ var s;
 
 function create() {
 
-    //  This tells the world to include walls on the left, right and top, but not the bottom - so the ball can 'fall' away.
-    game.physics.setBoundsToWorld();
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    //  We check bounds collisions against all walls other than the bottom one
+    game.physics.arcade.checkCollision.down = false;
 
     s = game.add.tileSprite(0, 0, 800, 600, 'starfield');
 
-    var brick;
     bricks = game.add.group();
     bricks.enableBody = true;
     bricks.physicsBodyType = Phaser.Physics.ARCADE;
+
+    var brick;
 
     for (var y = 0; y < 4; y++)
     {
         for (var x = 0; x < 15; x++)
         {
             brick = bricks.create(120 + (x * 36), 100 + (y * 52), 'breakout', 'brick_' + (y+1) + '_1.png');
-            brick.body.bounce.setTo(1, 1);
+            brick.body.bounce.set(1);
             brick.body.immovable = true;
         }
     }
 
     paddle = game.add.sprite(game.world.centerX, 500, 'breakout', 'paddle_big.png');
     paddle.anchor.setTo(0.5, 0.5);
+
     game.physics.enable(paddle, Phaser.Physics.ARCADE);
+
     paddle.body.collideWorldBounds = true;
-    paddle.body.bounce.setTo(1, 1);
+    paddle.body.bounce.set(1);
     paddle.body.immovable = true;
 
     ball = game.add.sprite(game.world.centerX, paddle.y - 16, 'breakout', 'ball_1.png');
-    ball.anchor.setTo(0.5, 0.5);
+    ball.anchor.set(0.5);
+    ball.checkWorldBounds = true;
+
     game.physics.enable(ball, Phaser.Physics.ARCADE);
+
     ball.body.collideWorldBounds = true;
-    ball.body.bounce.setTo(1, 1);
+    ball.body.bounce.set(1);
+
     ball.animations.add('spin', [ 'ball_1.png', 'ball_2.png', 'ball_3.png', 'ball_4.png', 'ball_5.png' ], 50, true, false);
+
     ball.events.onOutOfBounds.add(ballLost, this);
 
     scoreText = game.add.text(32, 550, 'score: 0', { font: "20px Arial", fill: "#ffffff", align: "left" });
@@ -74,24 +84,20 @@ function update () {
     //  Fun, but a little sea-sick inducing :) Uncomment if you like!
     // s.tilePosition.x += (game.input.speed.x / 2);
 
-    paddle.body.x = game.input.x;
+    paddle.x = game.input.x;
 
-    if (paddle.body.x < 24)
+    if (paddle.x < 24)
     {
-        paddle.body.x = 24;
+        paddle.x = 24;
     }
-    else if (paddle.body.x > game.width - 24)
+    else if (paddle.x > game.width - 24)
     {
-        paddle.body.x = game.width - 24;
-    }
-
-    if(ball.body.y > game.height - 20){
-        ballLost();
+        paddle.x = game.width - 24;
     }
 
     if (ballOnPaddle)
     {
-        ball.body.x = paddle.body.x;
+        ball.x = paddle.x;
     }
     else
     {
@@ -117,6 +123,7 @@ function releaseBall () {
 function ballLost () {
 
     lives--;
+    livesText.text = 'lives: ' + lives;
 
     if (lives === 0)
     {
@@ -124,12 +131,9 @@ function ballLost () {
     }
     else
     {
-        console.log('Hi');
-        livesText.text = 'lives: ' + lives;
         ballOnPaddle = true;
-        ball.body.reset();
-        ball.body.x = paddle.body.x + 16;
-        ball.body.y = paddle.y - 22;
+
+        ball.reset(paddle.body.x + 16, paddle.y - 16);
         
         ball.animations.stop();
     }
@@ -163,7 +167,7 @@ function ballHitBrick (_ball, _brick) {
 
         //  Let's move the ball back to the paddle
         ballOnPaddle = true;
-        ball.body.velocity.setTo(0, 0);
+        ball.body.velocity.set(0);
         ball.x = paddle.x + 16;
         ball.y = paddle.y - 16;
         ball.animations.stop();
