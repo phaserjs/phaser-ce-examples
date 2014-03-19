@@ -15,13 +15,19 @@ var bulletTime = 0;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.stage.backgroundColor = '#2d2d2d';
 
     bullets = game.add.group();
+
     bullets.enableBody = true;
+
     bullets.physicsBodyType = Phaser.Physics.ARCADE;
+
     bullets.createMultiple(10, 'bullet');
     bullets.callAll('events.onOutOfBounds.add', 'events.onOutOfBounds', resetBullet, this);
+    bullets.setAll('checkWorldBounds', true);
 
     sprite = game.add.sprite(400, 550, 'phaser');
 
@@ -71,6 +77,7 @@ function fireBullet () {
 
 //  Called if the bullet goes out of the screen
 function resetBullet (bullet) {
-    bullet.kill();
-}
 
+    bullet.kill();
+
+}
