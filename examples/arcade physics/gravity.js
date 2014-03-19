@@ -45,7 +45,7 @@ function create() {
     
     sprite3.body.collideWorldBounds = true;
     sprite3.body.bounce.y = 0.8;
-    sprite3.body.gravityScale.y = 3;
+    sprite3.body.gravity.y = 50;
 
     sprite4.body.allowGravity = false;
 
@@ -55,7 +55,7 @@ function render() {
 
     game.debug.text('world gravity', sprite1.x - 32, 64);
     game.debug.text('local gravity', sprite2.x - 32, 64);
-    game.debug.text('gravityScale', sprite3.x - 32, 64);
+    game.debug.text('local / 2', sprite3.x - 32, 64);
     game.debug.text('no gravity', sprite4.x - 32, 64);
 
 }

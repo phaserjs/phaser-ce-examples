@@ -9,11 +9,14 @@ var sprite;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.stage.backgroundColor = '#0072bc';
 
     sprite = game.add.sprite(400, 300, 'arrow');
     sprite.anchor.setTo(0.5, 0.5);
-     game.physics.enable(sprite, Phaser.Physics.ARCADE);
+
+    game.physics.enable(sprite, Phaser.Physics.ARCADE);
 
 }
 

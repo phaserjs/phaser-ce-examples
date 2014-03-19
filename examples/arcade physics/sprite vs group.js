@@ -14,6 +14,8 @@ var cursors;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.stage.backgroundColor = '#2d2d2d';
 
     //  This example will check Sprite vs. Group collision

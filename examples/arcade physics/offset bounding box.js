@@ -13,6 +13,8 @@ var sprite2;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.stage.backgroundColor = '#2d2d2d';
 
     sprite1 = game.add.sprite(150, 200, 'atari');
@@ -28,7 +30,6 @@ function create() {
     
     sprite1.body.setSize(100, 50, 50, 25);
     sprite1.body.immovable = true;
-
     
     sprite2.body.velocity.x = -100;
 
@@ -48,9 +49,9 @@ function collisionHandler (obj1, obj2) {
 
 function render() {
 
-    // game.debug.bodyInfo(sprite1, 32, 32);
+    game.debug.bodyInfo(sprite1, 32, 32);
 
-    // game.debug.physicsBody(sprite1.body);
-    // game.debug.physicsBody(sprite2.body);
+    game.debug.body(sprite1);
+    game.debug.body(sprite2);
 
 }

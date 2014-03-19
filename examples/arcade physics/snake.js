@@ -17,6 +17,8 @@ var snakeSpacer = 6; //parameter that sets the spacing between sections
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.world.setBounds(0, 0, 800, 600);
 
     cursors = game.input.keyboard.createCursorKeys();

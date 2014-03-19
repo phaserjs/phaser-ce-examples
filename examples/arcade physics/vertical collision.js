@@ -13,6 +13,8 @@ var sprite2;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.stage.backgroundColor = '#2d2d2d';
 
     sprite1 = game.add.sprite(300, 50, 'atari');
@@ -22,8 +24,6 @@ function create() {
 
     sprite1.body.velocity.y = 100;
 
-    
-
     //  This adjusts the collision body size.
     //  220x10 is the new width/height.
     //  See the offset bounding box for another example.
@@ -31,7 +31,9 @@ function create() {
 
     sprite2 = game.add.sprite(400, 450, 'mushroom');
     sprite2.name = 'mushroom';
+
     game.physics.enable(sprite2, Phaser.Physics.ARCADE);
+
     sprite2.body.immovable = true;
 
 }
@@ -50,7 +52,7 @@ function collisionHandler (obj1, obj2) {
 
 function render() {
 
-    // game.debug.spriteBounds(sprite1);
-    // game.debug.spriteBounds(sprite2);
+    game.debug.body(sprite1);
+    game.debug.body(sprite2);
 
 }

@@ -7,7 +7,7 @@
 *
 * Phaser - http://www.phaser.io
 *
-* v2.0.1 "Aes Sedai" - Built: Tue Mar 18 2014 18:36:17
+* v2.0.1 "Aes Sedai" - Built: Wed Mar 19 2014 03:53:38
 *
 * By Richard Davey http://www.photonstorm.com @photonstorm
 *
@@ -9604,7 +9604,7 @@ PIXI.RenderTexture.tempMatrix = new PIXI.Matrix();
 *
 * Phaser - http://www.phaser.io
 *
-* v2.0.1 "Aes Sedai" - Built: Tue Mar 18 2014 18:36:17
+* v2.0.1 "Aes Sedai" - Built: Wed Mar 19 2014 03:53:38
 *
 * By Richard Davey http://www.photonstorm.com @photonstorm
 *
@@ -13509,7 +13509,7 @@ Phaser.StateManager.prototype = {
             {
                 this.game.tweens.removeAll();
 
-                this.game.world.destroy();
+                this.game.world.shutdown();
 
                 this.game.physics.clear();
 
@@ -15987,6 +15987,7 @@ Phaser.Group.prototype.getIndex = function (child) {
 * @method Phaser.Group#replace
 * @param {*} oldChild - The child in this Group that will be replaced.
 * @param {*} newChild - The child to be inserted into this Group.
+* @return {*} Returns the oldChild that was replaced within this Group.
 */
 Phaser.Group.prototype.replace = function (oldChild, newChild) {
 
@@ -16005,9 +16006,13 @@ Phaser.Group.prototype.replace = function (oldChild, newChild) {
             }
         }
 
-        this.removeChild(oldChild);
+        var temp = oldChild;
+
+        this.remove(temp);
 
         this.addAt(newChild, index);
+
+        return temp;
     }
 
 }
@@ -16846,12 +16851,14 @@ Phaser.Group.prototype.removeBetween = function (startIndex, endIndex) {
 *
 * @method Phaser.Group#destroy
 * @param {boolean} [destroyChildren=true] - Should every child of this Group have its destroy method called?
+* @param {boolean} [soft=false] - A 'soft destroy' (set to true) doesn't remove this Group from its parent or null the game reference. Set to false and it does.
 */
-Phaser.Group.prototype.destroy = function (destroyChildren) {
+Phaser.Group.prototype.destroy = function (destroyChildren, soft) {
 
     if (this.game === null) { return; }
 
     if (typeof destroyChildren === 'undefined') { destroyChildren = true; }
+    if (typeof soft === 'undefined') { soft = false; }
 
     if (destroyChildren)
     {
@@ -16872,13 +16879,16 @@ Phaser.Group.prototype.destroy = function (destroyChildren) {
         this.removeAll();
     }
 
-    this.parent.removeChild(this);
-
-    this.game = null;
-
-    this.exists = false;
-
     this.cursor = null;
+
+    if (!soft)
+    {
+        this.parent.removeChild(this);
+
+        this.game = null;
+
+        this.exists = false;
+    }
 
 }
 
@@ -17090,15 +17100,16 @@ Phaser.World.prototype.setBounds = function (x, y, width, height) {
 
 /**
 * Destroyer of worlds.
-* @method Phaser.World#destroy
+* @method Phaser.World#shutdown
 */
-Phaser.World.prototype.destroy = function () {
+Phaser.World.prototype.shutdown = function () {
 
     this.camera.reset();
 
     this.game.input.reset(true);
 
-    this.removeAll();
+    //  World is a Group, so run a soft destruction on this and all children.
+    this.destroy(true, true);
 
 }
 
@@ -21329,7 +21340,7 @@ Phaser.Pointer.prototype = {
             do
             {
                 //  If the object is using pixelPerfect checks, or has a higher InputManager.PriorityID OR if the priority ID is the same as the current highest AND it has a higher renderOrderID, then set it to the top
-                if (currentNode.pixelPerfectClick || currentNode.pixelPerfectOver || currentNode.priorityID > this._highestInputPriorityID || (currentNode.priorityID === this._highestInputPriorityID && currentNode.sprite._cache[3] < this._highestRenderOrderID))
+                if (currentNode.validForInput(this._highestInputPriorityID, this._highestRenderOrderID))
                 {
                     if ((!fromClick && currentNode.checkPointerOver(this)) || (fromClick && currentNode.checkPointerDown(this)))
                     {
@@ -23340,6 +23351,12 @@ Phaser.InputHandler = function (sprite) {
     this.useHandCursor = false;
     
     /**
+    * @property {boolean} _setHandCursor - Did this Sprite trigger the hand cursor?
+    * @private
+    */
+    this._setHandCursor = false;
+
+    /**
     * @property {boolean} isDragged - true if the Sprite is being currently dragged.
     * @default
     */
@@ -23601,6 +23618,12 @@ Phaser.InputHandler.prototype = {
 
         if (this.enabled)
         {
+            if (this._setHandCursor)
+            {
+                this.game.canvas.style.cursor = "default";
+                this._setHandCursor = false;
+            }
+
             this.enabled = false;
 
             this.game.input.interactiveItems.remove(this);
@@ -23610,6 +23633,37 @@ Phaser.InputHandler.prototype = {
             this.boundsSprite = null;
             this.sprite = null;
         }
+
+    },
+
+    /**
+    * Checks if the object this InputHandler is bound to is valid for consideration in the Pointer move event.
+    * This is called by Phaser.Pointer and shouldn't typically be called directly.
+    *
+    * @method Phaser.InputHandler#validForInput
+    * @protected
+    * @param {number} highestID - The highest ID currently processed by the Pointer.
+    * @param {number} highestRenderID - The highest Render Order ID currently processed by the Pointer.
+    * @return {boolean} True if the object this InputHandler is bound to should be considered as valid for input detection.
+    */
+    validForInput: function (highestID, highestRenderID) {
+
+        if (this.sprite.scale.x === 0 || this.sprite.scale.y === 0)
+        {
+            return false;
+        }
+
+        if (this.pixelPerfectClick || this.pixelPerfectOver)
+        {
+            return true;
+        }
+
+        if (this.priorityID > highestID || (this.priorityID === highestID && this.sprite._cache[3] < highestRenderID))
+        {
+            return true;
+        }
+
+        return false;
 
     },
 
@@ -23978,6 +24032,7 @@ Phaser.InputHandler.prototype = {
             if (this.useHandCursor && this._pointerData[pointer.id].isDragged === false)
             {
                 this.game.canvas.style.cursor = "pointer";
+                this._setHandCursor = false;
             }
 
             this.sprite.events.onInputOver.dispatch(this.sprite, pointer);
@@ -24006,6 +24061,7 @@ Phaser.InputHandler.prototype = {
         if (this.useHandCursor && this._pointerData[pointer.id].isDragged === false)
         {
             this.game.canvas.style.cursor = "default";
+            this._setHandCursor = false;
         }
 
         if (this.sprite && this.sprite.events)
@@ -24095,6 +24151,7 @@ Phaser.InputHandler.prototype = {
                 if (this.useHandCursor)
                 {
                     this.game.canvas.style.cursor = "default";
+                    this._setHandCursor = false;
                 }
             }
 
@@ -28184,6 +28241,10 @@ Phaser.Text = function (game, x, y, text, style) {
     if (text.length === 0)
     {
         text = ' ';
+    }
+    else
+    {
+        text = text.toString();
     }
 
     /**
@@ -43272,6 +43333,9 @@ Phaser.Utils.Debug.prototype = {
 
         var bounds = sprite.getBounds();
 
+        bounds.x += this.game.camera.x;
+        bounds.y += this.game.camera.y;
+
         this.rectangle(bounds, color, filled);
 
     },
@@ -44168,6 +44232,11 @@ Phaser.Physics.prototype = {
     */
     setBoundsToWorld: function () {
 
+        if (this.arcade)
+        {
+            this.arcade.setBoundsToWorld();
+        }
+
         if (this.ninja)
         {
             this.ninja.setBoundsToWorld();
@@ -44276,18 +44345,6 @@ Phaser.Physics.Arcade = function (game) {
     //  Avoid gc spikes by caching these values for re-use
 
     /**
-    * @property {Phaser.Rectangle} _bounds1 - Internal cache var.
-    * @private
-    */
-    this._bounds1 = new Phaser.Rectangle();
-
-    /**
-    * @property {Phaser.Rectangle} _bounds2 - Internal cache var.
-    * @private
-    */
-    this._bounds2 = new Phaser.Rectangle();
-
-    /**
     * @property {number} _overlap - Internal cache var.
     * @private
     */
@@ -44336,12 +44393,6 @@ Phaser.Physics.Arcade = function (game) {
     this._mapData = [];
 
     /**
-    * @property {number} _mapTiles - Internal cache var.
-    * @private
-    */
-    this._mapTiles = 0;
-
-    /**
     * @property {boolean} _result - Internal cache var.
     * @private
     */
@@ -44371,18 +44422,37 @@ Phaser.Physics.Arcade = function (game) {
     */
     this._dy = 0;
 
-    /**
-    * @property {number} _intersection - Internal cache var.
-    * @private
-    */
-    // this._intersection = [0,0,0,0];
-    this._intersection = new Phaser.Rectangle();
-
 };
 
 Phaser.Physics.Arcade.prototype.constructor = Phaser.Physics.Arcade;
 
 Phaser.Physics.Arcade.prototype = {
+
+    /**
+    * Updates the size of this physics world.
+    *
+    * @method Phaser.Physics.Arcade#setBounds
+    * @param {number} x - Top left most corner of the world.
+    * @param {number} y - Top left most corner of the world.
+    * @param {number} width - New width of the world. Can never be smaller than the Game.width.
+    * @param {number} height - New height of the world. Can never be smaller than the Game.height.
+    */
+    setBounds: function (x, y, width, height) {
+
+        this.bounds.setTo(x, y, width, height);
+
+    },
+
+    /**
+    * Updates the size of this physics world to match the size of the game world.
+    *
+    * @method Phaser.Physics.Arcade#setBoundsToWorld
+    */
+    setBoundsToWorld: function () {
+
+        this.bounds.setTo(this.game.world.bounds.x, this.game.world.bounds.y, this.game.world.bounds.width, this.game.world.bounds.height);
+
+    },
 
     /**
     * This will create an Arcade Physics body on the given game object or array of game objects.
@@ -44706,8 +44776,20 @@ Phaser.Physics.Arcade.prototype = {
     *
     * @method Phaser.Physics.Arcade#collideSpriteVsSprite
     * @private
+    * @param {Phaser.Sprite} sprite1 - The first sprite to check.
+    * @param {Phaser.Sprite} sprite2 - The second sprite to check.
+    * @param {function} collideCallback - An optional callback function that is called if the objects collide. The two objects will be passed to this function in the same order in which you specified them.
+    * @param {function} processCallback - A callback function that lets you perform additional checks against the two objects if they overlap. If this is set then collision will only happen if processCallback returns true. The two objects will be passed to this function in the same order in which you specified them.
+    * @param {object} callbackContext - The context in which to run the callbacks.
+    * @param {boolean} overlapOnly - Just run an overlap or a full collision.
+    * @return {boolean} True if there was a collision, otherwise false.
     */
     collideSpriteVsSprite: function (sprite1, sprite2, collideCallback, processCallback, callbackContext, overlapOnly) {
+
+        if (!sprite1.body || !sprite2.body)
+        {
+            return false;
+        }
 
         if (this.separate(sprite1.body, sprite2.body, processCallback, callbackContext, overlapOnly))
         {
@@ -44719,6 +44801,8 @@ Phaser.Physics.Arcade.prototype = {
             this._total++;
         }
 
+        return true;
+
     },
 
     /**
@@ -44726,6 +44810,12 @@ Phaser.Physics.Arcade.prototype = {
     *
     * @method Phaser.Physics.Arcade#collideSpriteVsGroup
     * @private
+    * @param {Phaser.Sprite} sprite - The sprite to check.
+    * @param {Phaser.Group} group - The Group to check.
+    * @param {function} collideCallback - An optional callback function that is called if the objects collide. The two objects will be passed to this function in the same order in which you specified them.
+    * @param {function} processCallback - A callback function that lets you perform additional checks against the two objects if they overlap. If this is set then collision will only happen if processCallback returns true. The two objects will be passed to this function in the same order in which you specified them.
+    * @param {object} callbackContext - The context in which to run the callbacks.
+    * @param {boolean} overlapOnly - Just run an overlap or a full collision.
     */
     collideSpriteVsGroup: function (sprite, group, collideCallback, processCallback, callbackContext, overlapOnly) {
 
@@ -44764,6 +44854,12 @@ Phaser.Physics.Arcade.prototype = {
     *
     * @method Phaser.Physics.Arcade#collideGroupVsSelf
     * @private
+    * @param {Phaser.Group} group - The Group to check.
+    * @param {function} collideCallback - An optional callback function that is called if the objects collide. The two objects will be passed to this function in the same order in which you specified them.
+    * @param {function} processCallback - A callback function that lets you perform additional checks against the two objects if they overlap. If this is set then collision will only happen if processCallback returns true. The two objects will be passed to this function in the same order in which you specified them.
+    * @param {object} callbackContext - The context in which to run the callbacks.
+    * @param {boolean} overlapOnly - Just run an overlap or a full collision.
+    * @return {boolean} True if there was a collision, otherwise false.
     */
     collideGroupVsSelf: function (group, collideCallback, processCallback, callbackContext, overlapOnly) {
 
@@ -44792,6 +44888,12 @@ Phaser.Physics.Arcade.prototype = {
     *
     * @method Phaser.Physics.Arcade#collideGroupVsGroup
     * @private
+    * @param {Phaser.Group} group1 - The first Group to check.
+    * @param {Phaser.Group} group2 - The second Group to check.
+    * @param {function} collideCallback - An optional callback function that is called if the objects collide. The two objects will be passed to this function in the same order in which you specified them.
+    * @param {function} processCallback - A callback function that lets you perform additional checks against the two objects if they overlap. If this is set then collision will only happen if processCallback returns true. The two objects will be passed to this function in the same order in which you specified them.
+    * @param {object} callbackContext - The context in which to run the callbacks.
+    * @param {boolean} overlapOnly - Just run an overlap or a full collision.
     */
     collideGroupVsGroup: function (group1, group2, collideCallback, processCallback, callbackContext, overlapOnly) {
 
@@ -44815,6 +44917,12 @@ Phaser.Physics.Arcade.prototype = {
     *
     * @method Phaser.Physics.Arcade#collideSpriteVsTilemapLayer
     * @private
+    * @param {Phaser.Sprite} sprite - The sprite to check.
+    * @param {Phaser.TilemapLayer} tilemapLayer - The layer to check.
+    * @param {function} collideCallback - An optional callback function that is called if the objects collide. The two objects will be passed to this function in the same order in which you specified them.
+    * @param {function} processCallback - A callback function that lets you perform additional checks against the two objects if they overlap. If this is set then collision will only happen if processCallback returns true. The two objects will be passed to this function in the same order in which you specified them.
+    * @param {object} callbackContext - The context in which to run the callbacks.
+    * @param {boolean} overlapOnly - Just run an overlap or a full collision.
     */
     collideSpriteVsTilemapLayer: function (sprite, tilemapLayer, collideCallback, processCallback, callbackContext) {
 
@@ -44866,6 +44974,12 @@ Phaser.Physics.Arcade.prototype = {
     *
     * @method Phaser.Physics.Arcade#collideGroupVsTilemapLayer
     * @private
+    * @param {Phaser.Group} group - The Group to check.
+    * @param {Phaser.TilemapLayer} tilemapLayer - The layer to check.
+    * @param {function} collideCallback - An optional callback function that is called if the objects collide. The two objects will be passed to this function in the same order in which you specified them.
+    * @param {function} processCallback - A callback function that lets you perform additional checks against the two objects if they overlap. If this is set then collision will only happen if processCallback returns true. The two objects will be passed to this function in the same order in which you specified them.
+    * @param {object} callbackContext - The context in which to run the callbacks.
+    * @param {boolean} overlapOnly - Just run an overlap or a full collision.
     */
     collideGroupVsTilemapLayer: function (group, tilemapLayer, collideCallback, processCallback, callbackContext) {
 
@@ -44891,6 +45005,7 @@ Phaser.Physics.Arcade.prototype = {
     * @param {Phaser.Physics.Arcade.Body} body2 - The Body object to separate.
     * @param {function} [processCallback=null] - A callback function that lets you perform additional checks against the two objects if they overlap. If this function is set then the sprites will only be collided if it returns true.
     * @param {object} [callbackContext] - The context in which to run the process callback.
+    * @param {boolean} overlapOnly - Just run an overlap or a full collision.
     * @returns {boolean} Returns true if the bodies collided, otherwise false.
     */
     separate: function (body1, body2, processCallback, callbackContext, overlapOnly) {
@@ -44904,6 +45019,12 @@ Phaser.Physics.Arcade.prototype = {
         if (processCallback && processCallback.call(callbackContext, body1.sprite, body2.sprite) === false)
         {
             return false;
+        }
+
+        if (overlapOnly)
+        {
+            //  We already know they intersect from the check above, and we don't need separation, so ...
+            return true;
         }
 
         if (this.separateX(body1, body2, overlapOnly) || this.separateY(body1, body2, overlapOnly))
@@ -45386,7 +45507,6 @@ Phaser.Physics.Arcade.prototype = {
         }
 
         body.position.x -= x;
-        body.preX -= x;
 
         if (body.bounce.x === 0)
         {
@@ -45418,7 +45538,6 @@ Phaser.Physics.Arcade.prototype = {
         }
 
         body.position.y -= y;
-        body.preY -= y;
 
         if (body.bounce.y === 0)
         {
@@ -45834,16 +45953,6 @@ Phaser.Physics.Arcade.Body = function (sprite) {
     */
     this.offset = new Phaser.Point();
 
-    if (sprite.anchor.x !== 0)
-    {
-        this.offset.x = (sprite.anchor.x * sprite.width);
-    }
-
-    if (sprite.anchor.y !== 0)
-    {
-        this.offset.y = (sprite.anchor.y * sprite.height);
-    }
-
     /**
     * @property {Phaser.Point} position - The position of the physics body.
     * @readonly
@@ -46128,7 +46237,7 @@ Phaser.Physics.Arcade.Body.prototype = {
             this.halfHeight = Math.floor(this.height / 2);
             this._sx = scaleX;
             this._sy = scaleY;
-            this.center.setTo(this.x + this.halfWidth, this.y + this.halfHeight);
+            this.center.setTo(this.position.x + this.halfWidth, this.position.y + this.halfHeight);
         }
 
     },
@@ -46154,12 +46263,20 @@ Phaser.Physics.Arcade.Body.prototype = {
         this.touching.left = false;
         this.touching.right = false;
 
-        this.embedded = false;
-
         this.blocked.up = false;
         this.blocked.down = false;
         this.blocked.left = false;
         this.blocked.right = false;
+
+        this.embedded = false;
+
+        this.position.x = (this.sprite.world.x - (this.sprite.anchor.x * this.width)) + this.offset.x;
+        this.position.y = (this.sprite.world.y - (this.sprite.anchor.y * this.height)) + this.offset.y;
+        this.rotation = this.sprite.angle;
+
+        this.prev.x = this.position.x;
+        this.prev.y = this.position.y;
+        this.preRotation = this.rotation;
 
         if (this.moves)
         {
@@ -46183,12 +46300,6 @@ Phaser.Physics.Arcade.Body.prototype = {
             {
                 this.checkWorldBounds();
             }
-        }
-        else
-        {
-            //  If the body doesn't move (i.e. is in a moving Group) then we need its position
-            this.position.x = (this.sprite.world.x - (this.sprite.anchor.x * this.width)) + this.offset.x;
-            this.position.y = (this.sprite.world.y - (this.sprite.anchor.y * this.height)) + this.offset.y;
         }
 
     },
@@ -46221,19 +46332,16 @@ Phaser.Physics.Arcade.Body.prototype = {
 
         if (this.moves)
         {
-            this.sprite.x = this.position.x + this.offset.x;
-            this.sprite.y = this.position.y + this.offset.y;
+            this.sprite.x += this.deltaX();
+            this.sprite.y += this.deltaY();
         }
 
-        this.center.setTo(this.x + this.halfWidth, this.y + this.halfHeight);
+        this.center.setTo(this.position.x + this.halfWidth, this.position.y + this.halfHeight);
 
         if (this.allowRotation)
         {
             this.sprite.angle += this.deltaZ();
         }
-
-        this.prev.set(this.position.x, this.position.y);
-        this.preRotation = this.rotation;
 
     },
 
@@ -46256,28 +46364,28 @@ Phaser.Physics.Arcade.Body.prototype = {
     */
     checkWorldBounds: function () {
 
-        if (this.x < this.game.world.bounds.x)
+        if (this.position.x < this.game.physics.arcade.bounds.x)
         {
-            this.x = this.game.world.bounds.x;
+            this.position.x = this.game.physics.arcade.bounds.x;
             this.velocity.x *= -this.bounce.x;
             this.blocked.left = true;
         }
-        else if (this.right > this.game.world.bounds.right)
+        else if (this.right > this.game.physics.arcade.bounds.right)
         {
-            this.x = this.game.world.bounds.right - this.width;
+            this.position.x = this.game.physics.arcade.bounds.right - this.width;
             this.velocity.x *= -this.bounce.x;
             this.blocked.right = true;
         }
 
-        if (this.y < this.game.world.bounds.y)
+        if (this.position.y < this.game.physics.arcade.bounds.y)
         {
-            this.y = this.game.world.bounds.y;
+            this.position.y = this.game.physics.arcade.bounds.y;
             this.velocity.y *= -this.bounce.y;
             this.blocked.up = true;
         }
-        else if (this.bottom > this.game.world.bounds.bottom)
+        else if (this.bottom > this.game.physics.arcade.bounds.bottom)
         {
-            this.y = this.game.world.bounds.bottom - this.height;
+            this.position.y = this.game.physics.arcade.bounds.bottom - this.height;
             this.velocity.y *= -this.bounce.y;
             this.blocked.down = true;
         }
@@ -46308,7 +46416,7 @@ Phaser.Physics.Arcade.Body.prototype = {
         this.halfHeight = Math.floor(this.height / 2);
         this.offset.setTo(offsetX, offsetY);
 
-        this.center.setTo(this.x + this.halfWidth, this.y + this.halfHeight);
+        this.center.setTo(this.position.x + this.halfWidth, this.position.y + this.halfHeight);
 
     },
 
@@ -46332,7 +46440,7 @@ Phaser.Physics.Arcade.Body.prototype = {
         this.rotation = this.sprite.rotation;
         this.preRotation = this.rotation;
         
-        this.center.setTo(this.x + this.halfWidth, this.y + this.halfHeight);
+        this.center.setTo(this.position.x + this.halfWidth, this.position.y + this.halfHeight);
 
     },
 
@@ -46507,7 +46615,7 @@ Phaser.Physics.Arcade.Body.renderBodyInfo = function (debug, body) {
 
     debug.line('x: ' + body.x.toFixed(2), 'y: ' + body.y.toFixed(2), 'width: ' + body.width, 'height: ' + body.height);
     // debug.line('velocity x: ' + body.velocity.x.toFixed(2), 'y: ' + body.velocity.y.toFixed(2), 'deltaX: ' + body.deltaX().toFixed(2), 'deltaY: ' + body.deltaY().toFixed(2));
-    debug.line('velocity x: ' + body.velocity.x.toFixed(2), 'y: ' + body.velocity.y.toFixed(2));
+    debug.line('velocity x: ' + body.velocity.x.toFixed(2), 'y: ' + body.velocity.y.toFixed(2), 'new velocity x: ' + body.newVelocity.x.toFixed(2), 'y: ' + body.newVelocity.y.toFixed(2));
     debug.line('acceleration x: ' + body.acceleration.x.toFixed(2), 'y: ' + body.acceleration.y.toFixed(2), 'speed: ' + body.speed.toFixed(2), 'angle: ' + body.angle.toFixed(2));
     debug.line('gravity x: ' + body.gravity.x, 'y: ' + body.gravity.y, 'bounce x: ' + body.bounce.x.toFixed(2), 'y: ' + body.bounce.y.toFixed(2));
     debug.line('touching left: ' + body.touching.left, 'right: ' + body.touching.right, 'up: ' + body.touching.up, 'down: ' + body.touching.down);

@@ -10,8 +10,11 @@ function preload() {
 
 var ship;
 var aliens;
+var cursors;
 
 function create() {
+
+    game.physics.startSystem(Phaser.Physics.ARCADE);
 
     aliens = game.add.group();
     aliens.enableBody = true;
@@ -25,9 +28,13 @@ function create() {
     }
 
     ship = game.add.sprite(400, 400, 'ship');
+
     game.physics.enable(ship, Phaser.Physics.ARCADE);
+
     ship.body.collideWorldBounds = true;
     ship.body.bounce.set(1);
+
+    cursors = game.input.keyboard.createCursorKeys();
 
 }
 
@@ -35,20 +42,20 @@ function update() {
 
     game.physics.arcade.collide(ship, aliens);
 
-    if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
+    if (cursors.left.isDown)
     {
         ship.body.velocity.x -= 4;
     }
-    else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
+    else if (cursors.right.isDown)
     {
         ship.body.velocity.x += 4;
     }
 
-    if (game.input.keyboard.isDown(Phaser.Keyboard.UP))
+    if (cursors.up.isDown)
     {
         ship.body.velocity.y -= 4;
     }
-    else if (game.input.keyboard.isDown(Phaser.Keyboard.DOWN))
+    else if (cursors.down.isDown)
     {
         ship.body.velocity.y += 4;
     }

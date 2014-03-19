@@ -13,18 +13,19 @@ var sprite2;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.stage.backgroundColor = '#2d2d2d';
 
     //  This will check Sprite vs. Sprite collision
 
     sprite1 = game.add.sprite(50, 200, 'atari');
-
     sprite2 = game.add.sprite(700, 220, 'mushroom');
 
-    game.physics.enable([sprite1,sprite2], Phaser.Physics.ARCADE);
+    game.physics.enable( [ sprite1, sprite2 ], Phaser.Physics.ARCADE);
+
     sprite1.name = 'atari';
     sprite1.body.velocity.x = 100;
-
     
     sprite2.name = 'mushroom';
     sprite2.body.velocity.x = -100;

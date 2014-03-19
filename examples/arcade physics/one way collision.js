@@ -14,6 +14,8 @@ var sprite3;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
 	game.stage.backgroundColor = '#124184';
 
 	//	In this example the little Gameboy sprite can pass through the top/bottom of the Atari sprite
@@ -56,9 +58,9 @@ function update() {
 
 function render() {
 
-	// game.debug.bodyInfo(sprite, 16, 24);
+	game.debug.bodyInfo(sprite, 16, 24);
 
-	// game.debug.physicsBody(sprite.body);
-	// game.debug.physicsBody(sprite2.body);
+	// game.debug.body(sprite);
+	// game.debug.body(sprite2);
 
 }

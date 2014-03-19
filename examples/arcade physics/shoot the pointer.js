@@ -16,6 +16,8 @@ var nextFire = 0;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.stage.backgroundColor = '#313131';
 
     bullets = game.add.group();
@@ -28,7 +30,9 @@ function create() {
     
     sprite = game.add.sprite(400, 300, 'arrow');
     sprite.anchor.set(0.5);
+
     game.physics.enable(sprite, Phaser.Physics.ARCADE);
+
     sprite.body.allowRotation = false;
 
 }

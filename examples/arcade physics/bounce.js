@@ -18,6 +18,8 @@ var image;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     //  This creates a simple sprite that is using our loaded image and
     //  displays it on-screen
     //  and assign it to a variable
@@ -33,17 +35,19 @@ function create() {
     
     //  This sets the image bounce energy for the horizontal 
     //  and vertical vectors. "1" is 100% energy return
-    image.body.bounce.setTo(1,1);
+    image.body.bounce.set(1);
 
 }
 
 function update () {
 
-//nothing required here
+    //nothing required here
     
 }
 
 function render () {
+
     //debug helper
     game.debug.spriteInfo(image,32,32);
+
 }

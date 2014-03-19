@@ -11,12 +11,14 @@ var balls;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     balls = game.add.group();
+    balls.enableBody = true;
 
     for (var i = 0; i < 50; i++)
     {
         var ball = balls.create(game.world.randomX, game.world.randomY, 'ball');
-         game.physics.enable(ball, Phaser.Physics.ARCADE);
     }
 
 }

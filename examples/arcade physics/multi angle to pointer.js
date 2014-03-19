@@ -12,6 +12,8 @@ var sprite4;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.stage.backgroundColor = '#363636';
 
     sprite1 = game.add.sprite(150, 150, 'arrow');

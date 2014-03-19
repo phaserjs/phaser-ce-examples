@@ -14,6 +14,8 @@ var image;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     cursors = game.input.keyboard.createCursorKeys();
     
     //  This creates a simple sprite that is using our loaded image and
@@ -24,6 +26,7 @@ function create() {
     knocker = game.add.sprite(400, 200, 'dude');
 
     game.physics.enable([knocker,ball], Phaser.Physics.ARCADE);
+
     knocker.body.immovable = true;
 
     //  This gets it moving

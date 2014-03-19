@@ -123,6 +123,10 @@
       "title": "multi angle to pointer"
     },
     {
+      "file": "multiball.js",
+      "title": "multiball"
+    },
+    {
       "file": "offset+bounding+box.js",
       "title": "offset bounding box"
     },
@@ -977,10 +981,6 @@
     {
       "file": "map+collide.js",
       "title": "map collide"
-    },
-    {
-      "file": "mapcollide.js",
-      "title": "mapcollide"
     },
     {
       "file": "mario.js",

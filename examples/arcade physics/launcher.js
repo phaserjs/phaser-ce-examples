@@ -18,6 +18,8 @@ var launchVelocity = 0;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     // set global gravity
     game.physics.arcade.gravity.y = 200;
     game.stage.backgroundColor = '#0072bc';

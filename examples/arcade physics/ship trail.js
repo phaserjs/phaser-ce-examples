@@ -13,6 +13,8 @@ var bmd;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
 	//	Click on the left or right of the game to shoot the space ship in that direction
 
 	game.stage.backgroundColor = '#124184';

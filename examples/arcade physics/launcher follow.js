@@ -20,6 +20,8 @@ var launchVelocity = 0;
 
 function create() {
     
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.world.setBounds(0, 0, 3400, 1000);
     game.add.tileSprite(0, 0, 3400, 1000, 'background');
     
@@ -37,10 +39,10 @@ function create() {
 
     game.physics.enable([player], Phaser.Physics.ARCADE);
 
-    player.anchor.setTo(0.5, 0.5);
+    player.anchor.set(0.5);
     player.body.collideWorldBounds = true;
-    player.body.bounce.setTo(0.9, 0.9);
-    player.body.linearDamping = 0.2;
+    player.body.bounce.set(0.9);
+    player.body.drag.set(20, 20);
 
     // Enable input.
     player.inputEnabled = true;
@@ -70,9 +72,11 @@ function launch() {
     
     arrow.alpha = 0;
     analog.alpha = 0;
-    Xvector = (arrow.x - player.x) * 4.1;
-    Yvector = (arrow.y - player.y) * 4.1;
-    player.body.velocity.setTo(Xvector,Yvector);
+
+    Xvector = (arrow.x - player.x) * 3;
+    Yvector = (arrow.y - player.y) * 3;
+
+    player.body.velocity.setTo(Xvector, Yvector);
 
 }
 

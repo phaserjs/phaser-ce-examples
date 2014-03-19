@@ -13,6 +13,8 @@ var sprite2;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.stage.backgroundColor = '#2d2d2d';
 
     //  This will check Sprite vs. Sprite collision using a custom process callback

@@ -13,6 +13,8 @@ var flyer;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     cursors = game.input.keyboard.createCursorKeys();
 
     flyer = game.add.sprite(400, 200, 'dude');
@@ -20,7 +22,7 @@ function create() {
     flyer.animations.add('left', [0, 1, 2, 3], 10, true);
     flyer.animations.add('right', [5, 6, 7, 8], 10, true);
 
-     game.physics.enable(flyer, Phaser.Physics.ARCADE);
+    game.physics.enable(flyer, Phaser.Physics.ARCADE);
     
     //  This gets it moving
     flyer.body.velocity.setTo(200, 200);
@@ -31,10 +33,6 @@ function create() {
     //  This sets the image bounce energy for the horizontal 
     //  and vertical vectors (as an x,y point). "1" is 100% energy return
     flyer.body.bounce.setTo(0.8, 0.8);
-    
-    // gravityScale is a value between 0 and n, so if world gravity is 10 and gravityScale is 1, 
-    // then the body will have 10 gravity applied to it 
-    flyer.body.gravityScale.setTo(0, 6);
 
 }
 

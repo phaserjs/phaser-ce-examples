@@ -32,7 +32,7 @@ function create() {
 
     game.physics.enable(sprite);
 
-    sprite.body.bounce.set(0.8);
+    sprite.body.bounce.set(0.6);
     sprite.body.tilePadding.set(32);
 
     game.camera.follow(sprite);
@@ -53,26 +53,31 @@ function update() {
 
     if (cursors.up.isDown)
     {
-        sprite.body.velocity.y = -200;
+        sprite.body.velocity.y = -150;
     }
     else if (cursors.down.isDown)
     {
-        sprite.body.velocity.y = 200;
+        sprite.body.velocity.y = 150;
     }
 
     if (cursors.left.isDown)
     {
-        sprite.body.velocity.x = -200;
+        sprite.body.velocity.x = -150;
     }
     else if (cursors.right.isDown)
     {
-        sprite.body.velocity.x = 200;
+        sprite.body.velocity.x = 150;
     }
 
 }
 
 function render() {
 
+    //  Useful debug things you can turn on to see what's happening
+
+    // game.debug.spriteBounds(sprite);
+    // game.debug.cameraInfo(game.camera, 32, 32);
     // game.debug.body(sprite);
+    game.debug.bodyInfo(sprite, 32, 32);
 
 }

@@ -44,16 +44,14 @@ function create() {
     game.physics.enable(player, Phaser.Physics.ARCADE);
 
     player.body.collideWorldBounds = true;
-    player.body.bounce.setTo(0.9, 0.9);
-    player.body.linearDamping = 0.2;
-    player.body.gravityScale.setTo(0, 0.8);
+    player.body.bounce.set(0.9);
+    player.body.drag.set(20, 0);
 
     // Enable input.
     player.inputEnabled = true;
     player.input.start(0, true);
     player.events.onInputDown.add(set);
     player.events.onInputUp.add(launch);
-    //player.events.onInputOut.add(launch);
     
     // this tween is to make the camera return to left side of world when done launching
     // so it is not used until then
@@ -90,10 +88,10 @@ function launch() {
     
         arrow.alpha = 0;
         analog.alpha = 0;
-        Xvector = (arrow.x - player.x)*3.8;
-        Yvector = (arrow.y - player.y)*3.8; 
-        player.body.gravity.setTo(0,8);
-        player.body.velocity.setTo(Xvector,Yvector);
+        Xvector = (arrow.x - player.x) * 2;
+        Yvector = (arrow.y - player.y) * 2; 
+        player.body.gravity.setTo(0, 180);
+        player.body.velocity.setTo(Xvector, Yvector);
     }
 }
 
