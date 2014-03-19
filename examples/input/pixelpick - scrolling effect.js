@@ -9,44 +9,43 @@ function preload() {
 }
 
 var b;
-var camSpeed = 8;
+var camSpeed = 4;
 var s;
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     //  Make our world big ...
-    game.world.setBounds(0,0,4000, 2000);
+    game.world.setBounds(0,0, 4000, 2000);
 
     //  Scrolling background
     s = game.add.tileSprite(0, 0, 4000, 600, 'stars');
 
-    b = game.add.sprite(200, 200, 'mummy');
-    b.anchor.setTo(0.5, 0.5);
-    b.scale.setTo(6, 6);
+    b = game.add.sprite(0, 300, 'mummy');
+
+    game.physics.arcade.enable(b);
+
+    b.scale.set(6);
+    b.smoothed = false;
     b.animations.add('walk');
     b.animations.play('walk', 5, true);
+
     b.body.velocity.setTo(50, 0);
 
     //  Listen for input events on this sprite
     b.inputEnabled = true;
 
     //  Check the pixel data of the sprite
-    b.input.pixelPerfect = true;
+    b.input.pixelPerfectClick = true;
 
-    //  Enable the hand cursor
-    b.input.useHandCursor = true;
+    b.events.onInputDown.add(tint, this);
 
-    b.events.onInputOver.add(overSprite, this);
-    b.events.onInputOut.add(outSprite, this);
 
 }
 
-function overSprite() {
-    console.log('over');
-}
-
-function outSprite() {
-    console.log('out');
+function tint() {
+    b.tint = Math.random() * 0xffffff;
 }
 
 function update() {

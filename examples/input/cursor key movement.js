@@ -5,6 +5,7 @@ function preload() {
 
     game.stage.backgroundColor = '#007236';
 
+    game.load.image('ball', 'assets/sprites/shinyball.png');
     game.load.image('mushroom', 'assets/sprites/mushroom2.png');
     game.load.image('phaser', 'assets/sprites/sonic_havok_sanity.png');
 
@@ -15,16 +16,20 @@ var cursors;
 function create() {
 
     //  Modify the world and camera bounds
-    game.world.setBounds(-1000, -1000, 1000, 1000);
+    game.world.setBounds(-1000, -1000, 2000, 2000);
 
     for (var i = 0; i < 100; i++)
     {
-        game.add.sprite(game.world.randomX, game.world.randomY, 'mushroom');
+        game.add.image(game.world.randomX, game.world.randomY, 'mushroom');
     }
+
+    game.add.image(-16, -16, 'ball');
 
     //  This will create a new object called "cursors", inside it will contain 4 objects: up, down, left and right.
     //  These are all Phaser.Key objects, so anything you can do with a Key object you can do with these.
     cursors = game.input.keyboard.createCursorKeys();
+
+    var text = game.add.text(32, 32, 'Cursors to move. Shift + Up / Down to Rotate World', { fill: '#ffffff' });
 
 }
 
@@ -68,6 +73,6 @@ function update() {
 
 function render() {
 
-    game.debug.cameraInfo(game.camera, 32, 32);
+    game.debug.cameraInfo(game.camera, 32, 500);
 
 }

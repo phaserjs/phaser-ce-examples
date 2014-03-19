@@ -7,43 +7,37 @@ function preload() {
 
 }
 
-var b;
+var bunny;
 
 function create() {
 
     b = game.add.sprite(game.world.centerX, game.world.centerY, 'bunny');
-    b.anchor.setTo(0.5, 0.5);
+
+    bunny.anchor.set(0.5);
 
     //  Listen for input events on this sprite
-    b.inputEnabled = true;
+    bunny.inputEnabled = true;
 
-    //  Check the pixel data of the sprite
-    b.input.pixelPerfect = true;
+    //  This will check the pixel every time the mouse moves, which is really expensive!
+    //  You can also only do a pixel perfect check on click, which is much cheaper - so
+    //  pick the right one accordingly.
+    bunny.input.pixelPerfectOver = true;
 
     //  Enable the hand cursor
-    b.input.useHandCursor = true;
+    bunny.input.useHandCursor = true;
 
-    b.events.onInputOver.add(overSprite, this);
-    b.events.onInputOut.add(outSprite, this);
-
-}
-
-function overSprite() {
-    console.log('over');
-}
-
-function outSprite() {
-    console.log('out');
 }
 
 function update() {
-    b.angle += 0.05;
+
+    //  Rotate slowly
+    bunny.angle += 0.05;
+
 }
 
 function render() {
 
     game.debug.spriteInputInfo(b, 32, 32);
-    game.debug.spriteCorners(b);
-    game.debug.point(b.input._tempPoint);
+    game.debug.geom(bunny.input._tempPoint);
 
 }

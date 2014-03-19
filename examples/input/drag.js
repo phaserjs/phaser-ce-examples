@@ -17,8 +17,7 @@ function create() {
     //  Input Enable the sprites
     atari1.inputEnabled = true;
 
-    //  Allow dragging
-    //  enableDrag parameters = (lockCenter, bringToTop, pixelPerfect, alphaThreshold, boundsRect, boundsSprite)
+    //  Allow dragging - the 'true' parameter will make the sprite snap to the center
     atari1.input.enableDrag(true);
 
 }

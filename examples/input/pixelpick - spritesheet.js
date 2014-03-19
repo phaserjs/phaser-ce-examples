@@ -15,8 +15,10 @@ function create() {
 
     b = game.add.sprite(game.world.centerX, game.world.centerY, 'mummy');
 
-    b.anchor.setTo(0.5, 0.5);
-    b.scale.setTo(6, 6);
+    b.anchor.set(0.5);
+    b.scale.set(6);
+    b.smoothed = false;
+
     b.animations.add('walk');
     b.animations.play('walk', 5, true);
 
@@ -24,28 +26,16 @@ function create() {
     b.inputEnabled = true;
 
     //  Check the pixel data of the sprite
-    b.input.pixelPerfect = true;
+    b.input.pixelPerfectOver = true;
 
     //  Enable the hand cursor
     b.input.useHandCursor = true;
 
-    b.events.onInputOver.add(overSprite, this);
-    b.events.onInputOut.add(outSprite, this);
-
-}
-
-function overSprite() {
-    console.log('over');
-}
-
-function outSprite() {
-    console.log('out');
 }
 
 function render() {
 
     game.debug.spriteInputInfo(b, 32, 32);
-    game.debug.spriteCorners(b);
-    game.debug.point(b.input._tempPoint);
+    game.debug.geom(b.input._tempPoint);
 
 }
