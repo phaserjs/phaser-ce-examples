@@ -84,7 +84,7 @@ function update () {
     //  Fun, but a little sea-sick inducing :) Uncomment if you like!
     // s.tilePosition.x += (game.input.speed.x / 2);
 
-    paddle.x = game.input.x;
+    paddle.body.x = game.input.x;
 
     if (paddle.x < 24)
     {
@@ -97,7 +97,7 @@ function update () {
 
     if (ballOnPaddle)
     {
-        ball.x = paddle.x;
+        ball.body.x = paddle.x;
     }
     else
     {

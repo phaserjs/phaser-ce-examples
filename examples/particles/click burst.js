@@ -11,9 +11,11 @@ function preload() {
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.stage.backgroundColor = 0x337799;
 
-    emitter = game.add.emitter(0, 0, 200);
+    emitter = game.add.emitter(0, 0, 100);
 
     emitter.makeParticles('diamond');
     emitter.gravity = 200;
@@ -22,11 +24,11 @@ function create() {
 
 }
 
-function particleBurst() {
+function particleBurst(pointer) {
 
     //  Position the emitter where the mouse/touch event was
-    emitter.x = game.input.x;
-    emitter.y = game.input.y;
+    emitter.x = pointer.x;
+    emitter.y = pointer.y;
 
     //  The first parameter sets the effect to "explode" which means all particles are emitted at once
     //  The second gives each particle a 2000ms lifespan

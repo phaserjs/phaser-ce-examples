@@ -40,7 +40,7 @@ function create() {
 
 function launch() {
 
-	if (game.input.x < 400)
+	if (game.input.x < sprite.x)
 	{
 		sprite.body.velocity.setTo(-200, -200);
 	}

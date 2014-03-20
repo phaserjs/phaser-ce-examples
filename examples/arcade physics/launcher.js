@@ -41,7 +41,9 @@ function create() {
     arrow = game.add.sprite(400, 350, 'arrow');
 
     game.physics.enable(arrow, Phaser.Physics.ARCADE);
+
     arrow.anchor.setTo(0.1, 0.5);
+    arrow.body.moves = false;
     arrow.body.allowGravity = false;
     arrow.alpha = 0;
     
@@ -61,6 +63,7 @@ function create() {
 
 function set(ball, pointer) {
 
+    ball.body.moves = false;
     ball.body.velocity.setTo(0, 0);
     ball.body.allowGravity = false;
     catchFlag = true;
@@ -71,6 +74,7 @@ function launch() {
 
     catchFlag = false;
     
+    ball.body.moves = true;
     arrow.alpha = 0;
     analog.alpha = 0;
     Xvector = (arrow.x - ball.x) * 3;

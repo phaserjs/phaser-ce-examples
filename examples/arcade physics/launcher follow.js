@@ -59,6 +59,7 @@ function set(player,pointer) {
     catchFlag = true;
     game.camera.follow(null);
     
+    player.body.moves = false;
     player.body.velocity.setTo(0, 0);
     arrow.reset(player.x, player.y);
     analog.reset(player.x, player.y);
@@ -68,6 +69,7 @@ function set(player,pointer) {
 function launch() {
 
     catchFlag = false;
+    player.body.moves = true;
     game.camera.follow(player, Phaser.Camera.FOLLOW_TOPDOWN);
     
     arrow.alpha = 0;

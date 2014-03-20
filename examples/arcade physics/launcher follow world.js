@@ -73,8 +73,9 @@ function set(player,pointer) {
     {
         catchFlag = true;
         game.camera.follow(null);
-        player.body.gravity.setTo(0,0);
-        player.body.velocity.setTo(0,0);
+        player.body.moves = false;
+        player.body.gravity.set(0);
+        player.body.velocity.set(0);
     }
 }
 
@@ -88,8 +89,9 @@ function launch() {
     
         arrow.alpha = 0;
         analog.alpha = 0;
-        Xvector = (arrow.x - player.x) * 2;
-        Yvector = (arrow.y - player.y) * 2; 
+        Xvector = (arrow.x - player.x) * 3;
+        Yvector = (arrow.y - player.y) * 3; 
+        player.body.moves = true;
         player.body.gravity.setTo(0, 180);
         player.body.velocity.setTo(Xvector, Yvector);
     }
@@ -135,6 +137,9 @@ function update() {
     {
         player.body.velocity.setTo(0, 0);
         player.alpha = 0;
+        player.body.moves = false;
+        player.x = 150;
+        player.y = 320;
         myTween.start();
     }
 
