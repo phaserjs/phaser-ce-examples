@@ -811,6 +811,12 @@
       "title": "zero gravity"
     }
   ],
+  "plugins": [
+    {
+      "file": "astar.js",
+      "title": "astar"
+    }
+  ],
   "sprites": [
     {
       "file": "add+a+sprite.js",
