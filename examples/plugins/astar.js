@@ -27,8 +27,9 @@ function create() {
 	astar =  game.plugins.add(Phaser.Plugin.AStar);
 	astar.setAStarMap(map, 'maze', 'claytus');
 
-
 	turtle = game.add.sprite(150, 150, 'turtle');
+	turtle.anchor.x = .5;
+	turtle.anchor.y = .5;
 	
 	turtle.animations.add('walk-west', Phaser.Animation.generateFrameNames('frame_', 1, 16, '', 4), 60, true);
 	turtle.animations.add('walk-est', Phaser.Animation.generateFrameNames('frame_', 17, 32, '', 4), 60, true);
@@ -73,7 +74,7 @@ function update()
 
 function render() {
 	game.debug.AStar(astar, 20, 20, '#ff0000');
-	//game.debug.renderSpriteInfo(turtle, 20, 150);
+	//game.debug.spriteInfo(turtle, 20, 150);
 	//game.debug.renderSpriteBounds(turtle, '#00ff00')
 }
 
