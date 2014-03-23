@@ -114,6 +114,10 @@
 
         <div id="phaser-example"></div>
 
+        <input type="button" id="start" value="start" />
+        <input type="button" id="stop" value="stop" style="margin-left: 32px" />
+        <input type="button" id="step" value="step" style="margin-left: 128px"/>
+
         <div style="padding: 32px">
 
         <table cellpadding="8">
@@ -123,6 +127,39 @@
         </table>
 
         </div>
+
+        <script type="text/javascript">
+            
+            var debugSprite = null;
+
+            $('#step').click(function(){
+                console.log('---- STEP', game.stepCount, '-------------------------------');
+                game.step();
+            });
+
+            $('#start').click(function(){
+                console.log('---- START DEBUGGING -------------------------------');
+
+                game.enableStep();
+
+                if (debugSprite)
+                {
+                    debugSprite.debug = true;
+                }
+            });
+
+            $('#stop').click(function(){
+                console.log('---- STOP DEBUGGING -------------------------------');
+
+                game.disableStep();
+
+                if (debugSprite)
+                {
+                    debugSprite.debug = false;
+                }
+            });
+
+        </script>
 
     </body>
 </html>

@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
 
@@ -55,8 +55,9 @@ function update() {
 
 	sprite.rotation = sprite.body.angle;
 
-	bmd.context.fillStyle = '#ffff00';
 	bmd.context.fillRect(sprite.x, sprite.y, 2, 2);
+
+	bmd.dirty = true;
 
 }
 

@@ -14,26 +14,21 @@ function preload() {
 
 function create() {
 
-    game.physics.arcade.gravity.y = 20;
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    game.physics.arcade.gravity.y = 200;
 
     ball = game.add.sprite(400, 0, 'ball');
-
-    
-
-
-    game.physics.enable(ball, Phaser.Physics.ARCADE);
-
     tilesprite = game.add.tileSprite(300, 450, 200, 100, 'starfield');
 
-
-
-    game.physics.enable(tilesprite, Phaser.Physics.ARCADE);
-
+    game.physics.enable([ ball, tilesprite ], Phaser.Physics.ARCADE);
 
     ball.body.collideWorldBounds = true;
+    ball.body.bounce.set(1);
 
     tilesprite.body.collideWorldBounds = true;
-
+    tilesprite.body.immovable = true;
+    tilesprite.body.allowGravity = false;
 
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -41,16 +36,16 @@ function create() {
 
 function update() {
 
-    game.physics.arcade.collide(ball,tilesprite);
+    game.physics.arcade.collide(ball, tilesprite);
 
     if (cursors.left.isDown)
     {
-        tilesprite.x -= 8;
+        tilesprite.body.x -= 8;
         tilesprite.tilePosition.x -= 8;
     }
     else if (cursors.right.isDown)
     {
-        tilesprite.x += 8;
+        tilesprite.body.x += 8;
         tilesprite.tilePosition.x += 8;
     }
 
@@ -67,6 +62,6 @@ function update() {
 
 function render() {
 
-    // game.debug.physicsBody(tilesprite);
+    // game.debug.body(tilesprite);
 
 }
