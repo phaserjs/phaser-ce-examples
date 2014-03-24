@@ -1045,6 +1045,10 @@
       "title": "basic timed event"
     },
     {
+      "file": "custom+timer.js",
+      "title": "custom timer"
+    },
+    {
       "file": "remove+event.js",
       "title": "remove event"
     },

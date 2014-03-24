@@ -76,16 +76,16 @@ function update() {
 
     if (cursors.left.isDown)
     {
-        sprite.body.angularVelocity = -300;
+        sprite.body.angularVelocity = -200;
     }
     else if (cursors.right.isDown)
     {
-        sprite.body.angularVelocity = 300;
+        sprite.body.angularVelocity = 200;
     }
 
     if (cursors.up.isDown)
     {
-        game.physics.arcade.velocityFromAngle(sprite.angle, 300, sprite.body.velocity);
+        game.physics.arcade.velocityFromAngle(sprite.angle, 200, sprite.body.velocity);
     }
 
 }
