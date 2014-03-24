@@ -7,23 +7,19 @@ function preload() {
 
 }
 
-var bpmText;
-var count = 0;
+var text;
 
 function create() {
 
-    bmpText = game.add.bitmapText(0, 100, 'desyrel',"I'm growing",64);
+    text = game.add.bitmapText(0, 100, 'desyrel', "I'm growing", 64);
 
 }
 
 function update() {
 
-	count++;
-
-	if(bmpText.fontSize < 250){
-		bmpText.fontSize += 1;
+	if (text.fontSize < 250)
+	{
+		text.fontSize += 1;
 	}
-
-	
 
 }

@@ -283,6 +283,10 @@
       "title": "alpha mask"
     },
     {
+      "file": "bitmapdata+draw.js",
+      "title": "bitmapdata draw"
+    },
+    {
       "file": "bitmapdata+wobble.js",
       "title": "bitmapdata wobble"
     },
@@ -741,6 +745,10 @@
       "title": "lock constraint"
     },
     {
+      "file": "platformer+material.js",
+      "title": "platformer material"
+    },
+    {
       "file": "postbroadphase+callback.js",
       "title": "postbroadphase callback"
     },
@@ -763,6 +771,10 @@
     {
       "file": "thrust.js",
       "title": "thrust"
+    },
+    {
+      "file": "tilemap+gravity.js",
+      "title": "tilemap gravity"
     },
     {
       "file": "tilemap.js",
@@ -1089,6 +1101,10 @@
     {
       "file": "tween+several+properties.js",
       "title": "tween several properties"
+    },
+    {
+      "file": "yoyo.js",
+      "title": "yoyo"
     }
   ],
   "world": [
