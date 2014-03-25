@@ -20,18 +20,22 @@ function create() {
     game.stage.backgroundColor = '#124184';
 
     handle1 = game.add.sprite(100, 200, 'balls', 0);
+    handle1.anchor.set(0.5);
     handle1.inputEnabled = true;
     handle1.input.enableDrag(true);
 
     handle2 = game.add.sprite(400, 300, 'balls', 0);
+    handle2.anchor.set(0.5);
     handle2.inputEnabled = true;
     handle2.input.enableDrag(true);
 
     handle3 = game.add.sprite(200, 400, 'balls', 1);
+    handle3.anchor.set(0.5);
     handle3.inputEnabled = true;
     handle3.input.enableDrag(true);
 
     handle4 = game.add.sprite(500, 500, 'balls', 1);
+    handle4.anchor.set(0.5);
     handle4.inputEnabled = true;
     handle4.input.enableDrag(true);
 
@@ -45,8 +49,8 @@ var p = new Phaser.Point();
 
 function update() {
 
-    line1.fromSprite(handle1, handle2, true);
-    line2.fromSprite(handle3, handle4, true);
+    line1.fromSprite(handle1, handle2, false);
+    line2.fromSprite(handle3, handle4, false);
 
     p = line1.intersects(line2, true);
 
@@ -63,8 +67,8 @@ function update() {
 
 function render() {
 
-    game.debug.line(line1, c);
-    game.debug.line(line2, c);
+    game.debug.geom(line1, c);
+    game.debug.geom(line2, c);
 
     game.debug.lineInfo(line1, 32, 32);
     game.debug.lineInfo(line2, 32, 100);
