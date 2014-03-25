@@ -865,6 +865,14 @@
       "title": "out of bounds"
     },
     {
+      "file": "overlap+tween+without+physics.js",
+      "title": "overlap tween without physics"
+    },
+    {
+      "file": "overlap+without+physics.js",
+      "title": "overlap without physics"
+    },
+    {
       "file": "scale+a+sprite.js",
       "title": "scale a sprite"
     },
