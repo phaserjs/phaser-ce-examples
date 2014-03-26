@@ -9,6 +9,7 @@ MissileCommand.Missile = function (launcher) {
 
 	this.line = new Phaser.Line();
 
+	this.pending = true;
 	this.alive = false;
 	this.speed = 1;
 
@@ -22,7 +23,12 @@ MissileCommand.Missile = function (launcher) {
 
 MissileCommand.Missile.prototype = {
 
-	launch: function (target, speed) {
+	launch: function (target, speed, delay) {
+
+		if (delay > 0)
+		{
+			//	start timer here
+		}
 
 		this.target = target;
 

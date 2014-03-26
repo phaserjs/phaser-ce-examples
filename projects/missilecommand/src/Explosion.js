@@ -7,8 +7,8 @@ MissileCommand.Explosion = function (launcher) {
 	this.circle = new Phaser.Circle();
 
 	this.alive = false;
-	this.maxRadius = 50;
-	this.speed = 900;
+	this.maxRadius = 60;
+	this.speed = 1200;
 
 	this.data = null;
 	this.index = 0;
@@ -71,8 +71,9 @@ MissileCommand.Explosion.prototype = {
 
 		for (var i = 0; i < missiles.length; i++)
 		{
-			if (this.circle.contains(missiles[i].x, missiles[i].y))
+			if (this.circle.contains(missiles[i].x, missiles[i].y) && missiles[i].alive)
 			{
+				this.launcher.addExplosion(missiles[i].x, missiles[i].y);
 				missiles[i].explode();
 			}
 		}

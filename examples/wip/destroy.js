@@ -4,6 +4,7 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 function preload() {
 
 	game.load.image('pic', 'assets/pics/backscroll.png');
+    game.load.spritesheet('button', 'assets/buttons/button_sprite_sheet.png', 193, 71);
 
 }
 
@@ -18,14 +19,15 @@ function create() {
 
 	// game.renderer.useFillRect = false;
 
-	sprite = game.add.sprite(0.5, 0, 'pic');
+    sprite = game.add.button(game.world.centerX - 95, 400, 'button', tint, this, 2, 1, 0);
+	// sprite = game.add.sprite(0.5, 0, 'pic');
 	// sprite2 = game.add.sprite(0, 300, 'pic');
 
-	game.physics.enable(sprite);
+	// game.physics.enable(sprite);
 
-	sprite.inputEnabled = true;
-	sprite.events.onInputDown.add(tint, this);
-	sprite.events.onInputUp.add(wibble, this);
+	// sprite.inputEnabled = true;
+	// sprite.events.onInputDown.add(tint, this);
+	// sprite.events.onInputUp.add(wibble, this);
 
 	// game.add.tween(sprite).to({y: 500}, 3000, Phaser.Easing.Linear.None, true);
 

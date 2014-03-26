@@ -58,6 +58,8 @@ MissileCommand.Game.prototype = {
         this.missileLauncher = new MissileCommand.MissileLauncher(this.game, this.missilesBitmap, this.cities);
         this.rocketLauncher = new MissileCommand.RocketLauncher(this.game, this.rocketsBitmap, this.explosionsBitmap, this.silo1, this.silo2);
 
+        this.missileLauncher.startWave(12, 60, 4);
+
         this.input.onDown.add(this.rocketLauncher.launch, this.rocketLauncher);
 
 	},

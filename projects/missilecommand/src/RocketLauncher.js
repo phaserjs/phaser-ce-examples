@@ -27,12 +27,12 @@ MissileCommand.RocketLauncher.prototype = {
         if (pointer.x < 320 && this.silo1.armory > 0)
         {
 			rocket.launch(this.silo1, pointer.x, pointer.y, this.rocketSpeed);
-			this.silo1.armory--;
+			this.silo1.launch();
         }
         else if (this.silo2.armory > 0)
         {
 			rocket.launch(this.silo2, pointer.x, pointer.y, this.rocketSpeed);
-			this.silo2.armory--;
+			this.silo2.launch();
         }
 
     },

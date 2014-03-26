@@ -6,9 +6,8 @@ MissileCommand.MissileLauncher = function (game, bmd, cities) {
 
 	this.missiles = [];
 
+	this.total = 15;
 	this.speed = 15;
-
-    this.game.time.events.loop(Phaser.Timer.SECOND * 2, this.launch, this);
 
 	return this;
 
@@ -16,9 +15,31 @@ MissileCommand.MissileLauncher = function (game, bmd, cities) {
 
 MissileCommand.MissileLauncher.prototype = {
 
-	launch: function () {
+	startWave: function (total, speed, starting) {
 
-		this.getMissile().launch(this.cities.getRandom(), this.speed);
+		this.total = total;
+		this.speed = speed;
+
+		this.launch(4, 0);
+
+	    this.game.time.events.add(4000, this.launch, this, 4, 0);
+	    this.game.time.events.add(4000, this.launch, this, 4, 250);
+
+	},
+
+	launch: function (qty, delay) {
+
+		for (var i = 0; i < qty; i++)
+		{
+			this.getMissile().launch(this.cities.getRandom(), this.speed, delay);
+
+			this.total--;
+
+			if (this.total === 0)
+			{
+				console.log('wave over');
+			}
+		}
 
 	},
 
