@@ -79,6 +79,10 @@
       "title": "bounding box"
     },
     {
+      "file": "direct+body+movement.js",
+      "title": "direct body movement"
+    },
+    {
       "file": "gravity+and+drag.js",
       "title": "gravity and drag"
     },
@@ -385,6 +389,10 @@
   ],
   "geometry": [
     {
+      "file": "centroid.js",
+      "title": "centroid"
+    },
+    {
       "file": "circle.js",
       "title": "circle"
     },
@@ -625,6 +633,10 @@
     {
       "file": "load+bitmap+font.js",
       "title": "load bitmap font"
+    },
+    {
+      "file": "load+events.js",
+      "title": "load events"
     },
     {
       "file": "load+image.js",
