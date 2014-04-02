@@ -11,7 +11,7 @@ var bunny;
 
 function create() {
 
-    b = game.add.sprite(game.world.centerX, game.world.centerY, 'bunny');
+    bunny = game.add.sprite(game.world.centerX, game.world.centerY, 'bunny');
 
     bunny.anchor.set(0.5);
 
@@ -37,7 +37,7 @@ function update() {
 
 function render() {
 
-    game.debug.spriteInputInfo(b, 32, 32);
+    game.debug.spriteInputInfo(bunny, 32, 32);
     game.debug.geom(bunny.input._tempPoint);
 
 }
