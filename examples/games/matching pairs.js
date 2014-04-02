@@ -6,7 +6,7 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 function preload() {
 
     game.load.tilemap('matching', 'assets/tilemaps/maps/phaser_tiles.json', null, Phaser.Tilemap.TILED_JSON);
-    game.load.tileset('tiles', 'assets/tilemaps/tiles/phaser_tiles.png', 100, 100, -1, 1, 1);    
+    game.load.image('tiles', 'assets/tilemaps/tiles/phaser_tiles.png');//, 100, 100, -1, 1, 1);    
 }
 
 var timeCheck = 0;
@@ -36,14 +36,18 @@ var tileBack = 25;
 var timesUp = '+';
 var youWin = '+';
 
+var myCountdownSeconds;
+
 
 function create() {
 
         map = game.add.tilemap('matching');
 
-        tileset = game.add.tileset('tiles');
+        map.addTilesetImage('Desert', 'tiles');
+
+        //tileset = game.add.tileset('tiles');
     
-        layer = game.add.tilemapLayer(0, 0, 600, 600, tileset, map, 0);
+        layer = map.createLayer('Ground');//.tilemapLayer(0, 0, 600, 600, tileset, map, 0);
 
         //layer.resizeWorld();
 
@@ -67,7 +71,7 @@ function update() {
 
     if (flipFlag == true) 
     {
-        if (game.time.now - timeCheck >1000)
+        if (game.time.totalElapsedSeconds() - timeCheck >1000)
         {   
             flipBack();
         }
@@ -83,8 +87,7 @@ function countDownTimer() {
   
     var timeLimit = 120;
   
-    myTime = game.time.now;
-    mySeconds = parseInt(myTime/1000);
+    mySeconds = game.time.totalElapsedSeconds();
     myCountdownSeconds = timeLimit - mySeconds;
     
     if (myCountdownSeconds <= 0) 
@@ -130,7 +133,7 @@ function processClick() {
                     savedSquareX2 = layer.getTileX(marker.x);
                     savedSquareY2 = layer.getTileY(marker.y);
                         flipFlag = true;
-                        timeCheck = game.time.now;
+                        timeCheck = game.time.totalElapsedSeconds();
                 }   
             }   
             else
