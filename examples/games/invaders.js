@@ -119,8 +119,8 @@ function createAliens () {
     //  All this does is basically start the invaders moving. Notice we're moving the Group they belong to, rather than the invaders directly.
     var tween = game.add.tween(aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 
-    //  When the tween completes it calls descend, before looping again
-    tween.onComplete.add(descend, this);
+    //  When the tween loops it calls descend
+    tween.onLoop.add(descend, this);
 }
 
 function setupInvader (invader) {
