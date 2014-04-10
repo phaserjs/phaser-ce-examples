@@ -7,13 +7,15 @@ var x;
 function preload() {
 
     game.load.image('bubble', 'assets/particles/bubble.png');
-    game.load.image('water', 'assets/demoscene/blue-raster-floor.png');
+    // game.load.image('bubble', 'assets/demoscene/green_ball.png');
+    // game.load.image('water', 'assets/demoscene/blue-raster-floor.png');
+    // game.load.image('water', 'assets/demoscene/checker-floor.png');
 
 }
 
 function create() {
 
-    game.add.tileSprite(0, 344, 800, 256, 'water');
+    game.stage.backgroundColor = '#002157';
 
     emitter = game.add.emitter(game.world.centerX, 32, 250);
 
