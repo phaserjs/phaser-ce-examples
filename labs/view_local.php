@@ -21,7 +21,8 @@
         <script src="js/modernizr.custom.js"></script>
         <base href="../examples/"></base>
         <?php
-            require('../build/config.php');
+            $path = '../../phaser';
+            require('../../phaser/build/config.php');
         ?>
         <script src="../labs/code/<?php echo $f?>" type="text/javascript"></script>
     </head>
