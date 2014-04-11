@@ -26,7 +26,7 @@ var flyingfish;
 
 function create() {
 
-    game.add.sprite(0, 0, 'undersea');
+    game.add.image(0, 0, 'undersea');
 
     jellyfish = game.add.sprite(670, 20, 'seacreatures');
 
@@ -66,7 +66,7 @@ function create() {
     flyingfish = game.add.sprite(60, 40, 'seacreatures', 'flyingFish0000');
 
 
-    game.add.sprite(0, 466, 'coral');
+    game.add.image(0, 466, 'coral');
 
 	// to: function ( properties, duration, ease, autoStart, delay, repeat, yoyo ) {
 

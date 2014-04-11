@@ -22,6 +22,8 @@ function create() {
     //  Turn on impact events for the world, without this we get no collision callbacks
     game.physics.p2.setImpactEvents(true);
 
+    game.physics.p2.restitution = 0.8;
+
     //  Create our collision groups. One for the player, one for the pandas
     var playerCollisionGroup = game.physics.p2.createCollisionGroup();
     var pandaCollisionGroup = game.physics.p2.createCollisionGroup();
@@ -60,6 +62,7 @@ function create() {
 
     game.physics.p2.enable(ship, false);
     ship.body.setCircle(28);
+    ship.body.fixedRotation = true;
 
     //  Set the ships collision group
     ship.body.setCollisionGroup(playerCollisionGroup);

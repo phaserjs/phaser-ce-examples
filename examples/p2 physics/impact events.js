@@ -17,7 +17,7 @@ var cursors;
 function create() {
 
     game.physics.startSystem(Phaser.Physics.P2JS);
-    game.physics.p2.defaultRestitution = 0.9;
+    game.physics.p2.restitution = 0.9;
 
     starfield = game.add.tileSprite(0, 0, 800, 600, 'stars');
     starfield.fixedToCamera = true;
@@ -38,11 +38,14 @@ function create() {
 
     //  Create our physics body - a 28px radius circle. Set the 'false' parameter below to 'true' to enable debugging
     game.physics.p2.enable(ship, false);
+
     ship.body.setCircle(28);
+    ship.body.fixedRotation = true;
 
     game.camera.follow(ship);
 
-    //  Here we create a Body specific callback
+    //  Here we create a Body specific callback.
+    //  Note that only impact events between the ship and the panda are used here, the sweet/candy object is ignored.
     ship.body.createBodyCallback(panda, hitPanda, this);
 
     //  And before this will happen, we need to turn on impact events for the world

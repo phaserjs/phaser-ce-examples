@@ -21,15 +21,21 @@ function create() {
     for (var i = 0; i < 6; i++)
     {
         // Directly create sprites from the group.
-        item = items.create(90, 90 * i, 'item', i);
+        item = items.create(90, 16 + 90 * i, 'item', i);
+
+        item.name = 'block' + i;
+
         // Enable input detection, then it's possible be dragged.
         item.inputEnabled = true;
+
         // Make this item draggable.
         item.input.enableDrag();
+
         // Then we make it snap to 90x90 grids.
         item.input.enableSnap(90, 90, false, true);
+
         // Add a handler to remove it using different options when dropped.
-        item.events.onDragStop.add(dropHandler);
+        item.events.onDragStop.add(dropHandler, this);
     }
 
     // Create a rectangle drop it at this rectangle to
@@ -42,8 +48,8 @@ function create() {
 
 function render() {
 
-    game.debug.text('Size of group: ' + items.length, 100, 560);
-    game.debug.text('Drop here to cut items from groups entirely.', 390, 24);
+    game.debug.text('Group size: ' + items.total, 74, 580);
+    game.debug.text('Drop here to remove item from the Group', 394, 24);
     
 }
 
@@ -55,10 +61,8 @@ function dropHandler(item, pointer) {
     }
     else if (item.x > 400)
     {
-        // So it is dropped in one rectangle.
-        // Remove it from group normally, so the group's size does not change.
+        //  Remove the item from the Group.
         items.remove(item);
-        console.log("Group length : "+items.length);
     }
 
 }

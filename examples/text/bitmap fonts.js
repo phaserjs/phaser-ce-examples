@@ -11,7 +11,7 @@ var bpmText;
 
 function create() {
 
-    bmpText = game.add.bitmapText(200, 100, 'desyrel','Phaser & Pixi \nrocking!',64);
+    bmpText = game.add.bitmapText(200, 100, 'desyrel','Phaser & Pixi \nrocking!', 64);
 
 }
 

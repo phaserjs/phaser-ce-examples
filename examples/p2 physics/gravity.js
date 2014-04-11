@@ -23,7 +23,7 @@ function create() {
 	var bg = game.add.sprite(0, 0, bmd);
 
 	game.physics.p2.gravity.y = 100;
-    game.physics.p2.defaultRestitution = 0.8;
+    game.physics.p2.restitution = 0.8;
 
 	sprite = game.add.sprite(32, 450, 'arrow');
 

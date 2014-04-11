@@ -45,7 +45,8 @@ function create() {
     //  required. There is also a parameter to control optimising the map build.
     game.physics.p2.convertTilemap(map, layer);
 
-    game.physics.p2.gravity.y = 200;
+    game.physics.p2.restitution = 0.5;
+    game.physics.p2.gravity.y = 300;
 
     player = game.add.sprite(100, 200, 'dude');
     player.animations.add('left', [0, 1, 2, 3], 10, true);
@@ -120,14 +121,14 @@ function checkIfCanJump() {
     var yAxis = p2.vec2.fromValues(0, 1);
     var result = false;
 
-    for (var i=0; i < game.physics.p2.world.narrowphase.contactEquations.length; i++)
+    for (var i = 0; i < game.physics.p2.world.narrowphase.contactEquations.length; i++)
     {
         var c = game.physics.p2.world.narrowphase.contactEquations[i];
 
-        if (c.bi === player.body.data || c.bj === player.body.data)
+        if (c.bodyA === player.body.data || c.bodyB === player.body.data)
         {
-            var d = p2.vec2.dot(c.ni,yAxis); // Normal dot Y-axis
-            if (c.bi === player.body.data) d *= -1;
+            var d = p2.vec2.dot(c.normalA, yAxis); // Normal dot Y-axis
+            if (c.bodyA === player.body.data) d *= -1;
             if (d > 0.5) result = true;
         }
     }

@@ -30,6 +30,8 @@ function create() {
 	//	Enable p2 physics
 	game.physics.startSystem(Phaser.Physics.P2JS);
 
+	game.physics.p2.restitution = 0.9;
+
 	contra = game.add.sprite(200, 200, 'contra2');
 	block = game.add.sprite(500, 200, 'block');
 	wizball = game.add.sprite(500, 500, 'wizball');

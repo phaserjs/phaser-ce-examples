@@ -17,24 +17,21 @@ function create() {
     // game.add.image(0, 0, 'water');
 
     //	Emitters have a center point and a width/height, which extends from their center point to the left/right and up/down
-    emitter = game.add.emitter(game.world.centerX, 200, 200);
+    emitter = game.add.emitter(game.world.centerX, 200, 400);
 
     //	This emitter will have a width of 800px, so a particle can emit from anywhere in the range emitter.x += emitter.width / 2
     // emitter.width = 800;
 
     emitter.makeParticles('bubble');
 
-    emitter.minParticleSpeed.set(0, 300);
-    emitter.maxParticleSpeed.set(0, 600);
+    // emitter.minParticleSpeed.set(0, 300);
+    // emitter.maxParticleSpeed.set(0, 600);
 
     emitter.setRotation(0, 0);
-    // emitter.setScale(0.1, 1, 4000);
-    // emitter.setScale(0.1, 1, 4000, Phaser.Easing.Bounce.Out);
-    emitter.setScale(0.1, 1, 4000, Phaser.Easing.Quintic.Out);
+    emitter.setAlpha(0.1, 1, 3000);
+    emitter.setScale(0.1, 1, 0.1, 1, 6000, Phaser.Easing.Quintic.Out);
     emitter.gravity = -200;
 
-    //	false means don't explode all the sprites at once, but instead release at a rate of one particle per 100ms
-    //	The 5000 value is the lifespan of each particle before it's killed
     emitter.start(false, 5000, 10);
 
     emitter.emitX = 0;

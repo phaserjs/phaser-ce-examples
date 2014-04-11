@@ -18,7 +18,7 @@ function create() {
     game.world.setBounds(0, 0, 1600, 1200);
 
     game.physics.startSystem(Phaser.Physics.P2JS);
-    game.physics.p2.defaultRestitution = 0.9;
+    game.physics.p2.restitution = 0.9;
 
     starfield = game.add.tileSprite(0, 0, 800, 600, 'stars');
     starfield.fixedToCamera = true;
@@ -45,6 +45,7 @@ function create() {
     //  Create our physics body - a 28px radius circle. Set the 'false' parameter below to 'true' to enable debugging
     game.physics.p2.enable(ship, false);
     ship.body.setCircle(28);
+    ship.body.fixedRotation = true;
 
     game.camera.follow(ship);
 
