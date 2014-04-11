@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
 
 var emitter1;
 var emitter2;
@@ -23,7 +23,7 @@ function create() {
     emitter1.bringToTop = true;
     emitter1.setRotation(0, 0);
     emitter1.setAlpha(0.1, 1, 2000);
-    emitter1.setScale(0.1, 2, 4000);
+    emitter1.setScale(0.1, 2, 0.1, 2, 4000);
     emitter1.gravity = 50;
     emitter1.start(false, 5000, 20);
     emitter1.emitX = 100;
@@ -38,7 +38,7 @@ function create() {
     emitter2.bringToTop = true;
     emitter2.setRotation(0, 0);
     emitter2.setAlpha(0.1, 1, 2000);
-    emitter2.setScale(0.1, 2, 4000);
+    emitter2.setScale(0.1, 2, 0.1, 2, 4000);
     emitter2.gravity = 50;
     emitter2.start(false, 5000, 20);
     emitter2.emitX = 700;
@@ -53,7 +53,7 @@ function create() {
     emitter3.bringToTop = true;
     emitter3.setRotation(0, 0);
     emitter3.setAlpha(0.1, 1, 2000);
-    emitter3.setScale(0.1, 2, 4000);
+    emitter3.setScale(0.1, 2, 0.1, 2, 4000);
     emitter3.gravity = 50;
     emitter3.start(false, 5000, 20);
     emitter3.emitX = 100;

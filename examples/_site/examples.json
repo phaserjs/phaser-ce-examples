@@ -173,6 +173,10 @@
   ],
   "audio": [
     {
+      "file": "audio+sprite.js",
+      "title": "audio sprite"
+    },
+    {
       "file": "loop.js",
       "title": "loop"
     },
@@ -367,6 +371,10 @@
       "title": "breakout"
     },
     {
+      "file": "gemmatch.js",
+      "title": "gemmatch"
+    },
+    {
       "file": "invaders.js",
       "title": "invaders"
     },
@@ -499,6 +507,10 @@
       "title": "remove"
     },
     {
+      "file": "removeBetween.js",
+      "title": "removeBetween"
+    },
+    {
       "file": "replace.js",
       "title": "replace"
     },
@@ -603,6 +615,10 @@
     {
       "file": "pixel+perfect+click+detection.js",
       "title": "pixel perfect click detection"
+    },
+    {
+      "file": "pixelpick+-+atlas+scaled.js",
+      "title": "pixelpick - atlas scaled"
     },
     {
       "file": "pixelpick+-+atlas.js",
@@ -799,6 +815,10 @@
   ],
   "particles": [
     {
+      "file": "auto+scale.js",
+      "title": "auto scale"
+    },
+    {
       "file": "click+burst.js",
       "title": "click burst"
     },
@@ -811,8 +831,24 @@
       "title": "diamond burst"
     },
     {
+      "file": "emitter+width.js",
+      "title": "emitter width"
+    },
+    {
+      "file": "glass.js",
+      "title": "glass"
+    },
+    {
       "file": "no+rotation.js",
       "title": "no rotation"
+    },
+    {
+      "file": "particle+alpha.js",
+      "title": "particle alpha"
+    },
+    {
+      "file": "particle+scale.js",
+      "title": "particle scale"
     },
     {
       "file": "rain.js",
@@ -823,8 +859,16 @@
       "title": "random sprite"
     },
     {
+      "file": "smoke+trail.js",
+      "title": "smoke trail"
+    },
+    {
       "file": "snow.js",
       "title": "snow"
+    },
+    {
+      "file": "tweened+emitter.js",
+      "title": "tweened emitter"
     },
     {
       "file": "when+particles+collide.js",

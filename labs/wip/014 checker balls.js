@@ -27,7 +27,7 @@ function create() {
     emitter.bringToTop = true;
     emitter.setRotation(0, 0);
     emitter.setAlpha(0.1, 1, 2000);
-    emitter.setScale(0.1, 2, 4000);
+    emitter.setScale(0.1, 2, 0.1, 2, 4000);
     emitter.gravity = 150;
 
     emitter.start(false, 5000, 50);

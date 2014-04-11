@@ -5,7 +5,7 @@ var emitter;
 
 function preload() {
 
-    game.load.image('bubble', 'assets/sprites/bubble.png');
+    game.load.image('bubble', 'assets/particles/bubble.png');
     game.load.image('water', 'assets/skies/sunset.png');
 
 }
@@ -27,7 +27,7 @@ function create() {
 
     emitter.setRotation(0, 0);
     emitter.setAlpha(0.3, 0.8);
-    emitter.setScale(0.5, 1);
+    emitter.setScale(0.5, 0.5, 1, 1);
     emitter.gravity = -200;
 
     //	false means don't explode all the sprites at once, but instead release at a rate of one particle per 100ms
