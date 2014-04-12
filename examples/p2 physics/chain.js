@@ -8,7 +8,7 @@ function preload() {
 
 
 function create() {
-//     game.add.tileSprite(0, 0, 800, 600, 'clouds');
+    game.add.tileSprite(0, 0, 800, 600, 'clouds');
     game.physics.startSystem(Phaser.Physics.P2JS);  //activate physics
     game.physics.p2.gravity.y = 1200;  //realistic gravity
 
