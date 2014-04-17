@@ -19,9 +19,11 @@ function create() {
 
     game.stage.backgroundColor = '#2d2d2d';
 
-    game.physics.gravity[1] = -8.5;
-    game.physics.defaultRestitution = 0.8;
-    game.physics.defaultFriction = 0.1;
+    game.physics.startSystem(Phaser.Physics.P2JS);
+
+    game.physics.p2.gravity.y = 170;
+    game.physics.p2.restitution = 0.8;
+    game.physics.p2.friction = 0.1;
 
     bullets = game.add.group();
     bullets.createMultiple(500, 'bullets', 0, false);
@@ -41,14 +43,15 @@ function fire() {
 
         if (bullet)
         {
-            bullet.frame = game.rnd.integerInRange(0,6);
+            bullet.frame = game.rnd.integerInRange(0, 6);
             bullet.exists = true;
             bullet.position.set(cannon.x, cannon.y);
-            bullet.physicsEnabled = true;
+
+            game.physics.p2.enable(bullet);
 
             bullet.body.rotation = cannon.rotation + game.math.degToRad(-90);
 
-            var magnitude = game.math.px2p(-500);
+            var magnitude = 500;
             var angle = bullet.body.rotation + Math.PI / 2;
 
             bullet.body.velocity.x = magnitude * Math.cos(angle);
