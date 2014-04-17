@@ -18,11 +18,14 @@ Rox.Preloader.prototype = {
 
 		this.load.image('photonstorm', 'images/photonstorm.png');
 		this.load.image('space', 'images/space.png');
+		this.load.image('font', 'images/font.png');
 
 		this.load.image('ship', 'images/ship.png');
 		this.load.image('jets', 'images/jets.png');
 		this.load.image('bullet', 'images/bullets.png');
+		this.load.image('beam', 'images/beam.png');
 		this.load.spritesheet('flash', 'images/muzzle-flash.png', 48, 48);
+		this.load.spritesheet('explode', 'images/explode.png', 26, 26);
 
 		this.load.image('asteroid1', 'images/asteroid1.png');
 		this.load.image('asteroid2', 'images/asteroid2.png');

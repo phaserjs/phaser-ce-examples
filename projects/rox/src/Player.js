@@ -108,6 +108,11 @@ Rox.Player.prototype.fire = function () {
 
     if (this.bullets.fire(this))
     {
+        //  fire1 = bullets
+        //  fire2 = fire beam
+        //  fire3 = blue bullets
+        //  fire4 = blue beam
+        // this.muzzle.play('fire1');
         this.muzzle.play('fire1');
     }
 

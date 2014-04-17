@@ -3,7 +3,9 @@ Rox.Game = function (game) {
 
 	this.player;
 	this.asteroids;
+	this.explosions;
 	this.waves;
+	this.font;
 
 	this.cursors;
 	this.fireButton;
@@ -34,6 +36,12 @@ Rox.Game.prototype = {
 		this.fireButton = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 		this.world.sendToBack(bg);
+
+		//	add a colon
+	    this.font = this.add.retroFont('font', 14, 14, '0123456789:,!.+?ABCDEFGHIJKLMNOPQRSTUVWXYZ', 42);
+	    this.font.text = 'score: 23000                                   lives: 3';
+
+	    this.add.image(16, 16, this.font);
 
 	},
 
@@ -74,7 +82,7 @@ Rox.Game.prototype = {
 
     render: function () {
 
-    	this.game.debug.text(this.asteroids.total, 32, 32);
+    	this.game.debug.text(this.asteroids.total, 20, 580);
 
     },
 

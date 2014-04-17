@@ -10,14 +10,24 @@ Rox.PlayerBullets = function (game, quantity) {
 
     //  The maximum number of bullets for the player
     this.createMultiple(quantity, 'bullet');
+    // this.createMultiple(quantity, 'beam');
 
     this.setAll('anchor.x', 0.5);
     this.setAll('anchor.y', 0.5);
 
-    this.fireRate = 100;
+    //  bullet
+    this.fireRate = 120;
     this.bulletTime = 0;
     this.bulletSpeed = 400;
     this.bulletLifeSpan = 1500;
+
+    //  beam
+    /*
+    this.fireRate = 10;
+    this.bulletTime = 0;
+    this.bulletSpeed = 500;
+    this.bulletLifeSpan = 1000;
+    */
 
     return this;
 
