@@ -696,6 +696,10 @@
     {
       "file": "repeatable+random+numbers.js",
       "title": "repeatable random numbers"
+    },
+    {
+      "file": "pause+menu.js",
+      "title": "pause menu"
     }
   ],
   "ninja physics": [
