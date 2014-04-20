@@ -20,20 +20,20 @@ function create() {
     emitter.makeParticles('bubble');
 
     emitter.setXSpeed(0, 0);
-    emitter.setYSpeed(300, 300);
+    emitter.setYSpeed(200, 200);
 
     emitter.bringToTop = true;
     emitter.setRotation(0, 0);
     emitter.setAlpha(0.1, 1, 2000);
-    emitter.setScale(0.1, 2, 4000);
-    emitter.gravity = 150;
+    emitter.setScale(0.1, 2, 0.1, 2, 4000);
+    emitter.gravity = 100;
 
     emitter.start(false, 5000, 50);
 
-    emitter.emitX = 100;
+    emitter.emitX = 200;
 
-    game.add.tween(emitter).to( { emitX: 700 }, 2000, Phaser.Easing.Sinusoidal.InOut, true, 0, Number.MAX_VALUE, true);
-    // game.add.tween(emitter).to( { emitX: 700 }, 2000, Phaser.Easing.Back.InOut, true, 0, Number.MAX_VALUE, true);
+    //game.add.tween(emitter).to( { emitX: 700 }, 2000, Phaser.Easing.Sinusoidal.InOut, true, 0, Number.MAX_VALUE, true);
+    game.add.tween(emitter).to( { emitX: 600 }, 2000, Phaser.Easing.Back.InOut, true, 0, Number.MAX_VALUE, true);
 
 }
 
