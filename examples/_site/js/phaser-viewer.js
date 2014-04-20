@@ -12,7 +12,11 @@ $(document).ready(function(){
 
 	.done(function(script, textStatus) {
 
-		$.ajax({ url: dir + "/" + file, dataType: "text" }).done(function(data) { $("#sourcecode").text(data); });
+		$.ajax({ url: dir + "/" + file, dataType: "text" })
+			.done(function(data) {
+				$("#sourcecode").text(data);
+				$.getScript("_site/js/run_prettify.js");
+			});
 
 		//	Hook up the control panel
 
