@@ -21,7 +21,12 @@ $(document).ready(function(){
 
 			for (var e = 0; e < files.length; e++)
 			{
-				node += '<a href="_site/view_lite.html?d=' + dir + '&amp;f=' + files[e].file + '&amp;t=' + files[e].title + '" target="viewer">' + files[e].title + '</a><br />';
+				node += '<a href="_site/view_lite.html?d=' + dir + '&amp;f=' + files[e].file + '&amp;t=' + files[e].title + '" target="viewer">' + files[e].title + '</a>';
+				if(typeof files[e].jsbin !== 'undefined')
+				{
+					node += ' - <a href="'+files[e].jsbin+'" target="_blank">Jsbin</a>';
+				}
+				node += '<br />';
 			}
 
 			$("#examples-list").append(node);

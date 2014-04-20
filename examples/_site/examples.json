@@ -196,7 +196,8 @@
   "basics": [
     {
       "file": "01+-+load+an+image.js",
-      "title": "01 - load an image"
+      "title": "01 - load an image",
+      "jsbin":"http://jsbin.com/zagob/1/edit?js,output"
     },
     {
       "file": "02+-+click+on+an+image.js",
