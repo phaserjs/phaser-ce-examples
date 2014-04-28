@@ -12,20 +12,24 @@ function create() {
 
     game.add.sprite(0, 0, 'sky');
 
-    for (var i = 0; i < 15; i++)
+    var mx = game.width - game.cache.getImage('plane').width;
+    var my = game.height - game.cache.getImage('plane').height;
+
+    for (var i = 0; i < 5; i++)
     {
-        var sprite = game.add.sprite(game.world.randomX, game.world.randomY, 'plane');
+        var sprite = game.add.sprite(game.rnd.integerInRange(0, mx), game.rnd.integerInRange(0, my), 'plane');
 
         sprite.inputEnabled = true;
 
         sprite.input.useHandCursor = true;
 
-        sprite.events.onInputDown.add(destoyIt, this);
+        sprite.events.onInputDown.add(destroySprite, this);
     }
 
 }
 
-function destoyIt (sprite) {
+function destroySprite (sprite) {
 
     sprite.destroy();
+
 }

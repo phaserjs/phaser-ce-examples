@@ -116,6 +116,7 @@ function updateMarker() {
     if (game.input.mousePointer.isDown)
     {
         map.putTile(currentTile, currentLayer.getTileX(marker.x), currentLayer.getTileY(marker.y), currentLayer);
+        // map.fill(currentTile, currentLayer.getTileX(marker.x), currentLayer.getTileY(marker.y), 4, 4, currentLayer);
     }
 
 }
