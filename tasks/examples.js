@@ -72,6 +72,14 @@ module.exports = function(grunt) {
         });
       }
 
+      for(var _name in results){
+        try{
+          var fileJSON = require('../'+options.base+'/'+_name+'/details.json');
+          _.merge(results[_name], fileJSON);
+        }catch(e){}
+      }
+
+
       grunt.verbose.writeln();
       grunt.verbose.or.write('Writing ' + f.dest + '...');
       grunt.file.write(f.dest, JSON.stringify(results, null, '  '));

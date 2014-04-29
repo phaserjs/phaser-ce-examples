@@ -1,0 +1,32 @@
+[
+	{
+	  "file": "01+-+load+an+image.js",
+	  "title": "01 - load an image",
+	  "jsbin":"http://jsbin.com/zagob/1/edit?js,output"
+	},
+	{
+	  "file": "02+-+click+on+an+image.js",
+	  "title": "02 - click on an image",
+	  "jsbin":"http://jsbin.com/zagob/6/edit?js,output"
+	},
+	{
+	  "file": "03+-+move+an+image.js",
+	  "title": "03 - move an image",
+	  "jsbin":"http://jsbin.com/zagob/7/edit?js,output"
+	},
+	{
+	  "file": "04+-+image+follow+input.js",
+	  "title": "04 - image follow input",
+	  "jsbin":"http://jsbin.com/zagob/9/edit?js,output"
+	},
+	{
+	  "file": "05+-+load+an+animation.js",
+	  "title": "05 - load an animation",
+	  "jsbin":"http://jsbin.com/zagob/10/edit?js,output"
+	},
+	{
+	  "file": "06+-+render+text.js",
+	  "title": "06 - render text",
+	  "jsbin":"http://jsbin.com/zagob/11/edit?js,output"
+	}
+]
