@@ -16,11 +16,11 @@ function create() {
     //  In Phaser the cache key is 'tiles'
 
     //  Here is how to pair them up correctly:
-    map.addTilesetImage('foreboding1', 'tiles');
+    // map.addTilesetImage('foreboding1', 'tiles');
 
     //  If you don't give the correct Tiled tileset name (as below) you get weird results.
     //  Un-comment it to see.
-    // map.addTilesetImage('tiles');
+    map.addTilesetImage('tiles');
 
     var layer = map.createLayer('Tile Layer 1');
 

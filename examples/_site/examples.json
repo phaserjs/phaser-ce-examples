@@ -55,6 +55,10 @@
       "title": "angular velocity"
     },
     {
+      "file": "asteroids+movement.js",
+      "title": "asteroids movement"
+    },
+    {
       "file": "body+scale.js",
       "title": "body scale"
     },
@@ -119,6 +123,10 @@
       "title": "mass velocity test"
     },
     {
+      "file": "move+to+pointer.js",
+      "title": "move to pointer"
+    },
+    {
       "file": "move+towards+object.js",
       "title": "move towards object"
     },
@@ -131,12 +139,24 @@
       "title": "multiball"
     },
     {
+      "file": "nested+group.js",
+      "title": "nested group"
+    },
+    {
       "file": "offset+bounding+box.js",
       "title": "offset bounding box"
     },
     {
       "file": "one+way+collision.js",
       "title": "one way collision"
+    },
+    {
+      "file": "platformer+basics.js",
+      "title": "platformer basics"
+    },
+    {
+      "file": "platformer+tight.js",
+      "title": "platformer tight"
     },
     {
       "file": "process+callback.js",
@@ -197,32 +217,32 @@
     {
       "file": "01+-+load+an+image.js",
       "title": "01 - load an image",
-      "jsbin":"http://jsbin.com/zagob/1/edit?js,output"
+      "jsbin": "http://jsbin.com/zagob/1/edit?js,output"
     },
     {
       "file": "02+-+click+on+an+image.js",
       "title": "02 - click on an image",
-      "jsbin":"http://jsbin.com/zagob/6/edit?js,output"
+      "jsbin": "http://jsbin.com/zagob/6/edit?js,output"
     },
     {
       "file": "03+-+move+an+image.js",
       "title": "03 - move an image",
-      "jsbin":"http://jsbin.com/zagob/7/edit?js,output"
+      "jsbin": "http://jsbin.com/zagob/7/edit?js,output"
     },
     {
       "file": "04+-+image+follow+input.js",
       "title": "04 - image follow input",
-      "jsbin":"http://jsbin.com/zagob/9/edit?js,output"
+      "jsbin": "http://jsbin.com/zagob/9/edit?js,output"
     },
     {
       "file": "05+-+load+an+animation.js",
       "title": "05 - load an animation",
-      "jsbin":"http://jsbin.com/zagob/10/edit?js,output"
+      "jsbin": "http://jsbin.com/zagob/10/edit?js,output"
     },
     {
       "file": "06+-+render+text.js",
       "title": "06 - render text",
-      "jsbin":"http://jsbin.com/zagob/11/edit?js,output"
+      "jsbin": "http://jsbin.com/zagob/11/edit?js,output"
     }
   ],
   "buttons": [
@@ -291,6 +311,12 @@
       "title": "debug sprite"
     }
   ],
+  "demoscene": [
+    {
+      "file": "raster+bounce.js",
+      "title": "raster bounce"
+    }
+  ],
   "display": [
     {
       "file": "alpha+mask.js",
@@ -301,8 +327,44 @@
       "title": "bitmapdata draw"
     },
     {
+      "file": "bitmapdata+flood+fill.js",
+      "title": "bitmapdata flood fill"
+    },
+    {
+      "file": "bitmapdata+pixel.js",
+      "title": "bitmapdata pixel"
+    },
+    {
+      "file": "bitmapdata+process+pixels+2.js",
+      "title": "bitmapdata process pixels 2"
+    },
+    {
+      "file": "bitmapdata+process+pixels+3.js",
+      "title": "bitmapdata process pixels 3"
+    },
+    {
+      "file": "bitmapdata+process+pixels.js",
+      "title": "bitmapdata process pixels"
+    },
+    {
+      "file": "bitmapdata+replace+color.js",
+      "title": "bitmapdata replace color"
+    },
+    {
+      "file": "bitmapdata+set+hsl.js",
+      "title": "bitmapdata set hsl"
+    },
+    {
       "file": "bitmapdata+wobble.js",
       "title": "bitmapdata wobble"
+    },
+    {
+      "file": "cached+bitmapdata.js",
+      "title": "cached bitmapdata"
+    },
+    {
+      "file": "extract+mask.js",
+      "title": "extract mask"
     },
     {
       "file": "fullscreen+buttons.js",
@@ -315,6 +377,10 @@
     {
       "file": "graphics.js",
       "title": "graphics"
+    },
+    {
+      "file": "hsv+color+wheel.js",
+      "title": "hsv color wheel"
     },
     {
       "file": "pixi+render+texture.js",
@@ -505,8 +571,12 @@
       "title": "nested groups"
     },
     {
-      "file": "recyling.js",
-      "title": "recyling"
+      "file": "recycling.js",
+      "title": "recycling"
+    },
+    {
+      "file": "remove+check.js",
+      "title": "remove check"
     },
     {
       "file": "remove.js",
@@ -587,6 +657,10 @@
       "title": "gamepad"
     },
     {
+      "file": "input+priority.js",
+      "title": "input priority"
+    },
+    {
       "file": "key.js",
       "title": "key"
     },
@@ -645,6 +719,10 @@
     {
       "file": "touch+joystick.js",
       "title": "touch joystick"
+    },
+    {
+      "file": "virtual+gamecontroller.js",
+      "title": "virtual gamecontroller"
     }
   ],
   "loader": [
@@ -695,16 +773,16 @@
       "title": "net"
     },
     {
+      "file": "pause+menu.js",
+      "title": "pause menu"
+    },
+    {
       "file": "random+generators.js",
       "title": "random generators"
     },
     {
       "file": "repeatable+random+numbers.js",
       "title": "repeatable random numbers"
-    },
-    {
-      "file": "pause+menu.js",
-      "title": "pause menu"
     }
   ],
   "ninja physics": [
@@ -727,12 +805,20 @@
   ],
   "p2 physics": [
     {
+      "file": "accelerate+to+object.js",
+      "title": "accelerate to object"
+    },
+    {
       "file": "basic+movement.js",
       "title": "basic movement"
     },
     {
       "file": "body+click.js",
       "title": "body click"
+    },
+    {
+      "file": "chain.js",
+      "title": "chain"
     },
     {
       "file": "collision+groups.js",
@@ -845,6 +931,10 @@
       "title": "emitter width"
     },
     {
+      "file": "firestarter.js",
+      "title": "firestarter"
+    },
+    {
       "file": "glass.js",
       "title": "glass"
     },
@@ -855,6 +945,10 @@
     {
       "file": "particle+alpha.js",
       "title": "particle alpha"
+    },
+    {
+      "file": "particle+class.js",
+      "title": "particle class"
     },
     {
       "file": "particle+scale.js",
@@ -989,6 +1083,10 @@
       "title": "kern of duty"
     },
     {
+      "file": "line+color.js",
+      "title": "line color"
+    },
+    {
       "file": "littera.js",
       "title": "littera"
     },
@@ -1051,6 +1149,10 @@
     {
       "file": "create+from+objects.js",
       "title": "create from objects"
+    },
+    {
+      "file": "csv+map+collide.js",
+      "title": "csv map collide"
     },
     {
       "file": "csv+map.js",

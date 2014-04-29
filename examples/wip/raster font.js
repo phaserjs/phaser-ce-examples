@@ -3,9 +3,9 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 
 function preload() {
 
-    game.load.image('knightHawks', 'assets/fonts/retroFonts/knighthawks_font.png');
-    game.load.image('knightHawksFilled', 'assets/fonts/retroFonts/knighthawks_font_filled.png');
-    game.load.image('raster', 'assets/demoscene/pink-raster.png');
+    game.load.image('knightHawks', '../assets/fonts/retroFonts/knighthawks_font.png');
+    game.load.image('knightHawksFilled', '../assets/fonts/retroFonts/knighthawks_font_filled.png');
+    game.load.image('raster', '../assets/demoscene/pink-raster.png');
 
 }
 

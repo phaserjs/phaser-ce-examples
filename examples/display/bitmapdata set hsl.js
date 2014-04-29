@@ -32,7 +32,9 @@ function startProcess () {
 	// bmd.setHSL(0.2);
 
 	//	shift
-	bmd.shiftHSL(0.1, null, null, new Phaser.Rectangle(32, 32, 100, 100));
+	bmd.shiftHSL(0.1);
+
+	// bmd.shiftHSL(0.1, null, null, new Phaser.Rectangle(32, 32, 100, 100));
 
 	//	white hit
 	// bmd.shiftHSL(null, null, 1.0);
