@@ -34,7 +34,7 @@ function create() {
 
     //  Set the tiles for collision.
     //  Do this BEFORE generating the p2 bodies below.
-    map.setCollisionBetween(1, 12);
+    // map.setCollisionBetween(1, 12);
 
     //  Convert the tilemap layer into bodies. Only tiles that collide (see above) are created.
     //  This call returns an array of body objects which you can perform addition actions on if
