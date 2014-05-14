@@ -93,7 +93,7 @@
             {
                 $f = $_GET['f'];
         ?>
-        <script src="../../phaser/plugins/VirtualJoystick.js" type="text/javascript"></script>
+        <script src="../../phaser-plugins/VirtualJoystick/VirtualJoystick.js" type="text/javascript"></script>
         <script src="wip/<?php echo $f?>" type="text/javascript"></script>
         <?php
             }
