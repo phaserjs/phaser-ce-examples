@@ -893,6 +893,10 @@
       "title": "static body"
     },
     {
+      "file": "kinematic+body.js",
+      "title": "kinematic body"
+    },
+    {
       "file": "thrust.js",
       "title": "thrust"
     },
