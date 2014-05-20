@@ -331,6 +331,10 @@
       "title": "bitmapdata flood fill"
     },
     {
+      "file": "bitmapdata+pixel+2.js",
+      "title": "bitmapdata pixel 2"
+    },
+    {
       "file": "bitmapdata+pixel.js",
       "title": "bitmapdata pixel"
     },
@@ -555,6 +559,10 @@
       "title": "group as layer"
     },
     {
+      "file": "group+scale.js",
+      "title": "group scale"
+    },
+    {
       "file": "group+transform+-+rotate.js",
       "title": "group transform - rotate"
     },
@@ -565,6 +573,10 @@
     {
       "file": "group+transform.js",
       "title": "group transform"
+    },
+    {
+      "file": "has+property.js",
+      "title": "has property"
     },
     {
       "file": "nested+groups.js",
@@ -689,6 +701,10 @@
       "title": "multi touch"
     },
     {
+      "file": "out+of+game.js",
+      "title": "out of game"
+    },
+    {
       "file": "override+default+controls.js",
       "title": "override default controls"
     },
@@ -726,6 +742,10 @@
     }
   ],
   "loader": [
+    {
+      "file": "check+cache.js",
+      "title": "check cache"
+    },
     {
       "file": "load+audio.js",
       "title": "load audio"
@@ -821,6 +841,10 @@
       "title": "chain"
     },
     {
+      "file": "collide+world+bounds.js",
+      "title": "collide world bounds"
+    },
+    {
       "file": "collision+groups.js",
       "title": "collision groups"
     },
@@ -903,6 +927,10 @@
     {
       "file": "tilemap.js",
       "title": "tilemap"
+    },
+    {
+      "file": "world+boundary.js",
+      "title": "world boundary"
     },
     {
       "file": "world+move.js",
@@ -1137,6 +1165,18 @@
       "title": "colliding with tiling sprite"
     },
     {
+      "file": "sprite+sheet+tiling+sprite.js",
+      "title": "sprite sheet tiling sprite"
+    },
+    {
+      "file": "tiling+sprite+atlas.js",
+      "title": "tiling sprite atlas"
+    },
+    {
+      "file": "tiling+sprite+sprite+sheet.js",
+      "title": "tiling sprite sprite sheet"
+    },
+    {
       "file": "tiling+sprite.js",
       "title": "tiling sprite"
     }
@@ -1269,6 +1309,10 @@
     {
       "file": "pause+tween.js",
       "title": "pause tween"
+    },
+    {
+      "file": "tween+from.js",
+      "title": "tween from"
     },
     {
       "file": "tween+loop+event.js",

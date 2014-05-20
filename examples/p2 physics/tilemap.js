@@ -34,7 +34,7 @@ function create() {
 
     //  Set the tiles for collision.
     //  Do this BEFORE generating the p2 bodies below.
-    // map.setCollisionBetween(1, 12);
+    map.setCollisionBetween(1, 12);
 
     //  Convert the tilemap layer into bodies. Only tiles that collide (see above) are created.
     //  This call returns an array of body objects which you can perform addition actions on if
@@ -45,6 +45,17 @@ function create() {
     game.physics.p2.enable(ship);
 
     game.camera.follow(ship);
+
+    //  By default the ship will collide with the World bounds,
+    //  however because you have changed the size of the world (via layer.resizeWorld) to match the tilemap
+    //  you need to rebuild the physics world boundary as well. The following
+    //  line does that. The first 4 parameters control if you need a boundary on the left, right, top and bottom of your world.
+    //  The final parameter (false) controls if the boundary should use its own collision group or not. In this case we don't require
+    //  that, so it's set to false. But if you had custom collision groups set-up then you would need this set to true.
+    game.physics.p2.setBoundsToWorld(true, true, true, true, false);
+
+    //  Even after the world boundary is set-up you can still toggle if the ship collides or not with this:
+    // ship.body.collideWorldBounds = false;
 
     cursors = game.input.keyboard.createCursorKeys();
 
