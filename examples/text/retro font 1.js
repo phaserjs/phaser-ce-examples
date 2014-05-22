@@ -12,7 +12,6 @@ var font;
 function create() {
 
     font = game.add.retroFont('knightHawks', 31, 25, Phaser.RetroFont.TEXT_SET6, 10, 1, 1);
-    font.text = 'phaser was here';
 
     for (var c = 0; c < 19; c++)
     {

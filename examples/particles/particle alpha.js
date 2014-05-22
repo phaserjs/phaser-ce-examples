@@ -5,7 +5,7 @@ var emitter;
 
 function preload() {
 
-    game.load.image('corona', 'assets/sprites/corona_blue.png');
+    game.load.image('corona', 'assets/particles/blue.png');
 
 }
 

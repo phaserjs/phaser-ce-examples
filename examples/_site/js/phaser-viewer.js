@@ -62,7 +62,7 @@ $(document).ready(function(){
 
 	.done(function(data) {
 
-		if (data.version !== '2.0.3')
+		if (data.version !== '2.0.5')
 		{
 			$("#upgrade").append(data.version);
 			$("#upgrade").css('display', 'inline-block');

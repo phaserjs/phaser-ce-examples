@@ -51,7 +51,13 @@ $(document).ready(function(){
 
 			for (var e = 0; e < files.length; e++)
 			{
-				node += '<li><a href="_site/view_full.html?d=' + dir + '&amp;f=' + files[e].file + '&amp;t=' + files[e].title + '">' + files[e].title + '</a></li>';
+				if(typeof files[e].jsbin !== 'undefined')
+				{
+					node += '<li><a href="_site/view_full.html?d=' + dir + '&amp;f=' + files[e].file + '&amp;t=' + files[e].title + '&amp;jsbin='+files[e].jsbin+'">' + files[e].title + '</a></li>';
+				}else{
+					node += '<li><a href="_site/view_full.html?d=' + dir + '&amp;f=' + files[e].file + '&amp;t=' + files[e].title + '">' + files[e].title + '</a></li>';
+				}
+				
 	            t++;
 			}
 
@@ -95,7 +101,7 @@ $(document).ready(function(){
 
 	.done(function(data) {
 
-		if (data.version !== '2.0.3')
+		if (data.version !== '2.0.5')
 		{
 			$("#upgrade").append(data.version);
 			$("#upgrade").css('display', 'inline-block');

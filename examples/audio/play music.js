@@ -19,6 +19,7 @@ function create() {
     game.input.touch.preventDefault = false;
 
     music = game.add.audio('boden');
+
     music.play();
 
     s = game.add.sprite(game.world.centerX, game.world.centerY, 'disk');

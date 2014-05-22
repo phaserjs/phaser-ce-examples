@@ -8,7 +8,8 @@ function preload() {
     game.load.spritesheet('button', 'assets/buttons/flixel-button.png', 80, 20);
     game.load.bitmapFont('nokia', 'assets/fonts/bitmapFonts/nokia16black.png', 'assets/fonts/bitmapFonts/nokia16black.xml');
 
-    game.load.audio('sfx', [ 'assets/audio/SoundEffects/fx_mixdown.mp3', 'assets/audio/SoundEffects/fx_mixdown.ogg' ]);
+    // game.load.audio('sfx', [ 'assets/audio/SoundEffects/fx_mixdown.mp3', 'assets/audio/SoundEffects/fx_mixdown.ogg' ]);
+    game.load.audio('sfx', 'assets/audio/SoundEffects/fx_mixdown.ogg');
 
 }
 

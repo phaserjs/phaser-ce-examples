@@ -28,6 +28,8 @@ function create() {
     sprite = game.add.sprite(450, 80, 'car');
     sprite.anchor.setTo(0.5, 0.5);
 
+    game.physics.enable(sprite, Phaser.Physics.ARCADE);
+
     game.camera.follow(sprite);
 
     cursors = game.input.keyboard.createCursorKeys();
@@ -64,7 +66,7 @@ function update() {
 
     if (cursors.up.isDown)
     {
-        sprite.body.velocity.copyFrom(game.physics.velocityFromAngle(sprite.angle, 300));
+        sprite.body.velocity.copyFrom(game.physics.arcade.velocityFromAngle(sprite.angle, 300));
     }
 
 }
