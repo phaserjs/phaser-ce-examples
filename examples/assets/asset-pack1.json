@@ -1,0 +1,47 @@
+{ 
+    "level1": [
+        {
+            "type": "image",
+            "key": "starwars",
+            "url": "assets/pics/unknown-the_starwars_pic.png",
+            "overwrite": false
+        },
+        {
+            "type": "image",
+            "key": "spaceship",
+            "url": "assets/pics/spaceship.png",
+            "overwrite": false
+        },
+        {
+            "type": "audio",
+            "key": "boden",
+            "urls": ["assets/audio/bodenstaendig_2000_in_rock_4bit.mp3", "assets/audio/bodenstaendig_2000_in_rock_4bit.ogg"],
+            "autoDecode": true
+        },
+        {
+            "type": "spritesheet",
+            "key": "mummy",
+            "url": "assets/sprites/metalslug_mummy37x45.png",
+            "frameWidth": 37,
+            "frameHeight": 45,
+            "frameMax": 18,
+            "margin": 0,
+            "spacing": 0
+        }
+    ],
+    "level2": [
+        {
+            "type": "image",
+            "key": "ball",
+            "url": "assets/sprites/shinyball.png",
+            "overwrite": false
+        }
+    ],
+    "meta": {
+        "generated": "1401380327373",
+        "app": "Phaser Asset Packer",
+        "url": "http://phaser.io",
+        "version": "1.0",
+        "copyright": "Photon Storm Ltd. 2014"
+    }
+}
