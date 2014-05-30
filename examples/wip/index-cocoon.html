@@ -2,18 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>phaser</title>
-        <script src="/phaser/build/p2.js"></script>
-        <script src="/phaser/src/Intro.js"></script>
+        <title>phaser cocoon test</title>
         <script src="/phaser/src/pixi/Pixi.js"></script>
-        <script src="/phaser/src/Phaser.js"></script>
-        <script src="/phaser/src/utils/Utils.js"></script>
-        <script src="/phaser/src/geom/Circle.js"></script>
-        <script src="/phaser/src/geom/Point.js"></script>
-        <script src="/phaser/src/geom/Rectangle.js"></script>
-        <script src="/phaser/src/geom/Line.js"></script>
-        <script src="/phaser/src/geom/Ellipse.js"></script>
-        <script src="/phaser/src/geom/Polygon.js"></script>
+        <script src="/phaser/src/pixi/core/Point.js"></script>
+        <script src="/phaser/src/pixi/core/Rectangle.js"></script>
+        <script src="/phaser/src/pixi/core/Polygon.js"></script>
+        <script src="/phaser/src/pixi/core/Circle.js"></script>
+        <script src="/phaser/src/pixi/core/Ellipse.js"></script>
         <script src="/phaser/src/pixi/core/Matrix.js"></script>
         <script src="/phaser/src/pixi/display/DisplayObject.js"></script>
         <script src="/phaser/src/pixi/display/DisplayObjectContainer.js"></script>
@@ -23,6 +18,7 @@
         <script src="/phaser/src/pixi/text/Text.js"></script>
         <script src="/phaser/src/pixi/text/BitmapText.js"></script>
         <script src="/phaser/src/pixi/display/Stage.js"></script>
+        <script src="/phaser/src/pixi/utils/Utils.js"></script>
         <script src="/phaser/src/pixi/utils/EventTarget.js"></script>
         <script src="/phaser/src/pixi/utils/Polyk.js"></script>
         <script src="/phaser/src/pixi/renderers/webgl/utils/WebGLShaderUtils.js"></script>
@@ -47,9 +43,18 @@
         <script src="/phaser/src/pixi/textures/BaseTexture.js"></script>
         <script src="/phaser/src/pixi/textures/Texture.js"></script>
         <script src="/phaser/src/pixi/textures/RenderTexture.js"></script>
+        <script src="/phaser/src/Phaser.js"></script>
+        <script src="/phaser/src/utils/Utils.js"></script>
+        <script src="/phaser/src/geom/Circle.js"></script>
+        <script src="/phaser/src/geom/Point.js"></script>
+        <script src="/phaser/src/geom/Rectangle.js"></script>
+        <script src="/phaser/src/geom/Line.js"></script>
+        <script src="/phaser/src/geom/Ellipse.js"></script>
+        <script src="/phaser/src/geom/Polygon.js"></script>
         <script src="/phaser/src/core/Camera.js"></script>
         <script src="/phaser/src/core/State.js"></script>
         <script src="/phaser/src/core/StateManager.js"></script>
+        <script src="/phaser/src/core/ArrayList.js"></script>
         <script src="/phaser/src/core/LinkedList.js"></script>
         <script src="/phaser/src/core/Signal.js"></script>
         <script src="/phaser/src/core/SignalBinding.js"></script>
@@ -85,12 +90,14 @@
         <script src="/phaser/src/gameobjects/Graphics.js"></script>
         <script src="/phaser/src/gameobjects/RenderTexture.js"></script>
         <script src="/phaser/src/gameobjects/SpriteBatch.js"></script>
-        <script src="/phaser/src/gameobjects/BitmapFont.js"></script>
+        <script src="/phaser/src/gameobjects/RetroFont.js"></script>
+        <script src="/phaser/src/gameobjects/Particle.js"></script>
         <script src="/phaser/src/system/Canvas.js"></script>
         <script src="/phaser/src/system/Device.js"></script>
         <script src="/phaser/src/system/RequestAnimationFrame.js"></script>
         <script src="/phaser/src/math/Math.js"></script>
         <script src="/phaser/src/math/RandomDataGenerator.js"></script>
+        <script src="/phaser/src/math/QuadTree.js"></script>
         <script src="/phaser/src/net/Net.js"></script>
         <script src="/phaser/src/tween/TweenManager.js"></script>
         <script src="/phaser/src/tween/Tween.js"></script>
@@ -110,14 +117,7 @@
         <script src="/phaser/src/sound/SoundManager.js"></script>
         <script src="/phaser/src/utils/Debug.js"></script>
         <script src="/phaser/src/utils/Color.js"></script>
-        <script src="/phaser/src/physics/World.js"></script>
-        <script src="/phaser/src/physics/PointProxy.js"></script>
-        <script src="/phaser/src/physics/InversePointProxy.js"></script>
-        <script src="/phaser/src/physics/Body.js"></script>
-        <script src="/phaser/src/physics/Spring.js"></script>
-        <script src="/phaser/src/physics/Material.js"></script>
-        <script src="/phaser/src/physics/ContactMaterial.js"></script>
-        <script src="/phaser/src/physics/CollisionGroup.js"></script>
+        <script src="/phaser/src/physics/Physics.js"></script>
         <script src="/phaser/src/particles/Particles.js"></script>
         <script src="/phaser/src/particles/arcade/ArcadeParticles.js"></script>
         <script src="/phaser/src/particles/arcade/Emitter.js"></script>
@@ -126,11 +126,10 @@
         <script src="/phaser/src/tilemap/TilemapLayer.js"></script>
         <script src="/phaser/src/tilemap/TilemapParser.js"></script>
         <script src="/phaser/src/tilemap/Tileset.js"></script>
-        <script src="/phaser/examples/wip/bmd.js" type="text/javascript"></script>
+        <script src="/phaser/src/physics/arcade/World.js"></script>
+        <script src="/phaser/src/physics/arcade/Body.js"></script>
+        <script src="/phaser-examples/examples/wip/cocoon-tilesprites.js" type="text/javascript"></script>
     </head>
     <body>
-
-        <div id="phaser-example"></div>
-
     </body>
 </html>
