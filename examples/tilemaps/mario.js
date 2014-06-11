@@ -26,6 +26,8 @@ function create() {
 
     layer.resizeWorld();
 
+    layer.wrap = true;
+
     cursors = game.input.keyboard.createCursorKeys();
 
 }

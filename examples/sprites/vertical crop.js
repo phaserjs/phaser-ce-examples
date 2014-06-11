@@ -14,17 +14,19 @@ function create() {
 
     pic.anchor.setTo(0.5, 1);
 
-    
-	cropRect = {x : 0, y : 0 , width : pic.width, height : 0};
+    cropRect = new Phaser.Rectangle(0, 0, pic.width, 0);
 
     //	Here we'll tween the crop rect, from a height of zero to full height, and back again
-    game.add.tween(cropRect).to( { height: pic.height }, 3000, Phaser.Easing.Bounce.Out, true, 0, 1000, true);
+    var tween = game.add.tween(cropRect).to( { height: pic.height }, 3000, Phaser.Easing.Bounce.Out, false, 0, 1000, true);
+
+    pic.crop(cropRect);
+
+    tween.start();
 
 }
 
 function update () {
-    //  the crop method takes a rectangle object as a parameter
-    pic.crop(cropRect);
+
+    pic.updateCrop();
+
 }
-
-

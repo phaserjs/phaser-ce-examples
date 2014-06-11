@@ -128,6 +128,7 @@
         <meta charset="UTF-8" />
         <title>phaser</title>
         <script src="_site/js/jquery-2.0.3.min.js" type="text/javascript"></script>
+        <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />
         <?php
             $path = '../../phaser';
             require('../../phaser/build/config.php');
@@ -136,6 +137,13 @@
             body {
                 font-family: Arial;
                 font-size: 14px;
+                background-color: #000000;
+                color: #fff;
+            }
+
+            a {
+                color: #fff;
+                text-decoration: none;
             }
 
             input {

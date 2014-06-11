@@ -92,7 +92,8 @@ function updatePadsButtonsAxes(rawPad, padStateText, num) {
     if(rawPad) {
         var txt = 'Pad '+num+' buttons/axes: \n';
         for (var i = 0; i < rawPad.buttons.length; i += 1) {
-            txt += 'Button '+i+': '+rawPad.buttons[i]+'\n';
+            // txt += 'Button '+i+': '+rawPad.buttons[i].pressed+'\n';
+            txt += 'Button '+i+': '+rawPad.buttons[i].value+'\n';
         }
         for (var i = 0; i < rawPad.axes.length; i += 1) {
             txt += 'Axis '+i+': '+rawPad.axes[i]+'\n';
