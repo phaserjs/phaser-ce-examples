@@ -12,6 +12,8 @@ function create() {
     // Create a ufo sprite as player.
     ufo = game.add.sprite(320, 240, 'ufo');
     ufo.anchor.setTo(0.5, 0.5);
+	
+	game.physics.enable(ufo,Phaser.Physics.ARCADE);
 
     // Use Austin Hallock's HTML5 Virtual Game Controller
     // https://github.com/austinhallock/html5-virtual-game-controller/
