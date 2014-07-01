@@ -59,6 +59,10 @@
       "title": "asteroids movement"
     },
     {
+      "file": "body+enable.js",
+      "title": "body enable"
+    },
+    {
       "file": "body+scale.js",
       "title": "body scale"
     },
@@ -243,6 +247,10 @@
       "file": "06+-+render+text.js",
       "title": "06 - render text",
       "jsbin": "http://jsbin.com/zagob/11/edit?js,output"
+    },
+    {
+      "file": "06+-+render+text.js",
+      "title": "06 - render text"
     }
   ],
   "buttons": [
@@ -313,6 +321,10 @@
   ],
   "demoscene": [
     {
+      "file": "atari+intro.js",
+      "title": "atari intro"
+    },
+    {
       "file": "raster+bounce.js",
       "title": "raster bounce"
     }
@@ -323,8 +335,20 @@
       "title": "alpha mask"
     },
     {
+      "file": "bitmapdata+atlas.js",
+      "title": "bitmapdata atlas"
+    },
+    {
+      "file": "bitmapdata+copy+pixels.js",
+      "title": "bitmapdata copy pixels"
+    },
+    {
       "file": "bitmapdata+draw.js",
       "title": "bitmapdata draw"
+    },
+    {
+      "file": "bitmapdata+extract.js",
+      "title": "bitmapdata extract"
     },
     {
       "file": "bitmapdata+flood+fill.js",
@@ -357,6 +381,10 @@
     {
       "file": "bitmapdata+set+hsl.js",
       "title": "bitmapdata set hsl"
+    },
+    {
+      "file": "bitmapdata+set+pixel.js",
+      "title": "bitmapdata set pixel"
     },
     {
       "file": "bitmapdata+wobble.js",
@@ -649,6 +677,10 @@
       "title": "gamepad analog button"
     },
     {
+      "file": "gamepad+buttons.js",
+      "title": "gamepad buttons"
+    },
+    {
       "file": "gamepad+debug.js",
       "title": "gamepad debug"
     },
@@ -742,6 +774,10 @@
     }
   ],
   "loader": [
+    {
+      "file": "asset+pack.js",
+      "title": "asset pack"
+    },
     {
       "file": "check+cache.js",
       "title": "check cache"
@@ -1021,6 +1057,10 @@
       "title": "add several sprites"
     },
     {
+      "file": "anchor.js",
+      "title": "anchor"
+    },
+    {
       "file": "collide+world+bounds.js",
       "title": "collide world bounds"
     },
@@ -1171,10 +1211,6 @@
     {
       "file": "tiling+sprite+atlas.js",
       "title": "tiling sprite atlas"
-    },
-    {
-      "file": "tiling+sprite+sprite+sheet.js",
-      "title": "tiling sprite sprite sheet"
     },
     {
       "file": "tiling+sprite.js",
