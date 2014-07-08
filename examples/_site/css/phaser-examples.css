@@ -32,9 +32,8 @@ ul.nav-links > li > a:hover{text-decoration: underline;}
 .link-docs{background-position: 0 -97px;}
 .link-twitter{background-position: 0 -127px;}
 .phaser-examples{background: url('../../_site/images/phaser-examples.png') no-repeat; display: block; width: 485px; height: 205px; margin: 20px auto;}
-.phaser-version{float: right; background: url('../../_site/images/phaser-version.png') no-repeat; display: block; width: 345px; height: 30px; color: #fff; font-size: 11px; text-shadow: 1px 1px #000; right:0; top:0; }
+.phaser-version{float: right; background: url('../../_site/images/phaser-version.png') no-repeat; display: block; width: 358px; height: 30px; color: #fff; font-size: 11px; text-shadow: 1px 1px #000; right:0; top:0; }
 .phaser-version > span{margin-top: 10px; display: inline-block; margin-left: 60px; margin-right: 25px;}
-.phaser-version > a {color: #fff; text-decoration: none; background: url('../../_site/images/version-button.png') no-repeat; background-size: cover; display: inline-block; width: 123px; height: 10px; vertical-align: middle; text-align: center;padding-top:11px; padding-bottom: 11px}
 .phaser-version > a:hover{text-decoration: underline;}
 .phaser-logo{display: block; float: right; width: 168px;height: 144px; background: url('../../_site/images/phaser-logo.png') no-repeat; margin-top: 40px; margin-right: 40px;}
 

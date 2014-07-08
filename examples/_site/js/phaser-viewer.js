@@ -10,17 +10,28 @@ $(document).ready(function(){
 
 	$("#title").append(title);
 
+	$(".phaser-version span").html("Phaser verison: " + phaser_version)
+	// Gets a list of git tags, i.e Phaser.js verisons and creates a dropdown for them. 
+	// on selecting the page will reload and load the select verison of github.
 	$.get( "https://api.github.com/repos/photonstorm/phaser/git/refs/tags", function( data ) {
-		var tags = [];
+		var tags = ['dev'];
 		for (var i = data.length - 1; i >= 0; i--) {
 			tags.push(data[i]['ref'].replace('refs/tags/',''))
 		};
 		var $element = $('.phaser-version');
-		var $dropdown = $("<select></select>").attr("id", "phaser-version-select").on('change', function() {
-			$.url().param('phaser_version',this.value);
-    		window.location.href = window.location.href;
+		var $dropdown = $("<select></select>").on('change', function() {
+
+			var params = $.url().param();
+			params['phaser_version'] = this.value;
+			var url = "http://" + window.location.host + window.location.pathname + '?'
+			for( p in params){
+				url += p + "=" + params[p] + "&"
+			}
+			window.location.href = url;
+    		
 		})
 		$element.append($dropdown);
+		$dropdown.append($("<option></option>").text("Select a verison to load"));
 		$.each(tags, function(key, value) {
 			$dropdown.append($("<option></option>").attr("value",value).text(value));
 		});
@@ -77,18 +88,6 @@ $(document).ready(function(){
 			$('#phaser-example').append(node);
 
 		});
-	});
-
-	$.getJSON("http://phaser.io/version.json")
-
-	.done(function(data) {
-
-		if (data.version !== '2.0.5')
-		{
-			$("#upgrade").append(data.version);
-			$("#upgrade").css('display', 'inline-block');
-		}
-
 	});
 
 });
