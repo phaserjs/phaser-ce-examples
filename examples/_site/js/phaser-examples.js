@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-
 	$.getJSON("_site/examples.json")
 
 	.done(function(data) {
@@ -58,7 +57,7 @@ $(document).ready(function(){
 				}else{
 					node += '<li><a href="_site/view_full.html?d=' + dir + '&amp;f=' + files[e].file + '&amp;t=' + files[e].title + '">' + files[e].title + '</a></li>';
 				}
-
+				
 	            t++;
 			}
 

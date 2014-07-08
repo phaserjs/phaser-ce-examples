@@ -3,16 +3,21 @@ $(document).ready(function(){
 	var dir = $.url().param('d');
 	var file = $.url().param('f');
 	var title = $.url().param('t');
-	var phaser_version = $.url().param('phaser_version');
-	var phaser_lib_url = "_site/js/phaser.js"
 
 	document.title = 'phaser - ' + title;
-
 	$("#title").append(title);
 
-	$(".phaser-version span").html("Phaser verison: " + phaser_version)
 	// Gets a list of git tags, i.e Phaser.js verisons and creates a dropdown for them. 
 	// on selecting the page will reload and load the select verison of github.
+	var phaser_version = $.url().param('phaser_version');
+	var local_copy_of_phaser = "_site/js/phaser.js"
+	var local_copy_of_phaser_version = "2.0.5"
+	var phaser_lib_url = local_copy_of_phaser;
+	var phaser_version_update = function(phaser_version) {
+		$(".phaser-version span").html("Phaser verison: " + phaser_version)
+	};
+
+	phaser_version_update(phaser_version)
 	$.get( "https://api.github.com/repos/photonstorm/phaser/git/refs/tags", function( data ) {
 		var tags = ['dev'];
 		for (var i = data.length - 1; i >= 0; i--) {
@@ -41,17 +46,22 @@ $(document).ready(function(){
 		phaser_lib_url = "https://rawgit.com/photonstorm/phaser/" + phaser_version + "/build/phaser.js"
 	}
 	$.getScript(phaser_lib_url).done(function( script, textStatus ) {
-		$.getScript(dir + "/" + file)
-		.done(function(script, textStatus) {
+		load_example_code();
+	}).fail(function(jqxhr, settings, exception) {
+		$.getScript(local_copy_of_phaser).done(function( script, textStatus ) {
+			load_example_code();
+			phaser_version_update(local_copy_of_phaser_version);
+		})
+	});
 
-			$.ajax({ url: dir + "/" + file, dataType: "text" })
-				.done(function(data) {
-					$("#sourcecode").text(data);
-					$.getScript("_site/js/run_prettify.js");
-				});
+	var load_example_code = function () {		
+		$.getScript(dir + "/" + file).done(function(script, textStatus) {
+			$.ajax({ url: dir + "/" + file, dataType: "text" }).done(function(data) {
+				$("#sourcecode").text(data);
+				$.getScript("_site/js/run_prettify.js");
+			});
 
 			//	Hook up the control panel
-
 			$(".pause-button").click(function() {
 				if (game.paused)
 				{
@@ -78,16 +88,11 @@ $(document).ready(function(){
 				document.location.reload(true);
 			});
 
-		})
-		.fail(function(jqxhr, settings, exception) {
-
+		}).fail(function(jqxhr, settings, exception) {
 			$("#title").text("Error");
-
 			var node = '<p>Unable to load <u>' + dir + '/' + file + '</u></p>';
-
 			$('#phaser-example').append(node);
-
 		});
-	});
+	}
 
 });
