@@ -57,7 +57,7 @@ function updateAnchor() {
 
 function render() {
 
-    game.debug.geom(point, 'rgb(255,0,255)');
+    game.debug.geom(point, 'rgb(0,255,0)');
 
     game.debug.text('Anchor X: ' + sprite.anchor.x.toFixed(1) + ' Y: ' + sprite.anchor.y.toFixed(1), 32, 32);
     game.debug.text('Sprite X: ' + sprite.x + ' Y: ' + sprite.y, 32, 64);

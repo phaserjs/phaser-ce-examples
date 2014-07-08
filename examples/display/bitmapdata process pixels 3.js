@@ -40,9 +40,9 @@ function forEachPixel (pixel) {
     * If a new color object is returned the pixel will be set to the r, g, b and a color values given within it.
     */
 
-	pixel.r = pixel.r;
-	pixel.g = pixel.r;
-	pixel.b = pixel.r;
+	pixel.r = 255 - pixel.r;
+	pixel.g = 255 - pixel.g;
+	pixel.b = 255 - pixel.b;
 
 	return pixel;
 

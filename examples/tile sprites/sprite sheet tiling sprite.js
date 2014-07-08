@@ -1,34 +1,27 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
 var tilesprite;
-var cursors;
 var count = 0;
 
 function preload() {
 
-    game.load.image('starfield', 'assets/misc/starfield.jpg');
-    game.load.spritesheet('mummy', 'assets/sprites/metalslug_mummy37x45.png', 37, 45, 18);
-    game.load.atlas('seacreatures', 'assets/sprites/seacreatures_json.png', 'assets/sprites/seacreatures_json.json');
+    game.load.spritesheet('mummy', 'assets/sprites/cards80x112.png', 80, 112);
 
 }
 
 var sprite;
+var cursors;
 
 function create() {
 
-    // sprite = game.add.tileSprite(0, 0, 800, 600, 'mummy');
-    // sprite.animations.add('walk');
-    // sprite.animations.play('walk', 20, true);
+    //  'mummy' is a sprite sheet in the cache
+    //  10 is frame 10 from the sprite sheet
+    sprite = game.add.tileSprite(0, 0, 800, 600, 'mummy', 10);
 
-    sprite = game.add.tileSprite(0, 0, 800, 600, 'seacreatures', 'octopus0002');
-    // sprite.animations.add('swim', Phaser.Animation.generateFrameNames('octopus', 0, 24, '', 4), 30, true);
-    // sprite.animations.play('swim');
-
-
-    cursors = game.input.keyboard.createCursorKeys();
-
+	cursors = game.input.keyboard.createCursorKeys();
 }
+
 
 function update() {
 
