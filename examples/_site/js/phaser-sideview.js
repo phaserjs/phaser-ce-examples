@@ -44,6 +44,10 @@ $(document).ready(function(){
 		//	iFrame focus
 		$('a').click(function(e) { $('#viewer').focus(); });
 
+		//  Fix for Chrome ignoring iFrame target links (also occurs with Firefox 29)
+		//  See this issue: https://code.google.com/p/chromium/issues/detail?id=135498
+		function renderInFrame(e) { e.preventDefault(); $('#viewer').prop('src', $(this).attr('href')); }
+		$('a[target=viewer]').on('click', renderInFrame);
 	})
 
 	.fail(function() {
