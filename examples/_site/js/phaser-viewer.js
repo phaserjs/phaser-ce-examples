@@ -16,7 +16,6 @@ $(document).ready(function(){
 		$(".phaser-version span").html("Phaser verison: " + phaser_version)
 	};
 
-	
 	$.get( "https://api.github.com/repos/photonstorm/phaser/git/refs/tags", function( data ) {
 		var tags = ['dev'];
 		for (var i = data.length - 1; i >= 0; i--) {
@@ -41,7 +40,6 @@ $(document).ready(function(){
 		});
 	});
 
-	
 	var phaser_lib_url = "https://rawgit.com/photonstorm/phaser/" + phaser_version + "/build/phaser.js"
 	$.getScript(phaser_lib_url).done(function( script, textStatus ) {
 		load_example_code();
