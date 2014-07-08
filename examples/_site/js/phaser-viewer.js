@@ -12,12 +12,11 @@ $(document).ready(function(){
 	var phaser_version = $.url().param('phaser_version');
 	var local_copy_of_phaser = "_site/js/phaser.js"
 	var local_copy_of_phaser_version = "2.0.5"
-	var phaser_lib_url = local_copy_of_phaser;
 	var phaser_version_update = function(phaser_version) {
 		$(".phaser-version span").html("Phaser verison: " + phaser_version)
 	};
 
-	phaser_version_update(phaser_version)
+	
 	$.get( "https://api.github.com/repos/photonstorm/phaser/git/refs/tags", function( data ) {
 		var tags = ['dev'];
 		for (var i = data.length - 1; i >= 0; i--) {
@@ -36,19 +35,20 @@ $(document).ready(function(){
     		
 		})
 		$element.append($dropdown);
-		$dropdown.append($("<option></option>").text("Select a verison to load"));
+		$dropdown.append($("<option></option>").text("Select a verison"));
 		$.each(tags, function(key, value) {
 			$dropdown.append($("<option></option>").attr("value",value).text(value));
 		});
 	});
 
-	if(phaser_version){
-		phaser_lib_url = "https://rawgit.com/photonstorm/phaser/" + phaser_version + "/build/phaser.js"
-	}
+	
+	var phaser_lib_url = "https://rawgit.com/photonstorm/phaser/" + phaser_version + "/build/phaser.js"
 	$.getScript(phaser_lib_url).done(function( script, textStatus ) {
 		load_example_code();
+		phaser_version_update(phaser_version)
 	}).fail(function(jqxhr, settings, exception) {
 		$.getScript(local_copy_of_phaser).done(function( script, textStatus ) {
+			console.log("Failed to load Phaser.js from github, falling back to local copy")
 			load_example_code();
 			phaser_version_update(local_copy_of_phaser_version);
 		})
