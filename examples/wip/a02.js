@@ -76,18 +76,17 @@ function create() {
     // sprite2.x = 0;
     // sprite2.crop(new Phaser.Rectangle(0, 0, 60, 100));
 
-    sprite2.x = 0;
+    // sprite2.x = 0;
     // sprite2.scale.set(0.5);
     // sprite2.anchor.x = 1;
 
-    r = new Phaser.Rectangle(0, 0, 20, 100);
-
-    // sprite2.crop(r);
+    r = new Phaser.Rectangle(0, 0, 30, 30);
+    sprite2.crop(r);
 
     sprite4 = game.add.sprite(400, 200, 'atlas', 'greenJellyfish0000');
     sprite4.animations.add('swim', Phaser.Animation.generateFrameNames('greenJellyfish', 0, 38, '', 4), 20, true);
     sprite4.animations.play('swim');
-    sprite4.crop(r);
+    // sprite4.crop(r);
 
 
 
@@ -96,11 +95,11 @@ function create() {
 
 function update() {
 
-    if (r.x < 120)
-    {
-        r.x += 0.5;
-        sprite4.crop(r);
-    }
+    // if (r.x < 120)
+    // {
+        // r.x += 0.5;
+        // sprite4.crop(r);
+    // }
 
 }
 

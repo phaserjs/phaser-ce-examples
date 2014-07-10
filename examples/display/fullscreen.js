@@ -29,7 +29,14 @@ function create() {
 
 function gofull() {
 
-    game.scale.startFullScreen();
+    if (game.scale.isFullScreen)
+    {
+        game.scale.stopFullScreen();
+    }
+    else
+    {
+        game.scale.startFullScreen();
+    }
 
 }
 

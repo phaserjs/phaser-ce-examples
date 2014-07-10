@@ -15,7 +15,7 @@ function create() {
 
     r = new Phaser.Rectangle(0, 0, 320, 50);
 
-    atari = game.add.sprite(200, 200, 'pic');
+    atari = game.add.image(200, 200, 'pic');
 
     // atari.anchor.set(0.5);
     // atari.tint = Math.random() * 0xffffff;
@@ -45,6 +45,6 @@ function update() {
 function render() {
 
     // game.debug.geom(atari.getBounds());
-    game.debug.spriteInfo(atari, 32, 32);
+    // game.debug.spriteInfo(atari, 32, 32);
 
 }

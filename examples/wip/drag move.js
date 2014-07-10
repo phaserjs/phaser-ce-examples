@@ -42,6 +42,8 @@ function create() {
 
 function blockDragStop(item, pointer) {
 
+    console.log('onDragStop');
+
     game.add.tween(item).to({x: item.originX, y: item.originY }, 400, Phaser.Easing.Back.Out, true);
 
 }

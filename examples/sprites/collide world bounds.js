@@ -20,9 +20,9 @@ function create() {
 
         //This allows your sprite to collide with the world bounds like they were rigid objects
         pineapple.body.collideWorldBounds=true;
-        pineapple.body.gravity.x = game.rnd.integerInRange(-5,5);
-        pineapple.body.gravity.y = 5 + Math.random() * 10;
-        pineapple.body.bounce.setTo(0.7,0.4);
+        pineapple.body.gravity.x = game.rnd.integerInRange(-50, 50);
+        pineapple.body.gravity.y = 100 + Math.random() * 100;
+        pineapple.body.bounce.setTo(0.9, 0.9);
     }
 
 }

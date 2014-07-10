@@ -62,12 +62,11 @@ function updateBitmapDataTexture() {
 
     //  createRadialGradient parameters: x, y, innerRadius, x, y, outerRadius
     var radgrad = bmd.ctx.createRadialGradient(32, 32, 4, 32, 32, 32);
+    var c = Phaser.Color.getRGB(Phaser.Color.getRandomColor(0, 255, 255));
 
-    var c1 = Phaser.Color.getWebRGB(Phaser.Color.getRandomColor(0, 255, 255));
-    var c2 = Phaser.Color.getWebRGB(Phaser.Color.getRandomColor(0, 255, 0));
-
-    radgrad.addColorStop(0, c1);
-    radgrad.addColorStop(1, c2);
+    radgrad.addColorStop(0, Phaser.Color.getWebRGB(c));
+    c.a = 0;
+    radgrad.addColorStop(1, Phaser.Color.getWebRGB(c));
 
     bmd.context.fillStyle = radgrad;
     bmd.context.fillRect(0, 0, 64, 64);

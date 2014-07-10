@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
 
 var emitter;
 
@@ -12,9 +12,11 @@ function preload() {
 
 function create() {
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     game.add.tileSprite(0, 344, 800, 256, 'water');
 
-    emitter = game.add.emitter(game.world.centerX, 200, 250);
+    emitter = game.add.emitter(game.world.centerX, 200);
 
     emitter.makeParticles('glass');
 

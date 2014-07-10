@@ -27,6 +27,12 @@ function create() {
 
     game.camera.follow(player);
 
+    //  The deadzone is a Rectangle that defines the limits at which the camera will start to scroll
+    //  It does NOT keep the target sprite within the rectangle, all it does is control the boundary
+    //  at which the camera will start to move. So when the sprite hits the edge, the camera scrolls
+    //  (until it reaches an edge of the world)
+    game.camera.deadzone = new Phaser.Rectangle(100, 100, 600, 400);
+
 }
 
 function update() {
@@ -54,6 +60,11 @@ function update() {
 }
 
 function render() {
+
+    var zone = game.camera.deadzone;
+
+    game.context.fillStyle = 'rgba(255,0,0,0.6)';
+    game.context.fillRect(zone.x, zone.y, zone.width, zone.height);
 
     game.debug.cameraInfo(game.camera, 32, 32);
     game.debug.spriteCoords(player, 32, 500);
