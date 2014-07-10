@@ -9,6 +9,14 @@
       "title": "change texture on click"
     },
     {
+      "file": "dragon+bones.js",
+      "title": "dragon bones"
+    },
+    {
+      "file": "dragonBones.js",
+      "title": "dragonBones"
+    },
+    {
       "file": "group+creation.js",
       "title": "group creation"
     },
@@ -25,16 +33,16 @@
       "title": "multiple anims"
     },
     {
+      "file": "phaser_dragonbones.js",
+      "title": "phaser_dragonbones"
+    },
+    {
       "file": "sprite+sheet.js",
       "title": "sprite sheet"
     },
     {
       "file": "starling+atlas.js",
       "title": "starling atlas"
-    },
-    {
-      "file": "dragon+bones.js",
-      "title": "dragon bones"
     }
   ],
   "arcade physics": [
@@ -255,6 +263,10 @@
       "file": "06+-+render+text.js",
       "title": "06 - render text",
       "jsbin": "http://jsbin.com/zagob/11/edit?js,output"
+    },
+    {
+      "file": "06+-+render+text.js",
+      "title": "06 - render text"
     }
   ],
   "buttons": [
@@ -283,6 +295,14 @@
     {
       "file": "camera+cull.js",
       "title": "camera cull"
+    },
+    {
+      "file": "camera+view.js",
+      "title": "camera view"
+    },
+    {
+      "file": "deadzone.js",
+      "title": "deadzone"
     },
     {
       "file": "follow+styles.js",
@@ -545,6 +565,10 @@
     {
       "file": "call+all+animations.js",
       "title": "call all animations"
+    },
+    {
+      "file": "call+all+input.js",
+      "title": "call all input"
     },
     {
       "file": "call+all.js",
@@ -825,6 +849,10 @@
   ],
   "misc": [
     {
+      "file": "device.js",
+      "title": "device"
+    },
+    {
       "file": "net.js",
       "title": "net"
     },
@@ -873,6 +901,10 @@
       "title": "body click"
     },
     {
+      "file": "body+debug.js",
+      "title": "body debug"
+    },
+    {
       "file": "chain.js",
       "title": "chain"
     },
@@ -917,6 +949,10 @@
       "title": "kill and revive"
     },
     {
+      "file": "kinematic+body.js",
+      "title": "kinematic body"
+    },
+    {
       "file": "load+polygon+1.js",
       "title": "load polygon 1"
     },
@@ -951,10 +987,6 @@
     {
       "file": "static+body.js",
       "title": "static body"
-    },
-    {
-      "file": "kinematic+body.js",
-      "title": "kinematic body"
     },
     {
       "file": "thrust.js",
@@ -1121,6 +1153,10 @@
       "title": "sprite rotation"
     },
     {
+      "file": "sprite+tint.js",
+      "title": "sprite tint"
+    },
+    {
       "file": "spritesheet.js",
       "title": "spritesheet"
     },
@@ -1177,6 +1213,10 @@
     {
       "file": "set+properties+after+creation.js",
       "title": "set properties after creation"
+    },
+    {
+      "file": "text+events.js",
+      "title": "text events"
     },
     {
       "file": "text+gradient.js",

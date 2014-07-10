@@ -17,9 +17,9 @@ function create() {
 
     r = new Phaser.Rectangle(0, 0, 320, 10);
 
-    sprite = game.add.sprite(400, 200, 'atlas', 'greenJellyfish0000');
-    sprite.animations.add('swim', Phaser.Animation.generateFrameNames('greenJellyfish', 0, 38, '', 4), 20, true);
-    sprite.animations.play('swim');
+    sprite = game.add.image(400, 200, 'atlas', 'greenJellyfish0000');
+    // sprite.animations.add('swim', Phaser.Animation.generateFrameNames('greenJellyfish', 0, 38, '', 4), 20, true);
+    // sprite.animations.play('swim');
 
     sprite.crop(r);
 

@@ -20,37 +20,33 @@ function create() {
 
     game.stage.backgroundColor = '#736357';
 
+    setupScene();
+
     game.input.gamepad.start();
 
     pad = game.input.gamepad.pad1;
 
-    setupScene();
+    pad.addCallbacks(this, { onConnect: addButtons });
 
-    /*
-        Here we see two ways to get similar result. Left trigger is via 'hotkey button' style and using Phaser Signals.
-        Right trigger is via callbacks. NOTE the difference in the callback functions - right trigger must make a check
-        for which button we're listening to.
-     */
+}
 
-    leftTriggerButton = pad.addButton(Phaser.Gamepad.XBOX360_LEFT_TRIGGER);
+function addButtons() {
+
+    leftTriggerButton = pad.getButton(Phaser.Gamepad.XBOX360_LEFT_TRIGGER);
 
     leftTriggerButton.onDown.add(onLeftTrigger);
     leftTriggerButton.onUp.add(onLeftTrigger);
     leftTriggerButton.onFloat.add(onLeftTrigger);
 
-    // game.input.gamepad.pad1.addCallbacks(this, {
-    //     onFloat:onRightTrigger,
-    //     onUp: onRightTrigger,
-    //     onDown: onRightTrigger
-    // });
+    rightTriggerButton = pad.getButton(Phaser.Gamepad.XBOX360_RIGHT_TRIGGER);
 
-    // console.log(pad);
+    rightTriggerButton.onDown.add(onRightTrigger);
+    rightTriggerButton.onUp.add(onRightTrigger);
+    rightTriggerButton.onFloat.add(onRightTrigger);
 
 }
 
 function onLeftTrigger(button, value) {
-
-    console.log(pad);
 
     leftTriggerGfx.clear();
     leftTriggerGfx.beginFill(0xFF700B, 1);
@@ -59,10 +55,7 @@ function onLeftTrigger(button, value) {
     leftTriggerGfx.endFill();
 }
 
-function onRightTrigger(buttonCode,value) {
-    if(buttonCode !== Phaser.Gamepad.XBOX360_RIGHT_TRIGGER) {
-        return;
-    }
+function onRightTrigger(buttonCode, value) {
 
     rightTriggerGfx.clear();
     rightTriggerGfx.beginFill(0xFF700B, 1);
