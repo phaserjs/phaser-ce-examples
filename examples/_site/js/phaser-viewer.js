@@ -7,13 +7,13 @@ $(document).ready(function(){
 	document.title = 'phaser - ' + title;
 	$("#title").append(title);
 
-	// Gets a list of git tags, i.e Phaser.js verisons and creates a dropdown for them. 
-	// on selecting the page will reload and load the select verison of github.
+	// Gets a list of git tags, i.e Phaser.js versions and creates a dropdown for them. 
+	// on selecting the page will reload and load the select version of github.
 	var phaser_version = $.url().param('phaser_version');
 	var local_copy_of_phaser = "_site/js/phaser.js"
 	var local_copy_of_phaser_version = "2.0.6"
 	var phaser_version_update = function(phaser_version) {
-		$(".phaser-version span").html("Phaser verison: " + phaser_version)
+		$(".phaser-version span").html("Phaser version: " + phaser_version)
 	};
 
 	$.get( "https://api.github.com/repos/photonstorm/phaser/git/refs/tags", function( data ) {
@@ -34,7 +34,7 @@ $(document).ready(function(){
     		
 		})
 		$element.append($dropdown);
-		$dropdown.append($("<option></option>").text("Select a verison"));
+		$dropdown.append($("<option></option>").text("Select a version"));
 		$.each(tags, function(key, value) {
 			$dropdown.append($("<option></option>").attr("value",value).text(value));
 		});
