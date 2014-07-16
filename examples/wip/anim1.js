@@ -3,25 +3,28 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 
 function preload() {
 
-    game.load.spritesheet('mummy', '../assets/sprites/metalslug_mummy37x45.png', 37, 45, 18);
+    game.load.image('ball', 'assets/demoscene/blue_ball.png');
 
 }
 
-var mummy;
-var anim;
+var balls;
 
 function create() {
 
-	game.stage.backgroundColor = 0xff8855;
+	// game.stage.backgroundColor = 0xff8855;
+    
+    var ox = 200;
+    var oy = 200;
+    var spacing = 32;
 
-    mummy = game.add.sprite(300, 200, 'mummy', 5);
+    for (var y = 0; y < 16; y++)
+    {
+        for (var x = 0; x < 16; x++)
+        {
+            game.add.sprite(ox + (spacing * x), oy + (spacing * y), 'ball');
+        }
 
-    mummy.animations.updateIfVisible = false;
-
-    anim = mummy.animations.add('walk');
-
-    anim.play(2, false);
-    // anim.play(2, true);
+    }
 
 }
 
@@ -31,6 +34,4 @@ function update() {
 
 function render() {
 
-	game.debug.text(anim.frame + ' / 17', 32, 32);
-	
 }

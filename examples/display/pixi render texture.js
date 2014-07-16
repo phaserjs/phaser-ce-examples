@@ -1,7 +1,8 @@
 //	Original version by @author Mat Groves http://matgroves.com/ @Doormat23 from the Pixi.js examples
 //	Ported to Phaser by Richard Davey
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update });
+// var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
 

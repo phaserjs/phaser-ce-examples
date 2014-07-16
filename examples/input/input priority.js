@@ -23,17 +23,21 @@ function create() {
 
     var manga = game.add.sprite(100, 100, 'manga');
     manga.inputEnabled = true;
-    manga.input.enableDrag();
+    manga.input.enableDrag(false, false, true); // true = run a pixel perfect check ONLY when you click on the Sprite
+    // manga.input.pixelPerfectOver = true;
     manga.input.priorityID = 2;
 
     var disk = game.add.sprite(200, 200, 'disk');
+    disk.alpha = 0.7;
     disk.inputEnabled = true;
-    disk.input.enableDrag();
+    disk.input.enableDrag(false, false, true);
+    // disk.input.pixelPerfectOver = true;
     disk.input.priorityID = 1;
 
     var card = game.add.sprite(300, 300, 'card');
     card.inputEnabled = true;
-    card.input.enableDrag();
+    card.input.enableDrag(false, false, true);
+    // card.input.pixelPerfectOver = true;
     card.input.priorityID = 0;
 
 }
