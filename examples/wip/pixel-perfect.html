@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />
+        <title>phaser pixel art scale-up hack</title>
+        <script src="phaser.js" type="text/javascript"></script>
+        <style>
+            body {
+                background-color: #c0beba;
+                font-family: Arial;
+                font-size: 14px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Phaser Pixel Up-Scaling</h1>
+
+        <p>This game is running in 160 x 144, scaled up x4.</p>
+
+        <p>See the associated <a href="http://www.photonstorm.com/phaser/pixel-perfect-scaling-a-phaser-game">blog post</a>.</p>
+
+        <script type="text/javascript">
+
+        //  Two important things: 1) You must use Phaser.CANVAS as the display type and 2) Pass an empty string as the DOM parent
+        var game = new Phaser.Game(160, 144, Phaser.CANVAS, '', { init: init, preload: preload, create: create, render: render });
+
+        var pixel = { scale: 4, canvas: null, context: null, width: 0, height: 0 }
+
+        function init() {
+
+            //  Hide the un-scaled game canvas
+            game.canvas.style['display'] = 'none';
+
+            //  Create our scaled canvas. It will be the size of the game * whatever scale value you've set
+            pixel.canvas = Phaser.Canvas.create(game.width * pixel.scale, game.height * pixel.scale);
+
+            //  Store a reference to the Canvas Context
+            pixel.context = pixel.canvas.getContext('2d');
+
+            //  Add the scaled canvas to the DOM
+            Phaser.Canvas.addToDOM(pixel.canvas);
+
+            //  Disable smoothing on the scaled canvas
+            Phaser.Canvas.setSmoothingEnabled(pixel.context, false);
+
+            //  Cache the width/height to avoid looking it up every render
+            pixel.width = pixel.canvas.width;
+            pixel.height = pixel.canvas.height;
+
+        }
+
+        function preload() {
+            game.load.image('pic', 'kof97.png');
+        }
+
+        function create() {
+            game.add.image(0, 0, 'pic');
+        }
+
+        function render() {
+
+            //  Every loop we need to render the un-scaled game canvas to the displayed scaled canvas:
+            pixel.context.drawImage(game.canvas, 0, 0, game.width, game.height, 0, 0, pixel.width, pixel.height);
+
+        }
+
+        </script>
+
+    </body>
+</html>

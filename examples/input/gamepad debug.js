@@ -53,6 +53,7 @@ function onStartInput() {
     } else {
         game.input.gamepad.start();
         startInputButton.setFrames(1,1,1);
+        console.log(pad1._axesLen);
     }
 }
 
