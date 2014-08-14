@@ -5,6 +5,15 @@
     {
         $v = $_GET['v'];
     }
+
+    if ($_SERVER['SERVER_ADDR'] === '192.168.0.100')
+    {
+        $embedJS = "embed-local.js";
+    }
+    else
+    {
+        $embedJS = "embed.js";
+    }
 ?>
 <!doctype html>
 <html>
@@ -17,7 +26,7 @@
         <script src="_site/phaser/blob.js" type="text/javascript"></script>
         <script src="_site/phaser/canvas-to-blob.js" type="text/javascript"></script>
         <script src="_site/phaser/filesaver.js" type="text/javascript"></script>
-        <script src="_site/phaser/embed.js" type="text/javascript"></script>
+        <script src="_site/phaser/<?php echo $embedJS ?>" type="text/javascript"></script>
         <style>
             body {
                 margin: 0;

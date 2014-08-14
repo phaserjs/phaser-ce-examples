@@ -33,7 +33,7 @@ function IDEScreenGrab()
 
 function IDECallback(event)
 {
-    if (event.origin === "http://phaser.dev" || event.origin === "http://dev.phaser.io")
+    if (event.origin === "http://phaser.dev" || event.origin === "http://phaser.io" || event.origin === "http://dev.phaser.io")
     {
         if (event.data === 'pause')
         {
@@ -73,14 +73,14 @@ $(document).ready(function() {
 
     if (isEmbed)
     {
-        window.top.postMessage('getCode', 'http://dev.phaser.io');
+        window.top.postMessage('getCode', 'http://phaser.dev');
     }
     else
     {
-        window.opener.postMessage('getCode', 'http://dev.phaser.io');
+        window.opener.postMessage('getCode', 'http://phaser.dev');
 
         window.onbeforeunload = function() {
-            window.opener.postMessage('shutdown', 'http://dev.phaser.io');
+            window.opener.postMessage('shutdown', 'http://phaser.dev');
         }
     }
 
