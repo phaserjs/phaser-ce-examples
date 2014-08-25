@@ -49,6 +49,8 @@ function IDECallback(event)
         }
         else if (event.data === 'reload')
         {
+            //  Otherwise it fires a shutdown event when the page reloads
+            window.onbeforeunload = function() {};
             window.location.reload();
         }
         else
