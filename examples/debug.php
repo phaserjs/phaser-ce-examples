@@ -137,13 +137,18 @@
             body {
                 font-family: Arial;
                 font-size: 14px;
-                background-color: #000000;
-                color: #fff;
+                /*background-color: #000000;*/
+                /*color: #fff;*/
             }
 
             a {
-                color: #fff;
+                color: #0000ff;
                 text-decoration: none;
+            }
+
+            a:Hover {
+                color: #ff0000;
+                text-decoration: underline;
             }
 
             input {
