@@ -40,7 +40,7 @@ $(document).ready(function(){
 		});
 	});
 
-	var phaser_lib_url = "https://rawgit.com/photonstorm/phaser/" + phaser_version + "/build/phaser.js"
+	var phaser_lib_url = "https://cdn.rawgit.com/photonstorm/phaser/" + phaser_version + "/build/phaser.js"
 	$.getScript(phaser_lib_url).done(function( script, textStatus ) {
 		load_example_code();
 		phaser_version_update(phaser_version)

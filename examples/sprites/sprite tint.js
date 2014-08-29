@@ -18,7 +18,7 @@ function create() {
     sprite.animations.add('swim', Phaser.Animation.generateFrameNames('greenJellyfish', 0, 38, '', 4), 30, true);
     // sprite.play('swim');
 
-    // sprite.tint = Math.random() * 0xffffff;
+    sprite.tint = Math.random() * 0xffffff;
 
     game.input.onDown.add(changeFrame, this);
 
