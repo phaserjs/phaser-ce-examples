@@ -52,25 +52,27 @@ function addButtons() {
     buttonX = pad.getButton(Phaser.Gamepad.XBOX360_X);
     buttonY = pad.getButton(Phaser.Gamepad.XBOX360_Y);
 
-    buttonDPadLeft = pad.getButton(Phaser.Gamepad.XBOX360_DPAD_LEFT);
-    buttonDPadRight = pad.getButton(Phaser.Gamepad.XBOX360_DPAD_RIGHT);
-    buttonDPadUp = pad.getButton(Phaser.Gamepad.XBOX360_DPAD_UP);
-    buttonDPadDown = pad.getButton(Phaser.Gamepad.XBOX360_DPAD_DOWN);
-
     buttonA.onDown.add(onDown, this);
     buttonB.onDown.add(onDown, this);
     buttonX.onDown.add(onDown, this);
     buttonY.onDown.add(onDown, this);
 
-    buttonDPadLeft.onDown.add(onDown, this);
-    buttonDPadRight.onDown.add(onDown, this);
-    buttonDPadUp.onDown.add(onDown, this);
-    buttonDPadDown.onDown.add(onDown, this);
-
     buttonA.onUp.add(onUp, this);
     buttonB.onUp.add(onUp, this);
     buttonX.onUp.add(onUp, this);
     buttonY.onUp.add(onUp, this);
+
+    //  These won't work in Firefox, sorry! It uses totally different button mappings
+
+    buttonDPadLeft = pad.getButton(Phaser.Gamepad.XBOX360_DPAD_LEFT);
+    buttonDPadRight = pad.getButton(Phaser.Gamepad.XBOX360_DPAD_RIGHT);
+    buttonDPadUp = pad.getButton(Phaser.Gamepad.XBOX360_DPAD_UP);
+    buttonDPadDown = pad.getButton(Phaser.Gamepad.XBOX360_DPAD_DOWN);
+
+    buttonDPadLeft.onDown.add(onDown, this);
+    buttonDPadRight.onDown.add(onDown, this);
+    buttonDPadUp.onDown.add(onDown, this);
+    buttonDPadDown.onDown.add(onDown, this);
 
     buttonDPadLeft.onUp.add(onUp, this);
     buttonDPadRight.onUp.add(onUp, this);

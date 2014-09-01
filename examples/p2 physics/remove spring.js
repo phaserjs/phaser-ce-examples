@@ -12,6 +12,7 @@ function preload() {
 var sprite1;
 var sprite2;
 var cursors;
+var spring;
 
 function create() {
 
@@ -32,11 +33,19 @@ function create() {
     //  Create our spring
     //  The parameters are: createSpring(sprite1, sprite2, restLength, stiffness, damping, worldA, worldB, localA, localB)
     //  See the docs for more details
-    var spring = game.physics.p2.createSpring(sprite1, sprite2, 20, 10, 1);
+    spring = game.physics.p2.createSpring(sprite1, sprite2, 20, 10, 1);
 
-    text = game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
+    text = game.add.text(20, 20, 'move with arrow keys, click to remove spring', { fill: '#ffffff' });
 
     cursors = game.input.keyboard.createCursorKeys();
+
+    game.input.onDown.add(removeSpring, this);
+
+}
+
+function removeSpring() {
+
+    game.physics.p2.removeSpring(spring);
 
 }
 
