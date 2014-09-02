@@ -26,7 +26,7 @@ function create() {
     // rain2.angle = 10;
 
     // rain.crop(new Phaser.Rectangle(0, 0, rain.width, 100));
-    rain2.crop(new Phaser.Rectangle(0, 100, 100, 100));
+    rain2.crop(new Phaser.Rectangle(0, 0, 100, 100));
 
     rain.animations.play('pouring', 30, true);
     rain2.animations.play('pouring', 30, true);

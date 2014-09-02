@@ -1,12 +1,15 @@
 
 //  10 x 8
 // var game = new Phaser.Game(320, 256, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
-var game = new Phaser.Game(320*2, 256*2, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(320*2, 256*2, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
 
-    game.load.image('knightHawks', 'assets/fonts/retroFonts/KNIGHT3.png');
-    game.load.image('raster', 'assets/demoscene/raster-blue.png');
+    game.load.image('knightHawks', 'assets/demoscene/knighthawks.png');
+    // game.load.image('knightHawks', 'assets/fonts/retroFonts/knighthawks_font.png');
+    // game.load.image('knightHawks', 'assets/fonts/retroFonts/KNIGHT3.png');
+    game.load.image('raster', 'assets/demoscene/sunset-raster.png');
+    // game.load.image('raster', 'assets/demoscene/multi-color-raster.png');
 
 }
 
@@ -17,6 +20,10 @@ var pos = [];
 var data;
 var scale = 2;
 var page = -1;
+
+var bfont;
+var alpha;
+var mask = new Phaser.Rectangle();
 
 var scroller = [ 
                 "----------",
@@ -49,7 +56,10 @@ var scroller = [
 
 function create() {
 
-    font = game.add.retroFont('knightHawks', 31, 25, Phaser.RetroFont.TEXT_SET6 + "*", 10, 1, 1);
+    // makeRasterFont();
+
+    // font = game.add.retroFont('knightHawks', 31, 25, Phaser.RetroFont.TEXT_SET6 + "*", 10, 1, 1);
+    font = game.add.retroFont('knightHawks', 31, 25, Phaser.RetroFont.TEXT_SET2, 10, 1, 0);
 
     //  There can only be 80 letters on-screen at once (10x8) so generate them all now
 
@@ -74,8 +84,34 @@ function create() {
     //  In reverse so they overlap in the correct order
     for (var i = 0; i < 80; i++)
     {
+        //  For some reason using a BMD here doesn't allow us to share the texture - need to investigate why
+
         var letter = game.add.sprite(game.world.centerX, game.world.centerY, 'knightHawks');
 
+/*
+// the various blend modes supported by pixi
+PIXI.blendModes = {
+    NORMAL:0,
+    ADD:1,
+    MULTIPLY:2,
+    SCREEN:3,
+    OVERLAY:4,
+    DARKEN:5,
+    LIGHTEN:6,
+    COLOR_DODGE:7,
+    COLOR_BURN:8,
+    HARD_LIGHT:9,
+    SOFT_LIGHT:10,
+    DIFFERENCE:11,
+    EXCLUSION:12,
+    HUE:13,
+    SATURATION:14,
+    COLOR:15,
+    LUMINOSITY:16
+};
+ */
+
+        // letter.blendMode = PIXI.blendModes.OVERLAY;
         letter.scale.set(0);
         letter.anchor.set(0.5);
         letter.animations.loadFrameData(font.frameData, 48);
@@ -92,6 +128,13 @@ function create() {
             y += ty;
         }
     }
+
+    var raster = game.add.sprite(0, 0, 'raster');
+    raster.width = game.width;
+    raster.height = game.height;
+    raster.blendMode = PIXI.blendModes.COLOR;
+
+    // this.world.sendToBack(raster);
 
     bringIn();
 
@@ -130,13 +173,11 @@ function bringIn() {
     {
         if (page % 2 === 1)
         {
-            console.log('ease');
             game.add.tween(letters[i].position).to( { x: pos[i].x, y: pos[i].y }, speed, Phaser.Easing.Back.Out, true, delay);
             game.add.tween(letters[i].scale).to( { x: scale, y: scale }, speed, Phaser.Easing.Back.Out, true, delay);
         }
         else
         {
-            console.log('sinus');
             game.add.tween(letters[i].position).to( { x: pos[i].x, y: pos[i].y }, speed, Phaser.Easing.Sinusoidal.Out, true, delay);
             game.add.tween(letters[i].scale).to( { x: scale, y: scale }, speed, Phaser.Easing.Sinusoidal.Out, true, delay);
         }
@@ -165,5 +206,38 @@ function takeAway() {
 }
 
 function update() {
+
+    game.context.clearRect(0, 0, game.width, game.height);
+
+    // raster.cls();
+    // raster.alphaMask('raster', alpha, mask);
+    // bfont.draw(raster);
+
+}
+
+function makeRasterFont() {
+
+    bfont = game.make.bitmapData();
+    alpha = game.make.bitmapData();
+    raster = game.make.bitmapData();
+
+    //  Load the font
+    bfont.load('knightHawks');
+
+    //  Extract all the pink pixels into the alpha bmd
+    bfont.extract(alpha, 237, 0, 140, 255, true);
+
+    raster.resize(bfont.width, bfont.height);
+
+    //  Display the 4 stages of the process
+    // game.add.image(0, 0, 'knightHawks');
+    // game.add.image(360, 0, alpha);
+    // game.add.image(0, 200, raster);
+    // game.add.image(360, 200, bfont);
+
+    //  Tween the rasters
+    mask.setTo(0, 0, bfont.width, game.cache.getImage('raster').height);
+
+    game.add.tween(mask).to( { y: -(mask.height - bfont.height) }, 4000, Phaser.Easing.Sinusoidal.InOut, true, 0, 100, true);
 
 }
