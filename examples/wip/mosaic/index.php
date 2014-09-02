@@ -5,7 +5,8 @@
         <title>mosaic</title>
         <script src="jquery-2.0.3.min.js" type="text/javascript"></script>
         <?php
-        if ($_SERVER['SERVER_NAME'] == '192.168.0.100' && isset($_GET['single']) == false)
+
+        if (($_SERVER['SERVER_NAME'] == '192.168.0.100' || $_SERVER['SERVER_NAME'] == 'localhost') && isset($_GET['single']) == false)
         {
             $p2 = false;
             $path = '/phaser';
@@ -16,7 +17,7 @@
             echo "<script src=\"phaser-minimal.min.js\" type=\"text/javascript\"></script>";
         }
         ?>
-        <script src="mosaic5.js" type="text/javascript"></script>
+        <script src="mosaic7.js" type="text/javascript"></script>
         <style>
             body {
                 margin: 0;

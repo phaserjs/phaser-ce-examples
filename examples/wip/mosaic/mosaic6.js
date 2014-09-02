@@ -54,17 +54,13 @@ function create() {
     {
         for (var x = 0; x < w; x++)
         {
-            // var from = Phaser.BitmapData.getTransform(x * tileWidth, y * tileHeight, 0, 0);
-            // var to = Phaser.BitmapData.getTransform(x * tileWidth, y * tileHeight, 1, 1);
-            var from = Phaser.BitmapData.getTransform(game.world.centerX, game.world.centerY, 1, 1);
-            var to = Phaser.BitmapData.getTransform(x * tileWidth, y * tileHeight, 1, 1);
-
-            data.push(game.make.tween(from).to(to, 2000, Phaser.Easing.Linear.None).generateData(60));
+            data.push(game.make.tween( { rotate: 180 } ).to( { rotate: 0 }, 1000, Phaser.Easing.Linear.None).generateData(60));
 
             times.push( { start: game.time.now + delay, i: 0, started: false, finished: false, step: 1 });
 
+            delay += 5;
+
         }
-            delay += 150;
     }
 
     console.log(game.width, 'x', game.height);
@@ -89,19 +85,20 @@ function update() {
             for (var x = 0; x < w; x++)
             {
                 var i = times[entity].i;
+                var d = data[entity][i];
 
                 r1.x = x * tileWidth;
                 r1.y = y * tileHeight;
 
                 //  transform based
-                r2.x = 0;
-                r2.y = 0;
-
-                // bmdDest.blit(bmdSourceB, r1, r2, 1, data[entity][i]);
+                //r2.x = 0;
+                //r2.y = 0;
+                r2.x = x * tileWidth;
+                r2.y = y * tileHeight;
 
                 // fastCopy: function (source, from, to, rotate, scaleX, scaleY, translateX, translateY, alpha, blendMode)
 
-                bmdDest.fastCopy(bmdSourceB, r1, r2);
+                bmdDest.fastCopy(bmdSourceB, r1, r2, d.rotate);
 
                 if (!times[entity].started && game.time.now >= times[entity].start)
                 {
