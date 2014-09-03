@@ -13,7 +13,7 @@ function create() {
 
 	colors = Phaser.Color.HSVColorWheel();
 
-	game.input.setMoveCallback(paint, this);
+	game.input.addMoveCallback(paint, this);
 
 }
 

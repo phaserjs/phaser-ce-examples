@@ -130,14 +130,23 @@
         <script src="_site/js/jquery-2.0.3.min.js" type="text/javascript"></script>
         <!-- <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" /> -->
         <?php
+            $v = "2.1.0";
+
             if (isset($_GET['phaser']))
             {
                 echo "<script src=\"_site/phaser/phaser.{$_GET['phaser']}.min.js\" type=\"text/javascript\"></script>";
             }
             else
             {
-                $path = '../../phaser';
-                require('../../phaser/build/config.php');
+                if (($_SERVER['SERVER_NAME'] == '192.168.0.100' || $_SERVER['SERVER_NAME'] == 'localhost'))
+                {
+                    $path = '../../phaser';
+                    require('../../phaser/build/config.php');
+                }
+                else
+                {
+                    echo "<script src=\"_site/phaser/phaser.{$v}.min.js\" type=\"text/javascript\"></script>";
+                }
             }
         ?>
         <style>
