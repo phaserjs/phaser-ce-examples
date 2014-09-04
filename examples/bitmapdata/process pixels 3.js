@@ -11,13 +11,9 @@ var bmd;
 
 function create() {
 
-	bmd = game.make.bitmapData(724, 566);
-
-	bmd.draw('crystal');
-
-	bmd.update();
-
-	game.add.sprite(0, 0, bmd);
+    bmd = game.make.bitmapData();
+    bmd.load('crystal');
+    bmd.addToWorld(game.world.centerX, game.world.centerY, 0.5, 0.5);
 
 	game.input.onDown.add(startProcess, this);
 

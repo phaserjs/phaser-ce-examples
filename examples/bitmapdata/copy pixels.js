@@ -19,23 +19,23 @@ function create() {
 
 	bmd.addToWorld();
 
-	area = new Phaser.Rectangle(0, 0, 200, 16);
+	area = new Phaser.Rectangle(0, 300, 200, 16);
 
-	bmd.copyPixels('pic', area, 0, 0);
+	bmd.copyRect('pic', area, 300, 0);
 
 }
 
 function update () {
 
-	// if (area.y > 0 && game.time.now > dropTime)
-	// {
-	// 	for (var y = 0; y < area.y; y++)
-	// 	{
-	// 		bmd.copyPixels('pic', area, 0, y);
-	// 	}
+	if (area.y > 0 && game.time.now > dropTime)
+	{
+		for (var y = 0; y < area.y; y++)
+		{
+			bmd.copyRect('pic', area, 300, y);
+		}
 
-	// 	area.y--;
-	// 	dropTime = game.time.now + 25;
-	// }
+		area.y--;
+		dropTime = game.time.now + 25;
+	}
 
 }

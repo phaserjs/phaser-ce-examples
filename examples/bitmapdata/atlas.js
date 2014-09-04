@@ -16,7 +16,7 @@ function create() {
 
     game.add.image(0, 0, bmd);
 
-    jellyfish = game.add.sprite(0, 0, 'seacreatures');
+    jellyfish = game.add.sprite(0, 0, 'seacreatures', 'blueJellyfish0010');
     jellyfish.animations.add('swim', Phaser.Animation.generateFrameNames('blueJellyfish', 0, 32, '', 4), 30, true);
     jellyfish.animations.play('swim');
 

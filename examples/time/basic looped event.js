@@ -23,7 +23,6 @@ function create() {
     //  The first parameter is how long to wait before the event fires. In this case 1 second (you could pass in 1000 as the value as well.)
     //  The next two parameters are the function to call ('updateCounter') and the context under which that will happen.
 
-
     game.time.events.loop(Phaser.Timer.SECOND, updateCounter, this);
 
 }

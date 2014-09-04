@@ -15,15 +15,15 @@ function create() {
 
 	game.stage.backgroundColor = '#2d2d2d';
 
-	bmd = game.make.bitmapData(game.cache.getImage('pic').width, game.cache.getImage('pic').height);
+	bmd = game.make.bitmapData();
+	bmd.load('pic').cls();
+
+	bmd.addToWorld(game.world.centerX, game.world.centerY, 0.5, 0.5, 2, 2);
 
 	game.stage.smoothed = false;
 
-	var s = game.add.sprite(game.world.centerX, game.world.centerY, bmd);
-	s.anchor.set(0.5);
-	s.scale.set(2);
-
 	area = new Phaser.Rectangle(0, bmd.height, bmd.width, 1);
+
 	dropTime = game.time.now + 250;
 
 }
@@ -34,7 +34,7 @@ function update () {
 	{
 		for (var y = 0; y < area.y; y++)
 		{
-			bmd.copyPixels('pic', area, 0, y);
+			bmd.copyRect('pic', area, 0, y);
 		}
 
 		area.y--;

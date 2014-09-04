@@ -33,7 +33,7 @@ function create() {
 function update() {
 
 	//	Clear the BitmapData
-	bmd.clear();
+	bmd.cls();
 
 	updateWobblyBall();
 
