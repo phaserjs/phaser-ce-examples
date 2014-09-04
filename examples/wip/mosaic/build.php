@@ -19,6 +19,7 @@
                 tileHeight: 19, 
                 duration: { min: 250, max: 1000 },
                 delay: { min: 0, max: 5000 },
+                url: '',
                 callbacks: {
                     loadComplete: onLoad,
                     transitionStart: startTransition,
@@ -37,8 +38,18 @@
                 console.log('Starting to display', img);
 
                 //  Note - you can change any of the transition parameters at this point, they will take effect in time to influence this transition
-                fx.durationMin = fx.between(0, 100);
-                fx.durationMax = fx.between(100, 500);
+
+                //  fx.tileWidth
+                //  fx.tileHeight
+                //  fx.durationMin
+                //  fx.durationMax
+                //  fx.delayMin
+                //  fx.delayMax
+
+                //  Note: If you want a fixed duration for ALL tiles simply set the min and max values to be the same
+
+                // fx.durationMin = fx.between(500, 100);
+                // fx.durationMax = fx.between(100, 10000);
 
             }
 

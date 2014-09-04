@@ -127,8 +127,8 @@ FX = (function() {
             this.w = this.canvas.width / this.tileWidth;
             this.h = this.canvas.height / this.tileHeight;
 
-            var duration;
-            var delay;
+            var duration = 0;
+            var delay = 0;
 
             for (var y = 0; y < this.h; y++)
             {
@@ -137,8 +137,10 @@ FX = (function() {
                     duration = this.between(this.durationMin, this.durationMax);
                     delay = this.between(this.delayMin, this.delayMax);
 
+                    var i = 1 / ((duration / 1000) * 60);
+
                     this.sequence.push( { alpha: 0, rect: new Rectangle(x * this.tileWidth, y * this.tileHeight, this.tileWidth, this.tileHeight) } );
-                    this.times.push( { start: this.time + pause + delay, end: this.time + pause + delay + duration, duration: duration, inc: 1 / ((duration / 1000) * 60), delay: delay, started: false, finished: false });
+                    this.times.push( { start: this.time + pause + delay, end: this.time + pause + delay + duration, duration: duration, inc: i, delay: delay, started: false, finished: false });
                 }
             }
 
