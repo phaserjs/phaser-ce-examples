@@ -55,6 +55,9 @@ function update() {
 function render () {
 
     // game.debug.text('Click / Tap to go fullscreen', 270, 16);
-    game.debug.text('Click / Tap to go fullscreen', 0, 16);
+    // game.debug.text('Click / Tap to go fullscreen', 0, 16);
+
+    game.debug.inputInfo(32, 32);
+    // game.debug.pointer(game.input.activePointer);
 
 }

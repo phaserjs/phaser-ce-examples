@@ -192,6 +192,7 @@
         <input type="button" id="start" value="start" />
         <input type="button" id="stop" value="stop" style="margin-left: 32px" />
         <input type="button" id="step" value="step" style="margin-left: 128px"/>
+        <input type="button" id="fs" value="fullscreen" style="margin-left: 128px"/>
 
         <?php
             echo buildList(false);
@@ -238,6 +239,21 @@
                 {
                     debugSprite.debug = false;
                 }
+            });
+
+            $('#fs').click(function(){
+
+                console.log('---- FULL SCREEN -------------------------------');
+            
+                if (game.scale.isFullScreen)
+                {
+                    game.scale.stopFullScreen();
+                }
+                else
+                {
+                    game.scale.startFullScreen(false);
+                }
+
             });
 
         </script>
