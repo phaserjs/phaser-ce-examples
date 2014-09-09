@@ -5,20 +5,32 @@
       "title": "animation events"
     },
     {
-      "file": "change+texture+on+click.js",
-      "title": "change texture on click"
+      "file": "change+frame.js",
+      "title": "change frame"
     },
     {
-      "file": "dragon+bones.js",
-      "title": "dragon bones"
+      "file": "change+texture+on+click.js",
+      "title": "change texture on click"
     },
     {
       "file": "dragonBones.js",
       "title": "dragonBones"
     },
     {
+      "file": "dragon_bones.js",
+      "title": "dragon_bones"
+    },
+    {
+      "file": "dynamic+animation.js",
+      "title": "dynamic animation"
+    },
+    {
       "file": "group+creation.js",
       "title": "group creation"
+    },
+    {
+      "file": "load+texture.js",
+      "title": "load texture"
     },
     {
       "file": "local+json+object.js",
@@ -43,6 +55,10 @@
     {
       "file": "starling+atlas.js",
       "title": "starling atlas"
+    },
+    {
+      "file": "stop+animation.js",
+      "title": "stop animation"
     }
   ],
   "arcade physics": [
@@ -229,6 +245,10 @@
       "title": "protracker"
     },
     {
+      "file": "restart+sound.js",
+      "title": "restart sound"
+    },
+    {
       "file": "ym.js",
       "title": "ym"
     }
@@ -265,8 +285,78 @@
       "jsbin": "http://jsbin.com/zagob/11/edit?js,output"
     },
     {
-      "file": "06+-+render+text.js",
-      "title": "06 - render text"
+      "file": "07+-+tween+an+image.js",
+      "title": "07 - tween an image"
+    }
+  ],
+  "bitmapdata": [
+    {
+      "file": "alpha+mask.js",
+      "title": "alpha mask"
+    },
+    {
+      "file": "atlas.js",
+      "title": "atlas"
+    },
+    {
+      "file": "cached+bitmapdata.js",
+      "title": "cached bitmapdata"
+    },
+    {
+      "file": "copy+pixels.js",
+      "title": "copy pixels"
+    },
+    {
+      "file": "draw+blended+sprite.js",
+      "title": "draw blended sprite"
+    },
+    {
+      "file": "draw+sprite.js",
+      "title": "draw sprite"
+    },
+    {
+      "file": "fastcopy+draw.js",
+      "title": "fastcopy draw"
+    },
+    {
+      "file": "flood+fill.js",
+      "title": "flood fill"
+    },
+    {
+      "file": "get+pixel.js",
+      "title": "get pixel"
+    },
+    {
+      "file": "process+pixels+1.js",
+      "title": "process pixels 1"
+    },
+    {
+      "file": "process+pixels+2.js",
+      "title": "process pixels 2"
+    },
+    {
+      "file": "process+pixels+3.js",
+      "title": "process pixels 3"
+    },
+    {
+      "file": "replace+color.js",
+      "title": "replace color"
+    },
+    {
+      "file": "set+hsl.js",
+      "title": "set hsl"
+    },
+    {
+      "file": "text+blend.js",
+      "title": "text blend"
+    },
+    {
+      "file": "text.js",
+      "title": "text"
+    },
+    {
+      "file": "wobble.js",
+      "title": "wobble"
     }
   ],
   "buttons": [
@@ -277,6 +367,10 @@
     {
       "file": "button+scale.js",
       "title": "button scale"
+    },
+    {
+      "file": "button+using+texture+atlas.js",
+      "title": "button using texture atlas"
     },
     {
       "file": "changing+the+frames.js",
@@ -349,71 +443,27 @@
       "title": "atari intro"
     },
     {
+      "file": "font+from+bitmapdata.js",
+      "title": "font from bitmapdata"
+    },
+    {
       "file": "raster+bounce.js",
       "title": "raster bounce"
+    },
+    {
+      "file": "raster+font.js",
+      "title": "raster font"
+    },
+    {
+      "file": "textwriter.js",
+      "title": "textwriter"
+    },
+    {
+      "file": "unlimited+bobs.js",
+      "title": "unlimited bobs"
     }
   ],
   "display": [
-    {
-      "file": "alpha+mask.js",
-      "title": "alpha mask"
-    },
-    {
-      "file": "bitmapdata+atlas.js",
-      "title": "bitmapdata atlas"
-    },
-    {
-      "file": "bitmapdata+copy+pixels.js",
-      "title": "bitmapdata copy pixels"
-    },
-    {
-      "file": "bitmapdata+draw.js",
-      "title": "bitmapdata draw"
-    },
-    {
-      "file": "bitmapdata+flood+fill.js",
-      "title": "bitmapdata flood fill"
-    },
-    {
-      "file": "bitmapdata+pixel+2.js",
-      "title": "bitmapdata pixel 2"
-    },
-    {
-      "file": "bitmapdata+pixel.js",
-      "title": "bitmapdata pixel"
-    },
-    {
-      "file": "bitmapdata+process+pixels+2.js",
-      "title": "bitmapdata process pixels 2"
-    },
-    {
-      "file": "bitmapdata+process+pixels+3.js",
-      "title": "bitmapdata process pixels 3"
-    },
-    {
-      "file": "bitmapdata+process+pixels.js",
-      "title": "bitmapdata process pixels"
-    },
-    {
-      "file": "bitmapdata+replace+color.js",
-      "title": "bitmapdata replace color"
-    },
-    {
-      "file": "bitmapdata+set+hsl.js",
-      "title": "bitmapdata set hsl"
-    },
-    {
-      "file": "bitmapdata+set+pixel.js",
-      "title": "bitmapdata set pixel"
-    },
-    {
-      "file": "bitmapdata+wobble.js",
-      "title": "bitmapdata wobble"
-    },
-    {
-      "file": "cached+bitmapdata.js",
-      "title": "cached bitmapdata"
-    },
     {
       "file": "extract+mask.js",
       "title": "extract mask"
@@ -425,6 +475,10 @@
     {
       "file": "fullscreen.js",
       "title": "fullscreen"
+    },
+    {
+      "file": "graphics+2.js",
+      "title": "graphics 2"
     },
     {
       "file": "graphics.js",
@@ -453,6 +507,14 @@
     {
       "file": "render+texture+trail.js",
       "title": "render texture trail"
+    },
+    {
+      "file": "tint+sprite+frame.js",
+      "title": "tint sprite frame"
+    },
+    {
+      "file": "tint+sprite.js",
+      "title": "tint sprite"
     }
   ],
   "filters": [
@@ -673,8 +735,16 @@
       "title": "bring a child to top"
     },
     {
+      "file": "button+open+popup.js",
+      "title": "button open popup"
+    },
+    {
       "file": "cursor+key+movement.js",
       "title": "cursor key movement"
+    },
+    {
+      "file": "drag+event+parameters.js",
+      "title": "drag event parameters"
     },
     {
       "file": "drag+several+sprites.js",
@@ -723,6 +793,10 @@
     {
       "file": "gamepad.js",
       "title": "gamepad"
+    },
+    {
+      "file": "input+child+priority.js",
+      "title": "input child priority"
     },
     {
       "file": "input+priority.js",
@@ -783,6 +857,10 @@
     {
       "file": "pixelpick+-+spritesheet.js",
       "title": "pixelpick - spritesheet"
+    },
+    {
+      "file": "pointer+lock.js",
+      "title": "pointer lock"
     },
     {
       "file": "snap+on+drag.js",
@@ -961,8 +1039,16 @@
       "title": "load polygon 2"
     },
     {
+      "file": "load+polygon+3.js",
+      "title": "load polygon 3"
+    },
+    {
       "file": "lock+constraint.js",
       "title": "lock constraint"
+    },
+    {
+      "file": "pick+up+object.js",
+      "title": "pick up object"
     },
     {
       "file": "platformer+material.js",
@@ -975,6 +1061,10 @@
     {
       "file": "prismatic+constraint.js",
       "title": "prismatic constraint"
+    },
+    {
+      "file": "remove+spring.js",
+      "title": "remove spring"
     },
     {
       "file": "revolute+constraint.js",
@@ -999,6 +1089,10 @@
     {
       "file": "tilemap.js",
       "title": "tilemap"
+    },
+    {
+      "file": "tilesprite.js",
+      "title": "tilesprite"
     },
     {
       "file": "world+boundary.js",
@@ -1089,6 +1183,10 @@
       "title": "add a sprite"
     },
     {
+      "file": "add+an+image.js",
+      "title": "add an image"
+    },
+    {
       "file": "add+several+sprites.js",
       "title": "add several sprites"
     },
@@ -1119,6 +1217,10 @@
     {
       "file": "horizontal+crop.js",
       "title": "horizontal crop"
+    },
+    {
+      "file": "mask.js",
+      "title": "mask"
     },
     {
       "file": "move+a+sprite.js",
@@ -1177,6 +1279,10 @@
     {
       "file": "dynamic+text+shadow.js",
       "title": "dynamic text shadow"
+    },
+    {
+      "file": "extending+text.js",
+      "title": "extending text"
     },
     {
       "file": "google+webfonts.js",
@@ -1273,6 +1379,10 @@
     {
       "file": "csv+map+collide.js",
       "title": "csv map collide"
+    },
+    {
+      "file": "csv+map+with+p2.js",
+      "title": "csv map with p2"
     },
     {
       "file": "csv+map.js",
@@ -1419,6 +1529,10 @@
     {
       "file": "move+around+world.js",
       "title": "move around world"
+    },
+    {
+      "file": "world+wrap.js",
+      "title": "world wrap"
     }
   ]
 }

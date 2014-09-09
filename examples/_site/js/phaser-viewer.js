@@ -11,7 +11,7 @@ $(document).ready(function(){
 	// on selecting the page will reload and load the select version of github.
 	var phaser_version = $.url().param('phaser_version');
 	var local_copy_of_phaser = "_site/js/phaser.js"
-	var local_copy_of_phaser_version = "2.0.6"
+	var local_copy_of_phaser_version = "2.1.0"
 	var phaser_version_update = function(phaser_version) {
 		$(".phaser-version span").html("Phaser version: " + phaser_version)
 	};
