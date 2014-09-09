@@ -37,11 +37,10 @@ function spawn() {
     game.physics.arcade.enable(b);
 
     b.body.collideWorldBounds = true;
-    b.body.bounce.set(0.9);
+    b.body.bounce.set(1);
     b.body.velocity.x = game.rnd.integerInRange(300, 800);
 
     c++;
-    console.log(c);
 
 }
 
@@ -56,6 +55,6 @@ function update() {
 
 function render() {
 
-    game.debug.text(c, 32, 100);
+    game.debug.text("Z Bunnies: " + c, 32, 100);
 
 }
