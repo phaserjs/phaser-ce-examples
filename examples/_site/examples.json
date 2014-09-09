@@ -509,6 +509,10 @@
       "title": "render texture trail"
     },
     {
+      "file": "sprite+shadow.js",
+      "title": "sprite shadow"
+    },
+    {
       "file": "tint+sprite+frame.js",
       "title": "tint sprite frame"
     },
