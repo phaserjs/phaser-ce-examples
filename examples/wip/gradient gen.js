@@ -11,10 +11,10 @@ var bmd;
 var markers;
 var swatch;
 var isDragging = false;
-// var colors = [ { r: 0, g: 0, b: 0 } ]
-// 
 var arrow1;
 var arrow2;
+
+// rgba(52,3,98,1) to rgba(247,130,11,1) chunk 16
 
 function create() {
 
@@ -59,6 +59,7 @@ function createMarker(y) {
 
     if (markers.total > 2)
     {
+        console.log('create marker');
         arrow.input.enableDrag();
         arrow.input.allowHorizontalDrag = false;
         arrow.input.boundsRect = new Phaser.Rectangle(0, 50, 50, 500);
@@ -72,7 +73,7 @@ function createMarker(y) {
 
     // arrow.events.onInputDown.add(pickColor, this);
 
-    console.log(arrow.color);
+    console.log(arrow.webrgb);
 
 }
 
@@ -95,7 +96,7 @@ function stopRefresh(marker) {
 function refresh() {
 
     var y = 0;
-    var chunk = 16;
+    var chunk = 8;
     var step;
     var marker1;
     var marker2;
@@ -107,27 +108,30 @@ function refresh() {
     {
         marker1 = markers.children[c];
         marker2 = markers.children[c + 1];
-        distance = marker2.y - marker1.y;
-        y = marker1.y - 50;
+
+        var dy = marker1.y - 50;
+        var sy = marker2.y - 50;
+
+        distance = sy - dy;
+        y = dy;
         step = Math.floor(distance / chunk);
+        remainder = distance - (step * chunk);
 
         for (var i = 0; i < step; i++)
         {
             var ci = Phaser.Color.interpolateRGB(marker1.rgb.r, marker1.rgb.g, marker1.rgb.b, marker2.rgb.r, marker2.rgb.g, marker2.rgb.b, step, i);
             bmd.ctx.fillStyle = Phaser.Color.getWebRGB(ci);
-            bmd.ctx.fillRect(0, y, 700, step);
-            y += step;
+
+            bmd.ctx.fillRect(0, dy, 700, chunk);
+
+            dy += chunk;
         }
 
-        // for (var i = 0; i < distance; i++)
-        // {
-        //     var ci = Phaser.Color.interpolateRGB(marker1.rgb.r, marker1.rgb.g, marker1.rgb.b, marker2.rgb.r, marker2.rgb.g, marker2.rgb.b, distance, i);
-        //     bmd.ctx.fillStyle = Phaser.Color.getWebRGB(ci);
-        //     bmd.ctx.fillRect(0, y, 700, 1);
-        //     y++;
-        // }
-
-
+        //  Fill in the little gap that is left (if any)
+        if (remainder > 0)
+        {
+            bmd.ctx.fillRect(0, dy, 700, remainder);
+        }
     }
 
     bmd.dirty = true;
@@ -144,7 +148,5 @@ function update() {
 }
 
 function render() {
-
-    // game.debug.text(arrow2.y - arrow1.y, 32, 32);
 
 }
