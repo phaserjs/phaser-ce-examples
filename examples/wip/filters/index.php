@@ -78,13 +78,14 @@
         <title>phaser</title>
         <base href="../../"></base>
         <?php
-            require('../../../build/config.php');
+            $path = '/phaser';
+            require('../../../../phaser/build/config.php');
 
             if (isset($_GET['f']))
             {
                 $f = $_GET['f'];
         ?>
-        <script src="wip/<?php echo $f?>" type="text/javascript"></script>
+        <script src="wip/filters/<?php echo $f?>" type="text/javascript"></script>
         <?php
             }
         ?>

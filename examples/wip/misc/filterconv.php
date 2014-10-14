@@ -18,17 +18,30 @@
 
     $raw = 'Paste ShaderToy code in here';
 
-    $output = "this.fragmentSrc = [\n";
-    $output .= "\t\"precision mediump float;\",\n";
-    $output .= "\t\"uniform vec3      iResolution;\",\n";
-    $output .= "\t\"uniform float     iGlobalTime;\",\n";
-    $output .= "\t\"uniform float     iChannelTime[4];\",\n";
-    $output .= "\t\"uniform vec4      iMouse;\",\n";
-    $output .= "\t\"uniform vec4      iDate;\",\n";
-    $output .= "\t\"uniform vec3      iChannelResolution[4];\",\n";
-    $output .= "\t\"uniform sampler2D iChannel0;\",\n";
-    $output .= "\t\"// add any extra uniforms here\",\n";
-    $output .= "\n";
+    // $output = "this.fragmentSrc = [\n";
+    // $output .= "\t\"precision mediump float;\",\n";
+    // $output .= "\t\"uniform vec3      iResolution;\",\n";
+    // $output .= "\t\"uniform float     iGlobalTime;\",\n";
+    // $output .= "\t\"uniform float     iChannelTime[4];\",\n";
+    // $output .= "\t\"uniform vec4      iMouse;\",\n";
+    // $output .= "\t\"uniform vec4      iDate;\",\n";
+    // $output .= "\t\"uniform vec3      iChannelResolution[4];\",\n";
+    // $output .= "\t\"uniform sampler2D iChannel0;\",\n";
+    // $output .= "\t\"// add any extra uniforms here\",\n";
+    // $output .= "\n";
+
+/*
+uniform vec3      iResolution;           // viewport resolution (in pixels)
+uniform float     iGlobalTime;           // shader playback time (in seconds)
+uniform float     iChannelTime[4];       // channel playback time (in seconds)
+uniform vec3      iChannelResolution[4]; // channel resolution (in pixels)
+uniform vec4      iMouse;                // mouse pixel coords. xy: current (if MLB down), zw: click
+uniform samplerXX iChannel0..3;          // input channel. XX = 2D/Cube
+uniform vec4      iDate;                 // (year, month, day, time in seconds)
+uniform float     iSampleRate;           // sound sample rate (i.e., 44100)
+*/
+
+    $conv = array('iResolution', 'iGlobalTime', 'iMouse', 'iDate', 'iChannelResolution');
 
     $tabs = 1;
 

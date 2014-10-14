@@ -21,6 +21,7 @@ function create() {
 
 	//	Here we set-up our audio sprite
 	fx = game.add.audio('sfx');
+    fx.allowMultiple = true;
 
 	//	And this defines the markers.
 

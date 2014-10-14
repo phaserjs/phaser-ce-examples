@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Make your user put iOS Safari into fullscreen in landscape</title>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+        <script src="../../_site/js/jquery-2.0.3.min.js" type="text/javascript"></script>
+        <style>
+            body {
+                margin: 0px 0px 1px 0px;
+                padding: 0;
+                background: "pink";
+                width: 100%;
+                height: 100%;
+                font-family: sans-serif;
+                font-size: 20px;
+            }
+
+            #game {
+                left: 0;
+                top: 0;
+                background: url(../../assets/pics/fof_background.png) no-repeat;
+                background-size: 100% 100%;
+                width: 568px;
+                height: 320px;
+                text-align: center;
+                color: white;
+            }
+
+            #box {
+                left: 0;
+                top: 0;
+                position: fixed;
+                background: rgba(0,0,0,0.5);
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                color: white;
+                display: none;
+            }
+
+            #box p {
+                margin-top: 120px;
+            }
+        </style>
+    </head>
+    <body>
+
+    <div id="game">Ubergame: <span id="size"></span></div>
+
+    <div id="box"><p>game paused<br />slide up to resume</p></div>
+
+    <script>
+    (function () {
+        
+        var check = 1;
+        var underheight = false;
+        var portraitmeta = "initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, width=device-width, user-scalable=no";
+        var landscapemeta = "initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, width=device-height, height=device-width, user-scalable=no";
+        var landscapemetahigh = "initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, width=device-height, height=400px, user-scalable=no";
+        var meta = document.getElementsByName("viewport")[0];
+        var orientation = (window.orientation == 90 || window.orientation == -90) ? "landscape" : "portrait";
+        var game = document.getElementById('game');
+
+        // console.log(game.getBoundingClientRect());
+        // window.navigator.standalone == false
+
+        function orientationChange () {
+
+            orientation = (window.orientation == 90 || window.orientation == -90) ? "landscape" : "portrait";
+
+            if (window.orientation === 90 || window.orientation === -90)
+            {
+                meta.setAttribute("content", landscapemeta);
+                window.scrollTo(0, 0);
+            }
+            else
+            {
+                meta.setAttribute("content", portraitmeta);
+                window.scrollTo(0, 0);
+            }
+
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
+        
+        }
+
+        $(window).bind("orientationchange", orientationChange.bind(this));
+
+        function showsize(e)
+        {
+            var rect = game.getBoundingClientRect();
+            var ww = window.innerWidth;
+            // var wh = window.innerHeight;
+            var wh = window.innerHeight ? window.innerHeight : $(window).height();
+
+            $('#size').html(check + "<br />bounds: " + rect.width + " x " + rect.height + "<br />window: " + ww + " x " + wh);
+
+            check++;
+        }
+
+        //  568 x 320 = full landscape (iPhone 5S)
+        //  568 x 232 = chrome visible
+
+        function checksize(e)
+        {
+            if (orientation === "portrait")
+            {
+                setTimeout(checksize.bind(this), 1000);
+                return;
+            }
+
+            var ww = window.innerWidth;
+            var wh = window.innerHeight ? window.innerHeight : $(window).height();
+            var justSet = false;
+
+            if (wh < 320 && !underheight)
+            {
+                underheight = true;
+                meta.setAttribute("content", landscapemetahigh);
+                window.scrollTo(0, 0);
+                $('#box').css('display', 'block');
+                setTimeout(checksize.bind(this), 3000);
+                justSet = true;
+            }
+
+            if (wh > 232 && underheight && !justSet)
+            {
+                underheight = false;
+                window.scrollTo(0, 0);
+                meta.setAttribute("content", landscapemeta);
+                $('#box').css('display', 'none');
+                $('#game').css('width', ww + 'px');
+                $('#game').css('height', wh + 'px');
+                setTimeout(checksize.bind(this), 3000);
+                justSet = true;
+            }
+            
+            if (!justSet)
+            {
+                setTimeout(checksize.bind(this), 1000);
+            }
+        }
+
+        setInterval(showsize.bind(this), 100);
+        setTimeout(checksize.bind(this), 4000);
+
+        }());
+    </script>
+ </body>
+ </html>

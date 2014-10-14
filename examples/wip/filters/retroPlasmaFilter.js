@@ -88,7 +88,6 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 
 function preload() {
 
-    game.load.image('texture', 'wip/64x64.png');
 
 }
 
@@ -97,7 +96,7 @@ var sprite;
 
 function create() {
 
-	sprite = game.add.sprite(0, 0, 'texture');
+	sprite = game.add.sprite();
 	sprite.width = 800;
 	sprite.height = 600;
 

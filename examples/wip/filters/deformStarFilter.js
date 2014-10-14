@@ -78,7 +78,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 function preload() {
 
     // game.load.image('texture', 'wip/64x64.png');
-    game.load.image('texture', 'wip/tex08.jpg');
+    game.load.image('texture', 'wip/filters/tex08.jpg');
     game.load.image('texture2', 'assets/textures/alice.jpg');
 
 }

@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>iOS7 fullscreen test</title>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="description" content="a proof of concept workaround for some iOS7 madness.">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+        <script src="../../_site/js/jquery-2.0.3.min.js" type="text/javascript"></script>
+        <style type="text/css">
+            html {
+                width:100%;
+                height:100%;
+            }
+
+            body {
+                background: pink;
+                margin:0;
+                padding:0;
+                width:100%;
+                height:100%;
+                font-family: sans-serif;
+                font-size: 20px;
+                color:white;
+            }
+
+            #contentwrapper {
+                width:100%;
+                height:100%;
+                margin:0;
+                padding:0;
+                background:darkblue;
+            }
+
+            #message1, #message2 {
+                width:100%;
+                margin:0;
+                padding:10px;
+                text-align: center;
+            }
+
+            body #message1 {
+                display:block;
+            }
+            body #message2 {
+                display:none;
+            }
+            body.underheight #message1 {
+                display:none;
+            }
+            body.underheight #message2 {
+                display:block;
+            }
+
+            
+            #pause {
+                position:fixed;
+                bottom:0;
+                width:100%;
+                height:20px;
+                background:blue;
+                left:0;
+                display:none;
+            }
+
+            @media (orientation:landscape){
+                #pause{
+                    display:block;
+                }
+            }
+            .underheight #pause {
+                display:none;
+            }
+
+
+            #box {
+                background: rgba(0,0,0,0.5);
+                width:100%;
+                position: fixed;
+                top:0;
+                height:100%;
+                left:0;
+                text-align: center;
+                display:none;
+
+            }
+            .underheight #box {
+                display:block;
+
+            }
+            /*the presence of an element with these styles, anywhere, mostly blocks taps at the top of the screen from activating chrome*/
+            #top-tap-blocker {
+                overflow:scroll;
+                -webkit-overflow-scrolling:touch;
+
+            }
+        </style>
+    </head>
+    <body>
+
+    <div id="contentwrapper">
+        <div name="message1" id="message1">resumed</div>
+        <div name="message2" id="message2">paused</div>
+        <div id="pause">pause</div>
+    </div>
+
+    <div id="box">slide up</div>
+
+    <div id="top-tap-blocker"></div>
+
+    <script>
+    (function () {
+
+        // alert(navigator.appVersion);
+
+        /* most rich webapps and games prevent default touch actions */
+        /* this blocks scrolling back to full screen mode when chrome is showing */
+        // $("#contentwrapper").bind("touchstart",function(e){
+        //     e.preventDefault();
+        // });
+
+        //  below we're keeping track of orientation, and polling
+        //  window.innerHeight when we detect that the browser window has
+        //  shrunk, we pause the game,  and  we show an element over the
+        //  top of  content whose touch events have not been blocked or
+        //  prevented.  on this element we show instructions to "slide
+        //  up", which restores our window to full screen
+        
+        // keep track of whether we've previously marked underheight. 
+        
+        var underheight = false;
+
+        /*for some reason ios expects me to swap width and height here when in landscape mode for correct display */
+        var portraitmeta        = "initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, width=device-width, user-scalable=no, minimal-ui";
+        var landscapemeta       = "initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, width=device-height, height=device-width,user-scalable=no, minimal-ui";
+        /* when underheight, we need a bit of run up scroll space to get back to full screen mode */
+        var landscapemetahigh   = "initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, width=device-height, height=400px, user-scalable=no, minimal-ui";
+        var meta = document.getElementsByName("viewport")[0];
+        var orientation = (window.orientation == 90 || window.orientation == -90) ? "landscape" : "portrait";
+        var currentVideoElement = null;
+
+        function orientationChange (fade) {
+            orientation = (window.orientation == 90 || window.orientation == -90) ? "landscape" : "portrait";
+            if (window.orientation === 90 || window.orientation === -90) {
+                meta.setAttribute("content", landscapemeta);
+                window.scrollTo(0, 0);
+            } else {
+                meta.setAttribute("content", portraitmeta);
+                window.scrollTo(0, 0);
+            }
+            setTimeout(function(){
+                window.scrollTo(0, 0);
+                window.scrollTo(0, 0);
+            },100);
+        
+        }
+        $(window).bind("orientationchange", orientationChange.bind(null,true));
+        // work around annoying iOS7 madness.
+        if (/iPhone OS 8_0/.test(navigator.appVersion)) {
+            setInterval(checksize, 2000)
+            // alert("setinterval");
+            function checksize(e) {
+                // alert(orientation + " " + window.innerHeight + " " + window.outerHeight);
+                if (orientation == "landscape") {
+                    if (window.innerHeight <= 213 && !underheight) {
+                        underheight = true;
+                        meta.setAttribute("content", landscapemetahigh);
+                        window.scrollTo(0, 0);
+                        $("body").addClass("underheight");
+                        alert("underheight " + window.innerHeight);
+
+                    }
+                    if (window.innerHeight > 230 && underheight) {
+                        // setTimeout(function(){},2000);
+                        underheight = false;
+                        window.scrollTo(0, 0);
+                        meta.setAttribute("content", landscapemeta);
+                        $("body").removeClass("underheight")
+                    }
+                }
+            }
+        }
+        }());
+    </script>
+ </body>
+ </html>
