@@ -153,7 +153,7 @@ function setUp() {
     
     for (var i = 0; i < sequenceCount; i++)
     {
-        thisSquare = game.rnd.integerInRange(0,6);
+        thisSquare = game.rnd.integerInRange(0,5);
         sequenceList.push(thisSquare);
     }
 
