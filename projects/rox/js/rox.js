@@ -51,7 +51,7 @@ Rox.Boot.prototype = {
             this.scale.pageAlignHorizontally = true;
             this.scale.pageAlignVertically = true;
             this.scale.forceOrientation(true, false);
-            this.scale.hasResized.add(this.gameResized, this);
+            this.scale.setResizeCallback(this.gameResized, this);
             this.scale.enterIncorrectOrientation.add(this.enterIncorrectOrientation, this);
             this.scale.leaveIncorrectOrientation.add(this.leaveIncorrectOrientation, this);
             this.scale.setScreenSize(true);
