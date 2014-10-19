@@ -25,6 +25,10 @@
       "title": "dynamic animation"
     },
     {
+      "file": "flowing+animations.js",
+      "title": "flowing animations"
+    },
+    {
       "file": "group+creation.js",
       "title": "group creation"
     },
