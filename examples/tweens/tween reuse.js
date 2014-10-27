@@ -5,7 +5,7 @@ function preload() {
 
     game.load.image('beball', 'assets/sprites/beball1.png');
     game.load.image('bikkuriman', 'assets/sprites/bikkuriman.png');
-	game.load.image('darkwing_crazy', 'assets/sprites/darkwing_crazy.png');
+    game.load.image('darkwing_crazy', 'assets/sprites/darkwing_crazy.png');
 
 }
 
@@ -14,7 +14,7 @@ var tween;
 
 function create() {
 
-	game.stage.backgroundColor = '#2384e7';
+    game.stage.backgroundColor = '#2384e7';
 
     sprites = game.add.group();
 
@@ -26,7 +26,7 @@ function create() {
     sprites.create(600, 100, 'darkwing_crazy');
 
     //  The first tween drops down
-	tween = game.add.tween(sprites.cursor).to( { y: 500 }, 2000, Phaser.Easing.Bounce.Out, true);
+    tween = game.add.tween(sprites.cursor).to( { y: 500 }, 2000, Phaser.Easing.Bounce.Out, true);
     tween.onComplete.add(tween2, this);
 
 }
