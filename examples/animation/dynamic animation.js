@@ -29,7 +29,7 @@ function create() {
 
     for (var i = 0; i < 16; i++)
     {
-        bmd.drawSprite(orb, x, y);
+        bmd.draw(orb, x, y);
         x += 22;
         y += 3;
     }

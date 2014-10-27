@@ -25,186 +25,48 @@ function trimSprites() {
 
     console.log(images);
 
-    var i = 0;
-
-    var width = game.cache.getImage(images[i]).width;
-    var height = game.cache.getImage(images[i]).height;
-
-    if (bmd)
+    for (var i = 0; i < images.length; i++)
     {
-        bmd.cls();
-        bmd.resize(width, height);
-    }
-    else
-    {
-        bmd = game.make.bitmapData(width, height);
-        bmd.addToWorld();
-    }
+        var width = game.cache.getImage(images[i]).width;
+        var height = game.cache.getImage(images[i]).height;
 
-    bmd.draw(images[i], 0, 0);
-
-    bmd.update();
-
-    // console.log(bmd.getFirstPixel(0));
-
-    console.log(bmd.getBounds());
-
-}
-
-function OLDtrimSprites() {
-
-    images = images.sort();
-
-    console.log(images);
-
-    var i = 0;
-
-    var width = game.cache.getImage(images[i]).width;
-    var height = game.cache.getImage(images[i]).height;
-
-    if (bmd)
-    {
-        bmd.cls();
-        bmd.resize(width, height);
-    }
-    else
-    {
-        bmd = game.make.bitmapData(width, height);
-        bmd.addToWorld();
-    }
-
-    bmd.draw(images[i], 0, 0);
-
-    bmd.update();
-
-    var trim = new Phaser.Rectangle();
-    var pixel = Phaser.Color.createColor();
-
-    //  Scan from the top
-
-    var x = 0;
-    var y = 0;
-
-    do {
-
-        Phaser.Color.unpackPixel(bmd.getPixel32(x, y), pixel);
-        x++;
-
-        if (x === width)
+        if (bmd)
         {
-            x = 0;
-            y++;
+            bmd.cls();
+            bmd.resize(width, height);
+        }
+        else
+        {
+            bmd = game.make.bitmapData(width, height);
+            bmd.addToWorld();
         }
 
-    }
-    while (pixel.a === 0);
+        bmd.draw(images[i], 0, 0);
 
-    trim.y = y;
+        bmd.update();
 
-    //  Scan from the left
+        var trim = bmd.getBounds();
 
-    var x = 0;
-    var y = 0;
-
-    do {
-
-        Phaser.Color.unpackPixel(bmd.getPixel32(x, y), pixel);
-        y++;
-
-        if (y === height)
+        if (bmd2)
         {
-            y = 0;
-            x++;
+            bmd2.cls();
+            bmd2.resize(trim.width, trim.height);
+        }
+        else
+        {
+            bmd2 = game.make.bitmapData(trim.width, trim.height);
+            bmd2.addToWorld(width, 0);
         }
 
+        bmd2.copyRect(bmd, trim, 0, 0);
+
+        var filename = trim.x + "x" + trim.y + "_" + images[i];
+
+        //  File Save
+        bmd2.canvas.toBlob(function(blob) {
+            saveAs(blob, filename);
+        });
     }
-    while (pixel.a === 0);
-
-    trim.x = x;
-
-    //  Scan from the bottom
-
-    var x = 0;
-    var y = height;
-
-    do {
-
-        Phaser.Color.unpackPixel(bmd.getPixel32(x, y), pixel);
-        x++;
-
-        if (x === width)
-        {
-            x = 0;
-            y--;
-        }
-
-    }
-    while (pixel.a === 0);
-
-    trim.height = (y - trim.y) + 1;
-
-    //  Scan from the right
-
-    var x = width;
-    var y = 0;
-
-    do {
-
-        Phaser.Color.unpackPixel(bmd.getPixel32(x, y), pixel);
-        y++;
-
-        if (y === height)
-        {
-            y = 0;
-            x--;
-        }
-
-    }
-    while (pixel.a === 0);
-
-    trim.width = (x - trim.x) + 1;
-
-    console.log('trim area', trim);
-
-    if (bmd2)
-    {
-        bmd2.cls();
-        bmd2.resize(trim.width, trim.height);
-    }
-    else
-    {
-        bmd2 = game.make.bitmapData(trim.width, trim.height);
-        bmd2.addToWorld(width, 0);
-    }
-
-    bmd2.copyRect(bmd, trim, 0, 0);
-
-    var filename = trim.x + "x" + trim.y + "_" + images[i];
-
-    //  File Save
-    bmd2.canvas.toBlob(function(blob) {
-        saveAs(blob, filename);
-    });
-
-}
-
-function trimDebug() {
-
-    for (var y = 0; y < height; y++)
-    {
-        for (var x = 0; x < width; x++)
-        {
-            Phaser.Color.unpackPixel(bmd.getPixel32(x, y), pixel);
-
-            if (pixel.a > 0)
-            {
-                bmd.setPixel32(x, y, 0, 255, 0, 255, false);
-            }
-        }
-    }
-
-    bmd.context.putImageData(bmd.imageData, 0, 0);
-    bmd.dirty = true;
 
 }
 

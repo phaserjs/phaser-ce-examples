@@ -20,6 +20,9 @@ function create() {
     //  Enable P2 and it will use the updated world size
     game.physics.startSystem(Phaser.Physics.P2JS);
 
+    //  If you set the world bounds AFTER starting the P2 physics system, then you must call this:
+    // game.physics.p2.setBoundsToWorld(true, true, true, true, false);
+
     starfield = game.add.tileSprite(0, 0, 800, 600, 'stars');
     starfield.fixedToCamera = true;
 
@@ -34,8 +37,6 @@ function create() {
 
     //  Alternatively create a circle for the ship instead (which more accurately matches its size)
     // ship.body.setCircle(28);
-
-    ship.body.collideWorldBounds = false;
 
 	game.camera.follow(ship);
 
@@ -67,12 +68,12 @@ function update() {
 
     if (!game.camera.atLimit.x)
     {
-        starfield.tilePosition.x += (ship.body.velocity.x * 16) * game.time.physicsElapsed;
+        starfield.tilePosition.x -= ((ship.body.velocity.x) * game.time.physicsElapsed);
     }
 
     if (!game.camera.atLimit.y)
     {
-        starfield.tilePosition.y += (ship.body.velocity.y * 16) * game.time.physicsElapsed;
+        starfield.tilePosition.y -= ((ship.body.velocity.y) * game.time.physicsElapsed);
     }
 
 }

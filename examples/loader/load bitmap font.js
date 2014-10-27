@@ -9,7 +9,7 @@ function preload() {
     //  Next is the bitmap font file itself, in this case desyrel.png
     //  Finally is the path to the XML file that goes with the font.
 
-    game.load.bitmapFont('desyrel', 'assets/fonts/desyrel.png', 'assets/fonts/desyrel.xml');
+    game.load.bitmapFont('desyrel', 'assets/fonts/bitmapFonts/desyrel.png', 'assets/fonts/bitmapFonts/desyrel.xml');
 
     //  Note that the XML file should be saved with UTF-8 encoding or some browsers (such as Firefox) won't load it.
 

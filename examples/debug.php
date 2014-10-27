@@ -101,6 +101,8 @@
             $tempFiles = $files;
         }
 
+        $ignore = array('dragonBones.js' => false, 'phaser_dragonbones.js' => false);
+
         foreach ($tempFiles as $key => $value)
         {
             if (is_array($value)) 
@@ -114,7 +116,11 @@
             {
                 $value2 = substr($value, 0, -3);
                 $file = urlencode($value);
-                $output .= "<div class=\"item\"><a href=\"debug.php?f=$section/$file\">$value2</a></div>";
+
+                if (!array_key_exists($value, $ignore))
+                {
+                    $output .= "<div class=\"item\"><a href=\"debug.php?f=$section/$file\">$value2</a></div>";
+                }
             } 
         }
 
