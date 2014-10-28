@@ -25,7 +25,7 @@ function create() {
     sprites.create(500, 100, 'bikkuriman');
     sprites.create(600, 100, 'darkwing_crazy');
 
-    //  The first tween drops down
+    //  We will use the same reference over each time, rather than creating new ones
     tween = game.add.tween(sprites.cursor).to( { y: 500 }, 2000, Phaser.Easing.Bounce.Out, true);
     tween.onComplete.add(tween2, this);
 
