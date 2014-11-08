@@ -15,6 +15,8 @@ function create() {
 
     game.add.image(0, 0, 'sky');
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     leftEmitter = game.add.emitter(50, game.world.centerY - 200);
     leftEmitter.bounce.setTo(0.5, 0.5);
     leftEmitter.setXSpeed(100, 200);

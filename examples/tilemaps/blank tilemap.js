@@ -52,7 +52,7 @@ function create() {
     //  Create our tile selector at the top of the screen
     createTileSelector();
 
-    game.input.setMoveCallback(updateMarker, this);
+    game.input.addMoveCallback(updateMarker, this);
 
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -65,6 +65,10 @@ function create() {
     layer1Key.onDown.add(changeLayer, this);
     layer2Key.onDown.add(changeLayer, this);
     layer3Key.onDown.add(changeLayer, this);
+
+    console.log(layer1.index);
+    console.log(layer2.index);
+    console.log(layer3.index);
 
 }
 

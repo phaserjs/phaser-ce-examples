@@ -30,7 +30,7 @@ function create() {
 	wizball = game.add.sprite(500, 500, 'wizball');
 
 	game.physics.p2.enable([ contra, bunny ], true);
-	game.physics.p2.enable([ block, wizball ], false);
+	game.physics.p2.enable([ block, wizball ], true);
 
 	//	Convex polys
 	contra.body.clearShapes();
