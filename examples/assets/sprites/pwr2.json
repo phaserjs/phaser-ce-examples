@@ -1,0 +1,39 @@
+{"frames": [
+
+{
+	"filename": "firstaid",
+	"frame": {"x":233,"y":68,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "hotdog",
+	"frame": {"x":2,"y":2,"w":229,"h":111},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":229,"h":111},
+	"sourceSize": {"w":229,"h":111},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "mushroom2",
+	"frame": {"x":233,"y":2,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "pwr2.png",
+	"format": "RGBA8888",
+	"size": {"w":299,"h":115},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:26005efdde2257dc1da80603575d19b1:ba267b884e03a85f95b47919b357e38e:02eb42adf84173cf2beb5a186332d1c6$"
+}
+}
