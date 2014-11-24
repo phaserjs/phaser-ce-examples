@@ -2,13 +2,10 @@
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 var emitter;
-var x;
 
 function preload() {
 
-    // game.load.image('smoke', 'assets/particles/bubble.png');
-    // game.load.image('smoke', 'assets/sprites/mushroom2.png');
-    game.load.image('smoke', 'assets/sprites/shinyball.png');
+    game.load.image('smoke', 'assets/particles/smoke-puff.png');
 
 }
 
@@ -24,16 +21,12 @@ function create() {
 
     emitter.makeParticles('smoke');
 
-    // emitter.setXSpeed(-10, 10);
-    // emitter.setYSpeed(50, 100);
-
     emitter.setXSpeed(0, 0);
     emitter.setYSpeed(0, 0);
 
     emitter.setRotation(0, 0);
-    // emitter.setAlpha(0.1, 1, 3000);
-    // emitter.setScale(0.4, 2, 0.4, 2, 6000, Phaser.Easing.Quintic.Out);
-    emitter.setScale(1, 2, 1, 2, 6000, Phaser.Easing.Quintic.Out);
+    emitter.setAlpha(0.1, 1, 3000);
+    emitter.setScale(0.4, 2, 0.4, 2, 6000, Phaser.Easing.Quintic.Out);
     emitter.gravity = -100;
 
     emitter.start(false, 4000, 20);
@@ -47,8 +40,6 @@ function create() {
 }
 
 function update() {
-
-	// emitter.emitX
 
     emitter.customSort(scaleSort, this);
 

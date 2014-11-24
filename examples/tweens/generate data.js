@@ -17,14 +17,12 @@ function create() {
 
     game.add.image(0, 0, 'sky');
 
-    // image = game.add.image(0, 0, 'wasp');
-
     //  We don't want it to actually run, so we use game.make.tween instead of game.add.tween
 
     var tweenData = { x: 0, y: 0 };
 
     //  Here we'll tween the values held in the tweenData object to x: 500, y: 300
-    tween = game.make.tween(tweenData).to( { x: 100, y: 400 }, 2000, Phaser.Easing.Sinusoidal.InOut);
+    tween = game.make.tween(tweenData).to( { x: 100, y: 400 }, 2000, "Sine.easeInOut");
 
     //  Set the tween to yoyo so it loops smoothly
     tween.yoyo(true);
@@ -32,13 +30,15 @@ function create() {
     //  We have 3 interpolation methods available: linearInterpolation (the default), bezierInterpolation and catmullRomInterpolation.
 
     // tween.interpolation(game.math.bezierInterpolation);
-    tween.interpolation(game.math.catmullRomInterpolation);
+    // tween.interpolation(game.math.catmullRomInterpolation);
 
     //  Generates the tween data at a rate of 60 frames per second.
     //  This is useful if you've got a lot of objects all using the same tween, just at different coordinates.
     //  It saves having to calculate the same tween across the properties of all objects involved in the motion.
     //  Instead you can pre-calculate it in advance and trade that in for a bit of memory to store it in an array.
     data = tween.generateData(60);
+
+    // console.log(data);
 
     //  Now create some sprites to shown the tween data in action
     bugs = game.add.group();

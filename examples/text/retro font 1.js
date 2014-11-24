@@ -17,7 +17,7 @@ function create() {
     for (var c = 0; c < 19; c++)
     {
         var i = game.add.image(game.world.centerX, c * 32, font);
-        // i.tint = Math.random() * 0xFFFFFF;
+        i.tint = Math.random() * 0xFFFFFF;
         i.anchor.set(0.5, 1);
     }
 

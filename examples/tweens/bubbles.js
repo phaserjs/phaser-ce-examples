@@ -1,26 +1,38 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
 
-    game.load.image('space', 'assets/misc/starfield.png', 138, 15);
-    game.load.image('ball', 'assets/sprites/shinyball.png');
+    game.load.image('space', 'assets/pics/thalion-rain.png');
+    game.load.image('ball', 'assets/particles/bubble256.png');
     
 }
 
+var bg;
+
 function create() {
 
-    game.add.tileSprite(0, 0, 800, 600, 'space');
+    bg = game.add.tileSprite(0, 0, 800, 600, 'space');
 
-    for (var i = 0; i < 30; i++)
+    var delay = 0;
+
+    for (var i = 0; i < 40; i++)
     {
-        var sprite = game.add.sprite(game.world.randomX,game.world.randomY,'ball');
+        var sprite = game.add.sprite(-100 + (game.world.randomX), 600, 'ball');
 
-        //  Fade in a sprite
-        game.add.tween(sprite).to({ y: -50 }, Math.random() * 4500, Phaser.Easing.Cubic.Out, true);
+        sprite.scale.set(game.rnd.realInRange(0.1, 0.6));
 
-        //  This tween starts with a random length delay
-        game.add.tween(sprite).to({ alpha: 0 }, Math.random() * 4500, Phaser.Easing.Quadratic.InOut, true, Math.random() * 500);
+        var speed = game.rnd.between(4000, 6000);
+
+        game.add.tween(sprite).to({ y: -256 }, speed, Phaser.Easing.Sinusoidal.InOut, true, delay, 1000, false);
+
+        delay += 200;
     }
+
+}
+
+function update() {
+
+    bg.tilePosition.y += 0.4;
 
 }

@@ -11,6 +11,10 @@ function create() {
 
     game.stage.backgroundColor = '#6688ee';
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    game.physics.arcade.gravity.y = 150;
+
     //  Here we'll create a basic repeating event.
 
     //  The way a repeating event works is that it is placed into the queue once, 
@@ -34,6 +38,9 @@ function createBall() {
     var ball = game.add.sprite(game.world.randomX, 0, 'ball');
 
     game.physics.enable(ball, Phaser.Physics.ARCADE);
+
+    ball.body.bounce.y = 0.9;
+    ball.body.collideWorldBounds = true;
 
 }
 

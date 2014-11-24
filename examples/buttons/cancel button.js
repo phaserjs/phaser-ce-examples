@@ -17,28 +17,17 @@ function create() {
 
     background = game.add.tileSprite(0, 0, 800, 600, 'background');
 
-    button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
-
-    button.onInputOver.add(over, this);
-    button.onInputOut.add(out, this);
-    button.onInputUp.add(up, this);
+    button = game.add.button(game.world.centerX - 95, 400, 'button', onUp, this, 2, 1, 0);
 
 }
 
-function up() {
-    console.log('button up', arguments);
-}
+function onUp(button, pointer, isOver) {
 
-function over() {
-    console.log('button over');
-}
+    //  In this example if the Pointer is no longer over the Button, then we'll treat it
+    //  as if the user cancelled the operation and didn't want to press the Button after all
 
-function out() {
-    console.log('button out');
-}
-
-function actionOnClick () {
-
-    background.visible =! background.visible;
-
+    if (isOver)
+    {
+        background.visible =! background.visible;
+    }
 }
