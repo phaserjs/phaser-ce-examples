@@ -32,14 +32,14 @@ Rox.Boot.prototype = {
 
         if (this.game.device.desktop)
         {
-            this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-            this.scale.minWidth = 320;
-            this.scale.minHeight = 200;
-            this.scale.maxWidth = 800;
-            this.scale.maxHeight = 600;
-            this.scale.pageAlignHorizontally = true;
-            this.scale.pageAlignVertically = true;
-            this.scale.setScreenSize(true);
+            // this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+            // this.scale.minWidth = 320;
+            // this.scale.minHeight = 200;
+            // this.scale.maxWidth = 800;
+            // this.scale.maxHeight = 600;
+            // this.scale.pageAlignHorizontally = true;
+            // this.scale.pageAlignVertically = true;
+            // this.scale.setScreenSize(true);
         }
         else
         {
