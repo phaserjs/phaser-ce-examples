@@ -3,7 +3,7 @@ This example shows how to use flowing animations inside your game so that each a
 In the example you will see that the ship will animate for left when the left button is down and then left returning to center 
 when the button is released.
 
-Check out our game blog at http://twowaves.co.za/wp/game-catsharkship/ 
+Check out our game page for info and release dates at https://www.facebook.com/catshipgame?ref=hl
 
 - Shankspranks
 */
