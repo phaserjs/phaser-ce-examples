@@ -24,21 +24,6 @@ function create() {
     mummy.scale.set(4);
     anim = mummy.animations.add('walk');
 
-    game.physics.startSystem(Phaser.Physics.ARCADE);
-
-    game.physics.arcade.gravity.y = 100;
-
-    for (var i = 0; i < 100; i++)
-    {
-        var m = game.add.sprite(game.world.randomX, game.world.randomY, 'mummy', 5);
-        game.physics.arcade.enable(m);
-        m.animations.add('walk');
-        m.play('walk', game.rnd.between(5, 40), true);
-        m.body.velocity.x = game.rnd.between(-200, 200);
-        m.body.bounce.set(1);
-        m.body.collideWorldBounds = true;
-    }
-
     anim.onStart.add(animationStarted, this);
     anim.onLoop.add(animationLooped, this);
     anim.onComplete.add(animationStopped, this);

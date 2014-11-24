@@ -19,6 +19,8 @@ function create() {
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
+    game.time.desiredFps = 30;
+
     bg = game.add.tileSprite(0, 0, 800, 600, 'background');
 
     game.physics.arcade.gravity.y = 250;
@@ -93,6 +95,8 @@ function update() {
 }
 
 function render () {
+
+    game.debug.text(game.time.suggestedFps, 32, 32);
 
     // game.debug.text(game.time.physicsElapsed, 32, 32);
     // game.debug.body(player);
