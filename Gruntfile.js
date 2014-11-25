@@ -1,6 +1,8 @@
 module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-lintspaces');
+
     grunt.loadTasks('./tasks');
 
     grunt.initConfig({
@@ -23,6 +25,22 @@ module.exports = function (grunt) {
                     hostname: '*',
                     port: 8001
                 }
+            }
+        },
+
+        prettify: {
+            options: {
+                indent: 4,
+                indent_char: ' ',
+                brace_style: 'end-expand',
+                preserve_newlines: true
+            },
+            files: {
+                expand: true,
+                cwd: 'examples/',
+                ext: '.js',
+                src: ['*.js'],
+                dest: 'examples/pretty/'
             }
         }
 
