@@ -16,10 +16,10 @@ function create() {
     sprite = game.add.sprite(400, 300, 'arrow');
     sprite.anchor.setTo(0.5, 0.5);
 
-    //	Enable Arcade Physics for the sprite
+    //  Enable Arcade Physics for the sprite
     game.physics.enable(sprite, Phaser.Physics.ARCADE);
 
-    //	Tell it we don't want physics to manage the rotation
+    //  Tell it we don't want physics to manage the rotation
     sprite.body.allowRotation = false;
 
 }

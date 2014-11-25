@@ -15,10 +15,10 @@ var loopText;
 
 function create() {
 
-	game.stage.smoothed = false;
+    game.stage.smoothed = false;
 
-	back = game.add.image(0, -400, 'lazur');
-	back.scale.set(2);
+    back = game.add.image(0, -400, 'lazur');
+    back.scale.set(2);
 
     mummy = game.add.sprite(200, 360, 'mummy', 5);
     mummy.scale.set(4);
@@ -34,35 +34,35 @@ function create() {
 
 function animationStarted(sprite, animation) {
 
-	game.add.text(32, 32, 'Animation started', { fill: 'white' });
+    game.add.text(32, 32, 'Animation started', { fill: 'white' });
 
 }
 
 function animationLooped(sprite, animation) {
 
-	if (animation.loopCount === 1)
-	{
-		loopText = game.add.text(32, 64, 'Animation looped', { fill: 'white' });
-	}
-	else
-	{
-		loopText.text = 'Animation looped x2';
-		animation.loop = false;
-	}
+    if (animation.loopCount === 1)
+    {
+        loopText = game.add.text(32, 64, 'Animation looped', { fill: 'white' });
+    }
+    else
+    {
+        loopText.text = 'Animation looped x2';
+        animation.loop = false;
+    }
 
 }
 
 function animationStopped(sprite, animation) {
 
-	game.add.text(32, 64+32, 'Animation stopped', { fill: 'white' });
+    game.add.text(32, 64+32, 'Animation stopped', { fill: 'white' });
 
 }
 
 function update() {
 
-	if (anim.isPlaying)
-	{
-		back.x -= 1;
-	}
+    if (anim.isPlaying)
+    {
+        back.x -= 1;
+    }
 
 }

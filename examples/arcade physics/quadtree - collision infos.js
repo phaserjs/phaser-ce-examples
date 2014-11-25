@@ -16,6 +16,9 @@ function create() {
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
+    //  Enable the QuadTree
+    game.physics.arcade.skipQuadTree = false;
+
     aliens = game.add.group();
     aliens.enableBody = true;
 

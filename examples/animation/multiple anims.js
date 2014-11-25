@@ -5,10 +5,10 @@ function preload() {
 
     //  Here we load the Starling Texture Atlas and XML file
     game.load.atlasXML('seacreatures', 'assets/sprites/seacreatures.png', 'assets/sprites/seacreatures.xml');
-    //	Here is the exact same set of animations but as a JSON file instead
+    //  Here is the exact same set of animations but as a JSON file instead
     // game.load.atlas('seacreatures', 'assets/sprites/seacreatures_json.png', 'assets/sprites/seacreatures_json.json');
 
-    //	Just a few images to use in our underwater scene
+    //  Just a few images to use in our underwater scene
     game.load.image('undersea', 'assets/pics/undersea.jpg');
     game.load.image('coral', 'assets/pics/seabed.png');
 
@@ -30,12 +30,12 @@ function create() {
 
     jellyfish = game.add.sprite(670, 20, 'seacreatures');
 
-    //	In the texture atlas the jellyfish uses the frame names blueJellyfish0000 to blueJellyfish0032
-    //	So we can use the handy generateFrameNames function to create this for us.
+    //  In the texture atlas the jellyfish uses the frame names blueJellyfish0000 to blueJellyfish0032
+    //  So we can use the handy generateFrameNames function to create this for us.
     jellyfish.animations.add('swim', Phaser.Animation.generateFrameNames('blueJellyfish', 0, 32, '', 4), 30, true);
     jellyfish.animations.play('swim');
 
-    //	Let's make some more sea creatures in the same way as the jellyfish
+    //  Let's make some more sea creatures in the same way as the jellyfish
 
     crab = game.add.sprite(550, 480, 'seacreatures');
     crab.animations.add('swim', Phaser.Animation.generateFrameNames('crab1', 0, 25, '', 4), 30, true);
@@ -68,7 +68,7 @@ function create() {
 
     game.add.image(0, 466, 'coral');
 
-	// to: function ( properties, duration, ease, autoStart, delay, repeat, yoyo ) {
+    // to: function ( properties, duration, ease, autoStart, delay, repeat, yoyo ) {
 
     game.add.tween(purpleFish).to({ x: -200 }, 7500, Phaser.Easing.Quadratic.InOut, true, 0, 1000, false);
     game.add.tween(octopus).to({ y: 530 }, 2000, Phaser.Easing.Quadratic.InOut, true, 0, 1000, true);

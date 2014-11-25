@@ -8,10 +8,9 @@ var channels = [];
 
 var module;
 
-
 function preload() {
 
-   game.load.script('protracker', '../plugins/ProTracker.js');
+  game.load.script('protracker', '../plugins/ProTracker.js');
 
   game.load.image('vu', 'assets/sprites/vu.png');
   game.load.image('logo', 'assets/sprites/soundtracker.png');
@@ -34,7 +33,6 @@ function modLoaded(key, data) {
   return buffer;
 }
 
-
 function load_next_module()
 {
   current==mods.length-1?current=0:current++;
@@ -46,9 +44,8 @@ function load_next_module()
   module.parse();
 
   // BUG if width==0
-  // for (i=0; i<vumeter.length; i++) { vumeter[i].width=1; }
+  for (i=0; i<vumeter.length; i++) { vumeter[i].width=1; }
 }
-
 
 function create() {
 

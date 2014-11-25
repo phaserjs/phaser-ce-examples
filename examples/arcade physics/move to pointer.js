@@ -35,7 +35,4 @@ function moveBall(pointer) {
     ball.x = pointer.x;
     ball.y = pointer.y;
 
-    //  Give a little boost to velocity
-    ball.body.velocity.y *= 1.5;
-
 }
