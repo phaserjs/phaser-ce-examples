@@ -33,9 +33,11 @@
     var CODEF_AUDIO_NODE = null;
 
     function YM (data) {
-        if (typeof (window.webkitAudioContext) != 'undefined') {
-            CODEF_AUDIO_CONTEXT = new webkitAudioContext(); // Atari YM Format !!! ;)
-            CODEF_AUDIO_NODE = CODEF_AUDIO_CONTEXT.createJavaScriptNode(8192);
+
+        if (typeof window.AudioContext !== 'undefined') {
+
+            CODEF_AUDIO_CONTEXT = new AudioContext(); // Atari YM Format !!! ;)
+            CODEF_AUDIO_NODE = CODEF_AUDIO_CONTEXT.createScriptProcessor(8192);
             YmConst_PLAYER_FREQ = CODEF_AUDIO_CONTEXT.sampleRate;
 
             this.vu = [0, 0, 0];

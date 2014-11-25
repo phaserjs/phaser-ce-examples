@@ -59,6 +59,7 @@ var musics = [
 ]
 
 function preload() {
+
     // load our YM plugin
     game.load.script('YM', '../plugins/YM.js');
 
@@ -69,9 +70,11 @@ function preload() {
     musics.forEach(function (music) {
         game.load.binary(music.name, music.file);
     });
+
 }
 
 function create() {
+
     var musicsList, style, list;
 
     // sinusoid vu meter moves
@@ -120,7 +123,7 @@ function create() {
     cursors = game.input.keyboard.createCursorKeys();
     spacebar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
-    time = game.time.now;
+    time = game.time.time;
 }
 
 function moveSelector (index) {
@@ -128,8 +131,11 @@ function moveSelector (index) {
 }
 
 function changeSong (index) {
+
     // load song data from game cache
     var data =  game.cache.getBinary(musics[index].name);
+
+    // console.log(data);
 
     if (!ym) {
         // create our YM instance
@@ -154,6 +160,7 @@ function changeSong (index) {
 
 // draw one vu meter
 function buildVu (vu, colorbg, color, width) {
+
     var height = 75,
         offsetY = (game.world.width - width) / 2;
 
@@ -174,6 +181,7 @@ function buildVu (vu, colorbg, color, width) {
 }
 
 function update() {
+
     // max vu meter width
     var max = game.world.width / 1.5;
 
@@ -213,25 +221,26 @@ function update() {
     }
 
     // handle cursors for song selection
-    if (game.time.now - time > 200) {
+    if (game.time.time - time > 200) {
         if (cursors.up.isDown && musicIndex > 0) {
             musicIndex -= 1;
             moveSelector(musicIndex);
-            time = game.time.now;
+            time = game.time.time;
 
         } else if (cursors.down.isDown && musicIndex < musics.length - 1) {
             musicIndex += 1;
             moveSelector(musicIndex);
-            time = game.time.now;
+            time = game.time.time;
 
         } else if (spacebar.isDown) {
             changeSong(musicIndex);
-            time = game.time.now;
+            time = game.time.time;
         }
     }
 }
 
 function render() {
+
     // some info can be get from the ym instance
     game.debug.text('Title  : ' + ym.info.title, 16, 24);
     game.debug.text('Author : ' + ym.info.author, 16, 40);
