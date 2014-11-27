@@ -47,6 +47,6 @@ function update() {
     bmdDest.fill(0, 0, 0, 0.1);
 
     //  Change the 0.7 at the end, it's the alpha value, lower it for a softer effect
-    bmdDest.fastCopy(bmd, r, game.world.centerX, game.world.centerY, data.r, 0.5, 0.5, data.s, data.s, 0.7);
+    bmdDest.copy(bmd, 0, 0);
 
 }
