@@ -56,6 +56,6 @@ function update() {
 
     // bmdDest.draw(floor);
 
-    bmdDest.fastCopy(bmd, r, game.world.centerX, game.world.centerY);
+   bmdDest.copy(bmd, 0, 0);
 
 }
