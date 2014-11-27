@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, preRender: preRender, render: render });
 
 function preload() {
 
@@ -16,11 +16,18 @@ var drawLine = false;
 
 function create() {
         
-    game.stage.backgroundColor = '#936dc6';
+    game.stage.backgroundColor = '#304871';
 
     game.physics.startSystem(Phaser.Physics.P2JS);
     game.physics.p2.gravity.y = 100;
     game.physics.p2.restitution = 0.8;
+
+    //  Create an object to pick-up
+
+    cow = game.add.sprite(200, 200, 'cow');
+    // game.physics.p2.enable(cow, false);
+    game.physics.p2.enable(cow, true);
+    cow.body.setCircle(20);
 
     //  Create our Mouse Cursor / Spring
 
@@ -29,13 +36,6 @@ function create() {
     mouseBody.body.static = true;
     mouseBody.body.setCircle(10);
     mouseBody.body.data.shapes[0].sensor = true;
-
-    //  Create an object to pick-up
-
-    cow = game.add.sprite(200, 200, 'cow');
-    game.physics.p2.enable(cow, false);
-    // game.physics.p2.enable(cow, true);
-    cow.body.setCircle(20);
 
     //  Debug spring line
 
@@ -77,9 +77,12 @@ function move(pointer, x, y, isDown) {
 
 }
 
-function update() {
+function preRender() {
 
-    line.setTo(cow.x, cow.y, mouseBody.x, mouseBody.y);
+    if (line)
+    {
+        line.setTo(cow.x, cow.y, mouseBody.x, mouseBody.y);
+    }
 
 }
 

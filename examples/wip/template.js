@@ -3,6 +3,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 
 function preload() {
 
+    game.load.image('phaser', 'assets/sprites/phaser.png');
 
 }
 
@@ -13,7 +14,6 @@ function create() {
 }
 
 function update() {
-
 
 }
 
