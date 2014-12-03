@@ -25,10 +25,6 @@
       "title": "dynamic animation"
     },
     {
-      "file": "flowing+animations.js",
-      "title": "flowing animations"
-    },
-    {
       "file": "group+creation.js",
       "title": "group creation"
     },
@@ -233,6 +229,10 @@
       "title": "audio sprite"
     },
     {
+      "file": "fade+in.js",
+      "title": "fade in"
+    },
+    {
       "file": "loop.js",
       "title": "loop"
     },
@@ -343,6 +343,10 @@
       "title": "process pixels 3"
     },
     {
+      "file": "radial+gradient.js",
+      "title": "radial gradient"
+    },
+    {
       "file": "replace+color.js",
       "title": "replace color"
     },
@@ -369,12 +373,20 @@
       "title": "action on click"
     },
     {
+      "file": "button+in+a+group.js",
+      "title": "button in a group"
+    },
+    {
       "file": "button+scale.js",
       "title": "button scale"
     },
     {
       "file": "button+using+texture+atlas.js",
       "title": "button using texture atlas"
+    },
+    {
+      "file": "cancel+button.js",
+      "title": "cancel button"
     },
     {
       "file": "changing+the+frames.js",
@@ -405,6 +417,10 @@
     {
       "file": "follow+styles.js",
       "title": "follow styles"
+    },
+    {
+      "file": "mass+camera+cull.js",
+      "title": "mass camera cull"
     },
     {
       "file": "moving+the+camera.js",
@@ -447,8 +463,28 @@
       "title": "atari intro"
     },
     {
+      "file": "ballfield.js",
+      "title": "ballfield"
+    },
+    {
+      "file": "defjam+path+follow.js",
+      "title": "defjam path follow"
+    },
+    {
+      "file": "flag.js",
+      "title": "flag"
+    },
+    {
+      "file": "floppy+disk.js",
+      "title": "floppy disk"
+    },
+    {
       "file": "font+from+bitmapdata.js",
       "title": "font from bitmapdata"
+    },
+    {
+      "file": "glitter.js",
+      "title": "glitter"
     },
     {
       "file": "raster+bounce.js",
@@ -459,15 +495,39 @@
       "title": "raster font"
     },
     {
+      "file": "sine+wave+canvas.js",
+      "title": "sine wave canvas"
+    },
+    {
+      "file": "sine+wave.js",
+      "title": "sine wave"
+    },
+    {
+      "file": "starfield-batched.js",
+      "title": "starfield-batched"
+    },
+    {
+      "file": "starfield.js",
+      "title": "starfield"
+    },
+    {
       "file": "textwriter.js",
       "title": "textwriter"
     },
     {
       "file": "unlimited+bobs.js",
       "title": "unlimited bobs"
+    },
+    {
+      "file": "wobble.js",
+      "title": "wobble"
     }
   ],
   "display": [
+    {
+      "file": "arc.js",
+      "title": "arc"
+    },
     {
       "file": "extract+mask.js",
       "title": "extract mask"
@@ -523,6 +583,10 @@
     {
       "file": "tint+sprite.js",
       "title": "tint sprite"
+    },
+    {
+      "file": "viewport.js",
+      "title": "viewport"
     }
   ],
   "filters": [
@@ -613,6 +677,14 @@
     {
       "file": "playing+with+points.js",
       "title": "playing with points"
+    },
+    {
+      "file": "polygon+contains.js",
+      "title": "polygon contains"
+    },
+    {
+      "file": "polygon.js",
+      "title": "polygon"
     },
     {
       "file": "rectangle.js",
@@ -881,6 +953,10 @@
     {
       "file": "virtual+gamecontroller.js",
       "title": "virtual gamecontroller"
+    },
+    {
+      "file": "word+input.js",
+      "title": "word input"
     }
   ],
   "loader": [
@@ -953,6 +1029,10 @@
     {
       "file": "repeatable+random+numbers.js",
       "title": "repeatable random numbers"
+    },
+    {
+      "file": "webcam.js",
+      "title": "webcam"
     }
   ],
   "ninja physics": [
@@ -1055,6 +1135,10 @@
       "title": "lock constraint"
     },
     {
+      "file": "mouse+spring.js",
+      "title": "mouse spring"
+    },
+    {
       "file": "pick+up+object.js",
       "title": "pick up object"
     },
@@ -1081,6 +1165,10 @@
     {
       "file": "springs.js",
       "title": "springs"
+    },
+    {
+      "file": "state+reset.js",
+      "title": "state reset"
     },
     {
       "file": "static+body.js",
@@ -1203,6 +1291,10 @@
       "title": "anchor"
     },
     {
+      "file": "child+sprites.js",
+      "title": "child sprites"
+    },
+    {
       "file": "collide+world+bounds.js",
       "title": "collide world bounds"
     },
@@ -1221,6 +1313,10 @@
     {
       "file": "extending+sprite+demo+2.js",
       "title": "extending sprite demo 2"
+    },
+    {
+      "file": "fixed+scale.js",
+      "title": "fixed scale"
     },
     {
       "file": "horizontal+crop.js",
@@ -1245,6 +1341,10 @@
     {
       "file": "overlap+without+physics.js",
       "title": "overlap without physics"
+    },
+    {
+      "file": "rotate+and+scale.js",
+      "title": "rotate and scale"
     },
     {
       "file": "scale+a+sprite.js",
@@ -1283,6 +1383,14 @@
     {
       "file": "bitmapfont+drag.js",
       "title": "bitmapfont drag"
+    },
+    {
+      "file": "center+text+on+sprite.js",
+      "title": "center text on sprite"
+    },
+    {
+      "file": "colored+characters.js",
+      "title": "colored characters"
     },
     {
       "file": "dynamic+text+shadow.js",
@@ -1351,6 +1459,10 @@
     {
       "file": "update+text.js",
       "title": "update text"
+    },
+    {
+      "file": "word+wrap.js",
+      "title": "word wrap"
     }
   ],
   "tile sprites": [
@@ -1365,6 +1477,14 @@
     {
       "file": "sprite+sheet+tiling+sprite.js",
       "title": "sprite sheet tiling sprite"
+    },
+    {
+      "file": "tile+sprite+from+animated+sprite.js",
+      "title": "tile sprite from animated sprite"
+    },
+    {
+      "file": "tiling+sprite+atlas+32x32.js",
+      "title": "tiling sprite atlas 32x32"
     },
     {
       "file": "tiling+sprite+atlas.js",
@@ -1463,8 +1583,16 @@
       "title": "custom timer"
     },
     {
+      "file": "elapsed+seconds.js",
+      "title": "elapsed seconds"
+    },
+    {
       "file": "remove+event.js",
       "title": "remove event"
+    },
+    {
+      "file": "slow+down+time.js",
+      "title": "slow down time"
     },
     {
       "file": "timed+slideshow.js",
@@ -1509,6 +1637,10 @@
       "title": "pause tween"
     },
     {
+      "file": "single+tween+reuse.js",
+      "title": "single tween reuse"
+    },
+    {
       "file": "tween+from.js",
       "title": "tween from"
     },
@@ -1519,6 +1651,10 @@
     {
       "file": "tween+relative.js",
       "title": "tween relative"
+    },
+    {
+      "file": "tween+reuse.js",
+      "title": "tween reuse"
     },
     {
       "file": "tween+several+properties.js",

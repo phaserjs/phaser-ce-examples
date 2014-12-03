@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    background-color: black;
+}
+
+#container {
+    background-color: rgba(0, 255, 0, 0.2);
+    border: 1px solid #00ff00;
+    width: 1024px;
+    height: 800px;
+}

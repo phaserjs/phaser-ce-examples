@@ -5,6 +5,8 @@ function create() {
 	var style = { font: "65px Arial", fill: "#ff0044", align: "center" };
     var text = game.add.text(game.world.centerX, game.world.centerY, "- phaser -\nwith a sprinkle of\npixi dust", style);
 
+    // var text = game.add.text(game.world.centerX, game.world.centerY, "- ÅÄÖ -\nwith a sprinkle of\npixi dust", style);
+
     text.anchor.set(0.5);
 
 }
