@@ -9,41 +9,58 @@ $(document).ready(function(){
 
 	// Gets a list of git tags, i.e Phaser.js versions and creates a dropdown for them. 
 	// on selecting the page will reload and load the select version of github.
+
 	var phaser_version = $.url().param('phaser_version');
-	var local_copy_of_phaser = "_site/phaser/phaser.2.2.0.min.js"
-	var local_copy_of_phaser_version = "2.2.0"
+
+	if (!phaser_version)
+	{
+		phaser_version = '2.2.0';
+	}
+
+	var local_copy_of_phaser = "_site/phaser/phaser.2.2.0.min.js";
+	var local_copy_of_phaser_version = "2.2.0";
+
 	var phaser_version_update = function(phaser_version) {
 		$(".phaser-version span").html("Phaser version: " + phaser_version)
 	};
 
 	$.get( "https://api.github.com/repos/photonstorm/phaser/git/refs/tags", function( data ) {
+
 		var tags = ['dev'];
+
 		for (var i = data.length - 1; i >= 0; i--) {
 			tags.push(data[i]['ref'].replace('refs/tags/',''))
 		};
+
 		var $element = $('.phaser-version');
 		var $dropdown = $("<select></select>").on('change', function() {
 
 			var params = $.url().param();
 			params['phaser_version'] = this.value;
+
 			var url = "http://" + window.location.host + window.location.pathname + '?'
-			for( p in params){
-				url += p + "=" + params[p] + "&"
+
+			for (p in params)
+			{
+				url += p + "=" + params[p] + "&";
 			}
+
 			window.location.href = url;
-    		
-		})
+		});
+
 		$element.append($dropdown);
 		$dropdown.append($("<option></option>").text("Select a version"));
+
 		$.each(tags, function(key, value) {
 			$dropdown.append($("<option></option>").attr("value",value).text(value));
 		});
 	});
 
-	var phaser_lib_url = "https://cdn.rawgit.com/photonstorm/phaser/" + phaser_version + "/build/phaser.js"
+	var phaser_lib_url = "https://cdn.rawgit.com/photonstorm/phaser/" + phaser_version + "/build/phaser.js";
+
 	$.getScript(phaser_lib_url).done(function( script, textStatus ) {
 		load_example_code();
-		phaser_version_update(phaser_version)
+		phaser_version_update(phaser_version);
 	}).fail(function(jqxhr, settings, exception) {
 		$.getScript(local_copy_of_phaser).done(function( script, textStatus ) {
 			console.log("Failed to load Phaser.js from github, falling back to local copy")
