@@ -14,11 +14,11 @@ $(document).ready(function(){
 
 	if (!phaser_version)
 	{
-		phaser_version = '2.2.0';
+		phaser_version = '2.2.1';
 	}
 
-	var local_copy_of_phaser = "_site/phaser/phaser.2.2.0.min.js";
-	var local_copy_of_phaser_version = "2.2.0";
+	var local_copy_of_phaser = "_site/phaser/phaser.2.2.1.min.js";
+	var local_copy_of_phaser_version = "2.2.1";
 
 	var phaser_version_update = function(phaser_version) {
 		$(".phaser-version span").html("Phaser version: " + phaser_version)
