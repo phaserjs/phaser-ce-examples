@@ -16,6 +16,8 @@ var cursors;
 
 function create() {
 
+    game.world.setBounds(0, 0, 1600, 1200);
+
     game.add.image(0, 0, 'sky');
 
 	//	Enable p2 physics
@@ -45,6 +47,9 @@ function create() {
     //  Give the kinematic objects some velocity
     kinematic1.body.velocity.x = 10;
     kinematic2.body.velocity.x = -10;
+
+    ship.body.collideWorldBounds = false;
+
 
     text = game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
 
