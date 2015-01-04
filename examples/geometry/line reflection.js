@@ -70,14 +70,11 @@ function update() {
         c = 'rgb(0,255,0)';
 
         //  Update the normal from the intersection point (100px length)
-        normal.start.x = p.x;
-        normal.start.y = p.y;
-        normal.end.x = p.x + (line2.normalX * 100);
-        normal.end.y = p.y + (line2.normalY * 100);
+        normal.fromAngle(p.x, p.y, line2.normalAngle, 100);
 
         //  Either of these is fine:
-        // var outgoing = Phaser.Line.reflect(line1, line2, true);
-        var outgoing = line1.reflect(line2, true);
+        // var outgoing = Phaser.Line.reflect(line1, line2);
+        var outgoing = line1.reflect(line2);
 
         reflection.fromAngle(p.x, p.y, outgoing, 200);
 
@@ -96,16 +93,16 @@ function update() {
 
 function render() {
 
-    game.debug.geom(line1, c);
-    game.debug.geom(line2, c);
+    game.debug.geom(line1, '#ff0000');
+    game.debug.geom(line2, '#9999ff');
 
     game.debug.lineInfo(line1, 32, 32);
     game.debug.lineInfo(line2, 32, 100);
 
     if (p)
     {
-        game.debug.geom(normal, '#ffff00');
-        game.debug.geom(reflection, '#ff00ff');
+        game.debug.geom(normal, '#ffffff');
+        game.debug.geom(reflection, '#00ff00');
 
         game.context.fillStyle = 'rgb(255,0,255)';
         game.context.fillRect(p.x - 2, p.y - 2, 5, 5);
