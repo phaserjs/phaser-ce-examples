@@ -114,6 +114,8 @@
 
         <div id="phaser-example"></div>
 
+        <textarea id="dump" style="width: 300px; height: 300px"></textarea>
+
         <input type="button" id="start" value="start" />
         <input type="button" id="stop" value="stop" style="margin-left: 32px" />
         <input type="button" id="step" value="step" style="margin-left: 128px"/>
