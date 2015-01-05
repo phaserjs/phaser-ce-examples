@@ -18,7 +18,7 @@ function create() {
 
     //  Here we create a linear gradient on the Text context.
     //  This uses the exact same method of creating a gradient as you do on a normal Canvas context.
-    var grd = text.context.createLinearGradient(0, 0, 0, text.canvas.height);
+    var grd = text.context.createLinearGradient(0, 0, 0, text.height);
 
     //  Add in 2 color stops
     grd.addColorStop(0, '#8ED6FF');   
