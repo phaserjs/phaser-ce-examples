@@ -17,7 +17,10 @@ function create() {
 
     game.add.sprite(0, 0, 'backdrop');
 
-    card = game.add.sprite(200, 200, 'card');
+    card = game.add.sprite(200.5, 200.5, 'card');
+
+    game.physics.enable(card, Phaser.Physics.ARCADE);
+    card.body.collideWorldBounds = true;
 
     game.camera.follow(card);
 
@@ -27,22 +30,29 @@ function create() {
 
 function update() {
 
+    card.body.velocity.x = 0;
+    card.body.velocity.y = 0;
+
     if (cursors.left.isDown)
     {
-        card.x -= 4;
+        // card.x -= 4;
+        card.body.velocity.x = -240;
     }
     else if (cursors.right.isDown)
     {
-        card.x += 4;
+        // card.x += 4;
+        card.body.velocity.x = 240;
     }
 
     if (cursors.up.isDown)
     {
-        card.y -= 4;
+        // card.y -= 4;
+        card.body.velocity.y = -240;
     }
     else if (cursors.down.isDown)
     {
-        card.y += 4;
+        // card.y += 4;
+        card.body.velocity.y = 240;
     }
 
 }
