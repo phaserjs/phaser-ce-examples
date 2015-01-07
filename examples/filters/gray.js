@@ -3,7 +3,7 @@ var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example', { preload: 
 function preload() {
 
     game.load.image('phaser', 'assets/sprites/phaser2.png');
-    game.load.script('gray', '../filters/Gray.js');
+    game.load.script('gray', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/Gray.js');
 
 }
 

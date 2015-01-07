@@ -8,7 +8,7 @@ function preload() {
 
     game.load.image('s', 'assets/pics/undersea.jpg');
     game.load.image('phaser', 'assets/sprites/phaser.png');
-    game.load.script('filter', '../filters/CheckerWave.js');
+    game.load.script('filter', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/CheckerWave.js');
 
 }
 

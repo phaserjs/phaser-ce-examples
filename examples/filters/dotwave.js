@@ -31,7 +31,7 @@ function create() {
     filter = new Phaser.Filter(game, null, fragmentSrc);
     filter.setResolution(800, 600);
 
-    var sprite = game.add.sprite(0, 0);
+    var sprite = game.add.sprite();
     sprite.width = 800;
     sprite.height = 600;
 

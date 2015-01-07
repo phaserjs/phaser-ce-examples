@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
 
@@ -33,6 +33,8 @@ function create() {
 
     //  This will set the map location 2, 0 to call the function
     map.setTileLocationCallback(2, 0, 1, 1, hitCoin, this);
+
+    // game.device.canvasBitBltShift = false;
 
     layer = map.createLayer('Tile Layer 1');
 

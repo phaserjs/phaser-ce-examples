@@ -101,7 +101,7 @@ $(document).ready(function(){
 
 	.done(function(data) {
 
-		if (data.version !== '2.2.1')
+		if (data.version !== '2.2.2')
 		{
 			$("#upgrade").append(data.version);
 			$("#upgrade").css('display', 'inline-block');

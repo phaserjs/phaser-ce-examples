@@ -315,6 +315,10 @@
       "title": "draw blended sprite"
     },
     {
+      "file": "draw+group.js",
+      "title": "draw group"
+    },
+    {
       "file": "draw+sprite.js",
       "title": "draw sprite"
     },
@@ -573,6 +577,10 @@
       "title": "render texture trail"
     },
     {
+      "file": "round+pixels.js",
+      "title": "round pixels"
+    },
+    {
       "file": "sprite+shadow.js",
       "title": "sprite shadow"
     },
@@ -591,6 +599,14 @@
   ],
   "filters": [
     {
+      "file": "bacteria.js",
+      "title": "bacteria"
+    },
+    {
+      "file": "blue+dots.js",
+      "title": "blue dots"
+    },
+    {
       "file": "blur.js",
       "title": "blur"
     },
@@ -599,28 +615,120 @@
       "title": "checker wave"
     },
     {
+      "file": "dalek.js",
+      "title": "dalek"
+    },
+    {
+      "file": "dotwave.js",
+      "title": "dotwave"
+    },
+    {
+      "file": "dotwave2.js",
+      "title": "dotwave2"
+    },
+    {
       "file": "fire.js",
       "title": "fire"
+    },
+    {
+      "file": "fireball.js",
+      "title": "fireball"
     },
     {
       "file": "gray.js",
       "title": "gray"
     },
     {
+      "file": "kaleidoscope.js",
+      "title": "kaleidoscope"
+    },
+    {
       "file": "lightbeams.js",
       "title": "lightbeams"
+    },
+    {
+      "file": "lightwave.js",
+      "title": "lightwave"
     },
     {
       "file": "marble.js",
       "title": "marble"
     },
     {
+      "file": "mouse+ray.js",
+      "title": "mouse ray"
+    },
+    {
+      "file": "mouse+wave.js",
+      "title": "mouse wave"
+    },
+    {
+      "file": "plane+deformation.js",
+      "title": "plane deformation"
+    },
+    {
       "file": "plasma.js",
       "title": "plasma"
     },
     {
+      "file": "rainbow+bars.js",
+      "title": "rainbow bars"
+    },
+    {
+      "file": "retro+plasma.js",
+      "title": "retro plasma"
+    },
+    {
+      "file": "rotozoomer.js",
+      "title": "rotozoomer"
+    },
+    {
+      "file": "seascape.js",
+      "title": "seascape"
+    },
+    {
+      "file": "sinewave+fixed+base.js",
+      "title": "sinewave fixed base"
+    },
+    {
+      "file": "sinewave.js",
+      "title": "sinewave"
+    },
+    {
+      "file": "sphere+tracer.js",
+      "title": "sphere tracer"
+    },
+    {
+      "file": "spiral+galaxy.js",
+      "title": "spiral galaxy"
+    },
+    {
+      "file": "starfield.js",
+      "title": "starfield"
+    },
+    {
+      "file": "starlight.js",
+      "title": "starlight"
+    },
+    {
       "file": "tunnel.js",
       "title": "tunnel"
+    },
+    {
+      "file": "undersea.js",
+      "title": "undersea"
+    },
+    {
+      "file": "vdu+noise.js",
+      "title": "vdu noise"
+    },
+    {
+      "file": "vertical+bars.js",
+      "title": "vertical bars"
+    },
+    {
+      "file": "vortex.js",
+      "title": "vortex"
     }
   ],
   "games": [
@@ -669,6 +777,10 @@
     {
       "file": "line+intersection.js",
       "title": "line intersection"
+    },
+    {
+      "file": "line+reflection.js",
+      "title": "line reflection"
     },
     {
       "file": "line.js",
@@ -1139,6 +1251,10 @@
       "title": "mouse spring"
     },
     {
+      "file": "movement+constraint.js",
+      "title": "movement constraint"
+    },
+    {
       "file": "pick+up+object.js",
       "title": "pick up object"
     },
@@ -1600,6 +1716,10 @@
     }
   ],
   "tweens": [
+    {
+      "file": "alpha+text.js",
+      "title": "alpha text"
+    },
     {
       "file": "bounce.js",
       "title": "bounce"

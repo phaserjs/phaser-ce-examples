@@ -86,7 +86,8 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 
 function preload() {
 
-    game.load.image('texture', 'wip/tex15.png');
+    game.load.image('otexture', 'wip/tex15.png');
+    game.load.image('texture', 'assets/pics/lance-overdose-loader_eye.png');
 
 }
 
