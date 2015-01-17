@@ -1679,6 +1679,10 @@
     {
       "file": "tilemap+ray+cast.js",
       "title": "tilemap ray cast"
+    },
+    {
+      "file": "dig.js",
+      "title": "removing tiles"
     }
   ],
   "time": [
