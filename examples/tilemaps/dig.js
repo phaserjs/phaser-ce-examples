@@ -38,9 +38,8 @@ var mainState = ( function () {
         this.digger.animations.play('walk');
         game.physics.arcade.enable(this.digger);
         this.digger.body.acceleration.y = 300;
-
-        // digging time.
-        this.digger.timeTakenToDig = 20;
+        // some usefull properties
+        this.digger.timeTakenToDig = 100;
         this.digger.timeElapsedDigging = 0;
 
         // cursor listener
@@ -63,7 +62,8 @@ var mainState = ( function () {
 
                 // removing the tile on that coordinates.
                 // 1 is the index of the dirt that can be removed.
-                if (this.tilemap.getTile(downX, downY).index == 1) {
+                if (this.tilemap.getTile(downX, downY) &&
+                    this.tilemap.getTile(downX, downY).index == 1) {
                     this.tilemap.removeTile(downX, downY);
                 }
             }
@@ -93,6 +93,6 @@ var mainState = ( function () {
 
 })();
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example');
+var game = new Phaser.Game(780, 600, Phaser.AUTO, 'game');
 game.state.add('main', mainState);
 game.state.start('main');
