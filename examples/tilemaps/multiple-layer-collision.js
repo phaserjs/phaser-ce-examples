@@ -1,3 +1,6 @@
+// example code by Vengadora
+// get in touch!! vengadoravg@gmail.com
+
 var MESSAGES = ['you are standing on myLayer[0] where water has no collision',
                 'you are standing on myLayer[1] where stone has no collision',
                 'you are standing on myLayer[2] where plant has no collision',
