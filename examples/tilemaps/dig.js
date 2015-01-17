@@ -93,6 +93,6 @@ var mainState = ( function () {
 
 })();
 
-var game = new Phaser.Game(780, 600, Phaser.AUTO, 'game');
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
 game.state.add('main', mainState);
 game.state.start('main');
