@@ -48,9 +48,6 @@ function create() {
     kinematic1.body.velocity.x = 10;
     kinematic2.body.velocity.x = -10;
 
-    ship.body.collideWorldBounds = false;
-
-
     text = game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
 
     cursors = game.input.keyboard.createCursorKeys();
@@ -87,8 +84,10 @@ function update() {
 }
 
 function switchDirections() {
+
     //  This simply flips the directions of the kinematic objects. The P2 mpxi function
     //  is used to convert from the p2 physics value back into pxiels.
     kinematic1.body.velocity.x = game.physics.p2.mpxi(kinematic1.body.velocity.x) * -1;
     kinematic2.body.velocity.x = game.physics.p2.mpxi(kinematic2.body.velocity.x) * -1;
+
 }

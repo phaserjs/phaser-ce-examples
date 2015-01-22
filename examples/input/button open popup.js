@@ -11,7 +11,7 @@ function preload() {
 
 var button;
 var popup;
-var tween;
+var tween = null;
 
 function create() {
 
@@ -42,13 +42,13 @@ function create() {
     popup.addChild(closeButton);
 
     //  Hide it awaiting a click
-    popup.scale.set(0);
+    popup.scale.set(0.1);
 
 }
 
 function openWindow() {
 
-    if ((tween && tween.isRunning) || popup.scale.x === 1)
+    if ((tween !== null && tween.isRunning) || popup.scale.x === 1)
     {
         return;
     }
@@ -60,13 +60,13 @@ function openWindow() {
 
 function closeWindow() {
 
-    if (tween.isRunning || popup.scale.x === 0)
+    if (tween && tween.isRunning || popup.scale.x === 0.1)
     {
         return;
     }
 
     //  Create a tween that will close the window, but only if it's not already tweening or closed
-    tween = game.add.tween(popup.scale).to( { x: 0, y: 0 }, 500, Phaser.Easing.Elastic.In, true);
+    tween = game.add.tween(popup.scale).to( { x: 0.1, y: 0.1 }, 500, Phaser.Easing.Elastic.In, true);
 
 }
 

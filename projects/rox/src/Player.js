@@ -65,12 +65,12 @@ Rox.Player.prototype.update = function () {
     this.trail.minParticleSpeed.set(px, py);
     this.trail.maxParticleSpeed.set(px, py);
 
-    if (this.body.speed > 50 && !this.isThrusting)
-    {
+    // if (this.body.speed > 50 && !this.isThrusting)
+    // {
         this.trail.start(true, 1000, 8);
-    }
+    // }
 
-    this.trail.forEachExists(this.game.world.wrap, this.game.world);
+    // this.trail.forEachExists(this.game.world.wrap, this.game.world);
 
 }
 

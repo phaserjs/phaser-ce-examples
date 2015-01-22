@@ -1,6 +1,25 @@
 <?php
     $files = dirToArray(dirname(__FILE__));
     $total = 0;
+    $sections = array();
+
+    $current_section = false;
+
+    if (isset($_GET['s']) && trim($_GET['s']) !== '')
+    {
+        $current_section = $_GET['s'];
+    }
+
+    $filename = '';
+
+    if (isset($_GET['f']))
+    {
+        $current_file = $_GET['f'];
+        $current_file = substr($current_file, strpos($current_file, '/') + 1);
+        $filename = $_GET['f'];
+        $filename = str_replace('/', '-', $filename);
+        $filename = str_replace('.js', '.png', $filename);
+    }
 
     foreach ($files as $key => $value)
     {
@@ -89,6 +108,9 @@
     function buildList($section) {
 
         global $files;
+        global $sections;
+        global $current_section;
+        global $current_file;
 
         $output = "";
 
@@ -107,19 +129,47 @@
         {
             if (is_array($value)) 
             {
+                $sections[] = $key;
+
                 $output .= "<div class=\"section\">";
-                $output .= "<h2>$key</h2>";
+
+                if ($current_section === $key)
+                {
+                    $output .= "<a href=\"debug.php?s=$key\" class=\"sectionHeadC\">$key</a><br clear=\"all\" />";
+                }
+                else
+                {
+                    $output .= "<a href=\"debug.php?s=$key\" class=\"sectionHead\">$key</a>";
+                }
+
                 $output .= buildList($key);
                 $output .= "</div>";
+
+                if ($current_section === $key)
+                {
+                    $output .= "<br clear=\"all\" />";
+                }
             } 
             else 
             {
-                $value2 = substr($value, 0, -3);
-                $file = urlencode($value);
-
-                if (!array_key_exists($value, $ignore))
+                if ($current_section === false || $current_section === $section)
                 {
-                    $output .= "<div class=\"item\"><a href=\"debug.php?f=$section/$file\">$value2</a></div>";
+                    $value2 = substr($value, 0, -3);
+                    $file = urlencode($value);
+
+                    if (!array_key_exists($value, $ignore))
+                    {
+                        // $output .= "<div class=\"item\"><a href=\"debug.php?f=$section/$file\">$value2</a></div>";
+
+                        if ($value === $current_file)
+                        {
+                            $output .= "<div class=\"itemC\"><a href=\"debug.php?s=$section&amp;f=$section/$file\">$value2</a></div>";
+                        }
+                        else
+                        {
+                            $output .= "<div class=\"item\"><a href=\"debug.php?s=$section&amp;f=$section/$file\">$value2</a></div>";
+                        }
+                    }
                 }
             } 
         }
@@ -132,8 +182,11 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>phaser</title>
+        <title>phaser - <?php echo $current_file ?></title>
         <script src="_site/js/jquery-2.0.3.min.js" type="text/javascript"></script>
+        <script src="_site/js/Blob.js" type="text/javascript"></script>
+        <script src="_site/js/CanvasToBlob.js" type="text/javascript"></script>
+        <script src="_site/js/FileSaver.js" type="text/javascript"></script>
         <!-- <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" /> -->
         <?php
             $v = "2.1.0";
@@ -175,20 +228,38 @@
                 font-size: 18px;
             }
 
-            h2 {
-                padding: 0;
-                margin: 8px 0px;
+            .sectionHead,
+            .sectionHeadC {
+                color: #f7f024;
+                float: left;
+                width: 200px;
+                height: 28px;
+                background-color: #47aede;
+                border: 1px solid #1b79a5;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                padding-top: 4px;
+                margin: 4px;
             }
 
-            .section {
-                padding: 16px;
-                clear: both;
+            .sectionHeadC {
+                background-color: #de47ae;
+                border: 1px solid #a51b79;
             }
 
             .section .item {
                 float: left;
                 padding: 8px;
             }
+
+            .section .itemC {
+                float: left;
+                padding: 8px;
+                background-color: #de47ae;
+                border: 1px solid #a51b79;
+            }
+
         </style>
     </head>
     <body>
@@ -199,6 +270,7 @@
         <input type="button" id="stop" value="stop" style="margin-left: 32px" />
         <input type="button" id="step" value="step" style="margin-left: 128px"/>
         <input type="button" id="fs" value="fullscreen" style="margin-left: 128px"/>
+        <input type="button" id="grab" value="screen [g]rab" style="margin-left: 128px"/>
 
         <?php
             echo buildList(false);
@@ -206,9 +278,9 @@
 
         <script type="text/javascript">
             
-            $("#filelist").change(function() {
-                window.location.href = 'debug.php?f=' + $("#filelist").val();
-            });
+            // $("#filelist").change(function() {
+            //     window.location.href = 'debug.php?f=' + $("#filelist").val();
+            // });
 
             var debugSprite = null;
 
@@ -259,6 +331,26 @@
                 {
                     game.scale.startFullScreen(false);
                 }
+
+            });
+
+            $(window).keydown(function(event) {
+
+                //  Press G to capture
+                if (event.which === 71)
+                {
+                    game.canvas.toBlob(function(blob) {
+                        saveAs(blob, "<?php echo $filename ?>");
+                    });
+                }
+
+            });
+
+            $('#grab').click(function(){
+
+                game.canvas.toBlob(function(blob) {
+                    saveAs(blob, "<?php echo $filename ?>");
+                });
 
             });
 

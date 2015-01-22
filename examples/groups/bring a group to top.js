@@ -65,13 +65,15 @@ function create() {
 
 function update() {
 
-    if (game.input.keyboard.justReleased(Phaser.Keyboard.ONE))
+    if (game.input.keyboard.isDown(Phaser.Keyboard.ONE))
     {
+        console.log('1');
         coke.bringToTop();
     }
 
-    if (game.input.keyboard.justReleased(Phaser.Keyboard.TWO))
+    if (game.input.keyboard.isDown(Phaser.Keyboard.TWO))
     {
+        console.log('2');
         disk.bringToTop();
     }
 

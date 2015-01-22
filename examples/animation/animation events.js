@@ -15,13 +15,13 @@ var loopText;
 
 function create() {
 
-    game.stage.smoothed = false;
-
     back = game.add.image(0, -400, 'lazur');
     back.scale.set(2);
+    back.smoothed = false;
 
     mummy = game.add.sprite(200, 360, 'mummy', 5);
     mummy.scale.set(4);
+    mummy.smoothed = false;
     anim = mummy.animations.add('walk');
 
     anim.onStart.add(animationStarted, this);

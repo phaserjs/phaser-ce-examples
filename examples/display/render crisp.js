@@ -24,10 +24,10 @@ function create() {
     //  For browsers that support it, this keeps our pixel art looking crisp (works across Canvas and WebGL)
 
     //  You can either set smoothing on a specific sprite, like this:
-    // boss.smoothed = false;
+    boss.smoothed = false;
 
     //  Or across the whole stage, like this:
-    game.stage.smoothed = false;
+    // game.stage.smoothed = false;
 
     //  Zoom in each time we press the button
     button = game.add.button(32, 32, 'button', clickedIt, this, 2, 1, 0);

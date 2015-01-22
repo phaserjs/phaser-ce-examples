@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
 
 function preload() {
 
@@ -17,9 +17,8 @@ function create() {
 
 	bmd.load('pic');
 
-	bmd.addToWorld(game.world.centerX, game.world.centerY, 0.5, 0.5, 3, 3);
-
-	game.stage.smoothed = false;
+	var sprite = bmd.addToWorld(game.world.centerX, game.world.centerY, 0.5, 0.5, 3, 3);
+	sprite.smoothed = false;
 
 	game.input.onDown.add(startProcess, this);
 

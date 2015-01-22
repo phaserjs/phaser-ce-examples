@@ -6,18 +6,17 @@ var x;
 
 function preload() {
 
-    game.load.image('bubble', 'assets/sprites/shinyball.png');
-    // game.load.image('bubble', 'assets/sprites/bubble.png');
-    game.load.image('water', 'assets/skies/sunset.png');
+    game.load.image('bubble', 'assets/particles/bubble.png');
+    game.load.image('water', 'assets/skies/underwater2.png');
 
 }
 
 function create() {
 
-    // game.add.image(0, 0, 'water');
+    game.add.image(0, 0, 'water');
 
     //	Emitters have a center point and a width/height, which extends from their center point to the left/right and up/down
-    emitter = game.add.emitter(game.world.centerX, 200, 400);
+    emitter = game.add.emitter(game.world.centerX, 400, 400);
 
     //	This emitter will have a width of 800px, so a particle can emit from anywhere in the range emitter.x += emitter.width / 2
     // emitter.width = 800;

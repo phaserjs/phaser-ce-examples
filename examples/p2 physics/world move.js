@@ -73,12 +73,12 @@ function update() {
 
     if (!game.camera.atLimit.x)
     {
-        starfield.tilePosition.x += (ship.body.velocity.x * 16) * game.time.physicsElapsed;
+        starfield.tilePosition.x -= (ship.body.velocity.x * game.time.physicsElapsed);
     }
 
     if (!game.camera.atLimit.y)
     {
-        starfield.tilePosition.y += (ship.body.velocity.y * 16) * game.time.physicsElapsed;
+        starfield.tilePosition.y -= (ship.body.velocity.y * game.time.physicsElapsed);
     }
 
 }

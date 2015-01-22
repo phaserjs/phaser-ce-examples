@@ -14,7 +14,7 @@ function create() {
 	//	Enable p2 physics
 	game.physics.startSystem(Phaser.Physics.P2JS);
 
-	contra = game.add.sprite(0, 0, 'contra2');
+	contra = game.add.sprite(game.world.centerX, game.world.centerY - 200, 'contra2');
 
 	//	Enable the physics body on this sprite and turn on the visual debugger
 	game.physics.p2.enable(contra, true);
