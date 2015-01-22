@@ -18,8 +18,6 @@ function create() {
 
     var button = game.make.button(game.world.centerX - 95, 400, 'button', removeGroup, this, 2, 1, 0);
 
-    window.rich = button;
-
     button.onInputOver.add(over, this);
     button.onInputOut.add(out, this);
 
