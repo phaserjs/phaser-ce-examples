@@ -61,7 +61,7 @@ var musics = [
 function preload() {
 
     // load our YM plugin
-    game.load.script('YM', '../plugins/YM.js');
+    game.load.script('YM', '_plugins/YM.js');
 
     game.load.image('logo', 'assets/demoscene/atari.png');
     game.load.image('bg', 'assets/skies/sky2.png');

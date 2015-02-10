@@ -33,6 +33,8 @@ function IDEScreenGrab()
 
 function IDECallback(event)
 {
+    console.log('IDECallback', event);
+
     if (event.origin === "http://phaser.dev" || event.origin === "http://phaser.io" || event.origin === "http://dev.phaser.io")
     {
         if (event.data === 'pause')
@@ -53,8 +55,15 @@ function IDECallback(event)
             window.onbeforeunload = function() {};
             window.location.reload();
         }
+        else if (event.data === 'reload2')
+        {
+            //  Otherwise it fires a shutdown event when the page reloads
+            window.onbeforeunload = function() {};
+            window.location.href = 'getcode.php';
+        }
         else
         {
+            //  Run the code
             eval(event.data);
         }
     }
@@ -75,11 +84,17 @@ $(document).ready(function() {
 
     if (isEmbed)
     {
-        window.top.postMessage('getCode', 'http://phaser.dev');
+        if (IDE_HOOK)
+        {
+            window.top.postMessage('getCode', 'http://phaser.dev');
+        }
     }
     else
     {
-        window.opener.postMessage('getCode', 'http://phaser.dev');
+        if (IDE_HOOK)
+        {
+            window.opener.postMessage('getCode', 'http://phaser.dev');
+        }
 
         window.onbeforeunload = function() {
             window.opener.postMessage('shutdown', 'http://phaser.dev');

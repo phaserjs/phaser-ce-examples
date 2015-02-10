@@ -42,17 +42,7 @@
         <div id="phaser-example"></div>
 
         <script type="text/javascript">
-
-        var IDE_HOOK = false;
-
-        <?php
-            if (isset($_GET['f']))
-            {
-                $src = file_get_contents($_GET['f']);
-                echo $src;
-            }
-        ?>
-        
+        var IDE_HOOK = true;
         </script>
 
     </body>
