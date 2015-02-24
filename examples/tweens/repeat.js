@@ -18,10 +18,10 @@ function create() {
     sprite.alpha = 0;
 
     //  Create our tween. This will fade the sprite to alpha 1 over the duration of 2 seconds
-    var tween = game.add.tween(sprite).to( { alpha: 1 }, 2000, "Linear", true, 0, -1);
+    var tween = game.add.tween(sprite).to( { alpha: 1 }, 2000, "Linear", true);
 
-    //  And this tells it to yoyo, i.e. fade back to zero again before repeating.
-    //  The 3000 tells it to wait for 3 seconds before starting the fade back.
-    tween.yoyo(true, 3000);
+    //  And this tells it to repeat, i.e. fade in again 10 times.
+    //  The 1000 tells it to wait for 1 second before restarting the fade.
+    tween.repeat(10, 1000);
 
 }

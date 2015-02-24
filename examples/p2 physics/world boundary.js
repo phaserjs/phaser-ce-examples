@@ -20,9 +20,6 @@ function create() {
     //  Enable P2 and it will use the updated world size
     game.physics.startSystem(Phaser.Physics.P2JS);
 
-    //  If you set the world bounds AFTER starting the P2 physics system, then you must call this:
-    // game.physics.p2.setBoundsToWorld(true, true, true, true, false);
-
     starfield = game.add.tileSprite(0, 0, 800, 600, 'stars');
     starfield.fixedToCamera = true;
 

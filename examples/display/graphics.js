@@ -9,7 +9,7 @@ function create() {
     graphics.lineStyle(10, 0xffd900, 1);
     
     // draw a shape
-    graphics.moveTo(0,50);
+    graphics.moveTo(10, 50);
     graphics.lineTo(250, 50);
     graphics.lineTo(100, 100);
     graphics.lineTo(250, 220);
@@ -40,6 +40,7 @@ function create() {
     graphics.beginFill(0xFFFF0B, 0.5);
     graphics.drawCircle(470, 200,100);
     
+    // draw a green line
     graphics.lineStyle(20, 0x33FF00);
     graphics.moveTo(30,30);
     graphics.lineTo(600, 300);

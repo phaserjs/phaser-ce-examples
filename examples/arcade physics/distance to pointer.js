@@ -1,5 +1,4 @@
 
-// var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
@@ -10,6 +9,7 @@ function preload() {
 }
 
 var ball;
+var cursors;
 
 function create() {
 
@@ -25,25 +25,37 @@ function create() {
 
     game.camera.follow(ball);
 
-    game.input.onDown.add(moveBall, this);
+    cursors = game.input.keyboard.createCursorKeys();
 
 }
 
-function moveBall() {
+function update() {
 
-    //  If we don't it'll look very wrong
-    game.camera.follow();
+    ball.body.velocity.x = 0;
+    ball.body.velocity.y = 0;
 
-    game.physics.arcade.moveToPointer(ball, 100);
+    if (cursors.left.isDown)
+    {
+        ball.body.velocity.x = -240;
+    }
+    else if (cursors.right.isDown)
+    {
+        ball.body.velocity.x = 240;
+    }
 
-    //  The maxTime parameter lets you control how fast it will arrive at the Pointer coords
-    // game.physics.arcade.moveToPointer(ball, 100, game.input.activePointer, 1000);
-
+    if (cursors.up.isDown)
+    {
+        ball.body.velocity.y = -240;
+    }
+    else if (cursors.down.isDown)
+    {
+        ball.body.velocity.y = 240;
+    }
 
 }
 
 function render() {
 
-    game.debug.text("distance: " + game.physics.arcade.distanceToPointer(ball), 32, 32);
+    game.debug.text("Distance to pointer: " + game.physics.arcade.distanceToPointer(ball), 32, 32);
 
 }

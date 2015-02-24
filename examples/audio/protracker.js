@@ -10,7 +10,7 @@ var module;
 
 function preload() {
 
-  game.load.script('protracker', '../plugins/ProTracker.js');
+  game.load.script('protracker', '_plugins/ProTracker.js');
 
   game.load.image('vu', 'assets/sprites/vu.png');
   game.load.image('logo', 'assets/sprites/soundtracker.png');
@@ -64,7 +64,6 @@ function create() {
     module.play();
   };
 
-  load_next_module();
   game.input.onDown.add(load_next_module, this);
 
 }
@@ -74,21 +73,32 @@ function update() {
   //  module.sample = array of Objects containing informations about a played sample
   
   for (i=0; i<vumeter.length; i++) {
-    var smp_index = module.channel[i].sample;
-    channels[i] = { sample_index:smp_index,
-                    sample_name:module.sample[smp_index].name };
 
-    var w = Math.round(module.vu[i] * 1200);
-    //you have to check that width is > 0 !
-    vumeter[i].width = w>0?w:1;
+    if (module.channel[i])
+    {
+      var smp_index = module.channel[i].sample;
+      channels[i] = { sample_index:smp_index,
+                      sample_name:module.sample[smp_index].name };
+
+      var w = Math.round(module.vu[i] * 1200);
+      //you have to check that width is > 0 !
+      vumeter[i].width = w>0?w:1;
+
+    }
   }
 }
 
 
 function render() {
+
   for (i=0, y=32; i<vumeter.length; i++, y+=32) {
-    game.debug.text('Channel #' + i + ' : sample ' + channels[i].sample_index + '  ' + channels[i].sample_name, 16,y);
-    game.debug.text('vu' + i + ':' + module.vu[i], 16, 350+y);
+
+    if (channels[i])
+    {
+      game.debug.text('Channel #' + i + ' : sample ' + channels[i].sample_index + '  ' + channels[i].sample_name, 16,y);
+      game.debug.text('vu' + i + ':' + module.vu[i], 16, 350+y);
+    }
+
   }
 
   game.debug.text('Position: ' + module.position, 16, 160);

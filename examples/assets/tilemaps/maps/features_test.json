@@ -12,7 +12,7 @@
             },
          "transparentcolor":"#55ffff",
          "type":"imagelayer",
-         "visible":true,
+         "visible":false,
          "width":50,
          "x":0,
          "y":0
@@ -48,16 +48,19 @@
          "y":0
         }, 
         {
+         "draworder":"topdown",
          "height":18,
          "name":"Object Layer 1",
          "objects":[
                 {
                  "height":114,
+                 "id":1,
                  "name":"exit",
                  "properties":
                     {
                      "open":"false"
                     },
+                 "rotation":0,
                  "type":"door",
                  "visible":true,
                  "width":44,
@@ -67,11 +70,13 @@
                 {
                  "ellipse":true,
                  "height":70,
+                 "id":2,
                  "name":"sun",
                  "properties":
                     {
 
                     },
+                 "rotation":0,
                  "type":"collision",
                  "visible":true,
                  "width":77,
@@ -81,11 +86,13 @@
                 {
                  "gid":34,
                  "height":0,
+                 "id":3,
                  "name":"",
                  "properties":
                     {
                      "alpha":"0.5"
                     },
+                 "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
@@ -95,11 +102,13 @@
                 {
                  "gid":34,
                  "height":0,
+                 "id":4,
                  "name":"",
                  "properties":
                     {
 
                     },
+                 "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
@@ -109,11 +118,13 @@
                 {
                  "gid":34,
                  "height":0,
+                 "id":5,
                  "name":"",
                  "properties":
                     {
                      "alpha":"0.5"
                     },
+                 "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
@@ -123,11 +134,13 @@
                 {
                  "gid":34,
                  "height":0,
+                 "id":6,
                  "name":"",
                  "properties":
                     {
 
                     },
+                 "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
@@ -137,11 +150,13 @@
                 {
                  "gid":34,
                  "height":0,
+                 "id":7,
                  "name":"",
                  "properties":
                     {
                      "body.gravity.y":"5"
                     },
+                 "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
@@ -151,11 +166,13 @@
                 {
                  "gid":34,
                  "height":0,
+                 "id":8,
                  "name":"",
                  "properties":
                     {
 
                     },
+                 "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
@@ -165,11 +182,13 @@
                 {
                  "gid":34,
                  "height":0,
+                 "id":9,
                  "name":"",
                  "properties":
                     {
 
                     },
+                 "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
@@ -179,11 +198,13 @@
                 {
                  "gid":34,
                  "height":0,
+                 "id":10,
                  "name":"",
                  "properties":
                     {
 
                     },
+                 "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
@@ -192,6 +213,7 @@
                 }, 
                 {
                  "height":0,
+                 "id":11,
                  "name":"ramp",
                  "polyline":[
                         {
@@ -226,6 +248,7 @@
                     {
 
                     },
+                 "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
@@ -250,11 +273,13 @@
          "x":0,
          "y":0
         }],
+ "nextobjectid":12,
  "orientation":"orthogonal",
  "properties":
     {
 
     },
+ "renderorder":"right-down",
  "tileheight":32,
  "tilesets":[
         {
