@@ -81,20 +81,21 @@ a {
 }
 
 #options #controls hr {
-
     margin-bottom: 20px;
-
 }
 
 #options #controls p {
-
     text-align: center;
     margin-bottom: 22px;
-
 }
 
 #options #controls input[type=button] {
     margin-bottom: 20px;
+}
+
+#options #controls #start, #options #controls #stop, #options #controls #step {
+    width: 50px;
+    height: 28px    
 }
 
 #options .modform {

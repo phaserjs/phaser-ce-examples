@@ -95,6 +95,13 @@
             }
         }
     }
+
+    $dist = 'php';
+
+    if (isset($_COOKIE['dist']) && $_COOKIE['dist'] === 'js')
+    {
+        $dist = 'js';
+    }
 ?>
 <!doctype html>
 <html>
@@ -109,14 +116,14 @@
         <link rel="stylesheet" type="text/css" href="_site/css/debug.css" />
         <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
         <?php
-            if (($_SERVER['SERVER_NAME'] == '192.168.0.100' || $_SERVER['SERVER_NAME'] == 'localhost'))
+            if ($dist === 'php' && ($_SERVER['SERVER_NAME'] == '192.168.0.100' || $_SERVER['SERVER_NAME'] == 'localhost'))
             {
                 $path = '../../phaser';
                 require('../../phaser/build/config.php');
             }
             else
             {
-                echo "<script src=\"/phaser/build/phaser.js\" type=\"text/javascript\"></script>";
+                echo "<script src=\"_site/phaser/phaser.2.2.2.min.js\" type=\"text/javascript\"></script>";
             }
         ?>
         <style>
@@ -138,6 +145,11 @@
                 {
                     $c = 'checked="checked"';
                 }
+
+                if ($dist === 'js')
+                {
+                    $c = 'disabled="disabled"';
+                }
         ?>
                 <div class="modopt">
                     <input type="checkbox" id="<?php echo $module ?>" value="<?php echo $module ?>" <?php echo $c ?> />
@@ -150,14 +162,31 @@
 
             <div id="controls">
 
-                <input type="button" id="start" value="start" />
-                <input type="button" id="stop" value="stop" />
-                <input type="button" id="step" value="step" />
+                <hr />
+
+                <input type="button" id="start" value="start" class="mini" />
+                <input type="button" id="stop" value="stop" class="mini" />
+                <input type="button" id="step" value="step" class="mini" />
 
                 <hr />
 
+                <?php
+                    if ($dist === 'php')
+                    {
+                ?>
+                <input type="button" id="dist" value="phaser.js" />
+                <?php
+                    }
+                    else
+                    {
+                ?>
+                <input type="button" id="dist" value="config.php" />
+                <?php
+                    }
+                ?>
+
                 <input type="button" id="fs" value="fullscreen" />
-                <input type="button" id="grab" value="screen [g]rab" />
+                <input type="button" id="grab" value="screen grab (g)" />
 
                 <p>Module Sets:</p>
 
@@ -306,6 +335,25 @@
                 echo $modlist;
 
             ?>
+
+            $("#dist").click(function() {
+
+                console.log($(this).prop('value'));
+
+                if ($(this).prop('value') === 'phaser.js')
+                {
+                    //  swap to pre-built package
+                    $.cookie('dist', 'js', { expires: 7 });
+                }
+                else
+                {
+                    //  swap to PHP build
+                    $.cookie('dist', 'php', { expires: 7 });
+                }
+
+                window.location.reload();
+
+            });
 
             function saveCookies() {
 

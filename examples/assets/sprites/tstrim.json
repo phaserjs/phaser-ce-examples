@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "ts-trim",
+	"frame": {"x":0,"y":0,"w":32,"h":200},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":200},
+	"sourceSize": {"w":320,"h":200}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "tstrim.png",
+	"format": "RGBA8888",
+	"size": {"w":32,"h":200},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4323139dd8384acd2e60769833729688:5ec2d1e6c1d5c937544b349d1a3ed7a5:ad00688a1c2869f2992a990ce62898f8$"
+}
+}

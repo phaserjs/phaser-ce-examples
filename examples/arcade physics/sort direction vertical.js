@@ -14,24 +14,23 @@ var cursors;
 
 function create() {
 
+    game.world.setBounds(0, 0, 800, 3000);
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
     game.stage.backgroundColor = '#2d2d2d';
 
-    //  This example will check Sprite vs. Group collision
+    sprite = game.add.sprite(400, 2900, 'phaser');
 
-    sprite = game.add.sprite(32, 200, 'phaser');
-    sprite.name = 'phaser-dude';
+    // game.physics.arcade.sortDirection = Phaser.Physics.Arcade.TOP_BOTTOM;
+    game.physics.arcade.sortDirection = Phaser.Physics.Arcade.BOTTOM_TOP;
 
-    game.physics.enable(sprite, Phaser.Physics.ARCADE);
+    game.physics.arcade.enable(sprite);
     
-    group = game.add.group();
-    group.enableBody = true;
-    group.physicsBodyType = Phaser.Physics.ARCADE;
+    group = game.add.physicsGroup(Phaser.Physics.ARCADE);
 
-    for (var i = 0; i < 50; i++)
+    for (var i = 0; i < 500; i++)
     {
-        var c = group.create(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'veggies', game.rnd.integerInRange(0, 35));
+        var c = group.create(game.rnd.integerInRange(64, 800-64), game.rnd.integerInRange(100, 2900), 'veggies', game.rnd.integerInRange(0, 35));
         c.name = 'veg' + i;
         c.body.immovable = true;
     }
@@ -39,10 +38,11 @@ function create() {
     for (var i = 0; i < 20; i++)
     {
         //  Here we'll create some chillis which the player can pick-up. They are still part of the same Group.
-        var c = group.create(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'veggies', 17);
-        c.name = 'chilli' + i;
+        var c = group.create(game.rnd.integerInRange(64, 800-64), game.rnd.integerInRange(0, 2000), 'veggies', 17);
         c.body.immovable = true;
     }
+
+    game.camera.follow(sprite);
 
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -80,7 +80,7 @@ function collisionHandler (player, veg) {
     //  If the player collides with the chillis then they get eaten :)
     //  The chilli frame ID is 17
 
-    if (veg.frame == 17)
+    if (veg.frame === 17)
     {
         veg.kill();
     }

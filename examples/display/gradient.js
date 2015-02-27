@@ -34,7 +34,7 @@ function create() {
 
     for (var i = 0; i < 30; i++)
     {
-        var c = Phaser.Color.interpolateColor(0x66d973, 0x8bf798, 30, i);
+        var c = Phaser.Color.interpolateColor(0x66d973, 0x40b54d, 30, i);
 
         // console.log(Phaser.Color.getWebRGB(c));
 
@@ -47,7 +47,7 @@ function create() {
 
     for (var i = 0; i < 60; i++)
     {
-        var c = Phaser.Color.interpolateColor(0x8bf798, 0x1d962b, 60, i);
+        var c = Phaser.Color.interpolateColor(0x40b54d, 0x1d962b, 60, i);
 
         // console.log(Phaser.Color.getWebRGB(c));
 
