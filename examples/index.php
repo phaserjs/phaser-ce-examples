@@ -25,16 +25,15 @@
     $url = "http://phaser.io/examples/";
     // $url = "http://phaser.dev/examples/";
 
-    if ($directory !== '')
+    //  Directory set, but file isn't
+    if ($directory !== '' && $file === '')
     {
-        $url .= "v2/" . $directory;
-
-        if ($file !== '')
-        {
-            $url .= '/' . $file;
-        }
+        $url .= "v2/category/" . $directory;
     }
-
+    else if ($directory !== '' && $file !== '')
+    {
+        $url .= "v2/$directory/$file";
+    }
 
     header("Location: $url");
     exit();
