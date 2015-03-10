@@ -1,3 +1,5 @@
+Header set Access-Control-Allow-Origin "*"
+
 RewriteEngine On
 RewriteBase /
 RewriteRule ^(.*)\.html$ /index.php [QSA,R=302,L]
