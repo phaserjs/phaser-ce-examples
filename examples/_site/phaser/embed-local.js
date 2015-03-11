@@ -33,8 +33,6 @@ function IDEScreenGrab()
 
 function IDECallback(event)
 {
-    console.log('IDECallback', event);
-
     if (event.origin === "http://phaser.dev" || event.origin === "http://phaser.io" || event.origin === "http://dev.phaser.io")
     {
         if (event.data === 'pause')

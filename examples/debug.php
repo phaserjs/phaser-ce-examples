@@ -18,7 +18,7 @@
         $title = $filename;
     }
 
-    $ignore = array('_site', 'assets', 'states', 'book', 'wip', '_plugins');
+    $ignore = array('_site', 'assets', 'states', 'book', '_plugins');
 
     $path = realpath(dirname(__FILE__));
 
@@ -31,7 +31,21 @@
 
         if ($current->isDir())
         {
-            return (array_search($current->getBasename(), $ignore) === false);
+            $name = $current->getBasename();
+            $path = $current->getPath();
+
+            if ($name === 'wip')
+            {
+                return true;
+            }
+            else if (strpos($path, 'wip'))
+            {
+                return false;
+            }
+            else
+            {
+                return (array_search($current->getBasename(), $ignore) === false);
+            }
         }
         else
         {
@@ -55,6 +69,11 @@
         {
             $examples[$section] = [];
             $previous = $section;
+
+            if (count($examples[$section]) > 0)
+            {
+                sort($examples[$section]);
+            }
         }
 
         $examples[$section][] = $info->getBasename();
@@ -124,6 +143,17 @@
             else
             {
                 echo "<script src=\"_site/phaser/phaser.2.2.2.min.js\" type=\"text/javascript\"></script>";
+            }
+
+            if ($modules['box2d'])
+            {
+            echo "<script src=\"/phaser-box2d/src/box2d/box2d-html5.js\" type=\"text/javascript\"></script>";
+            echo "<script src=\"/phaser-box2d/src/plugin/World.js\" type=\"text/javascript\"></script>";
+            echo "<script src=\"/phaser-box2d/src/plugin/Body.js\" type=\"text/javascript\"></script>";
+            echo "<script src=\"/phaser-box2d/src/plugin/PointProxy.js\" type=\"text/javascript\"></script>";
+            echo "<script src=\"/phaser-box2d/src/plugin/DefaultDebugDraw.js\" type=\"text/javascript\"></script>";
+            echo "<script src=\"/phaser-box2d/src/plugin/DefaultContactListener.js\" type=\"text/javascript\"></script>";
+            echo "<script src=\"/phaser-box2d/src/plugin/Polygon.js\" type=\"text/javascript\"></script>";
             }
         ?>
         <style>
