@@ -1,4 +1,4 @@
-// mods by Patrick OReilly 
+// mods by Patrick OReilly
 // Twitter: @pato_reilly Web: http://patricko.byethost9.com
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
@@ -25,7 +25,7 @@ function create() {
 
     simon = game.add.group();
     var item;
-    
+
     for (var i = 0; i < 3; i++)
     {
         item = simon.create(150 + 168 * i, 150, 'item', i);
@@ -39,7 +39,7 @@ function create() {
     }
 
     for (var i = 0; i < 3; i++)
-    {    
+    {
         item = simon.create(150 + 168 * i, 318, 'item', i + 3);
         // Enable input.
         item.inputEnabled = true;
@@ -49,15 +49,15 @@ function create() {
         item.events.onInputOut.add(moveOff);
         simon.getAt(i + 3).alpha = 0;
     }
-        
+
     introTween();
     setUp();
-    setTimeout(function(){simonSequence(); intro = false;}, 5000);
+    setTimeout(function(){simonSequence(); intro = false;}, 6000);
 
 }
 
 function restart() {
-    
+
     N = 1;
     userCount = 0;
     currentCount = 0;
@@ -66,17 +66,21 @@ function restart() {
     loser = false;
     introTween();
     setUp();
-    setTimeout(function(){simonSequence(); intro=false;}, 5000);
+    setTimeout(function(){simonSequence(); intro=false;}, 6000);
 
 }
 
 function introTween() {
-    
+
     intro = true;
 
     for (var i = 0; i < 6; i++)
     {
-        game.add.tween(simon.getAt(i)).to( { alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 4, true).to( { alpha: .25 }, 500, Phaser.Easing.Linear.None, true);
+        var flashing = game.add.tween(simon.getAt(i)).to( { alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 4, true);
+        var final = game.add.tween(simon.getAt(i)).to( { alpha: .25 }, 500, Phaser.Easing.Linear.None, true);
+
+        flashing.chain(final);
+        flashing.start();
     }
 
 }
@@ -84,24 +88,24 @@ function introTween() {
 function update() {
 
     if (simonSez)
-    {   
+    {
         if (game.time.now - timeCheck >700-N*40)
-        {   
-            simon.getAt(litSquare).alpha = .25; 
+        {
+            simon.getAt(litSquare).alpha = .25;
             game.paused = true;
 
             setTimeout(function()
-            {        
+            {
                 if ( currentCount< N)
-                {               
-                    game.paused = false;            
+                {
+                    game.paused = false;
                     simonSequence();
                 }
                 else
-                {               
-                    simonSez = false;               
+                {
+                    simonSez = false;
                     game.paused = false;
-                }       
+                }
             }, 400 - N * 20);
         }
     }
@@ -112,15 +116,15 @@ function playerSequence(selected) {
     correctSquare = sequenceList[userCount];
     userCount++;
     thisSquare = simon.getIndex(selected);
-  
+
     if (thisSquare == correctSquare)
-    {       
-        if (userCount == N) 
+    {
+        if (userCount == N)
         {
-            if (N == sequenceCount) 
+            if (N == sequenceCount)
             {
                 winner = true;
-                setTimeout(function(){restart();}, 3000);           
+                setTimeout(function(){restart();}, 3000);
             }
             else
             {
@@ -128,8 +132,8 @@ function playerSequence(selected) {
                 currentCount = 0;
                 N++;
                 simonSez = true;
-            }       
-        }       
+            }
+        }
     }
     else
     {
@@ -150,7 +154,7 @@ function simonSequence () {
 }
 
 function setUp() {
-    
+
     for (var i = 0; i < sequenceCount; i++)
     {
         thisSquare = game.rnd.integerInRange(0,5);
@@ -174,7 +178,7 @@ function release(item, pointer) {
     {
         item.alpha = .25;
         playerSequence(item);
-    } 
+    }
 }
 
 function moveOff(item, pointer) {
@@ -182,7 +186,7 @@ function moveOff(item, pointer) {
     if (!simonSez && !intro && !loser && !winner)
     {
         item.alpha = .25;
-    } 
+    }
 
 }
 
@@ -203,7 +207,7 @@ function render() {
     {
         game.debug.text('Get Ready', 360, 96, 'rgb(0,0,255)');
     }
-    
+
     if (winner)
     {
         game.debug.text('You Win!', 360, 32, 'rgb(0,0,255)');
@@ -212,5 +216,5 @@ function render() {
     {
         game.debug.text('You Lose!', 360, 32, 'rgb(0,0,255)');
     }
-        
+
 }
