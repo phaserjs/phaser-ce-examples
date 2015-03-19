@@ -2,7 +2,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { create: cr
 
 function create() {
 
-    var graphics = game.add.graphics(0, 0);
+    var graphics = game.add.graphics(100, 100);
 
     // set a fill and line style
     graphics.beginFill(0xFF3300);
