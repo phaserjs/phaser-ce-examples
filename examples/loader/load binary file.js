@@ -33,7 +33,7 @@ function create() {
     //   getString scans the binary file between the two values given, 
     //   returning the characters it finds there as a string
 
-    var signature = getString(buffer, 1080, 1084)
+    var signature = getString(buffer, 1080, 1084);
 
     var text = game.add.text(32, 32, "Signature: " + signature, { fill: '#ffffff' });
     text.setShadow(2, 2, 'rgba(0,0,0,0.5)', 0);
