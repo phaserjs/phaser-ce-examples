@@ -75,11 +75,11 @@ $(document).ready(function() {
 
     if (isEmbed)
     {
-        window.top.postMessage('getCode', 'http://phaser.io');
+        // window.top.postMessage('getCode', 'http://phaser.io');
     }
     else
     {
-        window.opener.postMessage('getCode', 'http://phaser.io');
+        // window.opener.postMessage('getCode', 'http://phaser.io');
 
         window.onbeforeunload = function() {
             window.opener.postMessage('shutdown', 'http://phaser.io');
