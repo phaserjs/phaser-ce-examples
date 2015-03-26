@@ -121,6 +121,13 @@
     {
         $dist = 'js';
     }
+
+    $target = 'div';
+
+    if (isset($_COOKIE['target']) && $_COOKIE['target'] === 'iframe')
+    {
+        $target = 'iframe';
+    }
 ?>
 <!doctype html>
 <html>
@@ -135,33 +142,47 @@
         <link rel="stylesheet" type="text/css" href="_site/css/debug.css" />
         <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
         <?php
-            if ($dist === 'php' && ($_SERVER['SERVER_NAME'] == '192.168.0.100' || $_SERVER['SERVER_NAME'] == 'localhost'))
+            if ($target == 'div')
             {
-                $path = '../../phaser';
-                require('../../phaser/build/config.php');
-            }
-            else
-            {
-                echo "<script src=\"_site/phaser/phaser.2.2.2.min.js\" type=\"text/javascript\"></script>";
-            }
+                if ($dist === 'php' && ($_SERVER['SERVER_NAME'] == '192.168.0.100' || $_SERVER['SERVER_NAME'] == 'localhost'))
+                {
+                    $path = '../../phaser';
+                    require('../../phaser/build/config.php');
+                }
+                else
+                {
+                    echo "<script src=\"_site/phaser/phaser.2.2.2.min.js\" type=\"text/javascript\"></script>";
+                }
 
-            if ($modules['box2d'])
-            {
-            echo "<script src=\"/phaser-box2d/src/box2d/box2d-html5.js\" type=\"text/javascript\"></script>";
-            echo "<script src=\"/phaser-box2d/src/plugin/World.js\" type=\"text/javascript\"></script>";
-            echo "<script src=\"/phaser-box2d/src/plugin/Body.js\" type=\"text/javascript\"></script>";
-            echo "<script src=\"/phaser-box2d/src/plugin/PointProxy.js\" type=\"text/javascript\"></script>";
-            echo "<script src=\"/phaser-box2d/src/plugin/DefaultDebugDraw.js\" type=\"text/javascript\"></script>";
-            echo "<script src=\"/phaser-box2d/src/plugin/DefaultContactListener.js\" type=\"text/javascript\"></script>";
-            echo "<script src=\"/phaser-box2d/src/plugin/Polygon.js\" type=\"text/javascript\"></script>";
+                if ($modules['box2d'])
+                {
+                    echo "<script src=\"/phaser-box2d/src/box2d/box2d-html5.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-box2d/src/plugin/World.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-box2d/src/plugin/Body.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-box2d/src/plugin/PointProxy.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-box2d/src/plugin/DefaultDebugDraw.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-box2d/src/plugin/DefaultContactListener.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-box2d/src/plugin/Polygon.js\" type=\"text/javascript\"></script>";
+                }
             }
         ?>
-        <style>
-        </style>
     </head>
     <body>
 
+    <?php
+        if ($target === 'div')
+        {
+    ?>
         <div id="phaser-example"></div>
+    <?php
+        }
+        else
+        {
+    ?>
+        <iframe id="phaser-example" width="800" height="600" src="iframe.php?f=<?php echo $filename ?>" style="border: 1px solid #2ab7ec"></iframe>
+    <?php
+        }
+    ?>
 
         <div id="options">
 
@@ -215,7 +236,22 @@
                     }
                 ?>
 
-                <input type="button" id="fs" value="fullscreen" />
+                <?php
+                    if ($target === 'div')
+                    {
+                ?>
+                <input type="button" id="to" value="iframe" />
+                <?php
+                    }
+                    else
+                    {
+                ?>
+                <input type="button" id="to" value="div" />
+                <?php
+                    }
+                ?>
+
+                <!-- <input type="button" id="fs" value="fullscreen" /> -->
                 <input type="button" id="grab" value="screen grab (g)" />
 
                 <p>Module Sets:</p>
@@ -294,7 +330,7 @@
         <script type="text/javascript">
             
             <?php
-                if ($filename !== '')
+                if ($filename !== '' && $target === 'div')
                 {
                     $src = file_get_contents($filename);
                     echo $src;
@@ -379,6 +415,25 @@
                 {
                     //  swap to PHP build
                     $.cookie('dist', 'php', { expires: 7 });
+                }
+
+                window.location.reload();
+
+            });
+
+            $("#to").click(function() {
+
+                console.log($(this).prop('value'));
+
+                if ($(this).prop('value') === 'div')
+                {
+                    //  Swap from iframe to div
+                    $.cookie('target', 'div', { expires: 7 });
+                }
+                else
+                {
+                    //  Swap from div to iframe
+                    $.cookie('target', 'iframe', { expires: 7 });
                 }
 
                 window.location.reload();

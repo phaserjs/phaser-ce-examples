@@ -5,6 +5,7 @@ var ufo;
 var Keys = Phaser.Keyboard;
 var speed = 4;
 var style = 'default';
+var cursors;
 
 function preload() {
 
@@ -52,6 +53,8 @@ function create() {
     btn2 = game.add.button(6, 200, 'button', topdownFollow,this, 2, 2, 2);
     btn3 = game.add.button(6, 280, 'button', topdownTightFollow,this, 3, 3, 3);
 
+    cursors = game.input.keyboard.createCursorKeys();
+
 }
 
 function lockonFollow() {
@@ -76,21 +79,21 @@ function topdownTightFollow() {
 
 function update() {
 
-    if (game.input.keyboard.isDown(Keys.LEFT))
+    if (cursors.left.isDown)
     {
         ufo.x -= speed;
         ufo.angle = -15;
     }
-    else if (game.input.keyboard.isDown(Keys.RIGHT))
+    else if (cursors.right.isDown)
     {
         ufo.x += speed;
         ufo.angle = 15;
     }
-    else if (game.input.keyboard.isDown(Keys.UP))
+    else if (cursors.up.isDown)
     {
         ufo.y -= speed;
     }
-    else if (game.input.keyboard.isDown(Keys.DOWN))
+    else if (cursors.down.isDown)
     {
         ufo.y += speed;
     }
