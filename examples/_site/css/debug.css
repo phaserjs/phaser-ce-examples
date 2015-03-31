@@ -66,7 +66,7 @@ a {
 
 #options {
     float: left;
-    margin: 16px 0px 0px 32px;
+    margin: 0px 0px 0px 32px;
 }
 
 #options input[type=button], input[type=submit] {

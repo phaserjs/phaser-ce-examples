@@ -97,7 +97,8 @@
         'arcade' => true,
         'p2' => true,
         'ninja' => false,
-        'box2d' => false
+        'box2d' => false,
+        'joystick' => false
     );
 
     foreach ($modules as $module => $modset)
@@ -163,6 +164,14 @@
                     echo "<script src=\"/phaser-box2d/src/plugin/DefaultDebugDraw.js\" type=\"text/javascript\"></script>";
                     echo "<script src=\"/phaser-box2d/src/plugin/DefaultContactListener.js\" type=\"text/javascript\"></script>";
                     echo "<script src=\"/phaser-box2d/src/plugin/Polygon.js\" type=\"text/javascript\"></script>";
+                }
+
+                if ($modules['joystick'])
+                {
+                    echo "<script src=\"/arcadestorm/VirtualJoysticks/plugin/src/Pad.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/arcadestorm/VirtualJoysticks/plugin/src/Stick.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/arcadestorm/VirtualJoysticks/plugin/src/DPad.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/arcadestorm/VirtualJoysticks/plugin/src/Button.js\" type=\"text/javascript\"></script>";
                 }
             }
         ?>
