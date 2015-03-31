@@ -1,0 +1,76 @@
+{"frames": [
+
+{
+	"filename": "base",
+	"frame": {"x":2,"y":2,"w":280,"h":280},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":280,"h":280},
+	"sourceSize": {"w":280,"h":280}
+},
+{
+	"filename": "button1-down",
+	"frame": {"x":2,"y":284,"w":132,"h":132},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":132},
+	"sourceSize": {"w":132,"h":132}
+},
+{
+	"filename": "button1-up",
+	"frame": {"x":136,"y":284,"w":132,"h":132},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":132},
+	"sourceSize": {"w":132,"h":132}
+},
+{
+	"filename": "button2-down",
+	"frame": {"x":270,"y":284,"w":132,"h":132},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":132},
+	"sourceSize": {"w":132,"h":132}
+},
+{
+	"filename": "button2-up",
+	"frame": {"x":284,"y":138,"w":132,"h":132},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":132},
+	"sourceSize": {"w":132,"h":132}
+},
+{
+	"filename": "button3-down",
+	"frame": {"x":418,"y":138,"w":132,"h":132},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":132},
+	"sourceSize": {"w":132,"h":132}
+},
+{
+	"filename": "button3-up",
+	"frame": {"x":404,"y":272,"w":132,"h":132},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":132},
+	"sourceSize": {"w":132,"h":132}
+},
+{
+	"filename": "stick",
+	"frame": {"x":404,"y":2,"w":134,"h":134},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":134,"h":134},
+	"sourceSize": {"w":134,"h":134}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "arcade-joystick.png",
+	"format": "RGBA8888",
+	"size": {"w":552,"h":418},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:10346054b252ab14bb310a8d6bd547c8:95c6dd72d4153222351a2981c3dd9889:a263a0553fca6de61a66e4e620c067cc$"
+}
+}

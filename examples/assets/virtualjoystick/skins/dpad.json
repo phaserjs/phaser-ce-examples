@@ -1,0 +1,100 @@
+{"frames": [
+
+{
+	"filename": "button1-down",
+	"frame": {"x":478,"y":240,"w":152,"h":152},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":152},
+	"sourceSize": {"w":152,"h":152}
+},
+{
+	"filename": "button1-up",
+	"frame": {"x":632,"y":240,"w":152,"h":152},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":152},
+	"sourceSize": {"w":152,"h":152}
+},
+{
+	"filename": "button2-down",
+	"frame": {"x":716,"y":2,"w":152,"h":152},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":152},
+	"sourceSize": {"w":152,"h":152}
+},
+{
+	"filename": "button2-up",
+	"frame": {"x":870,"y":2,"w":152,"h":152},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":152},
+	"sourceSize": {"w":152,"h":152}
+},
+{
+	"filename": "button3-down",
+	"frame": {"x":786,"y":156,"w":152,"h":152},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":152},
+	"sourceSize": {"w":152,"h":152}
+},
+{
+	"filename": "button3-up",
+	"frame": {"x":786,"y":310,"w":152,"h":152},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":152},
+	"sourceSize": {"w":152,"h":152}
+},
+{
+	"filename": "down",
+	"frame": {"x":2,"y":2,"w":236,"h":236},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":236,"h":236},
+	"sourceSize": {"w":236,"h":236}
+},
+{
+	"filename": "left",
+	"frame": {"x":2,"y":240,"w":236,"h":236},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":236,"h":236},
+	"sourceSize": {"w":236,"h":236}
+},
+{
+	"filename": "neutral",
+	"frame": {"x":240,"y":2,"w":236,"h":236},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":236,"h":236},
+	"sourceSize": {"w":236,"h":236}
+},
+{
+	"filename": "right",
+	"frame": {"x":240,"y":240,"w":236,"h":236},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":236,"h":236},
+	"sourceSize": {"w":236,"h":236}
+},
+{
+	"filename": "up",
+	"frame": {"x":478,"y":2,"w":236,"h":236},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":236,"h":236},
+	"sourceSize": {"w":236,"h":236}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "dpad.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":478},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4a27e74ebe2683325dc4814133ee0f44:4921fc536dcbce3353cf351888020d89:f2847974a05171e58abe3db0bf02b857$"
+}
+}
