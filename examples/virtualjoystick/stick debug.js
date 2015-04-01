@@ -7,18 +7,15 @@
 *               For more details please see http://phaser.io/shop/plugins/virtualjoystick
 */
 
-// var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example');
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example');
 
 var PhaserGame = function () {
 
+    this.sprite;
+
     this.pad;
 
     this.stick;
-
-    this.buttonA;
-    this.buttonB;
-    this.buttonC;
 
 };
 
@@ -34,6 +31,7 @@ PhaserGame.prototype = {
     preload: function () {
 
         this.load.atlas('arcade', 'assets/virtualjoystick/skins/arcade-joystick.png', 'assets/virtualjoystick/skins/arcade-joystick.json');
+        this.load.image('ball', 'assets/virtualjoystick/beball1.png');
         this.load.image('bg', 'assets/virtualjoystick/space1.png');
 
     },
@@ -42,24 +40,34 @@ PhaserGame.prototype = {
 
         this.add.image(0, 0, 'bg');
 
+        this.sprite = this.add.sprite(400, 200, 'ball');
+        this.physics.arcade.enable(this.sprite);
+
         this.pad = this.game.plugins.add(Phaser.VirtualJoystick);
 
-        this.stick = this.pad.addStick(0, 700, 100, 'arcade');
-
-        this.buttonA = this.pad.addButton(500, 700, 'arcade', 'button1-up', 'button1-down');
-        this.buttonB = this.pad.addButton(615, 700, 'arcade', 'button2-up', 'button2-down');
-        this.buttonC = this.pad.addButton(730, 700, 'arcade', 'button3-up', 'button3-down');
-
-        //  And now tween them into position
-        this.add.tween(this.stick).to( { posX: 140, posY: 460 }, 2000, "Back.easeOut", true, 500);
-
-        this.add.tween(this.buttonA).to( { posX: 500, posY: 520 }, 2000, "Elastic.easeOut", true, 1000);
-        this.add.tween(this.buttonB).to( { posX: 615, posY: 450 }, 2000, "Elastic.easeOut", true, 1500);
-        this.add.tween(this.buttonC).to( { posX: 730, posY: 520 }, 2000, "Elastic.easeOut", true, 2000);
+        this.stick = this.pad.addStick(300, 400, 100, 'arcade');
 
     },
 
     update: function () {
+
+        var maxSpeed = 100;
+
+        if (this.stick.isDown)
+        {
+            this.physics.arcade.velocityFromRotation(this.stick.rotation, this.stick.force * maxSpeed, this.sprite.body.velocity);
+        }
+        else
+        {
+            this.sprite.body.velocity.set(0);
+        }
+
+    },
+
+    render: function () {
+
+        this.stick.debug();
+
     }
 
 };

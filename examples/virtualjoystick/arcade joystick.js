@@ -7,8 +7,7 @@
 *               For more details please see http://phaser.io/shop/plugins/virtualjoystick
 */
 
-// var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example');
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example');
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example');
 
 var PhaserGame = function () {
 
@@ -17,6 +16,10 @@ var PhaserGame = function () {
     this.pad;
 
     this.stick;
+
+    this.buttonA;
+    this.buttonB;
+    this.buttonC;
 
 };
 
@@ -33,7 +36,7 @@ PhaserGame.prototype = {
 
         this.load.atlas('arcade', 'assets/virtualjoystick/skins/arcade-joystick.png', 'assets/virtualjoystick/skins/arcade-joystick.json');
         this.load.image('ball', 'assets/virtualjoystick/beball1.png');
-        this.load.image('bg', 'assets/virtualjoystick/sky5.png');
+        this.load.image('bg', 'assets/virtualjoystick/space1.png');
 
     },
 
@@ -47,7 +50,35 @@ PhaserGame.prototype = {
         this.pad = this.game.plugins.add(Phaser.VirtualJoystick);
 
         this.stick = this.pad.addStick(0, 0, 200, 'arcade');
-        this.stick.showOnTouch = true;
+        this.stick.alignBottomLeft();
+
+        this.buttonA = this.pad.addButton(500, 520, 'arcade', 'button1-up', 'button1-down');
+        this.buttonA.onDown.add(this.pressButtonA, this);
+
+        this.buttonB = this.pad.addButton(615, 450, 'arcade', 'button2-up', 'button2-down');
+        this.buttonB.onDown.add(this.pressButtonB, this);
+
+        this.buttonC = this.pad.addButton(730, 520, 'arcade', 'button3-up', 'button3-down');
+        this.buttonC.onDown.add(this.pressButtonC, this);
+
+    },
+
+    pressButtonA: function () {
+
+        this.sprite.tint = Math.random() * 0xFFFFFF;
+
+    },
+
+    pressButtonB: function () {
+
+        this.sprite.scale.set(Math.random() * 4);
+
+    },
+
+    pressButtonC: function () {
+
+        this.sprite.scale.set(1);
+        this.sprite.tint = 0xFFFFFF;
 
     },
 
