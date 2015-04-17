@@ -1,4 +1,6 @@
 <?php
+    require('config.php');
+
     $png = '';
     $filename = '';
     $current = false;
@@ -98,7 +100,8 @@
         'p2' => true,
         'ninja' => false,
         'box2d' => false,
-        'joystick' => false
+        'joystick' => false,
+        'creature' => true
     );
 
     foreach ($modules as $module => $modset)
@@ -133,7 +136,7 @@
 <!doctype html>
 <html>
     <head>
-        <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Phaser Examples - <?php echo $title ?></title>
         <script src="_site/js/jquery-2.0.3.min.js" type="text/javascript"></script>
         <script src="_site/js/jquery.cookie.js" type="text/javascript"></script>
@@ -145,18 +148,19 @@
         <?php
             if ($target == 'div')
             {
-                if ($dist === 'php' && ($_SERVER['SERVER_NAME'] == '192.168.0.100' || $_SERVER['SERVER_NAME'] == 'localhost'))
+                if ($dist === 'php' && in_array($_SERVER['SERVER_NAME'], $config_hosts))
                 {
-                    $path = '../../phaser';
-                    require('../../phaser/build/config.php');
+                    $path = $config_phaser_path;
+                    require($path . '/build/config.php');
                 }
                 else
                 {
-                    echo "<script src=\"_site/phaser/phaser.2.2.2.min.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"_site/phaser/' . $config_phaser_min . '\" type=\"text/javascript\"></script>";
                 }
 
                 if ($modules['box2d'])
                 {
+                    //  This is only enabled if you have the Phaser Box2D Plugin Source files
                     echo "<script src=\"/phaser-box2d/src/box2d/box2d-html5.js\" type=\"text/javascript\"></script>";
                     echo "<script src=\"/phaser-box2d/src/plugin/World.js\" type=\"text/javascript\"></script>";
                     echo "<script src=\"/phaser-box2d/src/plugin/Body.js\" type=\"text/javascript\"></script>";
@@ -168,6 +172,7 @@
 
                 if ($modules['joystick'])
                 {
+                    //  This is only enabled if you have the Phaser Virtual Joystick Plugin Source files
                     echo "<script src=\"/arcadestorm/VirtualJoysticks/plugin/src/Pad.js\" type=\"text/javascript\"></script>";
                     echo "<script src=\"/arcadestorm/VirtualJoysticks/plugin/src/Stick.js\" type=\"text/javascript\"></script>";
                     echo "<script src=\"/arcadestorm/VirtualJoysticks/plugin/src/DPad.js\" type=\"text/javascript\"></script>";
@@ -336,7 +341,7 @@
 
         <div id="footer"><?php echo $total ?> Examples - @photonstorm</div>
 
-        <script type="text/javascript">
+        <script type="text/javascript" charset="utf-8">
             
             <?php
                 if ($filename !== '' && $target === 'div')

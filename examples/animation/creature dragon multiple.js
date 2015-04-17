@@ -29,10 +29,12 @@ function create() {
 
     dragon1 = new Phaser.Creature(game, manager, 0, 200, 'dragon');
     dragon1.scale.set(5.0);
+    dragon1.timeDelta = 0.05;
     game.world.add(dragon1);
 
     dragon2 = new Phaser.Creature(game, manager, 0, 400, 'dragon');
     dragon2.scale.set(9.0);
+    dragon2.timeDelta = 0.1;
     game.world.add(dragon2);
 
 }
