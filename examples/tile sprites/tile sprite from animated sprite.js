@@ -1,6 +1,6 @@
 
-// var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update });
+// var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
 
 function preload() {
 
@@ -26,11 +26,7 @@ function create() {
     water.animations.add('waves7', [28, 29, 30, 31, 30, 29]);
 
     // change to animation num
-    var n = 1;
+    var n = 7;
     water.animations.play('waves' + n, 8, true);
-
-}
-
-function update() {
 
 }

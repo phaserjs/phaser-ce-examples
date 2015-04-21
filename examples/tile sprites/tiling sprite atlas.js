@@ -1,5 +1,6 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+// var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update });
 
 var tilesprite;
 var count = 0;
@@ -14,6 +15,8 @@ var sprite;
 
 function create() {
 
+    game.stage.backgroundColor = '#0072bc';
+
     //  'seacreatures' is our texture atlas in the cache
     //  'octopus0002' is a frame within that atlas
 
@@ -23,7 +26,7 @@ function create() {
 
 function update() {
 
-    count += 0.005
+    count += 0.005;
 
     sprite.tileScale.x = 2 + Math.sin(count);
     sprite.tileScale.y = 2 + Math.cos(count);
