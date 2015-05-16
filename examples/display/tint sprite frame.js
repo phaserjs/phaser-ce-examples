@@ -10,20 +10,24 @@ function preload() {
 
 }
 
-var jellyfish;
+var greenJellyfish;
+var stingray;
 
 function create() {
 
     game.add.image(0, 0, 'undersea');
 
-    jellyfish = game.add.sprite(370, 200, 'seacreatures');
+    greenJellyfish = game.add.sprite(330, 100, 'seacreatures');
+    greenJellyfish.animations.add('swim', Phaser.Animation.generateFrameNames('greenJellyfish', 0, 39, '', 4), 30, true);
+    greenJellyfish.animations.play('swim');
 
-    jellyfish.animations.add('swim', Phaser.Animation.generateFrameNames('blueJellyfish', 0, 32, '', 4), 30, true);
-    jellyfish.animations.play('swim');
+    stingray = game.add.sprite(80, 190, 'seacreatures');
+    stingray.animations.add('swim', Phaser.Animation.generateFrameNames('stingray', 0, 23, '', 4), 30, true);
+    stingray.animations.play('swim');
 
     game.add.image(0, 466, 'coral');
 
-    game.add.tween(jellyfish).to({ y: "100" }, 8000, "Quad.easeInOut", true, 0, 1000, true);
+    game.add.tween(greenJellyfish).to({ y: 250 }, 4000, "Quad.easeInOut", true, 0, 1000, true);
 
     game.time.events.loop(Phaser.Timer.SECOND * 2, changeTint, this);
 
@@ -31,7 +35,7 @@ function create() {
 
 function changeTint() {
 
-    //  You can ONLY tint animated Sprites in WebGL mode
-    jellyfish.tint = Math.random() * 0xffffff;
+    greenJellyfish.tint = Math.random() * 0xffffff;
+    stingray.tint = Math.random() * 0xffffff;
 
 }

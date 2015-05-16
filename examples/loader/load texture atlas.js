@@ -10,10 +10,11 @@ function preload() {
     //  Next is the texture atlas itself, in this case seacreatures.png
 
     //  Finally is the path to the JSON file that goes with the atlas.
-    game.load.atlas('seacreatures', 'assets/sprites/seacreatures_json.png', 'assets/sprites/seacreatures_json.json');
+    // game.load.atlas('seacreatures', 'assets/sprites/seacreatures_json.png', 'assets/sprites/seacreatures_json.json');
 
     //  Note that the JSON file should be saved with UTF-8 encoding or some browsers (such as Firefox) won't load it.
 
+    game.load.atlas('test', 'assets/sprites/atlas_hash_trim.png', 'assets/sprites/atlas_json_array_trim.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
 
 
     //  These are just a few images to use in our underwater scene.
@@ -28,11 +29,13 @@ function create() {
 
     game.add.sprite(0, 0, 'undersea');
 
-    octopus = game.add.sprite(330, 100, 'seacreatures');
-    octopus.animations.add('swim', Phaser.Animation.generateFrameNames('octopus', 0, 24, '', 4), 30, true);
-    octopus.animations.play('swim');
+    game.add.sprite(0, 0, 'test');
 
-    game.add.tween(octopus).to({ y: 250 }, 4000, Phaser.Easing.Quadratic.InOut, true, 0, 10000, true);
+    // octopus = game.add.sprite(330, 100, 'seacreatures');
+    // octopus.animations.add('swim', Phaser.Animation.generateFrameNames('octopus', 0, 24, '', 4), 30, true);
+    // octopus.animations.play('swim');
+
+    // game.add.tween(octopus).to({ y: 250 }, 4000, Phaser.Easing.Quadratic.InOut, true, 0, 10000, true);
 
     game.add.sprite(0, 466, 'coral');
 
