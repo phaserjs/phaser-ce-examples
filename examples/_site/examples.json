@@ -759,6 +759,10 @@
     {
       "file": "tanks.js",
       "title": "tanks"
+    },
+    {
+      "file": "sliding-puzzle.js",
+      "title": "sliding puzzle"
     }
   ],
   "geometry": [
