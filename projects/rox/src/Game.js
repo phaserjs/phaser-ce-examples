@@ -16,7 +16,7 @@ Rox.Game.prototype = {
 
 	create: function () {
 
-		// var bg = this.add.tileSprite(0, 0, this.game.width, this.game.height, 'space');
+		var bg = this.add.tileSprite(0, 0, this.game.width, this.game.height, 'space');
 
 		this.player = new Rox.Player(this.game, this.game.world.centerX, this.game.world.centerY);
 		this.asteroids = new Rox.Asteroids(this);
@@ -40,6 +40,7 @@ Rox.Game.prototype = {
 		//	add a colon
 	    this.font = this.add.retroFont('font', 14, 14, '0123456789:,!.+?ABCDEFGHIJKLMNOPQRSTUVWXYZ', 42);
 	    this.font.text = 'score: 23000                                   lives: 3';
+	    // this.font.text = 'space rox';
 
 	    this.add.image(16, 16, this.font);
 

@@ -15,6 +15,6 @@
     //  However you can switch it from testing direct from source to 
     //  testing a pre-built Phaser JS file instead. Specify here the
     //  filename it should switch to (file must exist in the examples/_site/phaser folder)
-    $config_phaser_min = 'phaser.2.3.0.min.js';
+    $config_phaser_min = 'phaser.2.2.2.min.js';
 
 ?>

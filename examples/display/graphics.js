@@ -45,4 +45,6 @@ function create() {
     graphics.moveTo(30,30);
     graphics.lineTo(600, 300);
 
+    window.graphics = graphics;
+
 }

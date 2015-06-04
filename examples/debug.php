@@ -133,6 +133,12 @@
     {
         $target = 'iframe';
     }
+
+        // <script src="_site/js/Blob.js" type="text/javascript"></script>
+        // <script src="_site/js/CanvasToBlob.js" type="text/javascript"></script>
+        // <script src="_site/js/FileSaver.js" type="text/javascript"></script>
+
+
 ?>
 <!doctype html>
 <html>
@@ -141,9 +147,7 @@
         <title>Phaser Examples - <?php echo $title ?></title>
         <script src="_site/js/jquery-2.1.4.min.js" type="text/javascript"></script>
         <script src="_site/js/jquery.cookie.js" type="text/javascript"></script>
-        <script src="_site/js/Blob.js" type="text/javascript"></script>
-        <script src="_site/js/CanvasToBlob.js" type="text/javascript"></script>
-        <script src="_site/js/FileSaver.js" type="text/javascript"></script>
+        <script src="_site/js/RecordRTC.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="_site/css/debug.css" />
         <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
         <?php
@@ -156,7 +160,7 @@
                 }
                 else
                 {
-                    echo "<script src=\"_site/phaser/' . $config_phaser_min . '\" type=\"text/javascript\"></script>";
+                    echo '<script src="_site/phaser/' . $config_phaser_min . '" type="text/javascript"></script>';
                 }
 
                 if ($modules['box2d'])

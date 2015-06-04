@@ -3,8 +3,8 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 
 function preload() {
 
-    //  To load an audio file use the following structure.
-    //  As with all load operations the first parameter is a unique key, which must be unique between all audio files.
+    //  To load a video file use the following structure.
+    //  As with all load operations the first parameter is a unique key, which must be unique between all video files.
 
     //  The second parameter is an array containing the same audio file but in different formats.
     //  In this example the music is provided as an mp3 and a ogg (Firefox will want the ogg for example)
@@ -17,7 +17,6 @@ function preload() {
     // game.load.video('chrome', 'assets/video/chrome.webm', true);
 
     game.load.video('chrome', 'assets/video/liquid2.mp4');
-    game.load.audio('boden', 'assets/audio/tommy_in_goa.mp3');
 
 }
 

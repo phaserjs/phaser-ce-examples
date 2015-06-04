@@ -27,8 +27,8 @@ Rox.Player = function (game, x, y) {
     //  Our bullets - this is a Phaser.Group that we manage from here
     this.bullets = new Rox.PlayerBullets(game, 50);
 
-    //  The smoke trail following the player
-    this.trail = new Phaser.Particles.Arcade.Emitter(game, 0, 0, 1000);
+    //  The particle trail following the player
+    this.trail = new Phaser.Particles.Arcade.Emitter(game, 0, 0, 200);
     this.trail.makeParticles('jets');
     this.trail.setRotation(0, 0);
     this.trail.gravity = 0;
@@ -67,10 +67,10 @@ Rox.Player.prototype.update = function () {
 
     // if (this.body.speed > 50 && !this.isThrusting)
     // {
-        this.trail.start(true, 1000, 8);
+        this.trail.start(true, 1000, 8, 1);
     // }
 
-    // this.trail.forEachExists(this.game.world.wrap, this.game.world);
+    this.trail.forEachExists(this.game.world.wrap, this.game.world);
 
 }
 
@@ -86,7 +86,7 @@ Rox.Player.prototype.thrust = function () {
 
     this.physics.accelerationFromRotation(this.rotation, this.speed, this.body.acceleration);
     
-    this.trail.start(true, 1000, 8);
+    // this.trail.start(true, 1000, 8, 1);
 
     this.isThrusting = true;
 
