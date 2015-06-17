@@ -6,9 +6,9 @@ var p2;
 var p3;
 var p4;
 
-var d2 = 0;
-var d3 = 0;
-var d4 = 0;
+var d2 = 1;
+var d3 = 4;
+var d4 = 16;
 
 function create() {
 
@@ -21,13 +21,9 @@ function create() {
 
 function update() {
 
-    p2.rotate(p1.x, p1.y, game.math.wrapAngle(d2), true, 150);
-    p3.rotate(p2.x, p2.y, game.math.wrapAngle(d3), true, 50);
-    p4.rotate(p3.x, p3.y, game.math.wrapAngle(d4), true, 100);
-
-    d2 += 1;
-    d3 += 4;
-    d4 += 6;
+    p2.rotate(p1.x, p1.y, d2, true, 150);
+    p3.rotate(p2.x, p2.y, d3, true, 100);
+    p4.rotate(p3.x, p3.y, d4, true, 50);
 
 }
 

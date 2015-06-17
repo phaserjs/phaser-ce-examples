@@ -2,6 +2,7 @@
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 var parent;
+var child;
 
 function preload() {
 
@@ -10,38 +11,23 @@ function preload() {
 
 }
 
-var parent;
-
 function create() {
 
-    // parent = game.add.sprite(100, 100, 'mushroom');
+    parent = game.add.sprite(100, 100, 'mushroom');
 
-    // parent.addChild(game.make.sprite(0, 0, 'mummy'));
-    // parent.addChild(game.make.sprite(100, 0, 'mummy'));
-    // parent.addChild(game.make.sprite(200, 200, 'mummy'));
-    // parent.addChild(game.make.sprite(0, 100, 'mummy'));
+    parent.addChild(game.make.sprite(-50, -50, 'mummy'));
+    parent.addChild(game.make.sprite(100, 0, 'mummy'));
+    parent.addChild(game.make.sprite(200, 200, 'mummy'));
 
-    parent = game.add.group();
-    parent.create(0, 0, 'mushroom');
-    parent.create(100, 0, 'mushroom');
-    parent.create(100, 100, 'mushroom');
-    parent.create(0, 100, 'mushroom');
-
-    var graphics = game.add.graphics(0, 0);
-
-    // graphics.lineStyle(2, 0xffd900, 1);
-
-    graphics.beginFill(0xFF0000, 1);
-    graphics.drawCircle(300, 300, 100);
-
-    parent.add(graphics);
-
+    //  This child will move faster because its position is updated as well as the parent
+    child = parent.addChild(game.make.sprite(0, 100, 'mummy'));
 
 }
 
 function update() {
 
     parent.x += 0.1;
+    child.x += 0.1;
 
 }
 

@@ -47,7 +47,6 @@ function create() {
 
     game.camera.follow(player);
 
-    //  Allow cursors to scroll around the map
     cursors = game.input.keyboard.createCursorKeys();
 
     var help = game.add.text(16, 16, 'Arrows to move', { font: '14px Arial', fill: '#ffffff' });

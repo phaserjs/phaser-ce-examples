@@ -26,7 +26,9 @@ function create() {
 function start() {
 
     //  After 5 seconds we'll swap to a new video
-    game.time.events.add(5000, changeSource, this);
+    // game.time.events.add(5000, changeSource, this);
+
+    game.input.onDown.addOnce(changeSource, this);
 
 }
 

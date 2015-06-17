@@ -3,7 +3,6 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', {create: c
 
 var p1;
 var p2;
-var d = 0;
 
 function create() {
 
@@ -14,9 +13,11 @@ function create() {
 
 function update() {
 
-    p1.rotate(p2.x, p2.y, game.math.wrapAngle(d), true);
+    //  We'll rotate point 1 (the yellow point)
+    //  around point 2 (the red point) by 1 degree
+    //  every update.
 
-    d++;
+    p1.rotate(p2.x, p2.y, 1, true);
 
 }
 
