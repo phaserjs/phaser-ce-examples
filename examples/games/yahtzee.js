@@ -193,6 +193,20 @@ var ComboChance = function (game) {
 
     this.played = false;
 
+    this.check = function () {
+
+        var set = this.game.cup.getFullSet();
+        var score = 0;
+
+        for (var i = 0; i < set.length; i++)
+        {
+            score += set[i].total;
+        }
+
+        return score;
+
+    };
+
     this.play = function () {
 
         var set = this.game.cup.getFullSet();
@@ -221,6 +235,7 @@ var ComboStraight = function (game, size, points) {
     this.played = false;
 
     //  Small straight (1,2,3,4 - 2,3,4,5 - 3,4,5,6)
+    //  11223
     //  Large straight (1,2,3,4,5 - 2,3,4,5,6)
 
     this.check = function () {
@@ -372,6 +387,7 @@ var Yahtzee = function (game) {
     this.total = 0;
 
     this.roll = 1;
+    this.rollButton = null;
     this.canLock = false;
 
 };
@@ -380,8 +396,11 @@ Yahtzee.prototype = {
 
     preload: function () {
 
-        this.load.image('board', 'assets/games/yahtzee/board.png');
-        this.load.atlas('dice', 'assets/games/yahtzee/dice.png', 'assets/games/yahtzee/dice.json');
+        this.load.baseURL = 'assets/games/yahtzee/';
+        this.load.image('board');
+        this.load.image('glow');
+        this.load.image('roll');
+        this.load.atlas('dice');
 
     },
 
@@ -398,7 +417,7 @@ Yahtzee.prototype = {
             var die = this.cup['die' + i].sprite;
 
             die.x = 120 * i;
-            die.y = 470;
+            die.y = 32;
 
             this.world.add(die);
         }
@@ -408,12 +427,17 @@ Yahtzee.prototype = {
         // var style = { font: "65px Arial", fill: "#ff0044", align: "center" };
         // var text = game.add.text(game.world.centerX, game.world.centerY, "- phaser -\nwith a sprinkle of\npixi dust", style);
 
-
-        this.input.onDown.addOnce(this.doRoll, this);
+        this.rollButton = this.add.sprite(this.world.centerX, 528, 'roll');
+        this.rollButton.anchor.x = 0.5;
+        this.rollButton.inputEnabled = true;
+        this.rollButton.input.useHandCursor = true;
+        this.rollButton.events.onInputDown.add(this.doRoll, this);
 
     },
 
     doRoll: function () {
+
+        console.log("\n\nRoll " + this.roll);
 
         this.cup.shake();
 
@@ -421,6 +445,19 @@ Yahtzee.prototype = {
 
         this.canLock = true;
 
+        console.log('1s', this.combo1.check());
+        console.log('2s', this.combo2.check());
+        console.log('3s', this.combo3.check());
+        console.log('4s', this.combo4.check());
+        console.log('5s', this.combo5.check());
+        console.log('6s', this.combo6.check());
+        console.log('3ofaK', this.comboThreeOfAKind.check());
+        console.log('4ofaK', this.comboFourOfAKind.check());
+        console.log('full', this.comboFullHouse.check());
+        console.log('sm. straight', this.comboSmallStraight.check());
+        console.log('lg. straight', this.comboLargeStraight.check());
+        console.log('yahtzee', this.comboYahtzee.check());
+        console.log('chance', this.comboChance.check());
 
     }
 
