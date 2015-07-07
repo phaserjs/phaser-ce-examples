@@ -133,12 +133,6 @@
     {
         $target = 'iframe';
     }
-
-        // <script src="_site/js/Blob.js" type="text/javascript"></script>
-        // <script src="_site/js/CanvasToBlob.js" type="text/javascript"></script>
-        // <script src="_site/js/FileSaver.js" type="text/javascript"></script>
-
-
 ?>
 <!doctype html>
 <html>
@@ -148,6 +142,9 @@
         <script src="_site/js/jquery-2.1.4.min.js" type="text/javascript"></script>
         <script src="_site/js/jquery.cookie.js" type="text/javascript"></script>
         <script src="_site/js/RecordRTC.js" type="text/javascript"></script>
+        <script src="_site/js/Blob.js" type="text/javascript"></script>
+        <script src="_site/js/CanvasToBlob.js" type="text/javascript"></script>
+        <script src="_site/js/FileSaver.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="_site/css/debug.css" />
         <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
         <?php
