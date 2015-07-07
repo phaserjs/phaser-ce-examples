@@ -39,9 +39,7 @@ function create() {
 
 }
 
-var key1;
-var key2;
-var key3;
+var keys;
 
 function start() {
 
@@ -62,13 +60,11 @@ function start() {
     sword.onStop.add(soundStopped, this);
     blaster.onStop.add(soundStopped, this);
 
-    key1 = game.input.keyboard.addKey(Phaser.Keyboard.ONE);
-    key2 = game.input.keyboard.addKey(Phaser.Keyboard.TWO);
-    key3 = game.input.keyboard.addKey(Phaser.Keyboard.THREE);
+    keys = game.input.keyboard.addKeys([ Phaser.Keyboard.ONE, Phaser.Keyboard.TWO, Phaser.Keyboard.THREE ], [ 'blaster', 'explosion', 'sword' ]);
 
-    key1.onDown.add(playFx, this);
-    key2.onDown.add(playFx, this);
-    key3.onDown.add(playFx, this);
+    keys.blaster.onDown.add(playFx, this);
+    keys.explosion.onDown.add(playFx, this);
+    keys.sword.onDown.add(playFx, this);
 
     //  And for touch devices you can also press the top, middle or bottom of the screen
     game.input.onDown.add(onTouch, this);
@@ -81,15 +77,15 @@ function onTouch(pointer) {
 
     if (pointer.y < b)
     {
-        playFx(key1);
+        playFx(keys.blaster);
     }
     else if (pointer.y > b * 2)
     {
-        playFx(key3);
+        playFx(keys.sword);
     }
     else
     {
-        playFx(key2);
+        playFx(keys.explosion);
     }
 
 }
