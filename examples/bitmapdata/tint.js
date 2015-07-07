@@ -11,24 +11,12 @@ var bmd;
 
 function create() {
 
-    game.world.setBounds(-200000, -200000, 400000, 400000);
+    var pic = game.make.image(0, 0, 'crystal');
 
-    // game.world.x = -4343;
-    // game.world.y = -12323;
+    bmd = game.make.bitmapData(pic.width, pic.height);
 
-    console.log(game.world.bounds);
-    console.log(game.world.x);
-    console.log(game.world.y);
+    PIXI.CanvasTinter.tintMethod(pic.texture, 0xee4343, bmd.canvas);
 
-    // bmd = game.make.bitmapData(game.width, game.height);
-
-    // bmd.draw('crystal');
-
-    // PIXI.CanvasTinter.tintMethod(bmd.texture, 0x3434ff, bmd.canvas);
-
-    // var sprite = bmd.addToWorld();
-
-    // sprite.tint = 0x2222ee;
+    bmd.addToWorld();
 
 }
-
