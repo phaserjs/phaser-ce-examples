@@ -13,7 +13,7 @@ function create() {
 
     game.add.image(0, 0, 'bg');
 
-    var style = { font: "16px Courier", fill: "#fff", tab: 164 };
+    var style = { font: "16px Courier", fill: "#fff", tabs: [ 164, 120, 80 ] };
 
     var headings = [ 'Name', 'Damage', 'Speed', 'Notes' ];
 
@@ -28,7 +28,8 @@ function create() {
         [ 'Cutlass', '1d6', '5', '' ],
         [ 'Scimitar', '2d4', '4', '' ],
         [ 'Long Sword', '1d8+1', '6', '' ],
-        [ 'Bastard Sword', '1d10+1', '8', 'Requires 2 free hands to swing' ]
+        [ 'Bastard Sword', '1d10+1', '8', 'Requires 2 hands to use effectively' ],
+        [ 'Great Sword', '1d12+1', '10', 'Must always be used with 2 hands']
     ];
 
     var text2 = game.add.text(32, 120, '', style);
