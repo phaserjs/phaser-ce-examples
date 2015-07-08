@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, render: render });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', this);
 
 var rope;
 var debugKey;
@@ -21,8 +21,8 @@ function create() {
         points.push(new Phaser.Point(i * length, 0));
     }
 
-    rope = game.add.rope(0, this.game.world.centerY, 'snake', null, points);
-    rope.scale.set(0.5);
+    rope = game.add.rope(32, this.game.world.centerY, 'snake', null, points);
+    rope.scale.set(0.8);
 
     rope.updateAnimation = function() {
         count += 0.1;
@@ -38,9 +38,6 @@ function create() {
 
 }
 
-function update() {
-}
-
 function render() {
 
     if (shouldDebug)
@@ -48,7 +45,7 @@ function render() {
         game.debug.ropeSegments(rope);
     }
 
-    game.debug.text('(D) to show debug', 20, 20);
+    game.debug.text('(D) to show debug', 20, 32);
 
 }
 

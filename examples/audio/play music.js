@@ -19,35 +19,17 @@ function create() {
     game.input.touch.preventDefault = false;
 
     music = game.add.audio('boden');
-    music.onDecoded.add(hasDecoded, this);
 
     music.play();
 
-    console.log(music._tempVolume);
-    console.log(music.gainNode.gain.value);
-
-    music.volume = 0.1;
-
-    console.log(music._tempVolume);
-    console.log(music.gainNode.gain.value);
+    music.volume = 0.2;
 
     music.mute = true;
-
-    console.log(music._tempVolume);
-    console.log(music.gainNode.gain.value);
 
     s = game.add.sprite(game.world.centerX, game.world.centerY, 'disk');
     s.anchor.setTo(0.5, 0.5);
 
     game.input.onDown.add(changeVolume, this);
-
-}
-
-function hasDecoded() {
-
-    console.log('hasDecoded');
-    console.log(music._tempVolume);
-    console.log(music.gainNode.gain.value);
 
 }
 
