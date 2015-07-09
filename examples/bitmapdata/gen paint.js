@@ -4,7 +4,7 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', this);
 //  Dimensions
 var previewSize = 4;
 var spriteWidth = 8;
-var spriteHeight = 8;
+var spriteHeight = 4;
 
 //  UI
 var ui;
@@ -16,6 +16,9 @@ var sizeDown;
 var previewSizeUp;
 var previewSizeDown;
 var previewSizeText;
+var nextFrameButton;
+var prevFrameButton;
+var frameText;
 var saveIcon;
 var saveText;
 var rightCol = 532;
@@ -43,7 +46,10 @@ var palette = 0;
 var pmap = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
 
 //  Data
-var data = [];
+var frame = 1;
+var frames = [[]];
+
+var data;
 
 function resetData() {
 
@@ -60,6 +66,45 @@ function resetData() {
 
         data.push(a);
     }
+
+}
+
+function copyToData(src) {
+
+    data = [];
+
+    for (var y = 0; y < src.length; y++)
+    {
+        var a = [];
+
+        for (var x = 0; x < src[y].length; x++)
+        {
+            a.push(src[y][x]);
+        }
+
+        data.push(a);
+    }
+
+}
+
+function cloneData() {
+
+    var clone = [];
+
+    for (var y = 0; y < data.length; y++)
+    {
+        var a = [];
+
+        for (var x = 0; x < data[y].length; x++)
+        {
+            var v = data[y][x];
+            a.push(v);
+        }
+
+        clone.push(a);
+    }
+
+    return clone;
 
 }
 
@@ -121,30 +166,46 @@ function createUI() {
     ui.addToWorld();
 
     var style = { font: "20px Courier", fill: "#fff", tabs: 80 };
+
     coords = game.add.text(rightCol, 8, "X: 0\tY: 0", style);
     size = game.add.text(rightCol, 40, "W: " + spriteWidth + "\tH: " + spriteHeight, style);
+    frameText = game.add.text(rightCol, 100, "Frame: " + frame + " / " + frames.length, style);
     previewSizeText = game.add.text(rightCol, 160, "Size: " + previewSize, style);
+
+    game.add.text(12, 9, pmap.join("\t"), { font: "14px Courier", fill: "#000", tabs: 32 });
+    game.add.text(11, 8, pmap.join("\t"), { font: "14px Courier", fill: "#ffff00", tabs: 32 });
+
     saveText = game.add.text(rightCol, 520, "Saved to console.log", style);
     saveText.alpha = 0;
 
     paletteArrow = game.add.sprite(8, 36, 'arrow');
 
-    sizeUp = game.add.sprite(rightCol + 170, 40, 'plus');
+    sizeUp = game.add.sprite(rightCol + 180, 40, 'plus');
     sizeUp.inputEnabled = true;
     sizeUp.input.useHandCursor = true;
     sizeUp.events.onInputDown.add(increaseSize, this);
 
-    sizeDown = game.add.sprite(rightCol + 210, 40, 'minus');
+    sizeDown = game.add.sprite(rightCol + 220, 40, 'minus');
     sizeDown.inputEnabled = true;
     sizeDown.input.useHandCursor = true;
     sizeDown.events.onInputDown.add(decreaseSize, this);
 
-    previewSizeUp = game.add.sprite(rightCol + 170, 160, 'plus');
+    nextFrameButton = game.add.sprite(rightCol + 180, 100, 'plus');
+    nextFrameButton.inputEnabled = true;
+    nextFrameButton.input.useHandCursor = true;
+    nextFrameButton.events.onInputDown.add(nextFrame, this);
+
+    prevFrameButton = game.add.sprite(rightCol + 220, 100, 'minus');
+    prevFrameButton.inputEnabled = true;
+    prevFrameButton.input.useHandCursor = true;
+    prevFrameButton.events.onInputDown.add(prevFrame, this);
+
+    previewSizeUp = game.add.sprite(rightCol + 180, 160, 'plus');
     previewSizeUp.inputEnabled = true;
     previewSizeUp.input.useHandCursor = true;
     previewSizeUp.events.onInputDown.add(increasePreviewSize, this);
 
-    previewSizeDown = game.add.sprite(rightCol + 210, 160, 'minus');
+    previewSizeDown = game.add.sprite(rightCol + 220, 160, 'minus');
     previewSizeDown.inputEnabled = true;
     previewSizeDown.input.useHandCursor = true;
     previewSizeDown.events.onInputDown.add(decreasePreviewSize, this);
@@ -239,35 +300,107 @@ function refresh() {
 
 function createEventListeners() {
 
-    //  Event listeners
-
     keys = game.input.keyboard.addKeys(
         {
+            'erase': Phaser.Keyboard.X,
             'save': Phaser.Keyboard.S,
             'up': Phaser.Keyboard.UP,
             'down': Phaser.Keyboard.DOWN,
             'left': Phaser.Keyboard.LEFT,
             'right': Phaser.Keyboard.RIGHT,
             'changePalette': Phaser.Keyboard.P,
-            'nextColor': Phaser.Keyboard.PERIOD,
-            'prevColor': Phaser.Keyboard.COMMA
+            'nextFrame': Phaser.Keyboard.PERIOD,
+            'prevFrame': Phaser.Keyboard.COMMA,
+            'color0': Phaser.Keyboard.ZERO,
+            'color1': Phaser.Keyboard.ONE,
+            'color2': Phaser.Keyboard.TWO,
+            'color3': Phaser.Keyboard.THREE,
+            'color4': Phaser.Keyboard.FOUR,
+            'color5': Phaser.Keyboard.FIVE,
+            'color6': Phaser.Keyboard.SIX,
+            'color7': Phaser.Keyboard.SEVEN,
+            'color8': Phaser.Keyboard.EIGHT,
+            'color9': Phaser.Keyboard.NINE,
+            'color10': Phaser.Keyboard.A,
+            'color11': Phaser.Keyboard.B,
+            'color12': Phaser.Keyboard.C,
+            'color13': Phaser.Keyboard.D,
+            'color14': Phaser.Keyboard.E,
+            'color15': Phaser.Keyboard.F
         }
     );
 
+    keys.erase.onDown.add(cls, this);
     keys.save.onDown.add(save, this);
     keys.up.onDown.add(shiftUp, this);
     keys.down.onDown.add(shiftDown, this);
     keys.left.onDown.add(shiftLeft, this);
     keys.right.onDown.add(shiftRight, this);
     keys.changePalette.onDown.add(changePalette, this);
-    keys.nextColor.onDown.add(nextColor, this);
-    keys.prevColor.onDown.add(prevColor, this);
+    keys.nextFrame.onDown.add(nextFrame, this);
+    keys.prevFrame.onDown.add(prevFrame, this);
+
+    for (var i = 0; i < 16; i++)
+    {
+        keys['color' + i].onDown.add(setColor, this, 0, i);
+    }
 
     game.input.mouse.capture = true;
     game.input.onDown.add(onDown, this);
     game.input.onUp.add(onUp, this);
     game.input.addMoveCallback(paint, this);
 
+}
+
+function cls() {
+
+    resetData();
+    refresh();
+
+}
+
+function nextFrame() {
+
+    //  Save current frame
+    frames[frame - 1] = cloneData();
+
+    frame++;
+
+    if (frames[frame - 1])
+    {
+        copyToData(frames[frame - 1]);
+    }
+    else
+    {
+        frames.push(null);
+        resetData();
+    }
+
+    refresh();
+
+    frameText.text = "Frame: " + frame + " / " + frames.length;
+
+}
+
+function prevFrame() {
+
+    if (frame === 1)
+    {
+        return;
+    }
+
+    //  Save current frame
+    frames[frame - 1] = cloneData();
+
+    frame--;
+
+    //  Load old frame
+    copyToData(frames[frame - 1]);
+
+    refresh();
+
+    frameText.text = "Frame: " + frame + " / " + frames.length;
+    
 }
 
 function drawPalette() {
@@ -301,7 +434,13 @@ function changePalette() {
 
 }
 
-function setColor(i) {
+function setColor(i, p) {
+
+    if (typeof p !== 'undefined')
+    {
+        //  It came from a Keyboard Event, in which case the color index is in p, not i.
+        i = p;
+    }
 
     if (i < 0)
     {
@@ -421,27 +560,40 @@ function create() {
 
 function save() {
 
-    var output = "var data = [\n";
+    //  Save current frame
+    frames[frame - 1] = cloneData();
 
-    for (var y = 0; y < spriteHeight; y++)
+    for (var f = 0; f < frames.length; f++)
     {
-        output = output.concat("\t'");
-        output = output.concat(data[y].join(''));
+        var src = frames[f];
 
-        if (y < spriteHeight - 1)
+        if (src === null)
         {
-            output = output.concat("',\n");
+            continue;
         }
-        else
+
+        var output = "var frame" + f + " = [\n";
+
+        for (var y = 0; y < src.length; y++)
         {
-            output = output.concat("'\n");
+            output = output.concat("\t'");
+            output = output.concat(src[y].join(''));
+
+            if (y < src.length - 1)
+            {
+                output = output.concat("',\n");
+            }
+            else
+            {
+                output = output.concat("'\n");
+            }
         }
+        
+        output = output.concat("];\n");
+        output = output.concat("game.create.texture('yourKey', frame" + f + ", " + previewSize + ", " + previewSize + ", " + palette + ");\n");
+
+        console.log(output);
     }
-    
-    output = output.concat("];\n");
-    output = output.concat("game.create.texture('yourKey', data, " + previewSize + ", " + previewSize + ", " + palette + ");\n");
-
-    console.log(output);
 
     saveText.alpha = 1;
     game.add.tween(saveText).to( { alpha: 0 }, 2000, "Linear", true);
@@ -478,16 +630,6 @@ function shiftUp() {
 
     canvas.moveV(-canvasZoom);
     preview.moveV(-previewSize);
-
-    //  0 = [1,1,1,1,1,1,1,1];
-    //  1 = [2,0,0,0,0,0,0,2];
-    //  2 = [3,0,0,0,0,0,0,3];
-    //  
-    //  after:
-    //  
-    //  0 = [2,0,0,0,0,0,0,2];
-    //  1 = [3,0,0,0,0,0,0,3];
-    //  2 = [1,1,1,1,1,1,1,1];
 
     var top = data.shift();
     data.push(top);
