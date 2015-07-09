@@ -453,12 +453,24 @@ function shiftLeft() {
     canvas.moveH(-canvasZoom);
     preview.moveH(-previewSize);
 
+    for (var y = 0; y < spriteHeight; y++)
+    {
+        var r = data[y].shift();
+        data[y].push(r);
+    }
+
 }
 
 function shiftRight() {
 
     canvas.moveH(canvasZoom);
     preview.moveH(previewSize);
+
+    for (var y = 0; y < spriteHeight; y++)
+    {
+        var r = data[y].pop();
+        data[y].splice(0, 0, r);
+    }
 
 }
 
@@ -467,12 +479,28 @@ function shiftUp() {
     canvas.moveV(-canvasZoom);
     preview.moveV(-previewSize);
 
+    //  0 = [1,1,1,1,1,1,1,1];
+    //  1 = [2,0,0,0,0,0,0,2];
+    //  2 = [3,0,0,0,0,0,0,3];
+    //  
+    //  after:
+    //  
+    //  0 = [2,0,0,0,0,0,0,2];
+    //  1 = [3,0,0,0,0,0,0,3];
+    //  2 = [1,1,1,1,1,1,1,1];
+
+    var top = data.shift();
+    data.push(top);
+
 }
 
 function shiftDown() {
 
     canvas.moveV(canvasZoom);
     preview.moveV(previewSize);
+
+    var bottom = data.pop();
+    data.splice(0, 0, bottom);
 
 }
 
@@ -486,13 +514,13 @@ function onDown(pointer) {
     {
         isDown = true;
 
-        if (pointer.leftButton)
+        if (pointer.rightButton)
         {
-            isErase = false;
+            isErase = true;
         }
         else
         {
-            isErase = true;
+            isErase = false;
         }
 
         paint(pointer);
