@@ -29,6 +29,33 @@ function create() {
 
     game.create.texture('rat', rat, 4, 4, 4);
 
+var frame0 = [
+    '66656',
+    '55555',
+    '65666',
+    '55555',
+    '66656'
+];
+game.create.texture('yourKey', frame0, 6, 6, 0);
+
+debug.php?s=bitmapdata&f=bitmapdata/gen paint.js:1145 var frame1 = [
+    'AAAAA',
+    'BAAAA',
+    'AAABA',
+    'AAAAA',
+    'ABAAA'
+];
+game.create.texture('yourKey', frame1, 6, 6, 0);
+
+debug.php?s=bitmapdata&f=bitmapdata/gen paint.js:1145 var frame2 = [
+    '.000.',
+    '.777.',
+    '22222',
+    '.EEE.',
+    '.E.E.'
+];
+game.create.texture('yourKey', frame2, 6, 6, 0);
+
     //  Just create some sprites using these new textures
     game.add.sprite(0, 0, 'bob');
     game.add.sprite(100, 60, 'rat');

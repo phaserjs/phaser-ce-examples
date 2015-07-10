@@ -1,47 +1,79 @@
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+var conf = {
+    width: 800,
+    height: 600,
+    renderer: Phaser.CANVAS,
+    parent: 'phaser-example',
+    transparent: false,
+    antialias: false,
+    state: this,
+    resolution: 2
+};
+
+var game = new Phaser.Game(conf);
 
 function preload() {
 
-    game.load.image('colors', 'assets/misc/colormap.png');
+    game.load.image('colors', 'assets/misc/gradient-palettes.png');
     game.load.spritesheet('arrow', 'assets/misc/arrows.png', 16, 16);
 
 }
 
 var bmd;
+var bmdSprite;
 var markers;
+var swatchBMD;
 var swatch;
 var isDragging = false;
 var arrow1;
 var arrow2;
+var currentArrow = null;
 
 // rgba(52,3,98,1) to rgba(247,130,11,1) chunk 16
 
 function create() {
 
-    game.stage.backgroundColor = '#2d2d2d';
+    game.stage.backgroundColor = '#535353';
 
-	bmd = game.make.bitmapData(700, 500);
-    bmd.addToWorld(50, 50);
+	bmd = game.make.bitmapData(500, 550);
+    bmdSprite = bmd.addToWorld(30, 20);
 
     markers = game.add.group();
 
-    createMarker(50);
-    createMarker(550);
+    createMarker(bmdSprite.y);
+    createMarker(bmdSprite.y + bmd.height);
 
     arrow1 = markers.children[0];
     arrow2 = markers.children[1];
 
+    currentArrow = arrow1;
+    currentArrow.frame = 1;
+
     game.input.onDown.add(checkClick, this);
 
-    // game.add.image(0, 0, 'colors');
+    swatchBMD = game.make.bitmapData();
+    swatchBMD.load('colors');
+
+    swatch = game.add.sprite(800 - 220, 10, swatchBMD);
+    swatch.inputEnabled = true;
+    swatch.events.onInputDown.add(selectColor, this);
 
     refresh();
 
 }
 
+function makeCurrent(sprite) {
+
+    currentArrow.frame = 0;
+
+    currentArrow = sprite;
+
+    currentArrow.frame = 1;
+
+}
+
 function checkClick(pointer) {
 
-    if (pointer.x > 50)
+    if (pointer.x > bmdSprite.x && pointer.x <= bmdSprite.right)
     {
         createMarker(pointer.y);
         markers.sort('y');
@@ -52,14 +84,13 @@ function checkClick(pointer) {
 
 function createMarker(y) {
 
-    var arrow = markers.create(50 - 18, y, 'arrow', 0);
+    var arrow = markers.create(bmdSprite.x - 18, y, 'arrow', 0);
 
     arrow.anchor.set(0, 0.5);
     arrow.inputEnabled = true;
 
     if (markers.total > 2)
     {
-        console.log('create marker');
         arrow.input.enableDrag();
         arrow.input.allowHorizontalDrag = false;
         arrow.input.boundsRect = new Phaser.Rectangle(0, 50, 50, 500);
@@ -71,22 +102,44 @@ function createMarker(y) {
     arrow.webrgb = Phaser.Color.getWebRGB(arrow.color);
     arrow.rgb = Phaser.Color.getRGB(arrow.color);
 
-    // arrow.events.onInputDown.add(pickColor, this);
+    // console.log('arrow', arrow.rgb);
 
-    console.log(arrow.webrgb);
+    arrow.events.onInputDown.add(pickColor, this);
+
+    // console.log(arrow.webrgb);
 
 }
 
-function startRefresh(marker) {
+function pickColor(arrow) {
 
-    marker.frame = 1;
+    makeCurrent(arrow);
+
+}
+
+function selectColor(sprite, pointer) {
+
+    var x = pointer.x - swatch.x;
+    var y = pointer.y - swatch.y;
+    var color = swatchBMD.getPixelRGB(x, y);
+
+    currentArrow.color = Phaser.Color.getColor32(color.a, color.r, color.g, color.b);
+    currentArrow.webrgb = Phaser.Color.getWebRGB(currentArrow.color);
+    currentArrow.rgb = Phaser.Color.getRGB(currentArrow.color);
+
+    refresh();
+
+}
+
+function startRefresh(sprite) {
+
+    makeCurrent(sprite);
+
     isDragging = true;
 
 }
 
-function stopRefresh(marker) {
+function stopRefresh(sprite) {
 
-    marker.frame = 0;
     isDragging = false;
     markers.sort('y');
     refresh();
@@ -109,8 +162,8 @@ function refresh() {
         marker1 = markers.children[c];
         marker2 = markers.children[c + 1];
 
-        var dy = marker1.y - 50;
-        var sy = marker2.y - 50;
+        var dy = marker1.y - bmdSprite.y;
+        var sy = marker2.y - bmdSprite.y;
 
         distance = sy - dy;
         y = dy;
@@ -122,7 +175,7 @@ function refresh() {
             var ci = Phaser.Color.interpolateRGB(marker1.rgb.r, marker1.rgb.g, marker1.rgb.b, marker2.rgb.r, marker2.rgb.g, marker2.rgb.b, step, i);
             bmd.ctx.fillStyle = Phaser.Color.getWebRGB(ci);
 
-            bmd.ctx.fillRect(0, dy, 700, chunk);
+            bmd.ctx.fillRect(0, dy, bmd.width, chunk);
 
             dy += chunk;
         }
@@ -130,7 +183,7 @@ function refresh() {
         //  Fill in the little gap that is left (if any)
         if (remainder > 0)
         {
-            bmd.ctx.fillRect(0, dy, 700, remainder);
+            bmd.ctx.fillRect(0, dy, bmd.width, remainder);
         }
     }
 
@@ -144,9 +197,5 @@ function update() {
     {
         refresh();
     }
-
-}
-
-function render() {
 
 }

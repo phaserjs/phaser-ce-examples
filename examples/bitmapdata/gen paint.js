@@ -2,17 +2,20 @@
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', this);
 
 //  Dimensions
-var previewSize = 4;
+var previewSize = 6;
 var spriteWidth = 8;
-var spriteHeight = 4;
+var spriteHeight = 8;
 
 //  UI
 var ui;
 var paletteArrow;
 var coords;
-var size;
-var sizeUp;
-var sizeDown;
+var widthText;
+var widthUp;
+var widthDown;
+var heightText;
+var heightUp;
+var heightDown;
 var previewSizeUp;
 var previewSizeDown;
 var previewSizeText;
@@ -168,47 +171,76 @@ function createUI() {
     var style = { font: "20px Courier", fill: "#fff", tabs: 80 };
 
     coords = game.add.text(rightCol, 8, "X: 0\tY: 0", style);
-    size = game.add.text(rightCol, 40, "W: " + spriteWidth + "\tH: " + spriteHeight, style);
-    frameText = game.add.text(rightCol, 100, "Frame: " + frame + " / " + frames.length, style);
-    previewSizeText = game.add.text(rightCol, 160, "Size: " + previewSize, style);
 
     game.add.text(12, 9, pmap.join("\t"), { font: "14px Courier", fill: "#000", tabs: 32 });
     game.add.text(11, 8, pmap.join("\t"), { font: "14px Courier", fill: "#ffff00", tabs: 32 });
 
-    saveText = game.add.text(rightCol, 520, "Saved to console.log", style);
-    saveText.alpha = 0;
-
     paletteArrow = game.add.sprite(8, 36, 'arrow');
 
-    sizeUp = game.add.sprite(rightCol + 180, 40, 'plus');
-    sizeUp.inputEnabled = true;
-    sizeUp.input.useHandCursor = true;
-    sizeUp.events.onInputDown.add(increaseSize, this);
+    //  Change width
 
-    sizeDown = game.add.sprite(rightCol + 220, 40, 'minus');
-    sizeDown.inputEnabled = true;
-    sizeDown.input.useHandCursor = true;
-    sizeDown.events.onInputDown.add(decreaseSize, this);
+    widthText = game.add.text(rightCol, 60, "Width: " + spriteWidth, style);
 
-    nextFrameButton = game.add.sprite(rightCol + 180, 100, 'plus');
+    widthUp = game.add.sprite(rightCol + 180, 60, 'plus');
+    widthUp.name = 'width';
+    widthUp.inputEnabled = true;
+    widthUp.input.useHandCursor = true;
+    widthUp.events.onInputDown.add(increaseSize, this);
+
+    widthDown = game.add.sprite(rightCol + 220, 60, 'minus');
+    widthDown.name = 'width';
+    widthDown.inputEnabled = true;
+    widthDown.input.useHandCursor = true;
+    widthDown.events.onInputDown.add(decreaseSize, this);
+
+    //  Change height
+
+    heightText = game.add.text(rightCol, 100, "Height: " + spriteHeight, style);
+
+    heightUp = game.add.sprite(rightCol + 180, 100, 'plus');
+    heightUp.name = 'height';
+    heightUp.inputEnabled = true;
+    heightUp.input.useHandCursor = true;
+    heightUp.events.onInputDown.add(increaseSize, this);
+
+    heightDown = game.add.sprite(rightCol + 220, 100, 'minus');
+    heightDown.name = 'height';
+    heightDown.inputEnabled = true;
+    heightDown.input.useHandCursor = true;
+    heightDown.events.onInputDown.add(decreaseSize, this);
+
+    //  Change frame
+
+    frameText = game.add.text(rightCol, 160, "Frame: " + frame + " / " + frames.length, style);
+
+    nextFrameButton = game.add.sprite(rightCol + 180, 160, 'plus');
     nextFrameButton.inputEnabled = true;
     nextFrameButton.input.useHandCursor = true;
     nextFrameButton.events.onInputDown.add(nextFrame, this);
 
-    prevFrameButton = game.add.sprite(rightCol + 220, 100, 'minus');
+    prevFrameButton = game.add.sprite(rightCol + 220, 160, 'minus');
     prevFrameButton.inputEnabled = true;
     prevFrameButton.input.useHandCursor = true;
     prevFrameButton.events.onInputDown.add(prevFrame, this);
 
-    previewSizeUp = game.add.sprite(rightCol + 180, 160, 'plus');
+    //  Change preview
+
+    previewSizeText = game.add.text(rightCol, 220, "Size: " + previewSize, style);
+
+    previewSizeUp = game.add.sprite(rightCol + 180, 220, 'plus');
     previewSizeUp.inputEnabled = true;
     previewSizeUp.input.useHandCursor = true;
     previewSizeUp.events.onInputDown.add(increasePreviewSize, this);
 
-    previewSizeDown = game.add.sprite(rightCol + 220, 160, 'minus');
+    previewSizeDown = game.add.sprite(rightCol + 220, 220, 'minus');
     previewSizeDown.inputEnabled = true;
     previewSizeDown.input.useHandCursor = true;
     previewSizeDown.events.onInputDown.add(decreasePreviewSize, this);
+
+    //  Save Icon
+
+    saveText = game.add.text(rightCol, 520, "Saved to console.log", style);
+    saveText.alpha = 0;
 
     saveIcon = game.add.sprite(750, 550, 'save');
     saveIcon.inputEnabled = true;
@@ -225,7 +257,7 @@ function createDrawingArea() {
     canvasBG = game.make.bitmapData(canvas.width + 2, canvas.height + 2);
 
     canvasBG.rect(0, 0, canvasBG.width, canvasBG.height, '#fff');
-    canvasBG.rect(1, 1, canvasBG.width - 2, canvasBG.height - 2, '#000');
+    canvasBG.rect(1, 1, canvasBG.width - 2, canvasBG.height - 2, '#3f5c67');
 
     var x = 10;
     var y = 64;
@@ -243,7 +275,7 @@ function resizeCanvas() {
     canvasBG.resize(canvas.width + 2, canvas.height + 2);
 
     canvasBG.rect(0, 0, canvasBG.width, canvasBG.height, '#fff');
-    canvasBG.rect(1, 1, canvasBG.width - 2, canvasBG.height - 2, '#000');
+    canvasBG.rect(1, 1, canvasBG.width - 2, canvasBG.height - 2, '#3f5c67');
 
     canvasGrid.crop(new Phaser.Rectangle(0, 0, spriteWidth * canvasZoom, spriteHeight * canvasZoom));
     
@@ -255,10 +287,10 @@ function createPreview() {
     previewBG = game.make.bitmapData(preview.width + 2, preview.height + 2);
 
     previewBG.rect(0, 0, previewBG.width, previewBG.height, '#fff');
-    previewBG.rect(1, 1, previewBG.width - 2, previewBG.height - 2, '#000');
+    previewBG.rect(1, 1, previewBG.width - 2, previewBG.height - 2, '#3f5c67');
 
     var x = rightCol;
-    var y = 192;
+    var y = 250;
 
     previewBG.addToWorld(x, y);
     preview.addToWorld(x + 1, y + 1);
@@ -271,7 +303,7 @@ function resizePreview() {
     previewBG.resize(preview.width + 2, preview.height + 2);
 
     previewBG.rect(0, 0, previewBG.width, previewBG.height, '#fff');
-    previewBG.rect(1, 1, previewBG.width - 2, previewBG.height - 2, '#000');
+    previewBG.rect(1, 1, previewBG.width - 2, previewBG.height - 2, '#3f5c67');
     
 }
 
@@ -472,39 +504,63 @@ function prevColor() {
 
 }
 
-function increaseSize() {
+function increaseSize(sprite) {
 
-    if (spriteWidth === 16)
+    if (sprite.name === 'width')
     {
-        return;
-    }
+        if (spriteWidth === 16)
+        {
+            return;
+        }
 
-    spriteWidth++;
-    spriteHeight++;
+        spriteWidth++;
+    }
+    else if (sprite.name === 'height')
+    {
+        if (spriteHeight === 16)
+        {
+            return;
+        }
+
+        spriteHeight++;
+    }
 
     resetData();
     resizeCanvas();
     resizePreview();
 
-    size.text = "W: " + spriteWidth + "\tH: " + spriteHeight;
+    widthText.text = "Width: " + spriteWidth;
+    heightText.text = "Height: " + spriteHeight;
 
 }
 
-function decreaseSize() {
+function decreaseSize(sprite) {
 
-    if (spriteWidth === 4)
+    if (sprite.name === 'width')
     {
-        return;
-    }
+        if (spriteWidth === 4)
+        {
+            return;
+        }
 
-    spriteWidth--;
-    spriteHeight--;
+        spriteWidth--;
+    }
+    else if (sprite.name === 'height')
+    {
+        if (spriteHeight === 4)
+        {
+            return;
+        }
+
+        spriteHeight--;
+    }
 
     resetData();
     resizeCanvas();
     resizePreview();
 
-    size.text = "W: " + spriteWidth + "\tH: " + spriteHeight;
+    widthText.text = "Width: " + spriteWidth;
+    heightText.text = "Height: " + spriteHeight;
 
 }
 
@@ -563,6 +619,8 @@ function save() {
     //  Save current frame
     frames[frame - 1] = cloneData();
 
+    var output = "";
+
     for (var f = 0; f < frames.length; f++)
     {
         var src = frames[f];
@@ -572,7 +630,7 @@ function save() {
             continue;
         }
 
-        var output = "var frame" + f + " = [\n";
+        output = output.concat("var frame" + f + " = [\n");
 
         for (var y = 0; y < src.length; y++)
         {
@@ -592,8 +650,9 @@ function save() {
         output = output.concat("];\n");
         output = output.concat("game.create.texture('yourKey', frame" + f + ", " + previewSize + ", " + previewSize + ", " + palette + ");\n");
 
-        console.log(output);
     }
+
+    console.log(output);
 
     saveText.alpha = 1;
     game.add.tween(saveText).to( { alpha: 0 }, 2000, "Linear", true);
