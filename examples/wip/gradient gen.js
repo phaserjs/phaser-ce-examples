@@ -24,9 +24,11 @@ var markers;
 var swatchBMD;
 var swatch;
 var isDragging = false;
+var isOnSwatch = false;
 var arrow1;
 var arrow2;
 var currentArrow = null;
+var chunk = 8;
 
 // rgba(52,3,98,1) to rgba(247,130,11,1) chunk 16
 
@@ -35,6 +37,7 @@ function create() {
     game.stage.backgroundColor = '#535353';
 
 	bmd = game.make.bitmapData(500, 550);
+    bmd.smoothed = false;
     bmdSprite = bmd.addToWorld(30, 20);
 
     markers = game.add.group();
@@ -55,9 +58,44 @@ function create() {
 
     swatch = game.add.sprite(800 - 220, 10, swatchBMD);
     swatch.inputEnabled = true;
-    swatch.events.onInputDown.add(selectColor, this);
+    swatch.events.onInputDown.add(startSwatch, this);
+    swatch.events.onInputUp.add(stopSwatch, this);
+    swatch.events.onInputOut.add(stopSwatch, this);
 
     refresh();
+
+    game.input.addMoveCallback(updateColor, this);
+
+}
+
+function startSwatch(sprite, pointer) {
+
+    isOnSwatch = true;
+
+    updateColor(pointer);
+
+}
+
+function stopSwatch() {
+
+    isOnSwatch = false;
+
+}
+
+function updateColor(pointer) {
+
+    if (isOnSwatch)
+    {
+        var x = pointer.x - swatch.x;
+        var y = pointer.y - swatch.y;
+        var color = swatchBMD.getPixelRGB(x, y);
+
+        currentArrow.color = Phaser.Color.getColor32(color.a, color.r, color.g, color.b);
+        currentArrow.webrgb = Phaser.Color.getWebRGB(currentArrow.color);
+        currentArrow.rgb = Phaser.Color.getRGB(currentArrow.color);
+
+        refresh();
+    }
 
 }
 
@@ -102,11 +140,12 @@ function createMarker(y) {
     arrow.webrgb = Phaser.Color.getWebRGB(arrow.color);
     arrow.rgb = Phaser.Color.getRGB(arrow.color);
 
-    // console.log('arrow', arrow.rgb);
-
     arrow.events.onInputDown.add(pickColor, this);
 
-    // console.log(arrow.webrgb);
+    if (markers.total > 2)
+    {
+        makeCurrent(arrow);
+    }
 
 }
 
@@ -149,7 +188,6 @@ function stopRefresh(sprite) {
 function refresh() {
 
     var y = 0;
-    var chunk = 8;
     var step;
     var marker1;
     var marker2;
