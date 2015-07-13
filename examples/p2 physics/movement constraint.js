@@ -38,9 +38,8 @@ function create() {
 	game.physics.p2.enable(sprite2);
     sprite2.body.fixedRotation = true;
 
-    var constraint = game.physics.p2.createGearConstraint(sprite2, player, 0, 1);
     //  Lock the two bodies together. The [0, 50] sets the distance apart (y: 80)
-    // var constraint2 = game.physics.p2.createLockConstraint(sprite2, player, [0, 200], 180);
+    var constraint = game.physics.p2.createLockConstraint(sprite2, player, [0, 50], 80);
 
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -52,12 +51,10 @@ function update() {
 
     if (cursors.left.isDown)
     {
-        // sprite2.body.rotateLeft(50);
     	sprite2.body.moveLeft(400);
     }
     else if (cursors.right.isDown)
     {
-        // sprite2.body.rotateRight(50);
     	sprite2.body.moveRight(400);
     }
 

@@ -38,7 +38,25 @@ var frame0 = [
 ];
 game.create.texture('yourKey', frame0, 6, 6, 0);
 
-debug.php?s=bitmapdata&f=bitmapdata/gen paint.js:1145 var frame1 = [
+var frame0 = [
+    '...55.......',
+    '.....5......',
+    '...7888887..',
+    '..788888887.',
+    '..888088808.',
+    '..888886666.',
+    '..8888644444',
+    '..8888645555',
+    '888888644444',
+    '88788776555.',
+    '78788788876.',
+    '56655677776.',
+    '456777777654',
+    '.4........4.'
+];
+game.create.texture('yourKey', frame0, 8, 8, 0);
+
+var frame1 = [
     'AAAAA',
     'BAAAA',
     'AAABA',
@@ -47,7 +65,7 @@ debug.php?s=bitmapdata&f=bitmapdata/gen paint.js:1145 var frame1 = [
 ];
 game.create.texture('yourKey', frame1, 6, 6, 0);
 
-debug.php?s=bitmapdata&f=bitmapdata/gen paint.js:1145 var frame2 = [
+var frame2 = [
     '.000.',
     '.777.',
     '22222',
@@ -55,6 +73,26 @@ debug.php?s=bitmapdata&f=bitmapdata/gen paint.js:1145 var frame2 = [
     '.E.E.'
 ];
 game.create.texture('yourKey', frame2, 6, 6, 0);
+
+var frame0 = [
+    '.......3.....',
+    '......333....',
+    '....5343335..',
+    '...332333333.',
+    '..33333333333',
+    '..37773337773',
+    '..38587778583',
+    '..38588888583',
+    '..37888888873',
+    '...333333333.',
+    '.F....5556...',
+    '3E34.6757.6..',
+    '.E.55.666.5..',
+    '......777.5..',
+    '.....6..7....',
+    '.....7..7....'
+];
+game.create.texture('yourKey', frame0, 4, 4, 0);
 
     //  Just create some sprites using these new textures
     game.add.sprite(0, 0, 'bob');

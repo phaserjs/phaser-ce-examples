@@ -1,10 +1,10 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
 
     game.load.image('stars', 'assets/misc/starfield.jpg');
-	game.load.image('ship', 'assets/sprites/thrust_ship2.png');
+    game.load.image('ship', 'assets/sprites/thrust_ship2.png');
 
 }
 
@@ -22,11 +22,11 @@ function create() {
     starfield = game.add.tileSprite(0, 0, 800, 600, 'stars');
     starfield.fixedToCamera = true;
 
-	ship = game.add.sprite(200, 200, 'ship');
+    ship = game.add.sprite(200, 200, 'ship');
 
-	game.physics.p2.enable(ship);
+    game.physics.p2.enable(ship);
 
-	game.camera.follow(ship);
+    game.camera.follow(ship);
 
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -36,20 +36,20 @@ function update() {
 
     if (cursors.left.isDown)
     {
-		ship.body.rotateLeft(100);
+        ship.body.rotateLeft(100);
     }
     else if (cursors.right.isDown)
     {
-		ship.body.rotateRight(100);
+        ship.body.rotateRight(100);
     }
     else
     {
-		ship.body.setZeroRotation();
+        ship.body.setZeroRotation();
     }
 
     if (cursors.up.isDown)
     {
-    	ship.body.thrust(400);
+        ship.body.thrust(400);
     }
     else if (cursors.down.isDown)
     {
@@ -65,9 +65,5 @@ function update() {
     {
         starfield.tilePosition.y -= (ship.body.velocity.y * game.time.physicsElapsed);
     }
-
-}
-
-function render() {
 
 }
