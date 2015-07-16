@@ -66,11 +66,11 @@ function updateWobblyBall() {
 	bmd.render();
 
 	//	Cycle through the wave data - this is what causes the image to "undulate"
-	game.math.shift(waveData.sin);
+	Phaser.ArrayUtils.rotate(waveData.sin);
 	
 	waveDataCounter++;
 	
-	if (waveDataCounter == waveData.length)
+	if (waveDataCounter === waveData.length)
 	{
 		waveDataCounter = 0;
 	}
