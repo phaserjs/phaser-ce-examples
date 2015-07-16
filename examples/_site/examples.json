@@ -1497,6 +1497,10 @@
   ],
   "text": [
     {
+      "file": "add+char+by+char.js",
+      "title": "add char by char"
+    },
+    {
       "file": "bitmap+fonts.js",
       "title": "bitmap fonts"
     },
