@@ -237,6 +237,8 @@
 
                 <hr />
 
+                <input type="button" id="minimal" value="minimal" />
+
                 <?php
                     if ($dist === 'php')
                     {
@@ -418,6 +420,12 @@
 
             ?>
 
+            $("#minimal").click(function() {
+
+                window.location.href = 'minimal.php?<?php echo $_SERVER['QUERY_STRING'] ?>';
+
+            });
+
             $("#dist").click(function() {
 
                 console.log($(this).prop('value'));
@@ -532,6 +540,8 @@
             });
 
         </script>
+
+        <?php //print_r($_SERVER) ?>
 
     </body>
 </html>
