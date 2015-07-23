@@ -7,12 +7,12 @@ var sprite;
 function create() {
 
     //  No properties at all means we'll create a video stream from a webcam
-    video = game.add.video(null, false);
+    video = game.add.video();
 
     video.onAccess.add(camAllowed, this);
     video.onError.add(camBlocked, this);
 
-    video.play();
+    video.startMediaStream();
 
 }
 

@@ -22,10 +22,6 @@ function create() {
 
     music.play();
 
-    music.volume = 0.2;
-
-    music.mute = true;
-
     s = game.add.sprite(game.world.centerX, game.world.centerY, 'disk');
     s.anchor.setTo(0.5, 0.5);
 
