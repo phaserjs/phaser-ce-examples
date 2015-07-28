@@ -1,6 +1,18 @@
 <?php
     $v = "2.3.0";
 
+    // ensure the requested file is not attempting to do directory traversal
+    if (isset($_GET['f']))
+    {
+        $safe_path = preg_replace('{/$}', '', dirname(__FILE__));
+        $requested_path = realpath($safe_path . $_GET['f']);
+
+        if (strlen($requested_path) && substr($requested_path, 0, strlen($safe_path)) != $safe_path)
+        {
+            die();
+        }
+    }
+
     if (isset($_GET['v']))
     {
         $v = $_GET['v'];
