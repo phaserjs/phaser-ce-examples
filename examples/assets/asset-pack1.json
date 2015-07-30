@@ -27,6 +27,15 @@
             "frameMax": 18,
             "margin": 0,
             "spacing": 0
+        },
+        {
+            "type": "bitmapFont",
+            "key": "desyrel",
+            "textureURL": "assets/fonts/bitmapFonts/desyrel.png",
+            "atlasURL": "assets/fonts/bitmapFonts/desyrel.xml",
+            "atlasData": null,
+            "xSpacing": 0,
+            "ySpacing": 0
         }
     ],
     "level2": [
