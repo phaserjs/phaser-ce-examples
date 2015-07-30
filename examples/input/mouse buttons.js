@@ -19,8 +19,8 @@ function create() {
 
 function render() {
 
-    game.debug.text("Left Button: " + game.input.activePointer.leftButton, 300, 132);
-    game.debug.text("Middle Button: " + game.input.activePointer.middleButton, 300, 196);
-    game.debug.text("Right Button: " + game.input.activePointer.rightButton, 300, 260);
+    game.debug.text("Left Button: " + game.input.activePointer.leftButton.isDown, 300, 132);
+    game.debug.text("Middle Button: " + game.input.activePointer.middleButton.isDown, 300, 196);
+    game.debug.text("Right Button: " + game.input.activePointer.rightButton.isDown, 300, 260);
 
 }

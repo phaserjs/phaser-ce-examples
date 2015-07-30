@@ -60,7 +60,7 @@ function start() {
     sword.onStop.add(soundStopped, this);
     blaster.onStop.add(soundStopped, this);
 
-    keys = game.input.keyboard.addKeys([ Phaser.Keyboard.ONE, Phaser.Keyboard.TWO, Phaser.Keyboard.THREE ], [ 'blaster', 'explosion', 'sword' ]);
+    keys = game.input.keyboard.addKeys({ blaster: Phaser.Keyboard.ONE, explosion: Phaser.Keyboard.TWO, sword: Phaser.Keyboard.THREE });
 
     keys.blaster.onDown.add(playFx, this);
     keys.explosion.onDown.add(playFx, this);

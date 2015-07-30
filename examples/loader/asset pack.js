@@ -21,7 +21,9 @@ function create() {
 
     music = game.sound.play('boden');
 
-    var mummy = game.add.sprite(370, 200, 'mummy');
+    game.add.bitmapText(380, 150, 'desyrel', 'Bitmap Fonts', 48);
+
+    var mummy = game.add.sprite(370, 232, 'mummy');
     mummy.animations.add('walk');
     mummy.animations.play('walk', 20, true);
 

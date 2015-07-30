@@ -17,7 +17,8 @@ function update() {
     //  around point 2 (the red point) by 1 degree
     //  every update.
 
-    p1.rotate(p2.x, p2.y, 1, true);
+    // rotate: function (x, y, angle, asDegrees, distance) {
+    p1.rotate(p2.x, p2.y, 1, true, 200);
 
 }
 
