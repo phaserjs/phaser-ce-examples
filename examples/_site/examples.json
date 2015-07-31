@@ -449,6 +449,10 @@
       "title": "debug draw"
     },
     {
+      "file": "debug+fps.js",
+      "title": "debug fps"
+    },
+    {
       "file": "debug+input.js",
       "title": "debug input"
     },
