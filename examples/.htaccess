@@ -1,2 +1,0 @@
-Header set Access-Control-Allow-Origin "*"
-php_value open_basedir /home/sites/examples.phaser.io/phaser-examples/examples
