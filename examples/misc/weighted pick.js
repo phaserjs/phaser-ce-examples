@@ -1,7 +1,15 @@
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', this);
 
+function preload() {
+
+    game.load.image('bg', 'assets/skies/deepblue.png');
+
+}
+
 function create() {
+
+    game.add.image(0, 0, 'bg');
 
     var test = [0,1,2,3,4,5,6,7,8,9];
 
@@ -14,6 +22,18 @@ function create() {
         total[rnd]++;
     }
 
-    console.table(total);
+    var style = { font: "24px Courier", fill: "#fff", tabs: [ 150 ] };
+
+    var list = [
+        ['Value', 'Total' ]
+    ];
+
+    for (i = 0; i < total.length; i++)
+    {
+        list.push([i, total[i]]);
+    }
+
+    text = game.add.text(200, 64, '', style);
+    text.parseList(list);
 
 }

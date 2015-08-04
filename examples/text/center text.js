@@ -23,13 +23,13 @@ function create() {
     text = game.add.text(0, 0, "phaser 2.4 text bounds", style);
     text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
 
-    //  We'll set the bounds to be from 
-    text.setTextBounds(0, 400, 800, 100);
+    //  We'll set the bounds to be from x0, y100 and be 800px wide by 100px high
+    text.setTextBounds(0, 100, 800, 100);
 
 }
 
 function render() {
 
-    game.debug.geom(text.textBounds);
+    // game.debug.geom(text.textBounds);
 
 }

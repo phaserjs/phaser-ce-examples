@@ -59,7 +59,7 @@ function hitPanda(body1, body2) {
 
     //  body1 is the space ship (as it's the body that owns the callback)
     //  body2 is the body it impacted with, in this case our panda
-    //  As body2 is a Phaser.Physics.P2.Body object, you access its own (the sprite) via the sprite property:
+    //  As body2 is a Phaser.Physics.P2.Body object, you access its owner (the sprite) via the sprite property:
     body2.sprite.alpha -= 0.1;
 
 }
