@@ -48,9 +48,9 @@ function update() {
         }
         else
         {
-            if (map.getTile(layer.getTileX(marker.x), layer.getTileY(marker.y)) != currentTile)
+            if (map.getTile(layer.getTileX(marker.x), layer.getTileY(marker.y)).index != currentTile.index)
             {
-                map.putTile(currentTile, layer.getTileX(marker.x), layer.getTileY(marker.y))
+                map.putTile(currentTile, layer.getTileX(marker.x), layer.getTileY(marker.y));
             }
         }
     }
