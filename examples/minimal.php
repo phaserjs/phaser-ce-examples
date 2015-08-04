@@ -42,7 +42,9 @@
         'box2d' => false,
         'joystick' => false,
         'creature' => true,
-        'video' => true
+        'video' => true,
+        'rope' => true,
+        'tilesprite' => true
     );
 
     foreach ($modules as $module => $modset)
