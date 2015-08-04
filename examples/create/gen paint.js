@@ -715,7 +715,7 @@ function onDown(pointer) {
     {
         isDown = true;
 
-        if (pointer.rightButton)
+        if (pointer.rightButton.isDown)
         {
             isErase = true;
         }

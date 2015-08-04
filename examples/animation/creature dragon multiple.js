@@ -3,8 +3,9 @@ var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example', { preload: 
 
 function preload() {
 
-    game.load.image('dragon', 'assets/creature/character-dragon.png');
-    game.load.json('dragon', 'assets/creature/dragonTest.json');
+    game.load.image('sky', 'assets/skies/deepblue.png');
+    game.load.image('dragonTexture', 'assets/creature/dragon.png');
+    game.load.json('dragonMesh', 'assets/creature/dragon.json');
 
 }
 
@@ -13,29 +14,15 @@ var dragon2 = null;
 
 function create() {
 
-    var meshData = game.cache.getJSON('dragon');
+    game.add.image(0, 0, 'sky');
 
-    var creature = new Creature(meshData);
+    dragon1 = game.add.creature(150, 200, 'dragonTexture', 'dragonMesh');
+    dragon1.scale.set(25.0);
+    dragon1.play(true); //  true = loop
 
-    var animation = new CreatureAnimation(meshData, "default", creature);
-
-    var manager = new CreatureManager(creature);
-
-    manager.AddAnimation(animation);
-    manager.SetActiveAnimationName("default", false);
-    manager.SetShouldLoop(true);
-    manager.SetIsPlaying(true);
-    manager.RunAtTime(0);
-
-    dragon1 = new Phaser.Creature(game, manager, 0, 200, 'dragon');
-    dragon1.scale.set(5.0);
-    dragon1.timeDelta = 0.05;
-    game.world.add(dragon1);
-
-    dragon2 = new Phaser.Creature(game, manager, 0, 400, 'dragon');
-    dragon2.scale.set(9.0);
-    dragon2.timeDelta = 0.1;
-    game.world.add(dragon2);
+    dragon2 = game.add.creature(0, 400, 'dragonTexture', 'dragonMesh');
+    dragon2.scale.set(40.0);
+    dragon2.play(true); //  true = loop
 
 }
 
@@ -43,16 +30,16 @@ function update() {
 
     dragon1.x += 2;
 
-    if (dragon1.x > 900)
+    if (dragon1.x > 1000)
     {
-        dragon1.x = -100;
+        dragon1.x = -200;
     }
 
-    dragon2.x += 3;
+    dragon2.x += 5;
 
-    if (dragon2.x > 900)
+    if (dragon2.x > 1200)
     {
-        dragon2.x = -100;
+        dragon2.x = -300;
     }
 
 }

@@ -6,7 +6,7 @@ var video;
 function create() {
 
     //  No properties at all means we'll create a video stream from a webcam
-    video = game.add.video(null, false);
+    video = game.add.video();
 
     //  If access to the camera is allowed
     video.onAccess.add(camAllowed, this);
@@ -18,14 +18,14 @@ function create() {
     video.onChangeSource.add(takeSnapshot, this);
 
     //  Start the stream
-    video.play();
-
-    var cam = video.addToWorld();
-    cam.scale.set(0.5);
+    video.startMediaStream();
 
 }
 
 function camAllowed() {
+
+    var cam = video.addToWorld();
+    cam.scale.set(0.5);
 
     var grab = video.snapshot.addToWorld(game.width, game.height);
     grab.anchor.set(1);
@@ -44,8 +44,10 @@ function camBlocked(video, error) {
 
 function takeSnapshot() {
 
-    // video.grab(1, 'multiply');
-    // video.grab(1, 'overlay');
     video.grab();
+
+    // grab: function (clear, alpha, blendMode) {
+    // video.grab(false, 0.5, 'multiply');
+    // video.grab(false, 1, 'overlay');
 
 }

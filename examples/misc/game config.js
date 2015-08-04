@@ -10,14 +10,14 @@ var conf = {
     transparent: false,
     antialias: false,
     state: this,
-    scaleMode: Phaser.ScaleManager.SHOW_ALL
+    scaleMode: Phaser.ScaleManager.EXACT_FIT
 };
 
 var game = new Phaser.Game(conf);
 
 function preload() {
 
-    game.load.image('girl', 'assets/pics/manga-girl.png');
+    game.load.image('robota', 'assets/pics/Robota_UXO_by_Made_of_Bomb.jpg');
 
 }
 
@@ -25,7 +25,10 @@ function create() {
 
     game.stage.backgroundColor = '#0076a3';
 
-    var sprite = game.add.sprite(32, -100, 'girl');
-    sprite.scale.set(4);
+    var sprite = game.add.sprite(0, 50, 'robota');
+
+    sprite.scale.set(0.5);
+
+    game.add.tween(sprite).to( { x: -160 }, 2000, "Sine.easeInOut", true, false, -1, true);
 
 }

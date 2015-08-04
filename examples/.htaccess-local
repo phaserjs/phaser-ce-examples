@@ -1,0 +1,1 @@
+php_value open_basedir /home/sites/examples.phaser.io/public;D:\wamp\www\phaser-examples\examples\;D:\wamp\www\phaser\;D:\wamp\www\phaser-examples\examples\wip;D:\wamp\www\phaser-examples\examples\wip\filters

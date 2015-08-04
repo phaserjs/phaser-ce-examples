@@ -23,18 +23,29 @@
                 border-radius: 5px;
                 padding: 25px;
                 text-align: center;
-                width: 40%;
+                width: 300px;
                 height: 100px;
             }
 
             #drop_zone2 {
                 position: absolute;
-                left: 50%;
+                left: 400px;
                 border: 2px dashed #8fc447;
                 border-radius: 5px;
                 padding: 25px;
                 text-align: center;
-                width: 40%;
+                width: 300px;
+                height: 100px;
+            }
+
+            #drop_zone3 {
+                position: absolute;
+                left: 800px;
+                border: 2px dashed #eedd77;
+                border-radius: 5px;
+                padding: 25px;
+                text-align: center;
+                width: 300px;
                 height: 100px;
             }
 
@@ -47,8 +58,9 @@
     </head>
     <body>
 
-        <div id="drop_zone">Drop files here to make a sprite sheet</div>
-        <div id="drop_zone2">Drop files here here to trim coords</div>
+        <div id="drop_zone">Drop files here to<br />make a sprite sheet</div>
+        <div id="drop_zone2">Drop files here to<br />trim coords</div>
+        <div id="drop_zone3">Drop files here to<br />sprite gen</div>
         <div id="ss"></div>
 
     </body>

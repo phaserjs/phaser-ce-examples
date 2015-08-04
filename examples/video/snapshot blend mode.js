@@ -14,7 +14,7 @@ function preload() {
 function create() {
 
     //  No properties at all means we'll create a video stream from a webcam
-    video = game.add.video(null, false);
+    video = game.add.video();
 
     //  If access to the camera is allowed
     video.onAccess.add(camAllowed, this);
@@ -23,7 +23,7 @@ function create() {
     video.onError.add(camBlocked, this);
 
     //  Start the stream
-    video.play();
+    video.startMediaStream();
 
 }
 

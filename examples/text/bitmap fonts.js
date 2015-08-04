@@ -17,6 +17,6 @@ function create() {
 
 function update() {
 
-    bmpText.setText('Phaser & Pixi\nrocking!\n' + Math.round(game.time.now));
+    bmpText.text = 'Phaser & Pixi\nrocking!\n' + Math.round(game.time.now);
 
 }

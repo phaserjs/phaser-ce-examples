@@ -1,10 +1,12 @@
 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, render: render });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', this);
 
 function preload() {
 
-    game.load.video('liquid', 'assets/video/liquid2.mp4');
-    game.load.video('space', 'assets/video/space.mp4');
+    game.add.text(100, 100, "Loading videos ...", { font: "65px Arial", fill: "#ff0044" });
+
+    game.load.video('liquid', 'assets/video/skull.mp4');
+    game.load.video('space', 'assets/video/wormhole.mp4');
 
 }
 
@@ -13,16 +15,15 @@ var video2;
 
 function create() {
 
-    video1 = game.add.video('liquid');
-    video2 = game.add.video('space');
+    video1 = game.add.video('space');
+    video2 = game.add.video('liquid');
 
     video1.play(true);
     video2.play(true);
 
-    video1.addToWorld(0, 0, 0, 0, 0.5, 0.5);
-    video2.addToWorld(0, 300, 0, 0, 0.5, 0.5);
+    //  x, y, anchor x, anchor y, scale x, scale y
+    video1.addToWorld(400, 300, 0.5, 0.5);
 
-}
+    video2.addToWorld(780, 580, 1, 1, 0.5, 0.5);
 
-function render() {
 }

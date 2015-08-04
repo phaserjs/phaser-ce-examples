@@ -4,6 +4,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 function preload() {
 
     game.load.video('liquid', 'assets/video/liquid512x512.mp4');
+    // game.load.video('liquid', 'assets/video/liquid2.mp4');
 
 }
 

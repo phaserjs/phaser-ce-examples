@@ -4,23 +4,23 @@ var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example', { preload: 
 function preload() {
 
     game.load.image('sky', 'assets/skies/deepblue.png');
-    game.load.image('dragonTexture', 'assets/creature/phoenix.png');
-    game.load.json('dragonMesh', 'assets/creature/phoenix.json');
+    game.load.image('phoenixTexture', 'assets/creature/phoenix.png');
+    game.load.json('phoenixMesh', 'assets/creature/phoenix.json');
 
 }
 
-var dragon = null;
+var phoenix = null;
 
 function create() {
 
     game.add.image(0, 0, 'sky');
 
-    dragon = game.add.creature(450, 350, 'dragonTexture', 'dragonMesh');
+    phoenix = game.add.creature(450, 350, 'phoenixTexture', 'phoenixMesh');
 
-    dragon.setAnimation('flight');
+    phoenix.setAnimation('flight');
 
-    dragon.scale.set(25.0);
+    phoenix.scale.set(25.0);
     
-    dragon.play(true); //  true = loop
+    phoenix.play(true); //  true = loop
 
 }

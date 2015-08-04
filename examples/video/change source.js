@@ -16,8 +16,7 @@ function create() {
 
     video.onPlay.addOnce(start, this);
 
-    sprite = video.addToWorld();
-    sprite.scale.set(0.5);
+    sprite = video.addToWorld(400, 300, 0.5, 0.5);
 
     video.play();
 
@@ -26,26 +25,25 @@ function create() {
 function start() {
 
     //  After 5 seconds we'll swap to a new video
-    // game.time.events.add(5000, changeSource, this);
+    game.time.events.add(5000, changeSource, this);
 
-    game.input.onDown.addOnce(changeSource, this);
+    //  This would swap on a mouse click
+    // game.input.onDown.addOnce(changeSource, this);
 
 }
 
 function changeSource() {
 
-    video.changeSource('/inside-out/games/disgust/assets/sd/videos/intro.mp4');
+    video.changeSource('assets/video/skull.mp4');
 
 }
 
 function render() {
 
-    // game.debug.text(video.progress, 32, 32);
-    game.debug.text(video.video.videoWidth, 420, 32);
-    game.debug.text(video.video.videoHeight, 480, 32);
+    game.debug.text("Video width: " + video.video.videoWidth, 600, 32);
+    game.debug.text("Video height: " + video.video.videoHeight, 600, 64);
 
-    game.debug.text(video.playing, 320, 32);
-    game.debug.text(video.currentTime, 32, 32);
-    game.debug.text(video.duration, 32, 64);
+    game.debug.text("Video Time: " + video.currentTime, 32, 32);
+    game.debug.text("Video Duration: " + video.duration, 32, 64);
 
 }

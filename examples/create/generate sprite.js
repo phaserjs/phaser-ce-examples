@@ -1,101 +1,71 @@
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', this);
 
+var player;
+var cursors;
+
 function create() {
 
-    var data = [
-        ' 333 ',
-        ' 777 ',
-        'E333E',
-        ' 333 ',
-        ' 3 3 '
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    game.stage.backgroundColor = '#2d2d2d';
+
+    //  This sprite was created with the Phaser Gen Paint app
+    //  also available in the Phaser Examples repo and on the Phaser site.
+
+    var dudeData = [
+        '.......3.....',
+        '......333....',
+        '....5343335..',
+        '...332333333.',
+        '..33333333333',
+        '..37773337773',
+        '..38587778583',
+        '..38588888583',
+        '..37888888873',
+        '...333333333.',
+        '.F....5556...',
+        '3E34.6757.6..',
+        '.E.55.666.5..',
+        '......777.5..',
+        '.....6..7....',
+        '.....7..7....'
     ];
 
-    game.create.texture('bob', data);
+    game.create.texture('phaserDude', dudeData, 4, 4, 0);
 
-    var rat = [
-        '.D...........',
-        '18...........',
-        '1D...........',
-        '18.....1111..',
-        '1D..111DDEE1.',
-        '1811EEE18E0E1',
-        '.1DEEEEEEEEED',
-        '..1EEEEEE41..',
-        '.11E41E1411..',
-        '1111E1E1E111.',
-        '.1111111111..'
-    ];
+    player = game.add.sprite(300, 300, 'phaserDude');
+    player.anchor.set(0.5);
 
-    game.create.texture('rat', rat, 4, 4, 4);
+    game.physics.arcade.enable(player);
 
-var frame0 = [
-    '66656',
-    '55555',
-    '65666',
-    '55555',
-    '66656'
-];
-game.create.texture('yourKey', frame0, 6, 6, 0);
+    cursors = game.input.keyboard.createCursorKeys();
 
-var frame0 = [
-    '...55.......',
-    '.....5......',
-    '...7888887..',
-    '..788888887.',
-    '..888088808.',
-    '..888886666.',
-    '..8888644444',
-    '..8888645555',
-    '888888644444',
-    '88788776555.',
-    '78788788876.',
-    '56655677776.',
-    '456777777654',
-    '.4........4.'
-];
-game.create.texture('yourKey', frame0, 8, 8, 0);
+}
 
-var frame1 = [
-    'AAAAA',
-    'BAAAA',
-    'AAABA',
-    'AAAAA',
-    'ABAAA'
-];
-game.create.texture('yourKey', frame1, 6, 6, 0);
+function update() {
 
-var frame2 = [
-    '.000.',
-    '.777.',
-    '22222',
-    '.EEE.',
-    '.E.E.'
-];
-game.create.texture('yourKey', frame2, 6, 6, 0);
+    player.body.velocity.x = 0;
+    player.body.velocity.y = 0;
 
-var frame0 = [
-    '.......3.....',
-    '......333....',
-    '....5343335..',
-    '...332333333.',
-    '..33333333333',
-    '..37773337773',
-    '..38587778583',
-    '..38588888583',
-    '..37888888873',
-    '...333333333.',
-    '.F....5556...',
-    '3E34.6757.6..',
-    '.E.55.666.5..',
-    '......777.5..',
-    '.....6..7....',
-    '.....7..7....'
-];
-game.create.texture('yourKey', frame0, 4, 4, 0);
+    if (cursors.left.isDown)
+    {
+        player.body.velocity.x = -200;
+        player.scale.x = 1;
+    }
+    else if (cursors.right.isDown)
+    {
+        player.body.velocity.x = 200;
+        player.scale.x = -1;
+    }
 
-    //  Just create some sprites using these new textures
-    game.add.sprite(0, 0, 'bob');
-    game.add.sprite(100, 60, 'rat');
+    if (cursors.up.isDown)
+    {
+        player.body.velocity.y = -200;
+    }
+    else if (cursors.down.isDown)
+    {
+        player.body.velocity.y = 200;
+    }
 
 }

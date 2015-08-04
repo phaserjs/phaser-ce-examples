@@ -17,5 +17,6 @@
     //  filename it should switch to (file must exist in the examples/_site/phaser folder)
     // $config_phaser_min = 'phaser.js';
     $config_phaser_min = 'phaser.2.4.1.min.js';
+    // $config_phaser_min = 'phaser.2.0.0.min.js';
 
 ?>

@@ -9,9 +9,13 @@ function create() {
     //  No properties at all means we'll create a video stream from a webcam
     video = game.add.video();
 
+    //  If access to the camera is allowed
     video.onAccess.add(camAllowed, this);
+
+    //  If access to the camera is denied
     video.onError.add(camBlocked, this);
 
+    //  Start the stream
     video.startMediaStream();
 
 }
@@ -21,11 +25,6 @@ function camAllowed(video) {
     console.log('--> camera was allowed', video);
 
     sprite = video.addToWorld();
-
-    sprite.x = 640;
-    sprite.scale.x = -1;
-
-    console.log(sprite);
 
     game.input.onDown.add(stopCam, this);
 
