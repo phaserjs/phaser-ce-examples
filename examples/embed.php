@@ -39,7 +39,7 @@
         </style>
     </head>
     <body>
-        <div id="phaser-example" style="width: 800px; height: 600px; padding: 0; margin: 0"></div>
+        <div id="phaser-example"></div>
 
         <script type="text/javascript">
 
