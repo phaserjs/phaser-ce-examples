@@ -1,6 +1,7 @@
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', this);
 
+var data = [];
 var polyline = [];
 var tracing = false;
 var current;
@@ -23,11 +24,37 @@ function create() {
     );
 
     keys.close.onDown.add(closeLine, this);
-    // keys.save.onDown.add(save, this);
+    keys.save.onDown.add(save, this);
 
     game.input.onDown.add(onDown, this);
     game.input.onUp.add(onUp, this);
     game.input.addMoveCallback(trace, this);
+
+}
+
+function save() {
+
+    console.clear();
+
+    var s = 'var data = [\n';
+
+    for (var i = 0; i < polyline.length; i++)
+    {
+        s += '\t[ ' + polyline[i].start.x + ', ' + polyline[i].start.y + ', ' + polyline[i].end.x + ', ' + polyline[i].end.y + ' ]';
+
+        if (i === polyline.length - 1)
+        {
+            s += '\n';
+        }
+        else
+        {
+            s += ',\n';
+        }
+    }
+
+    s += '];';
+    
+    console.log(s);
 
 }
 
@@ -56,8 +83,11 @@ function onDown(pointer) {
         //  If it closes the line then quit
         if (x === dropZone.x && y === dropZone.y)
         {
+            data.push(polyline.slice(0));
+            polyline = [];
             current = null;
             tracing = false;
+            redraw();
         }
         else
         {
@@ -69,6 +99,33 @@ function onDown(pointer) {
         current = new Phaser.Line(pointer.x, pointer.y, pointer.x, pointer.y);
         dropZone = new Phaser.Circle(pointer.x, pointer.y, 16);
         tracing = true;
+    }
+
+}
+
+function redraw() {
+
+    // console.log(data);
+
+    bmd.cls();
+    bmd.ctx.fillStyle = '#00aa00';
+
+    for (var i = 0; i < data.length; i++)
+    {
+        var path = data[i];
+
+        bmd.ctx.beginPath();
+
+        bmd.ctx.moveTo(path[0].start.x, path[0].start.y);
+
+        for (var n = 0; n < path.length; n++)
+        {
+            bmd.ctx.lineTo(path[n].end.x, path[n].end.y);
+        }
+
+        bmd.ctx.closePath();
+
+        bmd.ctx.fill();
     }
 
 }
