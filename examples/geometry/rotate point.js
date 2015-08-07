@@ -6,8 +6,8 @@ var p2;
 
 function create() {
 
-    p1 = new Phaser.Point(200, 300);
-    p2 = new Phaser.Point(300, 300);
+    p1 = new Phaser.Point(300, 300);
+    p2 = new Phaser.Point(400, 300);
 
 }
 
@@ -18,7 +18,8 @@ function update() {
     //  every update.
 
     // rotate: function (x, y, angle, asDegrees, distance) {
-    p1.rotate(p2.x, p2.y, 1, true, 200);
+    // p1.rotate(p2.x, p2.y, 1, true, 200);
+    p1.rotate(p2.x, p2.y, 1, true);
 
 }
 
