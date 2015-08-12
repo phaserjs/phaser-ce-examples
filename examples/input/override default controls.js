@@ -92,7 +92,7 @@ function update() {
         spaceBtn.alpha = 1;
     }
 
-    if (spaceBtn.alpha > 0)
+    if (spaceBtn.alpha - 0.03 >= 0)
     {
         spaceBtn.alpha -= 0.03;
     }
