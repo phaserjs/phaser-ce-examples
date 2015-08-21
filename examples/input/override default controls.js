@@ -86,13 +86,13 @@ function update() {
     }
 
     // 50 as a second parameter is a good choice if you are running 60FPS.
-    if (game.input.keyboard.justPressed(Phaser.Keyboard.SPACEBAR, 50))
+    if (game.input.keyboard.downDuration(Phaser.Keyboard.SPACEBAR, 50))
     {
         console.log('space bar pressed');
         spaceBtn.alpha = 1;
     }
 
-    if (spaceBtn.alpha > 0)
+    if (spaceBtn.alpha - 0.03 >= 0)
     {
         spaceBtn.alpha -= 0.03;
     }
