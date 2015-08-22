@@ -101,11 +101,13 @@ function update() {
 		this.textSpace2.text = "Is space still down? NO";
 	}
 	
-	//  justPressed does not schedule key pressing, it's merely indicative of key states. In this case,
-	//  the justPressed function tells us that between this current time and 250 milliseconds ago, this key
-	//  was pressed (not the same as holding down) and if it was pressed between that slice of time, it returns
+	//  downDuration (previously called 'justPressed') does not schedule key pressing, it's merely indicative 
+    //  of key states. 
+    //  
+    //  In this case the downDuration function tells us that between this current time and 250 milliseconds ago, 
+    //  this key was pressed (not the same as holding down) and if it was pressed between that slice of time, it returns
 	//  true, otherwise false.
-	if (this.leftKey.justPressed(250))
+	if (this.leftKey.downDuration(250))
 	{
 		this.textLeft.text = "Left was pressed 250 ms ago? YES";
 	} 
@@ -114,7 +116,7 @@ function update() {
 		this.textLeft.text = "Left was pressed 250 ms ago? NO";
 	}
 	
-	if (this.rightKey.justPressed(500))
+	if (this.rightKey.downDuration(500))
 	{
 		this.textRight.text = "Right was pressed 500 ms ago? YES";
 	} 
@@ -123,7 +125,7 @@ function update() {
 		this.textRight.text = "Right was pressed 500 ms ago? NO";
 	}
 	
-	if (this.spaceKey.justPressed(1000))
+	if (this.spaceKey.downDuration(1000))
 	{
 		this.textSpace.text = "Space was pressed 1000 ms ago? YES";
 	} 
