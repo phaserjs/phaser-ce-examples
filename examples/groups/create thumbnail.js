@@ -107,11 +107,21 @@ function create() {
     sonic.addChild(game.make.sprite(110, 130, 'clown'));
     var clown3 = sonic.addChild(game.make.sprite(140, 130, 'clown'));
     clown3.scale.set(2);
+    clown3.anchor.set(1, 1);
 
     //  Scaled and rotated
     var mushroom = game.add.sprite(500, 400, 'mushroom');
     mushroom.scale.set(2);
     mushroom.angle = 24;
+
+    //  Inverse scale
+    var sonic2 = game.add.sprite(400, 200, 'sonic');
+    sonic2.scale.set(2);
+    window.sonic = sonic2;
+
+    var subsonic = sonic2.addChild(game.make.sprite(100, 0, 'sonic'));
+    subsonic.scale.x = -1;
+    window.subsonic = subsonic;
 
     //  A Text Object
     game.add.text(440, 530, "Click to capture", { font: "48px Arial", fill: "#ff0044" });
