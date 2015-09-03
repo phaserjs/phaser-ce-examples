@@ -29,7 +29,7 @@ function create() {
     //  Lock the two bodies together. The [0, 50] sets the distance apart (y: 80)
     var constraint = game.physics.p2.createLockConstraint(sprite, vu1, [0, 80], 0);
 
-    text = game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
+    game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
 
     cursors = game.input.keyboard.createCursorKeys();
 

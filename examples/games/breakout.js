@@ -158,7 +158,7 @@ function ballHitBrick (_ball, _brick) {
     scoreText.text = 'score: ' + score;
 
     //  Are they any bricks left?
-    if (bricks.countLiving() == 0)
+    if (bricks.countLiving() === 0)
     {
         //  New level starts
         score += 1000;

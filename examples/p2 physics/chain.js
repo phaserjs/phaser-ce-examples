@@ -29,6 +29,7 @@ function createRope(length, xAnchor, yAnchor) {
     {
         var x = xAnchor;                    //  All rects are on the same x position
         var y = yAnchor + (i * height);     //  Every new rect is positioned below the last
+        var newRect;
 
         if (i % 2 === 0)
         {

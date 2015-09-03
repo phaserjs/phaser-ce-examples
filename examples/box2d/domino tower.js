@@ -17,7 +17,7 @@ function preload() {
 
 }
 
-_debugType = 
+var _debugType = 
 {
     NONE    : 0,
     SOME    : 1,
@@ -66,7 +66,7 @@ function create() {
             topSprite = game.add.sprite(xpos, startY, 'phaser');
             game.physics.box2d.enable(topSprite);
 
-            if (layerType == 0)
+            if (layerType === 0)
             {
                 topSprite.body.angle = 90;
             }
@@ -83,7 +83,7 @@ function create() {
         }
         
         // end pieces
-        if (layerType == 0 && count > 0)
+        if (layerType === 0 && count > 0)
         {
             topSprite = game.add.sprite(startX - spriteHeight - 0.5 * spriteWidth, startY + spriteWidth, 'phaser');
             game.physics.box2d.enable(topSprite);

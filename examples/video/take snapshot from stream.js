@@ -30,7 +30,7 @@ function camAllowed() {
     var grab = video.snapshot.addToWorld(game.width, game.height);
     grab.anchor.set(1);
 
-    game.add.text(400, 32, 'Click to grab', { font: "bold 26px Arial", fill: "#ffffff" })
+    game.add.text(400, 32, 'Click to grab', { font: "bold 26px Arial", fill: "#ffffff" });
 
     game.input.onDown.add(takeSnapshot, this);
 

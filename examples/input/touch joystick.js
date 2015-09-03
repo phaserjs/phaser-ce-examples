@@ -47,8 +47,8 @@ function create() {
     // because it's positioned relatively...
     // You probably don't need to do this in your game unless your game's canvas is positioned in a manner
     // similar to this example page, where the canvas isn't the whole screen.
-    $('canvas').last().css('z-index', 20);
-    $('canvas').last().offset( $('canvas').first().offset() );
+    jQuery('canvas').last().css('z-index', 20);
+    jQuery('canvas').last().offset( jQuery('canvas').first().offset() );
 }
 
 function update() {

@@ -38,7 +38,7 @@ function create() {
     var text = game.add.text(32, 32, "Signature: " + signature, { fill: '#ffffff' });
     text.setShadow(2, 2, 'rgba(0,0,0,0.5)', 0);
 
-    var title = getString(buffer, 0, 20)
+    var title = getString(buffer, 0, 20);
     var text2 = game.add.text(32, 64, "Title: " + title, { fill: '#ffffff' });
     text2.setShadow(2, 2, 'rgba(0,0,0,0.5)', 0);
 

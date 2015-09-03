@@ -35,7 +35,7 @@ function create() {
     //  See the docs for more details
     spring = game.physics.p2.createSpring(sprite1, sprite2, 20, 10, 1);
 
-    text = game.add.text(20, 20, 'move with arrow keys, click to remove spring', { fill: '#ffffff' });
+    game.add.text(20, 20, 'move with arrow keys, click to remove spring', { fill: '#ffffff' });
 
     cursors = game.input.keyboard.createCursorKeys();
 

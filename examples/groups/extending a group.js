@@ -1,7 +1,7 @@
 //  Here is a custom group
 //  It will automatically create 30 sprites of the given image when created.
 
-MonsterGroup = function (game, image, action) {
+var MonsterGroup = function (game, image, action) {
 
     Phaser.Group.call(this, game);
 

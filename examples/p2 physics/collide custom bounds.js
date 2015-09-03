@@ -9,6 +9,7 @@ function preload() {
 }
 
 var ship;
+var balls;
 var cursors;
 var customBounds;
 

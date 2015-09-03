@@ -29,7 +29,7 @@ function create() {
     var crank = new Phaser.Physics.Box2D.Body(this.game, null, game.world.centerX, 450, 2);
     crank.setRectangle(15, 75, 0, 0, 0);
     //Revolute joint with motor enabled attaching the crank to the ground. This is where all the power for the slider crank comes from
-    game.physics.box2d.revoluteJoint(ground, crank, 0, -160, 0, 30, 250, 50, true)
+    game.physics.box2d.revoluteJoint(ground, crank, 0, -160, 0, 30, 250, 50, true);
     
     //  Tall skinny rectangle body for the arm. Connects the crank to the piston
     var arm = new Phaser.Physics.Box2D.Body(this.game, null, game.world.centerX, 360, 2);

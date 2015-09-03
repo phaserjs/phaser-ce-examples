@@ -28,7 +28,7 @@ var ScriptLoader = (function(){
             if (this.readyState == 'complete') {
                 p_callback();
             }
-        }
+        };
         head.appendChild(script);
     }
     return {load:load};
@@ -42,9 +42,10 @@ var ScriptLoader = (function(){
 
 //the phaser game object
 var game = null;
+var dragonBones;
 
 //wait for scripts to load first
-ScriptLoader.load(["animation/dragonBones.js","animation/phaser_dragonbones.js"], createGame)
+ScriptLoader.load(["animation/dragonBones.js","animation/phaser_dragonbones.js"], createGame);
 
 //now instantiate the game
 function createGame(){
@@ -79,7 +80,7 @@ function update() {
     // For simplicity just using a hardcoded value of 0.02 secs
     // but ideally should evaluate how much time has really passed since last call
     // and send that value through instead -> eg use Date.now()
-    dragonBones.animation.WorldClock.clock.advanceTime(0.02)
+    dragonBones.animation.WorldClock.clock.advanceTime(0.02);
 }
 
 

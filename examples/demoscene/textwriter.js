@@ -23,6 +23,7 @@ var page = -1;
 
 var bfont;
 var alpha;
+var raster;
 var mask = new Phaser.Rectangle();
 
 var scroller = [ 

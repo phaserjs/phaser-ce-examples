@@ -11,13 +11,13 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example');
 
 var PhaserGame = function () {
 
-    this.sprite;
+    this.sprite = undefined;
 
-    this.pad;
+    this.pad = undefined;
 
-    this.stick;
+    this.stick = undefined;
 
-    this.buttonA;
+    this.buttonA = undefined;
 
 };
 

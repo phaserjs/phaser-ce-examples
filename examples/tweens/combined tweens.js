@@ -44,7 +44,7 @@ function firstTween() {
 
 function theEnd() {
     
-    e = game.add.tween(pig);
+    var e = game.add.tween(pig);
     
     e.to({ x: -150 }, 1000, Phaser.Easing.Bounce.Out);
     e.start();

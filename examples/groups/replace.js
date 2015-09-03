@@ -7,7 +7,7 @@ function preload() {
 }
 
 // Left and right groups
-var left
+var left;
 var right;
 
 // The first selected item.

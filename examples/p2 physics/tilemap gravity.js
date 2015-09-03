@@ -128,8 +128,14 @@ function checkIfCanJump() {
         if (c.bodyA === player.body.data || c.bodyB === player.body.data)
         {
             var d = p2.vec2.dot(c.normalA, yAxis); // Normal dot Y-axis
-            if (c.bodyA === player.body.data) d *= -1;
-            if (d > 0.5) result = true;
+            if (c.bodyA === player.body.data)
+            {
+                d *= -1;
+            }
+            if (d > 0.5)
+            {
+                result = true;
+            }
         }
     }
     

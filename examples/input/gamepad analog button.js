@@ -11,6 +11,7 @@ function preload() {
 
 var pad;
 var leftTriggerButton;
+var rightTriggerButton;
 var leftTriggerGfx;
 var rightTriggerGfx;
 

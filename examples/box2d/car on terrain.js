@@ -36,6 +36,7 @@ var truckVertices = [-0.941074,-7.13798,-69.9798,-7.91197,-73.1929,8.39935,-68.3
 
 var truckBody;
 var driveJoints = [];
+var cursors;
 
 function create() {
 	

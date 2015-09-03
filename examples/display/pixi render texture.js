@@ -69,7 +69,7 @@ function update() {
 	outputSprite.setTexture(renderTexture);
 
 	// twist this up!
-	stuffContainer.rotation -= 0.01
+	stuffContainer.rotation -= 0.01;
 	outputSprite.scale.x = outputSprite.scale.y  = 1 + Math.sin(count) * 0.2;
 
 	// render the stage to the texture

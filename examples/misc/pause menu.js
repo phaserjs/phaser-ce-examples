@@ -2,6 +2,8 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
 
 var w = 800, h = 600;
+var menu;
+var choiseLabel;
 
 function preload() {
     game.load.image('diamond', 'assets/sprites/diamond.png');
@@ -13,7 +15,7 @@ function create() {
         Code from example diamond burst
     */
     game.stage.backgroundColor = '#337799';
-    emitter = game.add.emitter(game.world.centerX, 100, 200);
+    var emitter = game.add.emitter(game.world.centerX, 100, 200);
     emitter.makeParticles('diamond');
     emitter.start(false, 5000, 20);
 
@@ -23,7 +25,7 @@ function create() {
     */
 
     // Create a label to use as a button
-    pause_label = game.add.text(w - 100, 20, 'Pause', { font: '24px Arial', fill: '#fff' });
+    var pause_label = game.add.text(w - 100, 20, 'Pause', { font: '24px Arial', fill: '#fff' });
     pause_label.inputEnabled = true;
     pause_label.events.onInputUp.add(function () {
         // When the paus button is pressed, we pause the game
@@ -39,7 +41,7 @@ function create() {
     });
 
     // Add a input listener that can help us return from being paused
-    game.input.onDown.add(unpause, self);
+    game.input.onDown.add(unpause);
 
     // And finally the method that handels the pause menu
     function unpause(event){
@@ -73,6 +75,6 @@ function create() {
                 game.paused = false;
             }
         }
-    };
+    }
 }
 

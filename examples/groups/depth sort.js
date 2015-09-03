@@ -46,18 +46,19 @@ function create() {
 
 function createUniqueLocation() {
 
+    var x, y, idx;
     do {
-        var x = game.math.snapTo(game.world.randomX, 32) / 32;
-        var y = game.math.snapTo(game.world.randomY, 32) / 32;
+        x = game.math.snapTo(game.world.randomX, 32) / 32;
+        y = game.math.snapTo(game.world.randomY, 32) / 32;
 
         if (y > 17)
         {
             y = 17;
         }
 
-        var idx = (y * 17) + x;
+        idx = (y * 17) + x;
     }
-    while (locs.indexOf(idx) !== -1)
+    while (locs.indexOf(idx) !== -1);
 
     locs.push(idx);
 

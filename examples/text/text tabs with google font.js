@@ -2,7 +2,7 @@
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
 
 //  The Google WebFont Loader will look for this object, so create it before loading the script.
-WebFontConfig = {
+var WebFontConfig = {
 
     //  'active' means all requested fonts have finished loading
     //  We set a 1 second delay before calling 'createText'.

@@ -40,7 +40,7 @@ function create() {
     static1.body.static = true;
 	static2.body.static = true;
 
-    text = game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
+    game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
 
     cursors = game.input.keyboard.createCursorKeys();
 

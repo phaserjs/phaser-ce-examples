@@ -21,6 +21,7 @@ function preload() {
 
 var ship;
 var starfield;
+var balls;
 var cursors;
 
 function create() {
@@ -37,9 +38,9 @@ function create() {
 
     for (var i = 0; i < 50; i++)
     {
-        var sprite = balls.create(game.world.randomX, game.world.randomY, i % 2 == 0 ? 'ball' : 'firstaid');
+        var sprite = balls.create(game.world.randomX, game.world.randomY, i % 2 === 0 ? 'ball' : 'firstaid');
 
-        if (i % 2 == 0)
+        if (i % 2 === 0)
         {
             sprite.body.setCircle(16);
         }

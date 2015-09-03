@@ -9,13 +9,13 @@ function preload() {
 
 }
 
-var sprite1;
+var sprite2;
 var player;
 var cursors;
 
 function create() {
 
-    bg = game.add.tileSprite(0, 0, 800, 600, 'background');
+    game.add.tileSprite(0, 0, 800, 600, 'background');
 
 	//	Enable p2 physics
 	game.physics.startSystem(Phaser.Physics.P2JS);

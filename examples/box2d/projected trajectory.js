@@ -137,7 +137,7 @@ function render() {
     {
         var trajectoryPoint = getTrajectoryPoint(launchX, launchY, launchVelocity.x, launchVelocity.y, i);
 
-        if (lastPos && i % 12 == 0)
+        if (lastPos && i % 12 === 0)
         {
             line(lastPos.x, lastPos.y, trajectoryPoint.x, trajectoryPoint.y);
         }

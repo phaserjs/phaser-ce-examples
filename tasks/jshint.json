@@ -1,0 +1,30 @@
+{
+    "curly": true,
+    "debug": false,
+    "devel": false,
+    "eqnull": true,
+    "forin": false,
+    "immed": false,
+    "laxbreak": false,
+    "newcap": true,
+    "noarg": true,
+    "noempty": true,
+    "nonew": true,
+    "plusplus": false,
+    "strict": false,
+    "shadow": true,
+    "sub": true,
+    "trailing": true,
+    "undef": true,
+    "globals": {
+        "Phaser": false,
+        "PIXI": false,
+        "window": false,
+        "document": false,
+        "console": false,
+        "Uint8Array": false,
+        "setTimeout": false,
+        "jQuery": false
+    },
+    "white": false
+}

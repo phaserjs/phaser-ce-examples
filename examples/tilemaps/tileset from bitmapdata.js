@@ -6,6 +6,7 @@ var map;
 var layer;
 var marker;
 var currentTile = 0;
+var currentTileMarker;
 var cursors;
 var player;
 var facing = 'left';

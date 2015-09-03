@@ -40,11 +40,13 @@ var rightFlipperVertices = [0,64,0,-64,-560,-32,-560,32];
 
 var ballStart = [17.5016, -21.318];
 
-
+var gutterFixture;
 var ballBody;
 var flipperJoints = [];
 var PTM = 100; // conversion ratio for values in arrays above
 var needReset = false;
+
+var cursors;
 
 function create() {
     

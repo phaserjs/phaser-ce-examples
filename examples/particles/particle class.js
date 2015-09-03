@@ -1,6 +1,6 @@
 
 //  Here is our custom Particle
-MonsterParticle = function (game, x, y) {
+var MonsterParticle = function (game, x, y) {
 
     Phaser.Particle.call(this, game, x, y, game.cache.getBitmapData('particleShade'));
 
@@ -10,6 +10,8 @@ MonsterParticle.prototype = Object.create(Phaser.Particle.prototype);
 MonsterParticle.prototype.constructor = MonsterParticle;
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { create: create, render: render });
+
+var emitter;
 
 function create() {
 

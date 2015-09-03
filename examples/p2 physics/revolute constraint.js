@@ -32,7 +32,7 @@ function create() {
 
     var constraint = game.physics.p2.createRevoluteConstraint(sprite, [ 50, 100 ], vu1, [ 0, 0 ]);
 
-    text = game.add.text(20, 20, 'rotate with arrow keys', { fill: '#ffffff' });
+    game.add.text(20, 20, 'rotate with arrow keys', { fill: '#ffffff' });
 
     cursors = game.input.keyboard.createCursorKeys();
 

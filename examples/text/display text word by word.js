@@ -27,6 +27,7 @@ var content = [
 ];
 
 var line = [];
+var text;
 
 var wordIndex = 0;
 var lineIndex = 0;

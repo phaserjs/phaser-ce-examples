@@ -1,5 +1,7 @@
 module.exports = function (grunt) {
 
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+
     grunt.loadNpmTasks('grunt-contrib-connect');
 
     grunt.loadTasks('./tasks');
@@ -25,7 +27,19 @@ module.exports = function (grunt) {
                     port: 8001
                 }
             }
+        },
+
+	jshint: {
+        all: [
+	        'examples/**/*.js',
+		    '!!examples/_site/**',
+		    '!!examples/_plugins/**',
+		    '!!examples/wip/**'
+	    ],
+        options: {
+	        jshintrc: 'tasks/jshint.json'
         }
+	}
 
     });
 

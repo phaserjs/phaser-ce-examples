@@ -78,8 +78,8 @@ function changeWindDirection() {
         frag = (Math.floor(Math.random() * 100) - multi);
     max = max + frag;
 
-    if (max > 200) max = 150;
-    if (max < -200) max = -150;
+    if (max > 200) { max = 150; }
+    if (max < -200) { max = -150; }
 
     setXSpeed(back_emitter, max);
     setXSpeed(mid_emitter, max);

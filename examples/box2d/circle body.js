@@ -16,7 +16,7 @@ function preload() {
 
 }
 
-var circle
+var circle;
 
 function create() {
     

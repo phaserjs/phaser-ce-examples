@@ -40,7 +40,7 @@ function create() {
     constraint.lowerLimit = game.physics.p2.pxm(-0.5);
     */
 
-    text = game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
+    game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
 
     cursors = game.input.keyboard.createCursorKeys();
 

@@ -67,7 +67,7 @@ function update() {
             stars[i].y = -32;
         }
 
-        if (i == 0 || i == 100 || i == 200)
+        if (i === 0 || i === 100 || i === 200)
         {
             //  If it's the first star of the layer then we clear the texture
             stars[i].texture.renderXY(star, stars[i].x, stars[i].y, true);

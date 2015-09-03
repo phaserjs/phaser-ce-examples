@@ -1,6 +1,6 @@
 
 //  Here is a custom game object
-MonsterBunny = function (game, x, y, rotateSpeed) {
+var MonsterBunny = function (game, x, y, rotateSpeed) {
 
     Phaser.Sprite.call(this, game, x, y, 'bunny');
 

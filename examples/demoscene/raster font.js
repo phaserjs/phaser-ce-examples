@@ -10,6 +10,7 @@ function preload() {
 
 var font;
 var alpha;
+var raster;
 var mask = new Phaser.Rectangle();
 
 function create() {

@@ -16,6 +16,7 @@ function preload() {
 var player;
 var aliens;
 var bullets;
+var enemyBullets;
 var bulletTime = 0;
 var cursors;
 var fireButton;
@@ -200,7 +201,7 @@ function collisionHandler (bullet, alien) {
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
-    if (aliens.countLiving() == 0)
+    if (aliens.countLiving() === 0)
     {
         score += 1000;
         scoreText.text = scoreString + score;
@@ -219,7 +220,7 @@ function enemyHitsPlayer (player,bullet) {
     
     bullet.kill();
 
-    live = lives.getFirstAlive();
+    var live = lives.getFirstAlive();
 
     if (live)
     {
@@ -249,7 +250,7 @@ function enemyHitsPlayer (player,bullet) {
 function enemyFires () {
 
     //  Grab the first bullet we can from the pool
-    enemyBullet = enemyBullets.getFirstExists(false);
+    var enemyBullet = enemyBullets.getFirstExists(false);
 
     livingEnemies.length=0;
 
@@ -282,7 +283,7 @@ function fireBullet () {
     if (game.time.now > bulletTime)
     {
         //  Grab the first bullet we can from the pool
-        bullet = bullets.getFirstExists(false);
+        var bullet = bullets.getFirstExists(false);
 
         if (bullet)
         {

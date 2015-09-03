@@ -31,7 +31,7 @@ function create() {
 	sprite.body.setZeroDamping();
 	sprite.body.fixedRotation = true;
 
-    text = game.add.text(20, 20, 'move with arrow keys, click to kill and reset', { fill: '#ffffff' });
+    game.add.text(20, 20, 'move with arrow keys, click to kill and reset', { fill: '#ffffff' });
 
     game.input.onDown.add(deathToggle, this);
 

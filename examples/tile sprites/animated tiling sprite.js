@@ -20,7 +20,7 @@ function create() {
 
 function update() {
 
-    count += 0.005
+    count += 0.005;
 
     tilesprite.tileScale.x = 2 + Math.sin(count);
     tilesprite.tileScale.y = 2 + Math.cos(count);

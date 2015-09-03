@@ -2,12 +2,12 @@ var P2Game = {};
 
 P2Game.StateA = function (game) {
 
-    this.contra;
-    this.block;
-    this.tetris1;
-    this.changeTimer;
+    this.contra = undefined;
+    this.block = undefined;
+    this.tetris1 = undefined;
+    this.changeTimer = undefined;
 
-    this.cursors;
+    this.cursors = undefined;
 
     this.result = 'Move with cursors. Hit an object to change State';
 
@@ -124,12 +124,12 @@ P2Game.StateA.prototype = {
 
 P2Game.StateB = function (game) {
 
-    this.contra;
-    this.block;
-    this.tetris1;
-    this.changeTimer;
+    this.contra = undefined;
+    this.block = undefined;
+    this.tetris1 = undefined;
+    this.changeTimer = undefined;
 
-    this.cursors;
+    this.cursors = undefined;
 
     this.result = 'Move with cursors. Hit an object to change State';
 
@@ -236,12 +236,12 @@ P2Game.StateB.prototype = {
 
 P2Game.StateC = function (game) {
 
-    this.contra;
-    this.block;
-    this.tetris1;
-    this.changeTimer;
+    this.contra = undefined;
+    this.block = undefined;
+    this.tetris1 = undefined;
+    this.changeTimer = undefined;
 
-    this.cursors;
+    this.cursors = undefined;
 
     this.result = 'Move with cursors. Hit an object to change State';
 

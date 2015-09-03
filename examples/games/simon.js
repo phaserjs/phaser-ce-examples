@@ -17,12 +17,12 @@ var sequenceList = [];
 var simonSez = false;
 var timeCheck;
 var litSquare;
+var thisSquare;
 var winner;
 var loser;
 var intro;
 
 function create() {
-
     simon = game.add.group();
     var item;
 
@@ -77,7 +77,7 @@ function introTween() {
     for (var i = 0; i < 6; i++)
     {
         var flashing = game.add.tween(simon.getAt(i)).to( { alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, 4, true);
-        var final = game.add.tween(simon.getAt(i)).to( { alpha: .25 }, 500, Phaser.Easing.Linear.None, true);
+        var final = game.add.tween(simon.getAt(i)).to( { alpha: 0.25 }, 500, Phaser.Easing.Linear.None, true);
 
         flashing.chain(final);
         flashing.start();
@@ -91,7 +91,7 @@ function update() {
     {
         if (game.time.now - timeCheck >700-N*40)
         {
-            simon.getAt(litSquare).alpha = .25;
+            simon.getAt(litSquare).alpha = 0.25;
             game.paused = true;
 
             setTimeout(function()
@@ -113,7 +113,7 @@ function update() {
 
 function playerSequence(selected) {
 
-    correctSquare = sequenceList[userCount];
+    var correctSquare = sequenceList[userCount];
     userCount++;
     thisSquare = simon.getIndex(selected);
 
@@ -176,7 +176,7 @@ function release(item, pointer) {
 
     if (!simonSez && !intro && !loser && !winner)
     {
-        item.alpha = .25;
+        item.alpha = 0.25;
         playerSequence(item);
     }
 }
@@ -185,7 +185,7 @@ function moveOff(item, pointer) {
 
     if (!simonSez && !intro && !loser && !winner)
     {
-        item.alpha = .25;
+        item.alpha = 0.25;
     }
 
 }

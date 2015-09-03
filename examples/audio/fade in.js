@@ -9,6 +9,7 @@ function preload() {
 }
 
 var music;
+var sprite;
 
 function create() {
 
@@ -18,8 +19,8 @@ function create() {
     music = game.add.audio('boden');
     music.onDecoded.add(start, this);
 
-    s = game.add.sprite(game.world.centerX, game.world.centerY, 'disk');
-    s.anchor.setTo(0.5, 0.5);
+    sprite = game.add.sprite(game.world.centerX, game.world.centerY, 'disk');
+    sprite.anchor.setTo(0.5, 0.5);
 
 }
 

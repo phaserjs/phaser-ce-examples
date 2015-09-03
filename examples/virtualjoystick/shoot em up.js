@@ -16,17 +16,17 @@ var PhaserGame = function () {
     this.player = null;
     this.speed = 300;
 
-    this.weapon1;
-    this.weapon2;
-    this.weapon3;
+    this.weapon1 = undefined;
+    this.weapon2 = undefined;
+    this.weapon3 = undefined;
 
-    this.pad;
+    this.pad = undefined;
 
-    this.stick;
+    this.stick = undefined;
 
-    this.buttonA;
-    this.buttonB;
-    this.buttonC;
+    this.buttonA = undefined;
+    this.buttonB = undefined;
+    this.buttonC = undefined;
 
 };
 

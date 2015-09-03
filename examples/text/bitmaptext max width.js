@@ -7,7 +7,7 @@ function preload() {
 
 }
 
-var bpmText;
+var bmpText;
 var text = "Lorem ipsum ";
 var words = [ 
     'dolor', 'sit', 'amet', 'consectetuer', 'adipiscing', 'elit', 'aenean', 

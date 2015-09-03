@@ -31,7 +31,7 @@ function create() {
 
 	sprite.body.fixedRotation = true;
 
-    text = game.add.text(20, 20, 'click to the left / right of the ship', { fill: '#ffffff', font: '14pt Arial' });
+    game.add.text(20, 20, 'click to the left / right of the ship', { fill: '#ffffff', font: '14pt Arial' });
 
 	game.input.onDown.add(launch, this);
 

@@ -17,6 +17,7 @@ var cursors;
 var arrow;
 var catchFlag = false;
 var launchVelocity = 0;
+var analog;
 
 function create() {
     
@@ -75,8 +76,8 @@ function launch() {
     arrow.alpha = 0;
     analog.alpha = 0;
 
-    Xvector = (arrow.x - player.x) * 3;
-    Yvector = (arrow.y - player.y) * 3;
+    var Xvector = (arrow.x - player.x) * 3;
+    var Yvector = (arrow.y - player.y) * 3;
 
     player.body.velocity.setTo(Xvector, Yvector);
 
@@ -86,7 +87,7 @@ function update() {
 
     arrow.rotation = game.physics.arcade.angleBetween(arrow, player);
     
-    if (catchFlag == true)
+    if (catchFlag)
     {
         //  Track the ball sprite to the mouse  
         player.x = game.input.activePointer.worldX; 

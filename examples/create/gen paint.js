@@ -45,6 +45,7 @@ var isErase = false;
 //  Palette
 var ci = 0;
 var color = 0;
+var colorIndex = 0;
 var palette = 0;
 var pmap = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
 

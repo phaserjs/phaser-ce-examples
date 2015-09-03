@@ -17,6 +17,7 @@ function preload() {
 var platform1;
 var platform2;
 var platform3;
+var codeCaption;
 
 function create() {
     

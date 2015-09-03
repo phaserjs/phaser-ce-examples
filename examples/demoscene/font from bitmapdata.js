@@ -62,28 +62,6 @@ function create() {
 
 }
 
-function setLetters() {
-
-    page++;
-
-    if (page === 3)
-    {
-        page = 0;
-    }
-
-    var i = 0;
-
-    for (var y = 0; y < 8; y++)
-    {
-        for (var x = 0; x < 10; x++)
-        {
-            letters[i].frame = font.grabData[scroller[(page * 8) + y].charCodeAt(x)];
-            i++;
-        }
-    }
-
-}
-
 function update() {
 
     raster.cls();

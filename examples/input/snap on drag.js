@@ -13,8 +13,8 @@ function create() {
 
     game.add.sprite(0, 0, 'grid');
 
-    atari1 = game.add.sprite(128, 128, 'atari1');
-    atari2 = game.add.sprite(256, 256, 'atari2');
+    var atari1 = game.add.sprite(128, 128, 'atari1');
+    var atari2 = game.add.sprite(256, 256, 'atari2');
 
     //  Input Enable the sprites
     atari1.inputEnabled = true;

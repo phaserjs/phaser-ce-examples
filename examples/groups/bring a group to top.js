@@ -38,7 +38,7 @@ function create() {
 
         //  Sonics
 
-        var tempSprite=game.add.sprite(game.world.randomX, game.world.randomY, 'sonic');
+        var tempSprite = game.add.sprite(game.world.randomX, game.world.randomY, 'sonic');
 
         tempSprite.name = 'sonic' + i;
         tempSprite.inputEnabled = true;

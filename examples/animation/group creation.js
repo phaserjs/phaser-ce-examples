@@ -19,7 +19,7 @@ function create() {
     for (var i = 0; i < 6; i++)
     {
         //  They are evenly spaced out on the X coordinate, with a random Y coordinate
-        sprite = group.create(120 * i, game.rnd.integerInRange(100, 400), 'seacreatures', 'octopus0000');
+        var sprite = group.create(120 * i, game.rnd.integerInRange(100, 400), 'seacreatures', 'octopus0000');
     }
 
     //  These are the frame names for the octopus animation. We use the generateFrames function to help create the array.

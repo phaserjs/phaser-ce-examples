@@ -206,7 +206,7 @@ function refresh() {
         distance = sy - dy;
         y = dy;
         step = Math.floor(distance / chunk);
-        remainder = distance - (step * chunk);
+        var remainder = distance - (step * chunk);
 
         for (var i = 0; i < step; i++)
         {
