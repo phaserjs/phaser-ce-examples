@@ -2,7 +2,6 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
 var filter;
-var sprite;
 
 function preload() {
 
@@ -15,13 +14,7 @@ function create() {
 
     filter = new Phaser.Filter(game, null, game.cache.getShader('bacteria'));
 
-    filter.setResolution(800, 600);
-
-    sprite = game.add.sprite();
-    sprite.width = 800;
-    sprite.height = 600;
-
-    sprite.filters = [ filter ];
+    filter.addToWorld(0, 0, 800, 600);
 
 }
 
