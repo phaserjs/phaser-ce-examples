@@ -1,3 +1,9 @@
+/**
+* @overview
+* Create a tilemap and a moveable ship sprite that will collide with walls.
+*
+* Use the arrow keys to move the spaceship around.
+*/
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 

@@ -1,4 +1,9 @@
-
+/**
+* @overview
+* Draw a bitmap to the game area.
+*
+* Move the cursor and click to draw images.
+*/
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {

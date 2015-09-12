@@ -1,10 +1,14 @@
 /**
+* @overview
+* Create a virtual joystick that only allows movement up and down.
+*
+* The sprite will move when the joystick is moved.
+*
 * @author       Richard Davey <rich@photonstorm.com>
 * @copyright    2015 Photon Storm Ltd.
 * @license      {@link http://choosealicense.com/licenses/no-license/|No License}
 * 
-* @description  This example requires the Phaser Virtual Joystick Plugin to run.
-*               For more details please see http://phaser.io/shop/plugins/virtualjoystick
+* @requires VirtualJoystick-plugin (see http://phaser.io/shop/plugins/virtualjoystick)
 */
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example');

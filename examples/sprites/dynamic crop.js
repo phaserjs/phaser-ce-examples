@@ -1,3 +1,8 @@
+/* @overview
+* Creates a sprite that is dynamically cropped.
+*
+* Move the cursor to expose a different part of the image.
+*/
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 

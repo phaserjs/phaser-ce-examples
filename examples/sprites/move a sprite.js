@@ -1,3 +1,8 @@
+/* @overview
+* Create an animated sprite that moves with keyboard input.
+*
+* Use the arrow keys to move the sprite.
+*/
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 

@@ -1,3 +1,10 @@
+/**
+* @overview
+* Wrap a sprite around the world.
+*
+* Use the arrow keys to move the sprite.
+* When it reaches the far left or far right of the world the sprite will be moved.
+*/
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
