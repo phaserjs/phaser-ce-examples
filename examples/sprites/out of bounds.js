@@ -40,7 +40,7 @@ function create() {
 function alienOut(alien) {
 
     //  Move the alien to the top of the screen again
-    alien.reset(alien.x, -32);
+    alien.reset(alien.x, 0);
 
     //  And give it a new random velocity
     alien.body.velocity.y = 50 + Math.random() * 200;
