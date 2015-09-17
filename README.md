@@ -2,14 +2,36 @@
 
 # Phaser Examples
 
-This is the Phaser Examples repository.
-If you're looking for the framework itself, please go here: https://github.com/photonstorm/phaser
+This is the [Phaser Examples][examples] repository.
+If looking for the Phaser framework itself, visit [Phaser on github][phaser] or the [official Phaser website][phaser-web].
 
-Phaser is a fast, free and fun open source game framework for making desktop and mobile browser HTML5 games. It uses [Pixi.js](https://github.com/GoodBoyDigital/pixi.js/) internally for fast 2D Canvas and WebGL rendering. This repository is specifically for all of the Examples we produce to go with it.
+Phaser is a fast, free, and fun open source game framework for making desktop and mobile browser HTML5 games. It uses [Pixi.js][pixijs] for fast 2D Canvas and WebGL rendering. This repository contains all of the Examples we produce to showcase Phaser.
+
 
 ## Learn By Example
 
-Phaser comes with an ever growing suite of Examples. Personally we feel that you learn better by looking at small refined code examples. So we created over 250 of them, and create new ones to test nearly every feature added to Phaser. Inside this `examples` repo you'll find the current set. If you write a particularly good example then please send it to us.
+Phaser comes with an ever growing suite of Examples. Personally we feel that you learn better by looking at small refined code examples.
+We've created 500 (and growing) examples that demonstrate nearly every feature added to Phaser. Inside this `examples` repository you'll find the current example code and resources. If you write a particularly good example then please send it to us.
+
+### Run, Edit, and Collaborate on Examples online
+
+The Examples here can also be found and run at the [online Phaser Example][online-examples] gallery.
+
+The online gallery supports many features such as editing examples, creating new sandboxed code, and sharing changes.
+
+This is a great way to start learning Phaser interactively.
+
+### Run and Develop Examples locally with Phaser dev:Playground
+
+Developers working with local/custom Phaser builds or a local Example repository can use the [Phaser dev:Playground][playground] (or 'Playground') development environment to host and run the examples found here. This method replaces the 'built-in server' method listed below.
+
+The Playground is designed to enable *fast local developer interaction* with the Phaser framework and Phaser Example repository.
+
+It is a taylored for development and includes a developer-friendly featureset: inline editing, offline caching, non-minimifed framework loading, local/custom build loading, no iframe hosting, and integration with a local Example repository.
+
+### Run Examples locally with built-in site - Deprecated
+
+> **Note:** This method is being deprecated (and may be removed in the future) in to create a clear separation between the Example code repository and an environment to run/develop examples locally. New local development should use [Phaser dev:Playground][playground] project instead.
 
 The examples need to be run through a local web server (in order to avoid file access permission errors from your browser). You can use your own web server, or start the included web server using grunt.
 
@@ -20,9 +42,6 @@ Using a locally installed web server browse to the examples folder:
 Alternatively in order to start the included web server, after you've cloned the repo, run `npm install` to install all dependencies, then `grunt connect` to start a local server. After running this command you should be able to access your local webserver at `http://127.0.0.1:8001`. Then browse to the examples folder: `http://127.0.0.1:8001/examples/index.html`
 
 There is a 'Side View' example viewer as well as the default. This loads all the examples into a left-hand frame for faster navigation.
-
-You can also browse all [Phaser Examples](http://examples.phaser.io) online.
-
 
 ## Contributing
 
@@ -56,12 +75,17 @@ By Richard Davey, [Photon Storm](http://www.photonstorm.com)
 
 ## License
 
-Phaser and all examples are released under the [MIT License](http://opensource.org/licenses/MIT). This does not include any assets (art, music, sounds)
+Phaser and all examples are released under the [MIT License](http://opensource.org/licenses/MIT). This does *not* include any assets (art, music, sounds).
 
 [issues]: https://github.com/photonstorm/phaser-examples/issues
 [contribute]: https://github.com/photonstorm/phaser/blob/master/CONTRIBUTING.md
-[phaser]: https://github.com/photonstorm/phaser-examples
+[phaser]: https://github.com/photonstorm/phaser
+[phaser-web]: http://phaser.io
+[examples]: https://github.com/photonstorm/phaser-examples
+[online-examples]: http://examples.phaser.io
 [forum]: http://www.html5gamedevs.com/forum/14-phaser/
+[playground]: https://github.com/pnstickne/phaser-dev-playground/
+[pixijs]: https://github.com/GoodBoyDigital/pixi.js/
 
 [![Analytics](https://ga-beacon.appspot.com/UA-44006568-2/phaser/index)](https://github.com/igrigorik/ga-beacon)
 
