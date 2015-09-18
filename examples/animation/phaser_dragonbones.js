@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 var dragonBones;
 (function (dragonBones) {
     (function (display) {

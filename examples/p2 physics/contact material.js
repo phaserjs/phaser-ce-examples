@@ -46,7 +46,7 @@ function create() {
     contactMaterial.frictionRelaxation = 3;     // Relaxation of the resulting FrictionEquation that this ContactMaterial generate.
     contactMaterial.surfaceVelocity = 0;        // Will add surface velocity to this material. If bodyA rests on top if bodyB, and the surface velocity is positive, bodyA will slide to the right.
 
-    text = game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
+    game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
 
     cursors = game.input.keyboard.createCursorKeys();
 

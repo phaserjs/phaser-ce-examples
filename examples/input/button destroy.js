@@ -8,6 +8,7 @@ function preload() {
 }
 
 var button;
+var text;
 
 function create() {
 

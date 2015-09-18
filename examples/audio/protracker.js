@@ -37,7 +37,14 @@ function modLoaded(key, data) {
 
 function load_next_module()
 {
-    current == mods.length - 1 ? current = 0 : current++;
+    if (current == mods.length - 1)
+    {
+        current = 0;
+    }
+    else
+    {
+        current++;
+    }
 
     module.stop();
     module.clearsong();

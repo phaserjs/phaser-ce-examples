@@ -9,8 +9,7 @@ function preload() {
 }
 
 var stars;
-var waveformX;
-var waveformY;
+var waveform;
 
 var xl;
 var yl;

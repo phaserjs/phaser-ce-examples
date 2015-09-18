@@ -1,5 +1,9 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update:update });
 
+var ship;
+var bullets;
+var cursors;
+
 function preload() {
     game.load.image('car', 'assets/sprites/car.png');
     game.load.image('tinycar', 'assets/sprites/tinycar.png');
@@ -15,7 +19,7 @@ function create() {
     cursors = game.input.keyboard.createCursorKeys();
     ship = game.add.sprite(32, game.world.height - 150, 'car');
     game.physics.p2.enable(ship);
-};
+}
 
 function update() {
     bullets.forEachAlive(moveBullets,this);  //make bullets accelerate to ship
@@ -25,7 +29,7 @@ function update() {
     else {ship.body.setZeroRotation();}
     if (cursors.up.isDown){ship.body.thrust(400);}
     else if (cursors.down.isDown){ship.body.reverse(400);}
-};
+}
 
 
 function moveBullets (bullet) { 

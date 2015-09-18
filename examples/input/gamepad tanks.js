@@ -2,7 +2,7 @@
 // Steer with left analog, accelerate/brake with analog triggers,
 // fire with A and steer turret with left and right 'bumper' (shoulder) buttons.
 
-EnemyTank = function (index, game, player, bullets) {
+var EnemyTank = function (index, game, player, bullets) {
 
     var x = game.world.randomX;
     var y = game.world.randomY;

@@ -17,7 +17,7 @@ function create() {
 
     for (var i = 0; i < 1000000; i++)
     {
-        rnd = this.game.rnd.weightedPick(test);
+        var rnd = this.game.rnd.weightedPick(test);
 
         total[rnd]++;
     }
@@ -33,7 +33,7 @@ function create() {
         list.push([i, total[i]]);
     }
 
-    text = game.add.text(200, 64, '', style);
+    var text = game.add.text(200, 64, '', style);
     text.parseList(list);
 
 }

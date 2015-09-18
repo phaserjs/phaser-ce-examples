@@ -11,6 +11,7 @@ function preload() {
 
 var ship;
 var starfield;
+var veggies;
 var cursors;
 
 function create() {

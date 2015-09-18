@@ -20,7 +20,7 @@ var yAxis = p2.vec2.fromValues(0, 1);
 
 function create() {
 
-    bg = game.add.tileSprite(0, 0, 800, 600, 'background');
+    game.add.tileSprite(0, 0, 800, 600, 'background');
 
     //  Enable p2 physics
     game.physics.startSystem(Phaser.Physics.P2JS);
@@ -74,7 +74,7 @@ function create() {
     // contactMaterial.frictionRelaxation = 3;     // Relaxation of the resulting FrictionEquation that this ContactMaterial generate.
     // contactMaterial.surfaceVelocity = 0.0;        // Will add surface velocity to this material. If bodyA rests on top if bodyB, and the surface velocity is positive, bodyA will slide to the right.
 
-    text = game.add.text(20, 20, 'move with arrow, space to jump', { fill: '#ffffff' });
+    game.add.text(20, 20, 'move with arrow, space to jump', { fill: '#ffffff' });
 
     cursors = game.input.keyboard.createCursorKeys();
     jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);

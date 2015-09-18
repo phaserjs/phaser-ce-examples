@@ -7,7 +7,7 @@ function preload() {
 
 }
 
-var bpmText;
+var bmpText;
 
 function create() {
 

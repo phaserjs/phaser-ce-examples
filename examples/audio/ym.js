@@ -56,7 +56,7 @@ var musics = [
         file: 'assets/audio/ym/mad_max-wings_of_death1.ym'
     }
 
-]
+];
 
 function preload() {
 

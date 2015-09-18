@@ -1,6 +1,6 @@
-Vegetable = function (game) {
+var Vegetable = function (game) {
 
-    frame = game.rnd.between(0, 35);
+    var frame = game.rnd.between(0, 35);
 
     //  Just because we don't want a false chilli (frame 17)
     if (frame === 17)
@@ -18,7 +18,7 @@ Vegetable = function (game) {
 Vegetable.prototype = Object.create(Phaser.Image.prototype);
 Vegetable.prototype.constructor = Vegetable;
 
-Chilli = function (game) {
+var Chilli = function (game) {
 
     var x = game.rnd.between(100, 770);
     var y = game.rnd.between(0, 570);

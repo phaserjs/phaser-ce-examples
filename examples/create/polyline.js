@@ -16,7 +16,7 @@ function create() {
     bmd = game.make.bitmapData(800, 600);
     bmd.addToWorld();
 
-    keys = game.input.keyboard.addKeys(
+    var keys = game.input.keyboard.addKeys(
         {
             'close': Phaser.Keyboard.SPACEBAR,
             'save': Phaser.Keyboard.S

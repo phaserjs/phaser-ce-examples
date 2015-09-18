@@ -79,10 +79,10 @@ function update() {
 
 function updatePadStatusText(rawPad, padText, num) {
     if(rawPad) {
-        padText.setText('Pad '+num+': [ index: '+rawPad['index']+' | id: '+rawPad['id']
-            +' | timestamp: '+rawPad['timestamp']+']'
-            +' | buttons: '+rawPad.buttons.length
-            +' | axes: '+rawPad.axes.length
+        padText.setText('Pad '+num+': [ index: '+rawPad.index+' | id: '+rawPad.id +
+            ' | timestamp: '+rawPad.timestamp+']' +
+            ' | buttons: '+rawPad.buttons.length +
+            ' | axes: '+rawPad.axes.length
         );
     } else {
         padText.setText('Pad '+num+': Not connected');

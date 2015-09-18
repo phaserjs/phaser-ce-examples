@@ -6,6 +6,7 @@ var r;
 var bmd;
 var bmdDest;
 var colors;
+var data;
 
 function create() {
 

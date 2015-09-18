@@ -181,7 +181,7 @@ var ComboSingle = function (game, value) {
         this.score = dice.total;
         this.played = true;
 
-    }
+    };
 
 };
 
@@ -218,7 +218,7 @@ var ComboChance = function (game) {
 
         this.played = true;
 
-    }
+    };
 
 };
 
@@ -359,7 +359,7 @@ var ComboXOfAKind = function (game, value, points) {
 
         this.played = true;
 
-    }
+    };
 
 };
 

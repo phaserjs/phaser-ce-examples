@@ -12,8 +12,8 @@ function preload() {
 var timeCheck = 0;
 var flipFlag = false;
 
-var startList = new Array();
-var squareList = new Array();
+var startList = [];
+var squareList = [];
 
 var masterCounter = 0;
 var squareCounter = 0;
@@ -32,12 +32,12 @@ var marker;
 var currentTile;
 var currentTilePosition;
 
+var myCountdownSeconds;
+var currentNum;
+
 var tileBack = 25;
 var timesUp = '+';
 var youWin = '+';
-
-var myCountdownSeconds;
-
 
 function create() {
 
@@ -69,7 +69,7 @@ function update() {
         marker.y = layer.getTileY(game.input.activePointer.worldY) * 100;
     }
 
-    if (flipFlag == true) 
+    if (flipFlag) 
     {
         if (game.time.totalElapsedSeconds() - timeCheck > 0.5)
         {
@@ -87,7 +87,7 @@ function countDownTimer() {
   
     var timeLimit = 120;
   
-    mySeconds = game.time.totalElapsedSeconds();
+    var mySeconds = game.time.totalElapsedSeconds();
     myCountdownSeconds = timeLimit - mySeconds;
     
     if (myCountdownSeconds <= 0) 
@@ -108,9 +108,9 @@ function processClick() {
         if (currentTile.index == tileBack)
         {
             // get the corresponding item out of squareList
-                currentNum = squareList[currentTilePosition-1];
+            var currentNum = squareList[currentTilePosition-1];
             flipOver();
-                squareCounter++;
+            squareCounter++;
             // is the second tile of pair flipped?
             if  (squareCounter == 2) 
             {
@@ -162,6 +162,7 @@ function flipBack() {
  
 function randomizeTiles() {
 
+    var num;
     for (num = 1; num <= 18; num++)
     {
         startList.push(num);
@@ -170,11 +171,9 @@ function randomizeTiles() {
     {
         startList.push(num);
     }
-
-    // for debugging
-    myString1 = startList.toString();
   
     // randomize squareList
+    var i;
     for (i = 1; i <=36; i++)
     {
         var randomPosition = game.rnd.integerInRange(0,startList.length - 1);
@@ -186,10 +185,8 @@ function randomizeTiles() {
 
         startList.splice( a, 1);
     }
-    
-    // for debugging
-    myString2 = squareList.toString();
-  
+      
+    var col, row;
     for (col = 0; col < 6; col++)
     {
         for (row = 0; row < 6; row++)
@@ -201,8 +198,9 @@ function randomizeTiles() {
 
 function getHiddenTile() {
         
-    thisTile = squareList[currentTilePosition-1];
+    var thisTile = squareList[currentTilePosition-1];
     return thisTile;
+
 }
 
 function render() {

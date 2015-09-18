@@ -4,6 +4,7 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 var ufo;
 var leftBtn;
 var rightBtn;
+var spaceBtn;
 var speed = 4;
 
 function preload() {

@@ -11,6 +11,7 @@ function preload() {
 
 }
 
+var analog;
 var arrow;
 var ball;
 var catchFlag = false;
@@ -77,8 +78,8 @@ function launch() {
     ball.body.moves = true;
     arrow.alpha = 0;
     analog.alpha = 0;
-    Xvector = (arrow.x - ball.x) * 3;
-    Yvector = (arrow.y - ball.y) * 3;
+    var Xvector = (arrow.x - ball.x) * 3;
+    var Yvector = (arrow.y - ball.y) * 3;
     ball.body.allowGravity = true;  
     ball.body.velocity.setTo(Xvector, Yvector);
 
@@ -88,7 +89,7 @@ function update() {
 
     arrow.rotation = game.physics.arcade.angleBetween(arrow, ball);
     
-    if (catchFlag == true)
+    if (catchFlag)
     {
         //  Track the ball sprite to the mouse  
         ball.x = game.input.activePointer.worldX;   

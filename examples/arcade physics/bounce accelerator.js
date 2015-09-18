@@ -10,6 +10,7 @@ function preload() {
 }
 
 var flyer;
+var cursors;
 
 function create() {
 

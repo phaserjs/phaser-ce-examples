@@ -1,5 +1,5 @@
 
-EnemyTank = function (index, game, player, bullets) {
+var EnemyTank = function (index, game, player, bullets) {
 
     var x = game.world.randomX;
     var y = game.world.randomY;
@@ -49,7 +49,7 @@ EnemyTank.prototype.damage = function() {
 
     return false;
 
-}
+};
 
 EnemyTank.prototype.update = function() {
 

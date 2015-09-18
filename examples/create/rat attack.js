@@ -1,6 +1,10 @@
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', this);
 
+var player;
+var cursors;
+var rats;
+
 function create() {
 
     game.physics.startSystem(Phaser.Physics.ARCADE);

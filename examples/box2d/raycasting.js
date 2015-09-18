@@ -20,7 +20,7 @@ function preload() {
 
 }
 
-_raycastType = 
+var _raycastType = 
 {
     CLOSEST : 0,
     ALL     : 1,

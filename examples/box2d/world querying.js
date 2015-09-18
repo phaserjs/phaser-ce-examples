@@ -25,6 +25,7 @@ var _queryType =
 };
 
 var caption;
+var polygonBody;
 var queryType = _queryType.POLYGON; // will roll over to AABB in create()
 var circleBody, circleFixture;
 var polygBody, polygonFixture;

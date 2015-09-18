@@ -41,9 +41,9 @@ function moveToXY(displayObject, x, y, speed) {
 
     var _angle = Math.atan2(y - displayObject.y, x - displayObject.x);
     
-    var x = Math.cos(_angle) * speed;
-    var y = Math.sin(_angle) * speed;
+    var newX = Math.cos(_angle) * speed;
+    var newY = Math.sin(_angle) * speed;
 
-    return { x: x, y: y };
+    return { x: newX, y: newY };
 
 }

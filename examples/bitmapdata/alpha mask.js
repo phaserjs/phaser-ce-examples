@@ -12,10 +12,10 @@ function create() {
 
 	game.stage.backgroundColor = 0x4d4d4d;
 
-	game.add.text(64, 10, 'Source image', { font: '16px Arial', fill: '#ffffff' })
+	game.add.text(64, 10, 'Source image', { font: '16px Arial', fill: '#ffffff' });
 	game.add.image(64, 32, 'pic');
 
-	game.add.text(400, 10, 'Alpha mask', { font: '16px Arial', fill: '#ffffff' })
+	game.add.text(400, 10, 'Alpha mask', { font: '16px Arial', fill: '#ffffff' });
 	game.add.image(400, 32, 'mask');
 
 	//	Create a new bitmap data the same size as our picture

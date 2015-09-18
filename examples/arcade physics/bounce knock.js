@@ -11,6 +11,9 @@ function preload() {
 }
 
 var image;
+var ball;
+var knocker;
+var cursors;
 
 function create() {
 

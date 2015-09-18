@@ -9,8 +9,8 @@ function preload() {
 
 }
 
-var static1;
-var static2;
+var kinematic1;
+var kinematic2;
 var sprite;
 var cursors;
 
@@ -48,7 +48,7 @@ function create() {
     kinematic1.body.velocity.x = 10;
     kinematic2.body.velocity.x = -10;
 
-    text = game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
+    game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
 
     cursors = game.input.keyboard.createCursorKeys();
 

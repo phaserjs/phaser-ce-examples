@@ -33,7 +33,7 @@ function create() {
     //  This constraint will make sure that as sprite rotates, sonic2 matches that rotation at half the ratio
     var constraint2 = game.physics.p2.createGearConstraint(sprite, sonic2, 0, 0.5);
 
-    text = game.add.text(20, 20, 'rotate with arrow keys', { fill: '#ffffff' });
+    game.add.text(20, 20, 'rotate with arrow keys', { fill: '#ffffff' });
 
     cursors = game.input.keyboard.createCursorKeys();
 

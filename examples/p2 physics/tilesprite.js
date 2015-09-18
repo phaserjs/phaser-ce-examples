@@ -10,6 +10,7 @@ function preload() {
 }
 
 var sprite;
+var veggies;
 var cursors;
 
 function create() {
@@ -40,7 +41,7 @@ function create() {
         veg.body.setCircle(26);
     }
 
-    text = game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
+    game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
 
     cursors = game.input.keyboard.createCursorKeys();
 

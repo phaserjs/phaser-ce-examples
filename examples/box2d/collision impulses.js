@@ -20,6 +20,7 @@ function preload() {
 
 var caption1;
 var caption2;
+var ship;
 
 function create() {
     

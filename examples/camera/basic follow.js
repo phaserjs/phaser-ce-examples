@@ -35,7 +35,7 @@ function update() {
 
     if (cursors.up.isDown)
     {
-        player.body.moveUp(300)
+        player.body.moveUp(300);
     }
     else if (cursors.down.isDown)
     {

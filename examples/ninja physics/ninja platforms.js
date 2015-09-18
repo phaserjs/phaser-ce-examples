@@ -2,6 +2,10 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', this);
 
 var score = 0;
 var scoreText;
+var player;
+var diamond;
+var platforms;
+var cursors;
 
 function preload() {
 

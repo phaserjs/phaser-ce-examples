@@ -22,7 +22,7 @@ function create() {
     var tweenData = { x: 0, y: 0 };
 
     //  Here we'll tween the values held in the tweenData object to x: 500, y: 300
-    tween = game.make.tween(tweenData).to( { x: 100, y: 400 }, 2000, "Sine.easeInOut");
+    var tween = game.make.tween(tweenData).to( { x: 100, y: 400 }, 2000, "Sine.easeInOut");
 
     //  Set the tween to yoyo so it loops smoothly
     tween.yoyo(true);

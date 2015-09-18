@@ -1,4 +1,4 @@
-CustomText = function (game, x, y, text) {
+var CustomText = function (game, x, y, text) {
 
     Phaser.Text.call(this, game, x, y, text, { font: "65px Arial", fill: "#ff0044", align: "center" });
 

@@ -18,6 +18,7 @@ var arrow;
 var catchFlag = false;
 var launchVelocity = 0;
 var launched;
+var analog;
 
 function create() {
     
@@ -89,8 +90,8 @@ function launch() {
     
         arrow.alpha = 0;
         analog.alpha = 0;
-        Xvector = (arrow.x - player.x) * 3;
-        Yvector = (arrow.y - player.y) * 3; 
+        var Xvector = (arrow.x - player.x) * 3;
+        var Yvector = (arrow.y - player.y) * 3; 
         player.body.moves = true;
         player.body.gravity.setTo(0, 180);
         player.body.velocity.setTo(Xvector, Yvector);
@@ -104,15 +105,15 @@ function update() {
     //  Track the player sprite to the mouse    
     if (catchFlag)
     {   
-        distance = game.physics.arcade.distanceToPointer(arrow);
-        theta = game.physics.arcade.angleToPointer(arrow);
+        var distance = game.physics.arcade.distanceToPointer(arrow);
+        var theta = game.physics.arcade.angleToPointer(arrow);
         
         // Govern the distance the sprite is dragged away from launch post
         if (distance > 300)
         { 
             distance = 300;
-            adjacentX = Math.cos(theta) * distance;
-            oppositeY = Math.sin(theta) * distance;
+            var adjacentX = Math.cos(theta) * distance;
+            var oppositeY = Math.sin(theta) * distance;
             player.x = 400 + adjacentX;
             player.y = 400 + oppositeY;
             analog.height = distance;
@@ -133,7 +134,7 @@ function update() {
     //check sprite motion and if done, return camera to left side of world
     var tweening = myTween.isRunning;
 
-    if (!tweening && launched && (player.x >= game.world.width-20 || player.body.deltaX() == 0))
+    if (!tweening && launched && (player.x >= game.world.width-20 || player.body.deltaX() === 0))
     {
         player.body.velocity.setTo(0, 0);
         player.alpha = 0;

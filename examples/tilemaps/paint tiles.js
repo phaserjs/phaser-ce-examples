@@ -50,7 +50,7 @@ function update() {
         {
             if (map.getTile(layer.getTileX(marker.x), layer.getTileY(marker.y)) != currentTile)
             {
-                map.putTile(currentTile, layer.getTileX(marker.x), layer.getTileY(marker.y))
+                map.putTile(currentTile, layer.getTileX(marker.x), layer.getTileY(marker.y));
             }
         }
     }

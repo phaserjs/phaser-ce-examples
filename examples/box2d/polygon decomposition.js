@@ -37,10 +37,10 @@ function create() {
     for (var i = 0; i < 6; i++)
     {
         // offscreen to start with
-        var sprite = game.add.sprite(1000, 200, i % 2 == 0 ? 'ball':'firstaid');
+        var sprite = game.add.sprite(1000, 200, i % 2 === 0 ? 'ball':'firstaid');
         game.physics.box2d.enable(sprite);
 
-        if (i % 2 == 0)
+        if (i % 2 === 0)
         {
             sprite.body.setCircle(16);
         }       

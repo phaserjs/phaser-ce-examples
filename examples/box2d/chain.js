@@ -42,9 +42,10 @@ function createRope(length, xAnchor,yAnchor){
     {
         var x = xAnchor;
         var y = yAnchor + (i * height);
+        var newRect;
         
         // Switch sprite every second time
-        if (i % 2 == 0)
+        if (i % 2 === 0)
         {
             newRect = game.add.sprite(x, y, 'chain',1);
         }
@@ -56,7 +57,7 @@ function createRope(length, xAnchor,yAnchor){
 
         game.physics.box2d.enable(newRect,false);
 
-        if (i == 0)
+        if (i === 0)
         {
             newRect.body.static=true;
         }

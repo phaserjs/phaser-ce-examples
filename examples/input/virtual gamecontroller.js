@@ -18,8 +18,6 @@ var duck= false;
 var fire=false;
 var jump=false;
 
-
-
 function preload() {
     //spritesheet for animations
     game.load.spritesheet('mario', 'assets/misc/mariospritesheet-small.png',50,50); // key, sourcefile, framesize x, framesize y
@@ -47,8 +45,8 @@ function create() {
     game.physics.p2.setBoundsToWorld(true, true, false, true, false); //(left, right, top, bottom, setCollisionGroup)
     game.physics.p2.friction = 5;   // default friction between ground and player or fireballs
 
-    clouds = game.add.tileSprite(0, 0, 2048, 600, 'clouds'); //add tiling sprite to cover the whole game world
-    ground = game.add.sprite(game.world.width/2, game.world.height-24,'ground');
+    var clouds = game.add.tileSprite(0, 0, 2048, 600, 'clouds'); //add tiling sprite to cover the whole game world
+    var ground = game.add.sprite(game.world.width/2, game.world.height-24,'ground');
     game.physics.p2.enable(ground);  //enable physics so our player will not fall through ground but collide with it
     ground.body.static=true;    // ground should not move
 
@@ -69,55 +67,55 @@ function create() {
     game.camera.follow(player); //always center player
 
     // create our virtual game controller buttons 
-    buttonjump = game.add.button(600, 500, 'buttonjump', null, this, 0, 1, 0, 1);  //game, x, y, key, callback, callbackContext, overFrame, outFrame, downFrame, upFrame
+    var buttonjump = game.add.button(600, 500, 'buttonjump', null, this, 0, 1, 0, 1);  //game, x, y, key, callback, callbackContext, overFrame, outFrame, downFrame, upFrame
     buttonjump.fixedToCamera = true;  //our buttons should stay on the same place  
     buttonjump.events.onInputOver.add(function(){jump=true;});
     buttonjump.events.onInputOut.add(function(){jump=false;});
     buttonjump.events.onInputDown.add(function(){jump=true;});
     buttonjump.events.onInputUp.add(function(){jump=false;});
 
-    buttonfire = game.add.button(700, 500, 'buttonfire', null, this, 0, 1, 0, 1);
+    var buttonfire = game.add.button(700, 500, 'buttonfire', null, this, 0, 1, 0, 1);
     buttonfire.fixedToCamera = true;
     buttonfire.events.onInputOver.add(function(){fire=true;});
     buttonfire.events.onInputOut.add(function(){fire=false;});
     buttonfire.events.onInputDown.add(function(){fire=true;});
     buttonfire.events.onInputUp.add(function(){fire=false;});        
 
-    buttonleft = game.add.button(0, 472, 'buttonhorizontal', null, this, 0, 1, 0, 1);
+    var buttonleft = game.add.button(0, 472, 'buttonhorizontal', null, this, 0, 1, 0, 1);
     buttonleft.fixedToCamera = true;
     buttonleft.events.onInputOver.add(function(){left=true;});
     buttonleft.events.onInputOut.add(function(){left=false;});
     buttonleft.events.onInputDown.add(function(){left=true;});
     buttonleft.events.onInputUp.add(function(){left=false;});
 
-    buttonbottomleft = game.add.button(32, 536, 'buttondiagonal', null, this, 6, 4, 6, 4);
+    var buttonbottomleft = game.add.button(32, 536, 'buttondiagonal', null, this, 6, 4, 6, 4);
     buttonbottomleft.fixedToCamera = true;
     buttonbottomleft.events.onInputOver.add(function(){left=true;duck=true;});
     buttonbottomleft.events.onInputOut.add(function(){left=false;duck=false;});
     buttonbottomleft.events.onInputDown.add(function(){left=true;duck=true;});
     buttonbottomleft.events.onInputUp.add(function(){left=false;duck=false;});
 
-    buttonright = game.add.button(160, 472, 'buttonhorizontal', null, this, 0, 1, 0, 1);
+    var buttonright = game.add.button(160, 472, 'buttonhorizontal', null, this, 0, 1, 0, 1);
     buttonright.fixedToCamera = true;
     buttonright.events.onInputOver.add(function(){right=true;});
     buttonright.events.onInputOut.add(function(){right=false;});
     buttonright.events.onInputDown.add(function(){right=true;});
     buttonright.events.onInputUp.add(function(){right=false;});
 
-    buttonbottomright = game.add.button(160, 536, 'buttondiagonal', null, this, 7, 5, 7, 5);
+    var buttonbottomright = game.add.button(160, 536, 'buttondiagonal', null, this, 7, 5, 7, 5);
     buttonbottomright.fixedToCamera = true;
     buttonbottomright.events.onInputOver.add(function(){right=true;duck=true;});
     buttonbottomright.events.onInputOut.add(function(){right=false;duck=false;});
     buttonbottomright.events.onInputDown.add(function(){right=true;duck=true;});
     buttonbottomright.events.onInputUp.add(function(){right=false;duck=false;});
 
-    buttondown = game.add.button(96, 536, 'buttonvertical', null, this, 0, 1, 0, 1);
+    var buttondown = game.add.button(96, 536, 'buttonvertical', null, this, 0, 1, 0, 1);
     buttondown.fixedToCamera = true;
     buttondown.events.onInputOver.add(function(){duck=true;});
     buttondown.events.onInputOut.add(function(){duck=false;});
     buttondown.events.onInputDown.add(function(){duck=true;});
     buttondown.events.onInputUp.add(function(){duck=false;});
-};
+}
 
 function update() {
     // define what should happen when a button is pressed
@@ -151,8 +149,8 @@ function update() {
     if (jump){ jump_now(); player.loadTexture('mario', 5);}  //change to another frame of the spritesheet
     if (fire){fire_now(); player.loadTexture('mario', 8); }
     if (duck){ player.body.setCircle(16,0,6);}else{ player.body.setCircle(22);}  //when ducking create a smaller hitarea - (radius,offsetx,offsety)
-    if (game.input.currentPointers == 0 && !game.input.activePointer.isMouse){ fire=false; right=false; left=false; duck=false; jump=false;} //this works around a "bug" where a button gets stuck in pressed state
-};
+    if (!game.input.currentPointers && !game.input.activePointer.isMouse){ fire=false; right=false; left=false; duck=false; jump=false;} //this works around a "bug" where a button gets stuck in pressed state
+}
 
 function render(){
     game.debug.text('jump:' + jump + ' duck:' + duck + ' left:' + left + ' right:' + right + ' fire:' + fire, 20, 20);

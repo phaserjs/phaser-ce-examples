@@ -10,10 +10,11 @@ function preload() {
 }
 
 var snakeHead; //head of snake sprite
-var snakeSection = new Array(); //array of sprites that make the snake body sections
-var snakePath = new Array(); //arrary of positions(points) that have to be stored for the path the sections follow
+var snakeSection = []; //array of sprites that make the snake body sections
+var snakePath = []; //arrary of positions(points) that have to be stored for the path the sections follow
 var numSnakeSections = 30; //number of snake body sections
 var snakeSpacer = 6; //parameter that sets the spacing between sections
+var cursors;
 
 function create() {
 

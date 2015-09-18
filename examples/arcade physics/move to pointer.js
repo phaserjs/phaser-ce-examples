@@ -47,3 +47,6 @@ function render() {
     game.debug.text("distance: " + game.physics.arcade.distanceToPointer(ball), 32, 32);
 
 }
+
+function update() {    
+}

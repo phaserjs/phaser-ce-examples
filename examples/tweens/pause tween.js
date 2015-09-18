@@ -19,7 +19,7 @@ function create() {
 
     p = game.add.sprite(100, 100, 'diamond');
 
-    tween = game.add.tween(p).to({ x: 600 }, 4000, Phaser.Easing.Linear.None, true, 0, 1000, true)
+    tween = game.add.tween(p).to({ x: 600 }, 4000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 
     button = game.add.button(game.world.centerX, 400, 'button', actionOnClick, this, 2, 1, 0);
 
