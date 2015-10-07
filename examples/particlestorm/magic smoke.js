@@ -24,7 +24,7 @@ function preload() {
     game.load.path = 'assets/particlestorm/particles/';
 
     game.load.image('star2');
-    game.load.image('smoke_r', 'smoke_colors.png');
+    game.load.image('smoke_r', 'smokecolors.png');
     game.load.spritesheet('flareBlue', 'flareblue16.png', 256, 256, 16);
 
 }
