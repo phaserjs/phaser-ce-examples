@@ -104,7 +104,8 @@
         'creature' => true,
         'video' => true,
         'rope' => true,
-        'tilesprite' => true
+        'tilesprite' => true,
+        'particlestorm' => true
     );
 
     foreach ($modules as $module => $modset)
@@ -181,6 +182,34 @@
                     echo "<script src=\"/arcadestorm/VirtualJoysticks/plugin/src/Stick.js\" type=\"text/javascript\"></script>";
                     echo "<script src=\"/arcadestorm/VirtualJoysticks/plugin/src/DPad.js\" type=\"text/javascript\"></script>";
                     echo "<script src=\"/arcadestorm/VirtualJoysticks/plugin/src/Button.js\" type=\"text/javascript\"></script>";
+                }
+
+                if ($modules['particlestorm'])
+                {
+                    //  This is only enabled if you have the Phaser ParticleStorm Plugin Source files
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/ParticleStorm.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/Emitter.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/Particle.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/GravityWell.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/Graph.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/zones/Base.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/zones/Point.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/zones/Rectangle.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/zones/Circle.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/zones/Ellipse.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/zones/Line.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/zones/Spline.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/zones/Text.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/zones/Image.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/controls/Texture.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/controls/Color.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/controls/Transform.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/renderers/Base.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/renderers/Sprite.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/renderers/Pixel.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/renderers/BitmapData.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/renderers/RenderTexture.js\" type=\"text/javascript\"></script>";
+                    echo "<script src=\"/phaser-particles-plugin/plugin/src/renderers/SpriteBatch.js\" type=\"text/javascript\"></script>";
                 }
             }
         ?>

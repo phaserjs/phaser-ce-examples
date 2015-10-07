@@ -11,5 +11,6 @@ function render () {
     game.debug.text('Mobile Safari: ' + game.device.mobileSafari, 32, 98);
     game.debug.text('WebApp: ' + game.device.webApp, 32, 128);
     game.debug.text('nav: ' + navigator['standalone'], 32, 128+32);
+    game.debug.text('app: ' + game.device.iOSVersion, 32, 128+64);
 
 }

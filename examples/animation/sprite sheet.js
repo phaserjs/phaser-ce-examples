@@ -9,6 +9,7 @@ function preload() {
     //  blank frames at the end, so we tell the loader how many to load
 
     game.load.spritesheet('mummy', 'assets/sprites/metalslug_mummy37x45.png', 37, 45, 18);
+
 }
 
 function create() {
