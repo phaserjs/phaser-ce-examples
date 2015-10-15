@@ -93,7 +93,9 @@ function countDownTimer() {
     if (myCountdownSeconds <= 0) 
         {
         // time is up
-        timesUp = 'Time is up!';    
+        timesUp = 'Time is up!'; 
+        myCountdownSeconds = 0;
+
     }
 }
 
