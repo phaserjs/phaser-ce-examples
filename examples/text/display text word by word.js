@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { create: create });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { create: create });
 
 var content = [
     "The sky above the port was the color of television, tuned to a dead channel.",

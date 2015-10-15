@@ -22,8 +22,6 @@ function create() {
     //  Fix the scale of the child so it will never scale below 1 or above 2
     child.setScaleMinMax(1, 2);
 
-    console.log(child.scaleMin, child.scaleMax);
-
     //  Even though the parent will scale, the child will remain at its own scale (and this is carried on down to any of its children)
     game.add.tween(parent.scale).to( { x: 3, y: 3 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
     

@@ -57,7 +57,7 @@ function IDECallback(event)
         {
             //  Otherwise it fires a shutdown event when the page reloads
             window.onbeforeunload = function() {};
-            window.location.href = 'getcode.php';
+            window.location.href = 'getcode.php?v=' + VERSION;
         }
         else
         {

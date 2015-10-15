@@ -1,5 +1,5 @@
 <?php
-    $v = "2.4.3";
+    $v = "2.4.4";
 
     if (isset($_GET['v']))
     {
@@ -44,6 +44,7 @@
         <script type="text/javascript">
 
         var IDE_HOOK = false;
+        var VERSION = '<?php echo $v ?>';
 
         <?php
             if (isset($_GET['f']))

@@ -1,5 +1,5 @@
 <?php
-    $v = "2.2.2";
+    $v = "2.4.4";
 
     if (isset($_GET['v']))
     {
@@ -42,7 +42,9 @@
         <div id="phaser-example"></div>
 
         <script type="text/javascript">
+
         var IDE_HOOK = true;
+
         </script>
 
     </body>

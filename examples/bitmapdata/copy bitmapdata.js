@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', this);
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
 
 function preload() {
 
@@ -29,7 +29,7 @@ function paint(pointer, x, y) {
 
     if (pointer.isDown)
     {
-        bmd.draw(bmd2, x, y);
+        bmd.draw(bmd2, x - 16, y - 16);
     }
 
 }

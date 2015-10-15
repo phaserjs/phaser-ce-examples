@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', this);
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
 
 function preload() {
 
@@ -18,6 +18,9 @@ function create() {
     bubble.anchor.set(0.5);
 
     bubble.inputEnabled = true;
+
+    //  Even if you release the mouse button outside of the game window
+    //  the 'onUp' function will still be called.
 
     bubble.events.onInputDown.add(onDown, this);
     bubble.events.onInputUp.add(onUp, this);

@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', this);
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update });
 
  function preload() {
 
@@ -117,11 +117,9 @@ function create() {
     //  Inverse scale
     var sonic2 = game.add.sprite(400, 200, 'sonic');
     sonic2.scale.set(2);
-    window.sonic = sonic2;
 
-    var subsonic = sonic2.addChild(game.make.sprite(100, 0, 'sonic'));
-    subsonic.scale.x = -1;
-    window.subsonic = subsonic;
+    // var subsonic = sonic2.addChild(game.make.sprite(100, 0, 'sonic'));
+    // subsonic.scale.x = -1;
 
     //  A Text Object
     game.add.text(440, 530, "Click to capture", { font: "48px Arial", fill: "#ff0044" });

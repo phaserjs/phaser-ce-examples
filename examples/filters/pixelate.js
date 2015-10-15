@@ -4,17 +4,20 @@ var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example', { preload: 
 function preload() {
 
     game.load.image('phaser', 'assets/pics/mighty_no_09_cover_art_by_robduenas.jpg');
-    // game.load.script('pixelate', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/Pixelate.js');
-    game.load.script('pixelate', '/phaser/filters/Pixelate.js');
+
+    game.load.shader('pixelate', 'assets/shaders/pixelate.frag');
 
 }
 
 function create() {
 
 	var logo = game.add.sprite(game.world.centerX, game.world.centerY, 'phaser');
-	logo.anchor.setTo(0.5, 0.5);
 
-	var pixelate = game.add.filter('Pixelate');
+	logo.anchor.set(0.5);
+
+	var pixelate = game.add.filter('Pixelate', null, game.cache.getShader('pixelate'));
+
+    // filter = new Phaser.Filter(game, null, game.cache.getShader('bacteria'));
 
 	logo.filters = [pixelate];
 
