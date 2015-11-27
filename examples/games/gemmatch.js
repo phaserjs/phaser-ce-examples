@@ -38,7 +38,7 @@ function create() {
 
 }
 
-function releaseGem(selectedGem) {
+function releaseGem() {
 
     console.log('up from', selectedGem);
 
@@ -276,7 +276,7 @@ function checkAndKillGemMatches(gem, matchedGems) {
 
         if (countVert < MATCH_MIN && countHoriz < MATCH_MIN)
         {
-            if (gem.posX !== selectedGemStartPos.x || gem.posY !== selectedGemStartPos.y)
+            if (gem !== tempShiftedGem)
             {
                 if (selectedGemTween !== null)
                 {
