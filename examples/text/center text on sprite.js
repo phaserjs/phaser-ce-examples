@@ -18,7 +18,7 @@ function create() {
     sprite.inputEnabled = true;
     sprite.input.enableDrag();
 
-    var style = { font: "32px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: sprite.width, align: "center" };
+    var style = { font: "32px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: sprite.width, align: "center", backgroundColor: "#ffff00" };
 
     text = game.add.text(0, 0, "- text on a sprite -\ndrag me", style);
     text.anchor.set(0.5);

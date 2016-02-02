@@ -20,7 +20,6 @@ function create() {
         coins.create(game.world.randomX / 2, game.world.randomY / 2, 'coin', 0);
     }
 
-
     //  And now we scale it: x2 on the x and y axis
     coins.scale.set(2, 2);
 
