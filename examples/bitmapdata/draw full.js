@@ -29,7 +29,9 @@ function create() {
 
     var bmdContainer = bmd.addToWorld(390, 290, 0, 0, 0.5, 0.5);
 
-    //  Draw the group to the BitmapData
-    bmd.drawGroup(group);
+    game.stage.updateTransform();
+
+    //  Draw the whole game world to the BitmapData
+    bmd.drawFull(game.world);
 
 }
