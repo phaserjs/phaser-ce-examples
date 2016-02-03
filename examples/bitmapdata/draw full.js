@@ -31,7 +31,7 @@ function create() {
 
     game.stage.updateTransform();
 
-    //  Draw the whole game world to the BitmapData
+    //  Draw the whole game world (including the BitmapData!) to the BitmapData
     bmd.drawFull(game.world);
 
 }
