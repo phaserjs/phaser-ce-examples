@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { create: create, update: update });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { create: create, update: update });
 
 var info;
 var graphics1;
@@ -36,7 +36,7 @@ function update() {
     graphics2.clear();
     graphics2.lineStyle(2, 0xffffff);
     graphics2.beginFill(0xa000f3);
-    graphics2.arc(600, 300, 160, angle.min, game.math.degToRad(angle.max), true);
+    graphics2.arc(600, 300, 160, angle.min, game.math.degToRad(angle.max), true, 128);
     graphics2.endFill();
 
 }
