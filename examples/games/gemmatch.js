@@ -119,8 +119,8 @@ function slideGem(pointer, x, y, fromClick) {
 // fill the screen with as many gems as possible
 function spawnBoard() {
 
-    BOARD_COLS = Phaser.Math.floor(game.world.width / GEM_SIZE_SPACED);
-    BOARD_ROWS = Phaser.Math.floor(game.world.height / GEM_SIZE_SPACED);
+    BOARD_COLS = Math.floor(game.world.width / GEM_SIZE_SPACED);
+    BOARD_ROWS = Math.floor(game.world.height / GEM_SIZE_SPACED);
 
     gems = game.add.group();
 
@@ -163,7 +163,7 @@ function getGem(posX, posY) {
 // convert world coordinates to board position
 function getGemPos(coordinate) {
 
-    return Phaser.Math.floor(coordinate / GEM_SIZE_SPACED);
+    return Math.floor(coordinate / GEM_SIZE_SPACED);
 
 }
 
