@@ -140,7 +140,7 @@
 <!doctype html>
 <html>
     <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Phaser Examples - <?php echo $title ?></title>
         <script src="_site/js/jquery-2.1.4.min.js" type="text/javascript"></script>
         <script src="_site/js/jquery.cookie.js" type="text/javascript"></script>
