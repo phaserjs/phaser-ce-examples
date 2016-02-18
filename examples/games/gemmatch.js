@@ -30,7 +30,7 @@ function create() {
 
     // currently selected gem starting position. used to stop player form moving gems too far.
     selectedGemStartPos = { x: 0, y: 0 };
-    
+
     // used to disable input while gems are dropping down and respawning
     allowInput = true;
 
@@ -99,7 +99,7 @@ function slideGem(pointer, x, y, fromClick) {
                     swapGemPosition(selectedGem, tempShiftedGem);
                 }
 
-                // when the player moves the selected gem, we need to swap the position of the selected gem with the gem currently in that position 
+                // when the player moves the selected gem, we need to swap the position of the selected gem with the gem currently in that position
                 tempShiftedGem = getGem(cursorGemPosX, cursorGemPosY);
 
                 if (tempShiftedGem === selectedGem)
@@ -119,8 +119,8 @@ function slideGem(pointer, x, y, fromClick) {
 // fill the screen with as many gems as possible
 function spawnBoard() {
 
-    BOARD_COLS = Phaser.Math.floor(game.world.width / GEM_SIZE_SPACED);
-    BOARD_ROWS = Phaser.Math.floor(game.world.height / GEM_SIZE_SPACED);
+    BOARD_COLS = Phaser.Math.floorTo(game.world.width / GEM_SIZE_SPACED);
+    BOARD_ROWS = Phaser.Math.floorTo(game.world.height / GEM_SIZE_SPACED);
 
     gems = game.add.group();
 
@@ -260,7 +260,7 @@ function checkAndKillGemMatches(gem, matchedGems) {
         var countDown = countSameColorGems(gem, 0, 1);
         var countLeft = countSameColorGems(gem, -1, 0);
         var countRight = countSameColorGems(gem, 1, 0);
-        
+
         var countHoriz = countLeft + countRight + 1;
         var countVert = countUp + countDown + 1;
 
