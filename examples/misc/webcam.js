@@ -3,7 +3,7 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 
 function preload () {
 
-    game.load.script('webcam', '../plugins/WebCam.js');
+    game.load.script('webcam', '../_plugins/Webcam.js');
 
 }
 
