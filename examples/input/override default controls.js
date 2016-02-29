@@ -2,6 +2,7 @@
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 var ufo;
+var sky;
 var leftBtn;
 var rightBtn;
 var speed = 4;
@@ -26,7 +27,7 @@ function preload() {
 function create() {
 
     // background images
-    game.add.sprite(0, 0, 'sky');
+    sky = game.add.sprite(0, 0, 'sky');
     game.add.sprite(0, 360, 'ground');
     game.add.sprite(0, 400, 'river');
     game.add.sprite(200, 120, 'cloud0');
@@ -36,7 +37,10 @@ function create() {
     // Create a ufo sprite as a player.
     ufo = game.add.sprite(320, 240, 'ufo');
     ufo.anchor.setTo(0.5, 0.5);
-
+    
+    // Stretch sky horizontally:
+    sky.scale.setTo(2, 1);
+    
     // Make the camera follow the ufo.
     game.camera.follow(ufo);
 
@@ -86,7 +90,7 @@ function update() {
     }
 
     // 50 as a second parameter is a good choice if you are running 60FPS.
-    if (game.input.keyboard.justPressed(Phaser.Keyboard.SPACEBAR, 50))
+    if (game.input.keyboard.downDuration(Phaser.Keyboard.SPACEBAR, 50))
     {
         console.log('space bar pressed');
         spaceBtn.alpha = 1;
