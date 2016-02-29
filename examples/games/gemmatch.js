@@ -14,7 +14,6 @@ var selectedGem = null;
 var selectedGemStartPos;
 var selectedGemTween;
 var tempShiftedGem = null;
-var tempShiftedGemTween;
 var allowInput;
 
 function preload() {
@@ -38,9 +37,12 @@ function create() {
 
 }
 
-function releaseGem(selectedGem) {
+function releaseGem() {
 
-    console.log('up from', selectedGem);
+    if (tempShiftedGem === null) {
+        selectedGem = null;
+        return;
+    }
 
     // when the mouse is released with a gem selected
     // 1) check for matches
@@ -48,12 +50,7 @@ function releaseGem(selectedGem) {
     // 3) drop down gems above removed gems
     // 4) refill the board
 
-    checkAndKillGemMatches(selectedGem);
-
-    if (tempShiftedGem !== null)
-    {
-        checkAndKillGemMatches(tempShiftedGem);
-    }
+    checkAndKillGemMatches();
 
     removeKilledGems();
 
@@ -69,7 +66,7 @@ function releaseGem(selectedGem) {
 
 }
 
-function slideGem(pointer, x, y, fromClick) {
+function slideGem(pointer, x, y) {
 
     // check if a selected gem should be moved and do it
 
@@ -141,11 +138,10 @@ function spawnBoard() {
 }
 
 // select a gem and remember its starting position
-function selectGem(gem, pointer) {
+function selectGem(gem) {
 
     if (allowInput)
     {
-        console.log('selectedGem', gem);
         selectedGem = gem;
         selectedGemStartPos.x = gem.posX;
         selectedGemStartPos.y = gem.posY;
@@ -252,46 +248,80 @@ function swapGemPosition(gem1, gem2) {
 // count how many gems of the same color are above, below, to the left and right
 // if there are more than 3 matched horizontally or vertically, kill those gems
 // if no match was made, move the gems back into their starting positions
-function checkAndKillGemMatches(gem, matchedGems) {
+function checkAndKillGemMatches() {
 
-    if (gem !== null)
+    if (selectedGem === null) { return; }
+
+    if (tempShiftedGem === null ) { return; }
+
+    var canKill = false;
+
+    // process the selected gem
+
+    var countUp = countSameColorGems(selectedGem, 0, -1);
+    var countDown = countSameColorGems(selectedGem, 0, 1);
+    var countLeft = countSameColorGems(selectedGem, -1, 0);
+    var countRight = countSameColorGems(selectedGem, 1, 0);
+
+    var countHoriz = countLeft + countRight + 1;
+    var countVert = countUp + countDown + 1;
+
+    if (countVert >= MATCH_MIN)
     {
-        var countUp = countSameColorGems(gem, 0, -1);
-        var countDown = countSameColorGems(gem, 0, 1);
-        var countLeft = countSameColorGems(gem, -1, 0);
-        var countRight = countSameColorGems(gem, 1, 0);
-        
-        var countHoriz = countLeft + countRight + 1;
-        var countVert = countUp + countDown + 1;
+        killGemRange(selectedGem.posX, selectedGem.posY - countUp, selectedGem.posX, selectedGem.posY + countDown);
+        canKill = true;
+    }
 
-        if (countVert >= MATCH_MIN)
-        {
-            killGemRange(gem.posX, gem.posY - countUp, gem.posX, gem.posY + countDown);
-        }
+    if (countHoriz >= MATCH_MIN)
+    {
+        killGemRange(selectedGem.posX - countLeft, selectedGem.posY, selectedGem.posX + countRight, selectedGem.posY);
+        canKill = true;
+    }
 
-        if (countHoriz >= MATCH_MIN)
-        {
-            killGemRange(gem.posX - countLeft, gem.posY, gem.posX + countRight, gem.posY);
-        }
+    // now process the shifted (swapped) gem
 
-        if (countVert < MATCH_MIN && countHoriz < MATCH_MIN)
+    countUp = countSameColorGems(tempShiftedGem, 0, -1);
+    countDown = countSameColorGems(tempShiftedGem, 0, 1);
+    countLeft = countSameColorGems(tempShiftedGem, -1, 0);
+    countRight = countSameColorGems(tempShiftedGem, 1, 0);
+
+    countHoriz = countLeft + countRight + 1;
+    countVert = countUp + countDown + 1;
+
+    if (countVert >= MATCH_MIN)
+    {
+        killGemRange(tempShiftedGem.posX, tempShiftedGem.posY - countUp, tempShiftedGem.posX, tempShiftedGem.posY + countDown);
+        canKill = true;
+    }
+
+    if (countHoriz >= MATCH_MIN)
+    {
+        killGemRange(tempShiftedGem.posX - countLeft, tempShiftedGem.posY, tempShiftedGem.posX + countRight, tempShiftedGem.posY);
+        canKill = true;
+    }
+
+    if (! canKill) // there are no matches so swap the gems back to the original positions
+    {
+        var gem = selectedGem;
+
+        if (gem.posX !== selectedGemStartPos.x || gem.posY !== selectedGemStartPos.y)
         {
-            if (gem.posX !== selectedGemStartPos.x || gem.posY !== selectedGemStartPos.y)
+            if (selectedGemTween !== null)
             {
-                if (selectedGemTween !== null)
-                {
-                    game.tweens.remove(selectedGemTween);
-                }
-
-                selectedGemTween = tweenGemPos(gem, selectedGemStartPos.x, selectedGemStartPos.y);
-
-                if (tempShiftedGem !== null)
-                {
-                    tweenGemPos(tempShiftedGem, gem.posX, gem.posY);
-                }
-
-                swapGemPosition(gem, tempShiftedGem);
+                game.tweens.remove(selectedGemTween);
             }
+
+            selectedGemTween = tweenGemPos(gem, selectedGemStartPos.x, selectedGemStartPos.y);
+
+            if (tempShiftedGem !== null)
+            {
+                tweenGemPos(tempShiftedGem, gem.posX, gem.posY);
+            }
+
+            swapGemPosition(gem, tempShiftedGem);
+
+            tempShiftedGem = null;
+
         }
     }
 
@@ -330,6 +360,7 @@ function removeKilledGems() {
 // animated gem movement
 function tweenGemPos(gem, newPosX, newPosY, durationMultiplier) {
 
+    console.log('Tween ',gem.name,' from ',gem.posX, ',', gem.posY, ' to ', newPosX, ',', newPosY);
     if (durationMultiplier === null || typeof durationMultiplier === 'undefined')
     {
         durationMultiplier = 1;
