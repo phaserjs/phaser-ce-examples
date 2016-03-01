@@ -34,7 +34,7 @@
             game.canvas.style['display'] = 'none';
 
             //  Create our scaled canvas. It will be the size of the game * whatever scale value you've set
-            pixel.canvas = Phaser.Canvas.create(game.width * pixel.scale, game.height * pixel.scale);
+            pixel.canvas = Phaser.Canvas.create(null,game.width * pixel.scale, game.height * pixel.scale);
 
             //  Store a reference to the Canvas Context
             pixel.context = pixel.canvas.getContext('2d');
