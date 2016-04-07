@@ -15,13 +15,13 @@ function create() {
 
     ball = game.add.sprite(400, 0, 'balls', 0);
 
-    tween = game.add.tween(ball).to( { y: game.world.height - ball.height }, 1500, Phaser.Easing.Bounce.Out, true, 2500, 10);
+    tween = game.add.tween(ball).to( { y: game.world.height - ball.height }, 1500, Phaser.Easing.Bounce.Out, true, 2500, bounces);
 
     //	There is a 2.5 second delay at the start, then it calls this function
     tween.onStart.add(onStart, this);
 
-    //	This tween will loop 10 times, calling this function every time it loops
-    tween.onLoop.add(onLoop, this);
+    //	This tween will repeat 10 times, calling this function every time it loops
+    tween.onRepeat.add(onLoop, this);
 
     //	When it completes it will call this function
     tween.onComplete.add(onComplete, this);

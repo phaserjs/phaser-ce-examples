@@ -13,11 +13,14 @@ var cursors;
 
 function create() {
 
+    game.forceSingleUpdate = true;
+
     game.world.setBounds(0, 0, 1920, 1200);
 
     game.add.sprite(0, 0, 'backdrop');
 
-    card = game.add.sprite(200.5, 200.5, 'card');
+    card = game.add.sprite(200, 200, 'card');
+    card.anchor.set(0.5);
 
     game.physics.enable(card, Phaser.Physics.ARCADE);
     card.body.collideWorldBounds = true;
@@ -61,6 +64,8 @@ function render() {
 
     game.debug.cameraInfo(game.camera, 500, 32);
     game.debug.spriteCoords(card, 32, 32);
-    // game.debug.physicsBody(card.body);
+
+    game.debug.rectangle({x:400+game.camera.x,y:0+game.camera.y,width:1,height:600});
+    game.debug.rectangle({x:0+game.camera.x,y:300+game.camera.y,width:800,height:1});
 
 }
