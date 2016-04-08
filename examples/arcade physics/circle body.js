@@ -17,8 +17,8 @@ function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
     // disk = game.add.sprite(80, 80, 'disk');
-    ball1 = game.add.sprite(200, 300, 'wizball');
-    ball2 = game.add.sprite(600, 80, 'wizball');
+    ball1 = game.add.sprite(100, 200, 'wizball');
+    ball2 = game.add.sprite(700, 200, 'wizball');
 
     //  rect corners collide, but circles don't
     // ball2.x = 280;
@@ -50,6 +50,8 @@ function create() {
     ball1.body.setCircle(45);
     ball2.body.setCircle(45);
 
+    // ball2.body.mass = 3;
+
     //  Set the ball to collide with the world, have gravity, bounce, and move.
     ball1.body.collideWorldBounds = true;
     ball2.body.collideWorldBounds = true;
@@ -63,8 +65,12 @@ function create() {
     ball2.body.gravity.y = 100;
     // disk.body.gravity.y = 100;
 
-    ball1.body.velocity.set(50);
-    ball2.body.velocity.set(-60, 60);
+    // ball1.body.velocity.x = 50;
+    // ball2.body.velocity.x = -50;
+
+
+    ball1.body.velocity.set(150);
+    ball2.body.velocity.set(-160, 60);
     // disk.body.velocity.set(50);
 
     // game.input.onDown.add(function() { console.log(game.physics.arcade.intersects(ball1.body, ball2.body)); });
