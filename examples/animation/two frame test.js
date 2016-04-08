@@ -25,15 +25,7 @@ function create() {
     player.animations.add('up', [11,12,13], 10, true);
     player.animations.add('down', [4,5,6], 10, true);
 
-    left.enableUpdate = true;
-    right.enableUpdate = true;
-
-    // left.onUpdate.add(function(anim, f) { console.log('l', f); });
-    // right.onUpdate.add(function(anim, f) { console.log('r', f); });
-
     game.physics.enable(player, Phaser.Physics.ARCADE);
-
-    game.camera.follow(player);
 
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -73,7 +65,5 @@ function update() {
 function render() {
 
     game.debug.text(player.frame, 32, 32);
-
-    // game.debug.body(player);
 
 }
