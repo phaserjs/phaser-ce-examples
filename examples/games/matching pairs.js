@@ -17,7 +17,7 @@ var squareList = new Array();
 
 var masterCounter = 0;
 var squareCounter = 0;
-var clickCounter = 0;
+var clickCount = 0;
 var square1Num;
 var square2Num;
 var savedSquareX1;
@@ -114,7 +114,7 @@ function processClick() {
                 currentNum = squareList[currentTilePosition-1];
             flipOver();
                 squareCounter++;
-                clickCounter++;
+                clickCount++;
             // is the second tile of pair flipped?
             if  (squareCounter == 2) 
             {
@@ -221,6 +221,8 @@ function render() {
 
     //game.debug.text('squareCounter: ' + squareCounter, 620, 272, 'rgb(0,0,255)');
     game.debug.text('Matched Pairs: ' + masterCounter, 620, 304, 'rgb(0,0,255)');
+        game.debug.text('Matched Pairs: ' + clickCount, 620, 320, 'rgb(0,0,255)');
+
 
     //game.debug.text('startList: ' + myString1, 620, 208, 'rgb(255,0,0)');
     //game.debug.text('squareList: ' + myString2, 620, 240, 'rgb(255,0,0)');
