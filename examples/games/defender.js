@@ -2,10 +2,10 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 
 function preload () {
 
-    game.load.image('player', 'assets/sprites/shmup-ship2.png');
+    game.load.image('player', 'assets/games/defender/ship.png');
     game.load.image('star', 'assets/demoscene/star2.png');
     game.load.image('baddie', 'assets/sprites/space-baddie.png');
-    game.load.image('lazer', 'assets/games/defender/lazer2.png');
+    game.load.atlas('lazer', 'assets/games/defender/laser.png', 'assets/games/defender/laser.json');
 
 }
 
@@ -16,10 +16,15 @@ var player;
 var cursors;
 var fireButton;
 var bulletTime = 0;
+var frameTime = 0;
+var frames;
 
 function create () {
 
     game.world.setBounds(0, 0, 800*4, 600);
+
+    frames = Phaser.Animation.generateFrameNames('frame', 2, 30, '', 2);
+    frames.unshift('frame02');
 
     stars = game.add.group();
 
@@ -80,30 +85,41 @@ function update () {
 
 function updateBullets (lazer) {
 
-    if (lazer.scale.x === 1)
-    {
-        lazer.x += 22;
+    // if (game.time.now > frameTime)
+    // {
+    //     frameTime = game.time.now + 500;
+    // }
+    // else
+    // {
+    //     return;
+    // }
 
-        if (lazer.x > game.world.width)
-        {
-            lazer.kill();
-        }
+    if (lazer.animations.frameName !== 'frame30')
+    {
+        lazer.animations.next();
     }
     else
     {
-        lazer.x -= 22;
-
-        if (lazer.x < 0)
+        if (lazer.scale.x === 1)
         {
-            lazer.kill();
-        }
-    }
+            lazer.x += 16;
 
-    if (lazer.cropRect.width < 244)
-    {
-        lazer.cropRect.x -= 16;
-        lazer.cropRect.width += 16;
-        lazer.updateCrop();
+            if (lazer.x > (game.camera.view.right - 224))
+            {
+                console.log('dead');
+                lazer.kill();
+            }
+        }
+        else
+        {
+            lazer.x -= 16;
+
+            if (lazer.x < (game.camera.view.left - 224))
+            {
+                console.log('dead');
+                lazer.kill();
+            }
+        }
     }
 
 }
@@ -113,23 +129,26 @@ function fireBullet () {
     if (game.time.now > bulletTime)
     {
         //  Grab the first bullet we can from the pool
-        lazer = lazers.getFirstDead(true, player.x + 80 * player.scale.x, player.y + 16, 'lazer');
+        lazer = lazers.getFirstDead(true, player.x + 24 * player.scale.x, player.y + 8, 'lazer');
+
+        lazer.animations.add('fire', frames, 60);
+        lazer.animations.frameName = 'frame02';
 
         lazer.scale.x = player.scale.x;
 
         if (lazer.scale.x === 1)
         {
-            lazer.anchor.x = 1;
+            // lazer.anchor.x = 1;
         }
         else
         {
-            lazer.anchor.x = 0;
+            // lazer.anchor.x = 0;
         }
 
         //  Lazers start out with a width of 96 and expand over time
-        lazer.crop(new Phaser.Rectangle(244-96, 0, 96, 2), true);
+        // lazer.crop(new Phaser.Rectangle(244-96, 0, 96, 2), true);
 
-        bulletTime = game.time.now + 20;
+        bulletTime = game.time.now + 250;
     }
 
 }

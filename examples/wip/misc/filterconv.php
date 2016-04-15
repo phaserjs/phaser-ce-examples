@@ -18,17 +18,17 @@
 
     $raw = 'Paste ShaderToy code in here';
 
-    // $output = "this.fragmentSrc = [\n";
-    // $output .= "\t\"precision mediump float;\",\n";
-    // $output .= "\t\"uniform vec3      iResolution;\",\n";
-    // $output .= "\t\"uniform float     iGlobalTime;\",\n";
-    // $output .= "\t\"uniform float     iChannelTime[4];\",\n";
-    // $output .= "\t\"uniform vec4      iMouse;\",\n";
-    // $output .= "\t\"uniform vec4      iDate;\",\n";
-    // $output .= "\t\"uniform vec3      iChannelResolution[4];\",\n";
-    // $output .= "\t\"uniform sampler2D iChannel0;\",\n";
-    // $output .= "\t\"// add any extra uniforms here\",\n";
-    // $output .= "\n";
+    $output = "this.fragmentSrc = [\n";
+    $output .= "\t\"precision mediump float;\",\n";
+    $output .= "\t\"uniform vec3      iResolution;\",\n";
+    $output .= "\t\"uniform float     iGlobalTime;\",\n";
+    $output .= "\t\"uniform float     iChannelTime[4];\",\n";
+    $output .= "\t\"uniform vec4      iMouse;\",\n";
+    $output .= "\t\"uniform vec4      iDate;\",\n";
+    $output .= "\t\"uniform vec3      iChannelResolution[4];\",\n";
+    $output .= "\t\"uniform sampler2D iChannel0;\",\n";
+    $output .= "\t\"// add any extra uniforms here\",\n";
+    $output .= "\n";
 
 /*
 uniform vec3      iResolution;           // viewport resolution (in pixels)
