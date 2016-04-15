@@ -18,6 +18,7 @@ var fireButton;
 var bulletTime = 0;
 var frameTime = 0;
 var frames;
+var prevCamX = 0;
 
 function create () {
 
@@ -50,6 +51,8 @@ function create () {
     cursors = game.input.keyboard.createCursorKeys();
     fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
+    prevCamX = game.camera.x;
+
 }
 
 function update () {
@@ -81,6 +84,8 @@ function update () {
 
     lazers.forEachAlive(updateBullets, this);
 
+    prevCamX = game.camera.x;
+
 }
 
 function updateBullets (lazer) {
@@ -94,6 +99,10 @@ function updateBullets (lazer) {
     //     return;
     // }
 
+    //  Adjust for camera scrolling
+    var camDelta = game.camera.x - prevCamX;
+    lazer.x += camDelta;
+
     if (lazer.animations.frameName !== 'frame30')
     {
         lazer.animations.next();
@@ -106,7 +115,6 @@ function updateBullets (lazer) {
 
             if (lazer.x > (game.camera.view.right - 224))
             {
-                console.log('dead');
                 lazer.kill();
             }
         }
@@ -116,7 +124,6 @@ function updateBullets (lazer) {
 
             if (lazer.x < (game.camera.view.left - 224))
             {
-                console.log('dead');
                 lazer.kill();
             }
         }
