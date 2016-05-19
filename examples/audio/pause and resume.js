@@ -1,4 +1,6 @@
 
+window.PhaserGlobal = { disableWebAudio: true };
+
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
@@ -6,7 +8,8 @@ function preload() {
     game.load.image('disk', 'assets/sprites/ra_dont_crack_under_pressure.png');
 
     //  Firefox doesn't support mp3 files, so use ogg
-    game.load.audio('boden', ['assets/audio/bodenstaendig_2000_in_rock_4bit.mp3', 'assets/audio/bodenstaendig_2000_in_rock_4bit.ogg']);
+    // game.load.audio('boden', ['assets/audio/bodenstaendig_2000_in_rock_4bit.mp3', 'assets/audio/bodenstaendig_2000_in_rock_4bit.ogg']);
+    game.load.audio('boden', ['assets/audio/time.mp3']);
 
 }
 
