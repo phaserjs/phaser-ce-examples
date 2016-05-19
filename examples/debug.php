@@ -149,7 +149,7 @@
         <script src="_site/js/CanvasToBlob.js" type="text/javascript"></script>
         <script src="_site/js/FileSaver.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="_site/css/debug.css" />
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+        <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css"> -->
         <?php
             if ($target == 'div')
             {
