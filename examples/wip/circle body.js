@@ -50,7 +50,7 @@ function create() {
     ball1.body.setCircle(45);
     ball2.body.setCircle(45);
 
-    ball1.body.immovable = true;
+    // ball1.body.immovable = true;
 
     // ball2.body.mass = 3;
 
