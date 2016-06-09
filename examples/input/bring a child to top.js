@@ -23,8 +23,10 @@ function create() {
     {
         var img = game.rnd.pick(images);
         var tempSprite = game.add.sprite(game.world.randomX, game.world.randomY, img);
+        tempSprite.name = i.toString() + '-' + img;
         tempSprite.inputEnabled = true;
         tempSprite.input.enableDrag(false, true);
+        tempSprite.events.onInputDown.add(function(s){console.log('clicked',s.name,s.renderOrderID)});
     }
 
 }
