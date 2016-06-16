@@ -3,9 +3,8 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 
 function preload() {
 
-    game.load.image('leon', 'assets/pics/shocktroopers_leon.png');
-    game.load.image('toy', 'assets/pics/shocktroopers_toy.png');
     game.load.image('pic', 'assets/pics/spaceship.png');
+    game.load.image('pangball', 'assets/sprites/pangball.png');
 
 }
 
@@ -13,14 +12,23 @@ function create() {
 
     var pic = game.add.sprite(0, 0, 'pic');
 
-    var sprite1 = game.add.sprite(0, 0, 'leon');
-    var sprite2 = game.add.sprite(0, 0, 'toy');
+    game.world.createMultiple(12, 'pangball', 0, true);
 
     //  center the picture in the world
-    pic.alignTo(game.world.bounds, Phaser.MIDDLE_CENTER);
+    pic.alignIn(game.world.bounds, Phaser.CENTER);
 
-    //  align the two sprites into the bottom corners of the picture
-    sprite1.alignTo(pic, Phaser.BOTTOM_RIGHT);
-    sprite2.alignTo(pic, Phaser.BOTTOM_LEFT);
+    //  Align all of the sprites around the picture
+    game.world.getChildAt(1).alignTo(pic, Phaser.TOP_LEFT);
+    game.world.getChildAt(2).alignTo(pic, Phaser.TOP_CENTER);
+    game.world.getChildAt(3).alignTo(pic, Phaser.TOP_RIGHT);
+    game.world.getChildAt(4).alignTo(pic, Phaser.LEFT_TOP);
+    game.world.getChildAt(5).alignTo(pic, Phaser.LEFT_CENTER);
+    game.world.getChildAt(6).alignTo(pic, Phaser.LEFT_BOTTOM);
+    game.world.getChildAt(7).alignTo(pic, Phaser.RIGHT_TOP);
+    game.world.getChildAt(8).alignTo(pic, Phaser.RIGHT_CENTER);
+    game.world.getChildAt(9).alignTo(pic, Phaser.RIGHT_BOTTOM);
+    game.world.getChildAt(10).alignTo(pic, Phaser.BOTTOM_LEFT);
+    game.world.getChildAt(11).alignTo(pic, Phaser.BOTTOM_CENTER);
+    game.world.getChildAt(12).alignTo(pic, Phaser.BOTTOM_RIGHT);
 
 }
