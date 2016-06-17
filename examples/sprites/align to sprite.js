@@ -4,7 +4,7 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 function preload() {
 
     game.load.image('pic', 'assets/pics/spaceship.png');
-    game.load.image('pangball', 'assets/sprites/pangball.png');
+    game.load.image('pangball', 'assets/sprites/32x32.png');
 
 }
 
@@ -14,7 +14,7 @@ function create() {
 
     game.world.createMultiple(12, 'pangball', 0, true);
 
-    //  center the picture in the world
+    //  Center the picture in the world
     pic.alignIn(game.world.bounds, Phaser.CENTER);
 
     //  Align all of the sprites around the picture
