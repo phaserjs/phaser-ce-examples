@@ -16,12 +16,14 @@
     //  testing a pre-built Phaser JS file instead. Specify here the
     //  filename it should switch to (file must exist in the examples/_site/phaser folder)
     // $config_phaser_min = 'phaser.js';
+    $config_phaser_min = 'phaser.2.4.9.min.js';
     // $config_phaser_min = 'phaser.2.4.8.min.js';
-    $config_phaser_min = 'phaser.2.4.7.min.js';
+    // $config_phaser_min = 'phaser.2.4.7.min.js';
     // $config_phaser_min = 'phaser.2.4.6.min.js';
     // $config_phaser_min = 'phaser.2.4.4.min.js';
     // $config_phaser_min = 'phaser.2.4.3.min.js';
     // $config_phaser_min = 'phaser.2.4.1.min.js';
+    // $config_phaser_min = 'phaser.2.4.0.min.js';
     // $config_phaser_min = 'phaser.2.0.0.min.js';
 
 ?>
