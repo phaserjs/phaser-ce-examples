@@ -19,8 +19,7 @@ function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
     sprite = game.add.sprite(200, 300, 'clown');
-    // block = game.add.sprite(400, 280-300, 'block');
-    block = game.add.sprite(400, 280, 'block');
+    block = game.add.sprite(600, 280, 'block');
 
     game.physics.arcade.enable(sprite);
     game.physics.arcade.enable(block);
@@ -38,15 +37,14 @@ function create() {
 
 function move() {
 
-    // sprite.body.moveTo(2000, 300, Phaser.ANGLE_RIGHT);
-    // sprite.body.moveTo(1000, -100, Phaser.ANGLE_RIGHT);
+    //  Move the Body 300 pixels to the right, over 2000 ms
+    sprite.body.moveTo(2000, 300, Phaser.ANGLE_RIGHT);
 
     // sprite.body.stopVelocityOnCollide = false;
     // sprite.body.moveTo(Phaser.ANGLE_RIGHT, 2000, 400);
 
     // sprite.body.moveFrom(2000, 100, Phaser.ANGLE_RIGHT);
-
-    sprite.body.moveFrom(2000, 100, 300);
+    // sprite.body.moveFrom(2000, 100, 300);
 
     startTime = game.time.time;
     duration = 0;

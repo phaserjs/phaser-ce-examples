@@ -30,32 +30,48 @@ function create() {
     //  No anchor set
     sprite2 = game.add.sprite(200, 250, 'orb');
 
-    rect = new Phaser.Rectangle(100, 50, 600, 500);
-    // rect = new Phaser.Rectangle(100, 50, 60, 500);
+    rect = new Phaser.Rectangle(200, 200, 400, 300);
+
+    //  Aligns the sprites to the outside of the Rectangle
+    sprite1.alignTo(rect, Phaser.TOP_CENTER);
+    sprite2.alignTo(rect, Phaser.BOTTOM_RIGHT);
+    sprite3.alignTo(rect, Phaser.LEFT_CENTER);
 
     // sprite1.alignTo(rect, Phaser.TOP_LEFT);
     // sprite2.alignTo(rect, Phaser.TOP_LEFT);
     // sprite3.alignTo(rect, Phaser.TOP_LEFT);
 
-    sprite1.alignTo(rect, Phaser.TOP_CENTER);
-    sprite2.alignTo(rect, Phaser.TOP_CENTER);
-    sprite3.alignTo(rect, Phaser.TOP_CENTER);
+    // sprite1.alignTo(rect, Phaser.TOP_CENTER);
+    // sprite2.alignTo(rect, Phaser.TOP_CENTER);
+    // sprite3.alignTo(rect, Phaser.TOP_CENTER);
 
     // sprite1.alignTo(rect, Phaser.TOP_RIGHT);
     // sprite2.alignTo(rect, Phaser.TOP_RIGHT);
     // sprite3.alignTo(rect, Phaser.TOP_RIGHT);
 
-    // sprite1.alignTo(rect, Phaser.MIDDLE_LEFT);
-    // sprite2.alignTo(rect, Phaser.MIDDLE_LEFT);
-    // sprite3.alignTo(rect, Phaser.MIDDLE_LEFT);
+    // sprite1.alignTo(rect, Phaser.LEFT_TOP);
+    // sprite2.alignTo(rect, Phaser.LEFT_TOP);
+    // sprite3.alignTo(rect, Phaser.LEFT_TOP);
 
-    // sprite1.alignTo(rect, Phaser.MIDDLE_CENTER);
-    // sprite2.alignTo(rect, Phaser.MIDDLE_CENTER);
-    // sprite3.alignTo(rect, Phaser.MIDDLE_CENTER);
+    // sprite1.alignTo(rect, Phaser.LEFT_CENTER);
+    // sprite2.alignTo(rect, Phaser.LEFT_CENTER);
+    // sprite3.alignTo(rect, Phaser.LEFT_CENTER);
 
-    // sprite1.alignTo(rect, Phaser.MIDDLE_RIGHT);
-    // sprite2.alignTo(rect, Phaser.MIDDLE_RIGHT);
-    // sprite3.alignTo(rect, Phaser.MIDDLE_RIGHT);
+    // sprite1.alignTo(rect, Phaser.LEFT_BOTTOM);
+    // sprite2.alignTo(rect, Phaser.LEFT_BOTTOM);
+    // sprite3.alignTo(rect, Phaser.LEFT_BOTTOM);
+
+    // sprite1.alignTo(rect, Phaser.RIGHT_TOP);
+    // sprite2.alignTo(rect, Phaser.RIGHT_TOP);
+    // sprite3.alignTo(rect, Phaser.RIGHT_TOP);
+
+    // sprite1.alignTo(rect, Phaser.RIGHT_CENTER);
+    // sprite2.alignTo(rect, Phaser.RIGHT_CENTER);
+    // sprite3.alignTo(rect, Phaser.RIGHT_CENTER);
+
+    // sprite1.alignTo(rect, Phaser.RIGHT_BOTTOM);
+    // sprite2.alignTo(rect, Phaser.RIGHT_BOTTOM);
+    // sprite3.alignTo(rect, Phaser.RIGHT_BOTTOM);
 
     // sprite1.alignTo(rect, Phaser.BOTTOM_LEFT);
     // sprite2.alignTo(rect, Phaser.BOTTOM_LEFT);

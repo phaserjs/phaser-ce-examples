@@ -33,15 +33,6 @@ function create() {
     //  The smaller the value, the smooth the camera (and the longer it takes to catch up)
     game.camera.follow(player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
 
-    game.input.onDown.add(shake, this);
-
-}
-
-function shake() {
-
-    //  You can set your own intensity and duration
-    game.camera.shake(0.05, 500);
-
 }
 
 function update() {
@@ -70,6 +61,6 @@ function update() {
 
 function render() {
 
-    game.debug.text("Arrows to move. Click to shake", 32, 32);
+    game.debug.text("Arrows to move.", 32, 32);
 
 }

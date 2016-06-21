@@ -4,6 +4,7 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 function preload() {
 
     game.load.image('loop', 'assets/sprites/loop.png');
+    game.load.atlas('seacreatures', 'assets/sprites/seacreatures_json.png', 'assets/sprites/seacreatures_json.json');
 
 }
 
@@ -20,6 +21,8 @@ function create() {
 	//	Note that any properties you set here will be replicated when the Sprite is drawn
 	// loop.scale.set(2);
 
+    crab = game.make.sprite(0, 0, 'seacreatures', 'crab10015');
+
 	//	This is the BitmapData we're going to be drawing to
 	bmd = game.add.bitmapData(game.width, game.height);
 	bmd.addToWorld();
@@ -27,7 +30,9 @@ function create() {
 	//	Disables anti-aliasing when we draw sprites to the BitmapData
 	bmd.smoothed = false;
 
-    game.input.addMoveCallback(paint, this);
+	bmd.draw(crab, 10, 10);
+
+    // game.input.addMoveCallback(paint, this);
 
 }
 

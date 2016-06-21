@@ -33,14 +33,23 @@ function create() {
     //  The smaller the value, the smooth the camera (and the longer it takes to catch up)
     game.camera.follow(player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
 
-    game.input.onDown.add(shake, this);
+    //  Listen for this signal to reset once the fade is over
+    game.camera.onFadeComplete.add(resetFade, this);
+
+    game.input.onDown.add(fade, this);
 
 }
 
-function shake() {
+function fade() {
 
-    //  You can set your own intensity and duration
-    game.camera.shake(0.05, 500);
+    //  You can set your own fade color and duration
+    game.camera.fade(0x000000, 4000);
+
+}
+
+function resetFade() {
+
+    game.camera.resetFX();
 
 }
 
@@ -70,6 +79,6 @@ function update() {
 
 function render() {
 
-    game.debug.text("Arrows to move. Click to shake", 32, 32);
+    game.debug.text("Arrows to move. Click to fade", 32, 32);
 
 }
