@@ -141,8 +141,6 @@ P2Game.StateB.prototype = {
 
         this.game.stage.backgroundColor = '#008060';
 
-        this.physics.startSystem(Phaser.Physics.P2JS);
-
         this.physics.p2.restitution = 0.9;
 
         this.contra = this.add.sprite(500, 200, 'contra2');
@@ -252,8 +250,6 @@ P2Game.StateC.prototype = {
     create: function () {
 
         this.game.stage.backgroundColor = '#004a80';
-
-        this.physics.startSystem(Phaser.Physics.P2JS);
 
         this.physics.p2.restitution = 0.5;
 
