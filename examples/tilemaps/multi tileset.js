@@ -4,7 +4,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 
 function preload () {
 
-    game.load.tilemap('map', 'assets/tilemaps/maps/multi-layer-multi-tileset.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap('map', 'assets/tilemaps/maps/multi-tileset.json', null, Phaser.Tilemap.TILED_JSON);
 
     game.load.image('platforms', 'assets/tilemaps/tiles/kenny_platformer_64x64.png');
     game.load.image('ground', 'assets/tilemaps/tiles/kenny_ground_64x64.png');
@@ -33,8 +33,6 @@ function create () {
 
     //  Then create the layers
     var layer1 = map.createLayer('Tile Layer 1');
-    var layer2 = map.createLayer('Tile Layer 2');
-    var layer3 = map.createLayer('Tile Layer 3');
 
     layer1.resizeWorld();
 
