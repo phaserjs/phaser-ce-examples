@@ -43,6 +43,15 @@ function create () {
 
     cursors = game.input.keyboard.createCursorKeys();
 
+    game.input.onDown.add(shake, this);
+
+}
+
+function shake() {
+
+    //  You can set your own intensity and duration
+    game.camera.shake(0.05, 500);
+
 }
 
 function update () {
