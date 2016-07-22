@@ -203,7 +203,7 @@ function update() {
     {
         player.body.velocity.x = -150;
 
-        if (facing != 'left')
+        if (facing !== 'left')
         {
             player.animations.play('left');
             facing = 'left';
@@ -213,7 +213,7 @@ function update() {
     {
         player.body.velocity.x = 150;
 
-        if (facing != 'right')
+        if (facing !== 'right')
         {
             player.animations.play('right');
             facing = 'right';
@@ -221,11 +221,11 @@ function update() {
     }
     else
     {
-        if (facing != 'idle')
+        if (facing !== 'idle')
         {
             player.animations.stop();
 
-            if (facing == 'left')
+            if (facing === 'left')
             {
                 player.frame = 0;
             }
