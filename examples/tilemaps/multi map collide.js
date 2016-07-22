@@ -31,16 +31,16 @@ function create() {
     map.setCollision(40);
     
     layer = map.createLayer('World1', 600);
-    layer.x = 64;
+    layer.x = 132;
     layer.y = 48;
 
     layer2 = map.createLayer('World1', 600);
-    layer2.x = 64;
+    layer2.x = 32;
     layer2.y = 316;
 
     game.world.setBounds(0, 0, layer.widthInPixels * layer.scale.x, 600);
 
-    p = game.add.sprite(64, 200, 'player');
+    p = game.add.sprite(128, 200, 'player');
 
     game.physics.arcade.enable(p);
 
