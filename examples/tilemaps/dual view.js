@@ -35,7 +35,7 @@ function create () {
 
     //  Then create the layers
     var layerLeft = map.createLayer('Left', 400, 600);
-    var layerRight = map.createLayer('Right', 400, 600);
+    var layerRight = map.createLayer('Left', 400, 600);
 
     layerRight.x = 404;
 
