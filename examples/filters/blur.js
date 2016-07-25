@@ -17,6 +17,9 @@ function create() {
 	var blurX = game.add.filter('BlurX');
 	var blurY = game.add.filter('BlurY');
 
+    blurX.blur = 100;
+    blurY.blur = 1;
+
 	logo.filters = [blurX, blurY];
 
 }

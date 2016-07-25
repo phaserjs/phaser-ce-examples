@@ -21,13 +21,13 @@ function create() {
     leftEmitter.bounce.setTo(0.5, 0.5);
     leftEmitter.setXSpeed(100, 200);
     leftEmitter.setYSpeed(-50, 50);
-    leftEmitter.makeParticles('balls', 0, 250, 1, true);
+    leftEmitter.makeParticles('balls', 0, 250, true, true);
 
     rightEmitter = game.add.emitter(game.world.width - 50, game.world.centerY - 200);
     rightEmitter.bounce.setTo(0.5, 0.5);
     rightEmitter.setXSpeed(-100, -200);
     rightEmitter.setYSpeed(-50, 50);
-    rightEmitter.makeParticles('balls', 1, 250, 1, true);
+    rightEmitter.makeParticles('balls', 1, 250, true, true);
 
     // explode, lifespan, frequency, quantity
     leftEmitter.start(false, 5000, 20);
