@@ -38,35 +38,18 @@ function preload() {
 
 function create() {
 
-    game.renderer.renderSession.roundPixels = true;
-
-    var keys = ['mushroom', 'clown', 'beball', 'coke', 'asuna', 
-    'bikkuriman', 'bsquad1', 'bsquad2', 'bsquad3', 'car', 
-    'carrot', 'duck', 'diamond', 'eggplant', 'firstaid'];
+    var keys = game.cache.getKeys();
 
     var group = game.add.group();
 
-    //  Here we create just 210 sprites, each one using one of 15 different textures.
-    //  The sprites are interleaved, meaning the WebGL batch will flush
-    //  between every single sprite, because each one uses a different base texture.
-
-    for (var i = 0; i < 15 * 14; i++)
+    for (var i = 0; i < 200; i++)
     {
-        var sprite = group.create(0, 0, keys[i % 15]);
-        sprite.smoothed = false;
+        var sprite = group.create(game.world.randomX, game.world.randomY, keys[i % keys.length]);
     }
 
-    console.log(group.total);
+    //  104 draws, 937 calls with
+    //  202 draws, 1821 calls without - so exactly 50% saving
 
-    group.align(16, -1, 50, 44, Phaser.CENTER);
-
-    //  Using just one single GPU texture (the default) the above scene, with just
-    //  210 sprites, will require 212 WebGL draw operations and a staggering 1911 WebGL calls.
-
-    //  And using multiple GPU textures ...
     game.renderer.setTexturePriority(keys);
-
-    //  The whole scene takes just 2 draw operations, one of which is clearing the screen,
-    //  and just 19 operations in total. The performance difference is staggering.
 
 }
