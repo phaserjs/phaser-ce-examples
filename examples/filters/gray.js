@@ -9,11 +9,19 @@ function preload() {
 
 function create() {
 
-  var logo = game.add.sprite(game.world.centerX, game.world.centerY, 'phaser');
-  logo.anchor.setTo(0.5, 0.5);
+    for (var i = 0; i < 8; i++)
+    {
+        var logo = game.add.sprite(game.world.randomX, -150 + game.world.randomY, 'phaser');
+        logo.anchor.set(0.5);
+        logo.scale.set(game.rnd.realInRange(0.2, 1));
+        game.add.tween(logo).to({ y: "+300" }, 1000 + game.rnd.between(1000,2000), "Bounce.easeOut", true, 0, -1, true);
+    }
 
-  var gray = game.add.filter('Gray');
+    // var logo = game.add.sprite(game.world.centerX, game.world.centerY, 'phaser');
+    // logo.anchor.setTo(0.5, 0.5);
 
-  logo.filters = [gray];
+    var gray = game.add.filter('Gray');
+
+    game.world.filters = [gray];
 
 }
