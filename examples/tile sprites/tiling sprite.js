@@ -7,8 +7,7 @@ var cursors;
 
 function preload() {
 
-    // game.load.image('starfield', 'assets/misc/starfield.jpg');
-    game.load.image('starfield', 'assets/tstest.png');
+    game.load.image('starfield', 'assets/misc/starfield.jpg');
 
 }
 
