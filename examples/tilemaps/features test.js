@@ -3,7 +3,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 
 function preload() {
 
-    game.load.tilemap('map', 'assets/tilemaps/maps/features_test.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap('map', 'assets/tilemaps/maps/features_test_rotated.json', null, Phaser.Tilemap.TILED_JSON);
 
     game.load.image('ground_1x1', 'assets/tilemaps/tiles/ground_1x1.png');
     game.load.image('walls_1x2', 'assets/tilemaps/tiles/walls_1x2.png');

@@ -5,10 +5,13 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 function preload() {
 
     game.load.image('diver', 'assets/sprites/treasure_trap.png');
+    game.load.image('ball', 'assets/sprites/spinObj_01.png');
 
 }
 
 var sprite;
+var sprite2;
+var conair;
 var texture;
 
 function create() {
@@ -16,8 +19,12 @@ function create() {
     texture = game.add.renderTexture(game.width, game.height);
     game.add.sprite(0, 0, texture);
 
-    sprite = game.add.sprite(127, 143, 'diver');
+    conair = game.add.group();
+    sprite = conair.create(256, 256, 'diver');
     sprite.anchor.set(0.5);
+
+    sprite2 = game.make.sprite(200, 200, 'ball');
+    sprite2.anchor.set(0.5);
 
     game.add.tween(sprite.scale).to( { x: 0.2, y: 0.2 }, 2000, "Sine.easeInOut", true, 500, -1, true);
 
@@ -29,13 +36,15 @@ function create() {
 
 function drawSprite() {
 
-    texture.render(sprite);
+    texture.render(conair);
+    texture.renderXY(sprite2);
 
 }
 
 function update() {
 
     sprite.rotation += 0.01;
+    sprite2.rotation += 0.01;
 
     sprite.x = game.input.activePointer.x;
     sprite.y = game.input.activePointer.y;

@@ -40,7 +40,7 @@
     </head>
     <body>
 
-        <div id="parent1"></div>
+        <!-- <div id="parent1"></div> -->
 
         <script type="text/javascript">
 //  Normal fixed pixel size game
@@ -65,7 +65,7 @@ function preload() {
 
     game.stage.backgroundColor = '#4d4d4d';
 
-    game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
+    // game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
 
     //  Allow these to be percentages?
     // game.scale.minWidth = 480;
@@ -80,11 +80,11 @@ function create() {
     sprite = game.add.sprite(game.world.centerX, game.world.centerY, 'einstein');
     sprite.anchor.set(0.5);
 
-    // sprite = game.add.sprite(0, 0, 'einstein');
+    sprite = game.add.sprite(0, 0, 'einstein');
 
-    cursors = game.input.keyboard.createCursorKeys();
+    // cursors = game.input.keyboard.createCursorKeys();
 
-    game.scale.setResizeCallback(resize, this);
+    // game.scale.setResizeCallback(resize, this);
 
 }
 

@@ -22,6 +22,8 @@ function create() {
     //  each time we click
     layer = map.createLayer(0, 400, 200);
 
+    layer.scale.set(2);
+
     layer.resizeWorld();
 
     cursors = game.input.keyboard.createCursorKeys();
@@ -32,14 +34,22 @@ function create() {
 
 function resize() {
 
-    // 400,500,600,700,800
-    // 200,300,400,500,600
+    // layer.offset.x += 50;
 
-    if (layer.width < 800)
+    if (layer.displayWidth !== undefined)
     {
-        var w = layer.width + 100;
-        var h = layer.height + 100;
+        var w = layer.displayWidth + 100;
+        var h = layer.displayHeight + 100;
         layer.resize(w, h);
+    }
+    else
+    {
+        if (layer.width < 800)
+        {
+            var w = layer.width + 100;
+            var h = layer.height + 100;
+            layer.resize(w, h);
+        }
     }
 
 }
@@ -48,20 +58,20 @@ function update() {
 
     if (cursors.up.isDown)
     {
-        game.camera.y--;
+        game.camera.y -= 4;
     }
     else if (cursors.down.isDown)
     {
-        game.camera.y++;
+        game.camera.y += 4;
     }
 
     if (cursors.left.isDown)
     {
-        game.camera.x--;
+        game.camera.x -= 4;
     }
     else if (cursors.right.isDown)
     {
-        game.camera.x++;
+        game.camera.x += 4;
     }
 
 }

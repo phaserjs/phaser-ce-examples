@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="16" tilewidth="64" tileheight="64" nextobjectid="1">
+ <tileset firstgid="1" name="kenny_items_64x64" tilewidth="64" tileheight="64">
+  <image source="../tiles/kenny_items_64x64.png" width="512" height="256"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzNj8ENhDAMBC0QSHnAi7wIvbiUlOJSKMWlMRBX4MfpIq2ISMY7Efn9OkXu97uLdPZSyERmcpBGFrKRSi6yjvvfKsHzr2f6p+CZ25lpzDH2RpfRaXQbDoaL4WTcNzoNV5Ph+fE12X8Ev433K7OVDmWucqZ0Kw7KudKhuCmOiqu+XAt+SfYvwbfxfme20+F0OZ3OuXPmuDhOjpvj6Lh6eN/xjlR/DX5O8lfwU5Jfgy9Jfg/+TPL/tB7n+yIn
+  </data>
+ </layer>
+</map>
