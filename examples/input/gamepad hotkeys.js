@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update:update });
+game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update:update });
 
 function preload() {
 
@@ -22,6 +22,13 @@ function update() {
     } else {
         indicator.animations.frame = 1;
     }
+
+    var p = game.input.gamepad.pad1;
+
+    if (p.isDown(Phaser.Gamepad.BUTTON_0)) addPhaserDude();
+    if (p.isDown(Phaser.Gamepad.BUTTON_1)) addPhaserLogo();
+    if (p.isDown(Phaser.Gamepad.BUTTON_2)) addPineapple();
+
 }
 
 function create() {
@@ -36,16 +43,7 @@ function create() {
     indicator.animations.frame = 1;
 
     //  Here we create 3 "hotkey buttons" for Gamepad #1, buttons 0-2 and bind them all to their own functions
-
-    button1 = game.input.gamepad.pad1.addButton(Phaser.Gamepad.BUTTON_0);
-    button1.onDown.add(addPhaserDude, this);
-
-    button2 = game.input.gamepad.pad1.addButton(Phaser.Gamepad.BUTTON_1);
-    button2.onDown.add(addPhaserLogo, this);
-
-    button3 = game.input.gamepad.pad1.addButton(Phaser.Gamepad.BUTTON_2);
-    button3.onDown.add(addPineapple, this);
-
+    game.input.gamepad.pad1.reset();
 }
 
 function addPhaserDude () {
