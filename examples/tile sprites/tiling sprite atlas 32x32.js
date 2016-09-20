@@ -13,9 +13,10 @@ var sprite2;
 var count = 0;
 
 function create() {
-    game.renderer.setTexturePriority(['pwr2']);
-    sprite1 = game.add.tileSprite(0, 0, 512, 512, 'pwr2', 'mushroom2');
-    sprite2 = game.add.tileSprite(0, 0, 511, 511, 'pwr2', 'hotdog');
+
+    sprite1 = game.add.tileSprite(0, 0, 800, 600, 'pwr2', 'mushroom2');
+    sprite2 = game.add.tileSprite(0, 0, 800, 600, 'pwr2', 'hotdog');
+
 }
 
 function update() {

@@ -17,7 +17,7 @@ function preload() {
 var sprite;
 
 function create() {
-    game.renderer.setTexturePriority(['mummy']);
+
     sprite = game.add.tileSprite(0, 0, 800, 600, 'mummy');
     sprite.animations.add('walk');
     sprite.animations.play('walk', 20, true);
