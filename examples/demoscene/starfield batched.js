@@ -22,7 +22,7 @@ function create() {
     {
         max = 2000;
     }
-
+    debugger;
     var sprites = game.add.spriteBatch();
 
     stars = [];

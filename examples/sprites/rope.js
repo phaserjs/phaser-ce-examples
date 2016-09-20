@@ -20,7 +20,6 @@ function create() {
     {
         points.push(new Phaser.Point(i * length, 0));
     }
-
     rope = game.add.rope(32, this.game.world.centerY, 'snake', null, points);
     rope.scale.set(0.8);
 
