@@ -4,7 +4,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 function preload() {
 
     //  The Texture Atlas the font is in
-    game.load.atlas('atlas', 'assets/sprites/atlas_with_font.png', 'assets/sprites/atlas_with_font.json');
+    game.load.atlas('atlas', 'assets/sprites/atlas-mixed.png', 'assets/sprites/atlas-mixed.json');
 
     //  The Bitmap Font data file
     game.load.xml('fontData', 'assets/fonts/bitmapFonts/desyrel.xml');

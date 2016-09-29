@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.2.3</string>
         <key>fileName</key>
-        <string>D:/wamp/www/phaser-examples/examples/assets/sprites/atlas json array trimmed.tps</string>
+        <string>D:/wamp/www/phaser-examples/examples/assets/sprites/atlas mixed.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -36,7 +36,7 @@
         <key>dataFormat</key>
         <string>json</string>
         <key>textureFileName</key>
-        <filename>atlas_hash_trim.png</filename>
+        <filename>atlas-mixed.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -141,7 +141,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>atlas_json_hash_trim.json</filename>
+                <filename>atlas-mixed.json</filename>
             </struct>
             <key>java</key>
             <struct type="DataFile">
