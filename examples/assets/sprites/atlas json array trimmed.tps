@@ -4,9 +4,9 @@
         <key>fileFormatVersion</key>
         <int>4</int>
         <key>texturePackerVersion</key>
-        <string>4.2.3</string>
+        <string>4.2.2</string>
         <key>fileName</key>
-        <string>D:/wamp/www/phaser-examples/examples/assets/sprites/atlas json array trimmed.tps</string>
+        <string>/Users/rich/Documents/phaser-examples/examples/assets/sprites/atlas json array trimmed.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -34,9 +34,9 @@
         <key>dpi</key>
         <uint>72</uint>
         <key>dataFormat</key>
-        <string>json-array</string>
+        <string>json</string>
         <key>textureFileName</key>
-        <filename>phaser3-test1.png</filename>
+        <filename>atlas_with_font.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -70,7 +70,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>0</uint>
+        <uint>2</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -82,13 +82,13 @@
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
-        <uint>0</uint>
+        <uint>2</uint>
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>1024</int>
+            <int>2048</int>
             <key>height</key>
-            <int>1024</int>
+            <int>2048</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -141,7 +141,12 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>phaser3-test1.json</filename>
+                <filename>atlas_with_font.json</filename>
+            </struct>
+            <key>java</key>
+            <struct type="DataFile">
+                <key>name</key>
+                <filename>atlas_json_array_trimmed.java</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -170,7 +175,7 @@
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>extrude</key>
-            <uint>1</uint>
+            <uint>0</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMargin</key>
@@ -189,8 +194,6 @@
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
             <key type="filename">../fonts/bitmapFonts/desyrel.png</key>
-            <key type="filename">../fonts/bitmapFonts/nokia16black.png</key>
-            <key type="filename">../fonts/bitmapFonts/shortStack.png</key>
             <key type="filename">../pics/cactuar.png</key>
             <key type="filename">../pics/contra1.png</key>
             <key type="filename">../pics/contra3.png</key>
@@ -204,14 +207,10 @@
             <key type="filename">diamond.png</key>
             <key type="filename">eggplant.png</key>
             <key type="filename">firstaid.png</key>
-            <key type="filename">hello.png</key>
             <key type="filename">melon.png</key>
-            <key type="filename">metalslug_monster39x40.png</key>
-            <key type="filename">metalslug_mummy37x45.png</key>
             <key type="filename">mushroom.png</key>
             <key type="filename">onion.png</key>
             <key type="filename">oz_pov_melting_disk.png</key>
-            <key type="filename">pacman_by_oz_28x28.png</key>
             <key type="filename">pangball.png</key>
             <key type="filename">pepper.png</key>
             <key type="filename">phaser-dude.png</key>
@@ -257,12 +256,6 @@
             <filename>phaser_tiny.png</filename>
             <filename>carrot.png</filename>
             <filename>../fonts/bitmapFonts/desyrel.png</filename>
-            <filename>metalslug_monster39x40.png</filename>
-            <filename>metalslug_mummy37x45.png</filename>
-            <filename>pacman_by_oz_28x28.png</filename>
-            <filename>../fonts/bitmapFonts/nokia16black.png</filename>
-            <filename>../fonts/bitmapFonts/shortStack.png</filename>
-            <filename>hello.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
