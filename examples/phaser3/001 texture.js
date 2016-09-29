@@ -30,14 +30,14 @@ function render () {
 
     game.context.drawImage(
         frame.source,
-        frame.x,
-        frame.y,
-        frame.width,
-        frame.height,
+        frame.cutX,
+        frame.cutY,
+        frame.cutWidth,
+        frame.cutHeight,
         x,
         y,
-        frame.width,
-        frame.height
+        frame.cutWidth,
+        frame.cutHeight
     );
 
 }

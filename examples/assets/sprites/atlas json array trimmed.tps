@@ -34,9 +34,9 @@
         <key>dpi</key>
         <uint>72</uint>
         <key>dataFormat</key>
-        <string>json</string>
+        <string>json-array</string>
         <key>textureFileName</key>
-        <filename>atlas_hash_trim.png</filename>
+        <filename>phaser3-test1.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -70,7 +70,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>2</uint>
+        <uint>0</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -82,7 +82,7 @@
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
-        <uint>2</uint>
+        <uint>0</uint>
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
@@ -141,12 +141,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>atlas_json_hash_trim.json</filename>
-            </struct>
-            <key>java</key>
-            <struct type="DataFile">
-                <key>name</key>
-                <filename>atlas_json_array_trimmed.java</filename>
+                <filename>phaser3-test1.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -175,7 +170,7 @@
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>extrude</key>
-            <uint>0</uint>
+            <uint>1</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMargin</key>
@@ -209,6 +204,7 @@
             <key type="filename">diamond.png</key>
             <key type="filename">eggplant.png</key>
             <key type="filename">firstaid.png</key>
+            <key type="filename">hello.png</key>
             <key type="filename">melon.png</key>
             <key type="filename">metalslug_monster39x40.png</key>
             <key type="filename">metalslug_mummy37x45.png</key>
@@ -266,6 +262,7 @@
             <filename>pacman_by_oz_28x28.png</filename>
             <filename>../fonts/bitmapFonts/nokia16black.png</filename>
             <filename>../fonts/bitmapFonts/shortStack.png</filename>
+            <filename>hello.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

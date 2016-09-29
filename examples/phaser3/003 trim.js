@@ -3,7 +3,6 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 
 function preload() {
 
-    game.load.image('hello', 'assets/sprites/hello.png');
     game.load.image('atlasImage', 'assets/sprites/phaser3-test1.png');
     game.load.json('atlasData', 'assets/sprites/phaser3-test1.json');
 
@@ -14,6 +13,7 @@ var texture;
 var frame;
 var x = 0;
 var y = 0;
+var anchor = new Phaser.Point();
 
 function create() {
 
@@ -25,10 +25,6 @@ function create() {
 
     frame = texture.get('hello');
 
-    var sprite = game.add.sprite(0, 0, 'hello');
-
-    // x = sprite.width;
-
     // console.log(texture);
     // console.log(texture.frames);
     console.log(frame);
@@ -37,16 +33,19 @@ function create() {
 
 function render () {
 
+    var dx = frame.x - anchor.x * frame.width;
+    var dy = frame.y - anchor.y * frame.height;
+
     game.context.drawImage(
         frame.source,
-        frame.x,
-        frame.y,
-        frame.width,
-        frame.height,
-        x + frame.data.spriteSourceSize.x,
-        y + frame.data.spriteSourceSize.y,
-        frame.width,
-        frame.height
+        frame.cutX,
+        frame.cutY,
+        frame.cutWidth,
+        frame.cutHeight,
+        x + dx,
+        y + dy,
+        frame.cutWidth,
+        frame.cutHeight
     );
 
 }

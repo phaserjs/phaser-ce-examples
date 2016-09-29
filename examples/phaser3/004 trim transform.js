@@ -3,7 +3,6 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 
 function preload() {
 
-    game.load.image('hello', 'assets/sprites/hello.png');
     game.load.image('atlasImage', 'assets/sprites/phaser3-test1.png');
     game.load.json('atlasData', 'assets/sprites/phaser3-test1.json');
 
