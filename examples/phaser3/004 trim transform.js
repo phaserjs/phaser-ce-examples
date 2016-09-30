@@ -19,9 +19,7 @@ function create() {
 
     manager = new Phaser.TextureManager(game);
 
-    texture = manager.create('atlasImage', game.cache.getImage('atlasImage'));
-
-    Phaser.TextureManager.Parsers.JSONArray(texture, game.cache.getJSON('atlasData'));
+    texture = manager.addAtlasJSONArray('atlasImage', game.cache.getImage('atlasImage'), game.cache.getJSON('atlasData'));
 
     frame = texture.get('hello');
 
@@ -48,6 +46,6 @@ function render () {
 
     game.context.setTransform(1, 0, 0, 1, tx, ty);
 
-    game.context.drawImage(frame.source, cx, cy, cw, ch, dx, dy, cw / resolution, ch / resolution);
+    game.context.drawImage(frame.source.image, cx, cy, cw, ch, dx, dy, cw / resolution, ch / resolution);
 
 }

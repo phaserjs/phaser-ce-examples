@@ -19,15 +19,9 @@ function create() {
 
     manager = new Phaser.TextureManager(game);
 
-    texture = manager.create('scroll', game.cache.getImage('scroll'));
-
-    // Phaser.TextureManager.Parsers.JSONArray(texture, game.cache.getJSON('atlasData'));
+    texture = manager.addImage('scroll', game.cache.getImage('scroll'));
 
     frame = texture.get();
-
-    //  w, h, x, y
-    //  undefined = defaults
-    // frame.crop(c);
 
     // console.log(texture);
     // console.log(texture.frames);
@@ -52,7 +46,7 @@ function render () {
 
     game.context.setTransform(1, 0, 0, 1, tx, ty);
 
-    game.context.drawImage(frame.source, cx, cy, cw, ch, dx, dy, cw / resolution, ch / resolution);
+    game.context.drawImage(frame.source.image, cx, cy, cw, ch, dx, dy, cw / resolution, ch / resolution);
 
     c++;
 

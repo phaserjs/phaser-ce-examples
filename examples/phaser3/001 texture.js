@@ -17,7 +17,7 @@ function create() {
 
     manager = new Phaser.TextureManager(game);
 
-    texture = manager.create('einstein', game.cache.getImage('einstein'));
+    texture = manager.addImage('einstein', game.cache.getImage('einstein'));
 
     frame = texture.get();
 
@@ -29,7 +29,7 @@ function create() {
 function render () {
 
     game.context.drawImage(
-        frame.source,
+        frame.source.image,
         frame.cutX,
         frame.cutY,
         frame.cutWidth,

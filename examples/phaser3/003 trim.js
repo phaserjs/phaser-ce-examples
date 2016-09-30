@@ -19,9 +19,7 @@ function create() {
 
     manager = new Phaser.TextureManager(game);
 
-    texture = manager.create('atlasImage', game.cache.getImage('atlasImage'));
-
-    Phaser.TextureManager.Parsers.JSONArray(texture, game.cache.getJSON('atlasData'));
+    texture = manager.addAtlasJSONArray('atlasImage', game.cache.getImage('atlasImage'), game.cache.getJSON('atlasData'));
 
     frame = texture.get('hello');
 
@@ -37,7 +35,7 @@ function render () {
     var dy = frame.y - anchor.y * frame.height;
 
     game.context.drawImage(
-        frame.source,
+        frame.source.image,
         frame.cutX,
         frame.cutY,
         frame.cutWidth,

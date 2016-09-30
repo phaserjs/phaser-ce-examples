@@ -19,15 +19,13 @@ function create() {
 
     manager = new Phaser.TextureManager(game);
 
-    texture = manager.create('monster', game.cache.getImage('monster'));
-
-    Phaser.TextureManager.Parsers.SpriteSheet(texture, 39, 40);
+    texture = manager.addSpriteSheet('monster', game.cache.getImage('monster'), 39, 40);
 
     frame = texture.get(0);
 
     // console.log(texture);
     // console.log(texture.frames);
-    console.log(frame);
+    // console.log(frame);
 
 }
 
@@ -37,7 +35,7 @@ function render () {
     var dy = frame.y - anchor.y * frame.height;
 
     game.context.drawImage(
-        frame.source,
+        frame.source.image,
         frame.cutX,
         frame.cutY,
         frame.cutWidth,
@@ -50,7 +48,7 @@ function render () {
 
     f++;
 
-    if (f === 15)
+    if (f === texture.frameTotal)
     {
         f = 0;
     }

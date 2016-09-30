@@ -1,0 +1,246 @@
+{"frames": [
+
+{
+	"filename": "asuna_by_vali233",
+	"frame": {"x":964,"y":857,"w":55,"h":133},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":55,"h":133},
+	"sourceSize": {"w":55,"h":133},
+	"pivot": {"x":0.463636,"y":0.484962}
+},
+{
+	"filename": "atari1200xl",
+	"frame": {"x":570,"y":857,"w":237,"h":153},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":237,"h":153},
+	"sourceSize": {"w":237,"h":153},
+	"pivot": {"x":0.491561,"y":0.486928}
+},
+{
+	"filename": "atari130xe",
+	"frame": {"x":787,"y":167,"w":224,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":224,"h":108},
+	"sourceSize": {"w":224,"h":108},
+	"pivot": {"x":0.491071,"y":0.481481}
+},
+{
+	"filename": "budbrain_chick",
+	"frame": {"x":719,"y":511,"w":69,"h":137},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":137},
+	"sourceSize": {"w":70,"h":137},
+	"pivot": {"x":0.471429,"y":0.485401}
+},
+{
+	"filename": "cactuar",
+	"frame": {"x":569,"y":167,"w":216,"h":162},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":216,"h":162},
+	"sourceSize": {"w":235,"h":179},
+	"pivot": {"x":0.491489,"y":0.488827}
+},
+{
+	"filename": "contra2",
+	"frame": {"x":421,"y":2,"w":146,"h":226},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":146,"h":226},
+	"sourceSize": {"w":146,"h":226},
+	"pivot": {"x":0.486301,"y":0.49115}
+},
+{
+	"filename": "contra3",
+	"frame": {"x":719,"y":650,"w":250,"h":205},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":205},
+	"sourceSize": {"w":250,"h":205},
+	"pivot": {"x":0.492,"y":0.490244}
+},
+{
+	"filename": "copy-that-floppy",
+	"frame": {"x":830,"y":2,"w":148,"h":152},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":148,"h":152},
+	"sourceSize": {"w":148,"h":152},
+	"pivot": {"x":0.486486,"y":0.486842}
+},
+{
+	"filename": "dragonwiz",
+	"frame": {"x":809,"y":857,"w":153,"h":147},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":153,"h":147},
+	"sourceSize": {"w":153,"h":147},
+	"pivot": {"x":0.486928,"y":0.486395}
+},
+{
+	"filename": "fruitnveg32wh37",
+	"frame": {"x":570,"y":2,"w":258,"h":163},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":258,"h":163},
+	"sourceSize": {"w":260,"h":164},
+	"pivot": {"x":0.492308,"y":0.487805}
+},
+{
+	"filename": "interference_tunnel",
+	"frame": {"x":252,"y":2,"w":164,"h":164},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":164,"h":164},
+	"sourceSize": {"w":164,"h":164},
+	"pivot": {"x":0.487805,"y":0.487805}
+},
+{
+	"filename": "metalslug_monster39x40",
+	"frame": {"x":252,"y":168,"w":159,"h":163},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":159,"h":163},
+	"sourceSize": {"w":160,"h":164},
+	"pivot": {"x":0.4875,"y":0.487805}
+},
+{
+	"filename": "nanoha_taiken_blue",
+	"frame": {"x":408,"y":745,"w":160,"h":228},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":228},
+	"sourceSize": {"w":160,"h":228},
+	"pivot": {"x":0.4875,"y":0.491228}
+},
+{
+	"filename": "nanoha_taiken_pink",
+	"frame": {"x":2,"y":763,"w":204,"h":245},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":204,"h":245},
+	"sourceSize": {"w":204,"h":245},
+	"pivot": {"x":0.490196,"y":0.491837}
+},
+{
+	"filename": "pixi_monsters",
+	"frame": {"x":2,"y":2,"w":248,"h":511},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":248,"h":511},
+	"sourceSize": {"w":260,"h":516},
+	"pivot": {"x":0.492308,"y":0.496124}
+},
+{
+	"filename": "shocktroopers_angel",
+	"frame": {"x":421,"y":513,"w":143,"h":228},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":143,"h":228},
+	"sourceSize": {"w":145,"h":228},
+	"pivot": {"x":0.486207,"y":0.491228}
+},
+{
+	"filename": "shocktroopers_leon2",
+	"frame": {"x":247,"y":515,"w":172,"h":228},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":228},
+	"sourceSize": {"w":172,"h":246},
+	"pivot": {"x":0.488372,"y":0.49187}
+},
+{
+	"filename": "shocktroopers_toy2",
+	"frame": {"x":566,"y":512,"w":151,"h":222},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":151,"h":222},
+	"sourceSize": {"w":152,"h":223},
+	"pivot": {"x":0.486842,"y":0.491031}
+},
+{
+	"filename": "spinObj_03",
+	"frame": {"x":252,"y":333,"w":178,"h":178},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":178},
+	"sourceSize": {"w":178,"h":178},
+	"pivot": {"x":0.488764,"y":0.488764}
+},
+{
+	"filename": "spinObj_04",
+	"frame": {"x":432,"y":332,"w":178,"h":178},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":178},
+	"sourceSize": {"w":178,"h":178},
+	"pivot": {"x":0.488764,"y":0.488764}
+},
+{
+	"filename": "spinObj_05",
+	"frame": {"x":612,"y":331,"w":178,"h":178},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":178},
+	"sourceSize": {"w":178,"h":178},
+	"pivot": {"x":0.488764,"y":0.488764}
+},
+{
+	"filename": "spinObj_06",
+	"frame": {"x":792,"y":277,"w":178,"h":178},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":178},
+	"sourceSize": {"w":178,"h":178},
+	"pivot": {"x":0.488764,"y":0.488764}
+},
+{
+	"filename": "spinObj_07",
+	"frame": {"x":792,"y":457,"w":178,"h":178},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":178},
+	"sourceSize": {"w":178,"h":178},
+	"pivot": {"x":0.488764,"y":0.488764}
+},
+{
+	"filename": "tetrisblock3",
+	"frame": {"x":413,"y":230,"w":148,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":148,"h":100},
+	"sourceSize": {"w":148,"h":100},
+	"pivot": {"x":0.486486,"y":0.48}
+},
+{
+	"filename": "titan_mech",
+	"frame": {"x":2,"y":515,"w":243,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":243,"h":246},
+	"sourceSize": {"w":243,"h":246},
+	"pivot": {"x":0.49177,"y":0.49187}
+},
+{
+	"filename": "vulkaiser_red",
+	"frame": {"x":208,"y":763,"w":198,"h":233},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":198,"h":233},
+	"sourceSize": {"w":199,"h":233},
+	"pivot": {"x":0.48995,"y":0.491416}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "megasetHD-2.png",
+	"format": "RGBA8888",
+	"size": {"w":1021,"h":1012},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:dd38a603015508376adf694b073b3a9a:d212aa7d5ef3a912a7f699c3795a8933:78287ab19df36dadeb0655d9b198cf32$"
+}
+}
