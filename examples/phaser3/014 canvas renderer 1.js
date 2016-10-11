@@ -7,9 +7,13 @@ function preload() {
 
 }
 
+var image;
+
 function create() {
 
-    game.add.sprite(0, 0, 'einstein');
+    image = game.add.image(0, 0, 'einstein');
+
+    console.dir(image);
 
 }
 
