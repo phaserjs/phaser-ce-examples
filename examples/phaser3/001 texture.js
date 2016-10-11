@@ -7,7 +7,6 @@ function preload() {
 
 }
 
-var manager;
 var texture;
 var frame;
 var x = 64;
@@ -15,13 +14,11 @@ var y = 32;
 
 function create() {
 
-    manager = new Phaser.TextureManager(game);
+    // texture = game.textures.addImage('einstein', game.cache.getImage('einstein'));
 
-    texture = manager.addImage('einstein', game.cache.getImage('einstein'));
+    frame = game.textures.getFrame('einstein');
 
-    frame = texture.get();
-
-    console.log(texture);
+    // console.log(texture);
     console.log(frame);
 
 }
