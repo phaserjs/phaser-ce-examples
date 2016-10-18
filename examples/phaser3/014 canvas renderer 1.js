@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, xrender: render });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
 
 function preload() {
 
@@ -7,16 +7,8 @@ function preload() {
 
 }
 
-var image;
-
 function create() {
 
-    image = game.add.image(0, 0, 'einstein');
-
-    console.dir(image);
-
-}
-
-function render () {
+    game.add.image(0, 0, 'einstein', 0, game.stage);
 
 }
