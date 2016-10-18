@@ -11,9 +11,7 @@ var image;
 
 function create() {
 
-    // image = game.add.image(0, 0, 'einstein', null, game.stage);
-
-    image = new Phaser.GameObject.Image(game, 0, 0, 'einstein');
+    image = game.add.image(400, 300, 'einstein', null, game.stage);
 
     image.name = 'bob';
 
@@ -23,8 +21,6 @@ function create() {
 
 function render() {
 
-    // image.render();
-
-    game.renderer.spriteBatch.render(image);
+    // debugger;
 
 }
