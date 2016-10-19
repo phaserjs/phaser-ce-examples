@@ -11,6 +11,6 @@ var image;
 
 function create() {
 
-    image = game.add.image(0, 0, 'einstein', null, game.stage);
+    image = game.add.image(100, 0, 'einstein', null, game.stage);
 
 }

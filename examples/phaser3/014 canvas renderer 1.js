@@ -7,8 +7,10 @@ function preload() {
 
 }
 
+var image;
+
 function create() {
 
-    game.add.image(0, 0, 'einstein', 0, game.stage);
+    image = game.add.image(0, 0, 'einstein', null, game.stage);
 
 }

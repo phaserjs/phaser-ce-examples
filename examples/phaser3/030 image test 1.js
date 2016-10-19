@@ -11,9 +11,7 @@ var image;
 
 function create() {
 
-    // image = game.add.image(0, 0, 'gem');
-
-    image = new Phaser.GameObject.Image(game, 0, 200, 'gem');
+    image = game.add.image(80, 200, 'gem', 0, game.stage);
 
     console.dir(image);
 
@@ -33,12 +31,8 @@ function click () {
 
 function update () {
 
-    image.transform.update();
-
 }
 
 function render () {
-
-    image.render(game.renderer, image);
 
 }
