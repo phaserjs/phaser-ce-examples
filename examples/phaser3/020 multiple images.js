@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
 
@@ -16,7 +16,7 @@ function create() {
 
     for (var i = 0; i < 20; i++)
     {
-        var img = game.add.image(i * 40, 300, 'gem');
+        var img = game.add.image(i * 40, 300, 'gem', 0, game.stage);
 
         img.data.s = 0;
         img.data.c = 0;
