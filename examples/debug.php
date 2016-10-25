@@ -160,8 +160,8 @@
                 }
                 else
                 {
-                    // echo '<script src="_site/phaser/' . $config_phaser_min . '" type="text/javascript"></script>';
-                    echo '<script src="../../phaser/dist/phaser-test.js" type="text/javascript"></script>';
+                    echo '<script src="_site/phaser/' . $config_phaser_min . '" type="text/javascript"></script>';
+                    // echo '<script src="../../phaser/dist/phaser-test.js" type="text/javascript"></script>';
                 }
 
                 if ($modules['box2d'])

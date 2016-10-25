@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
+var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example', { preload: preload, create: create });
 
 function preload() {
 
@@ -14,8 +14,14 @@ function preload() {
 
 function create() {
 
+    var texture = game.textures.get('megaset');
+
+    texture.setTextureIndex(0);
+
     //  This frame is in the 1st atlas file (set0/data0)
     game.add.image(0, 0, 'megaset', 'aya_touhou_teng_soldier', game.stage);
+    game.add.image(0, 400, 'megaset', 'atari800', game.stage);
+    game.add.image(500, 0, 'megaset', 'beball1', game.stage);
 
     //  This frame is in the 2nd atlas file (set1/data1)
     game.add.image(180, 0, 'megaset', 'oz_pov_melting_disk', game.stage);
