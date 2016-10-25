@@ -18,9 +18,7 @@ var sprites = [];
 
 function create() {
 
-    game.renderer.enableMultiTextureSupport(['bg', 'particle', 'logo']);
-
-    game.add.image(0, 0, 'bg', 0, game.stage);
+    game.add.image(0, 0, 'bg');
 
     //  Create the sprites
     for (let i = 0; i < 1000; i++)
@@ -28,16 +26,15 @@ function create() {
         var x = between(-64, 800);
         var y = between(-64, 600);
 
-        var image = game.add.image(x, y, 'particle', 0, game.stage);
+        var image = game.add.image(x, y, 'particle');
 
         image.blendMode = Phaser.blendModes.ADD;
 
         sprites.push({ s: image, r: 2 + Math.random() * 6 });
     }
 
-    var logo = game.add.image(400, 300, 'logo', 0, game.stage);
-    // logo.anchorX = 0.5;
-    // logo.anchorY = 0.5;
+    var logo = game.add.image(game.world.centerX, game.world.centerY, 'logo');
+    logo.anchor.set(0.5);
 
 }
 

@@ -3,6 +3,9 @@ var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example', { preload: 
 
 function preload() {
 
+    game.load.image('bg', 'assets/skies/space1.png');
+    game.load.image('logo', 'assets/sprites/phaser2.png');
+
     game.load.path = 'assets/atlas/';
 
     game.load.multiatlas('megaset', 
@@ -14,9 +17,9 @@ function preload() {
 
 function create() {
 
-    var texture = game.textures.get('megaset');
+    game.renderer.enableMultiTextureSupport(['megaset', 'bg', 'logo']);
 
-    texture.setTextureIndex(0);
+    game.add.image(0, 0, 'bg', 0, game.stage);
 
     //  This frame is in the 1st atlas file (set0/data0)
     game.add.image(0, 0, 'megaset', 'aya_touhou_teng_soldier', game.stage);
@@ -31,5 +34,8 @@ function create() {
 
     //  This frame is in the 4th atlas file (set3/data3)
     game.add.image(340, 0, 'megaset', 'shocktroopers_toy', game.stage);
+
+    //  Separate image
+    game.add.image(200, 200, 'logo', 0, game.stage);
 
 }
