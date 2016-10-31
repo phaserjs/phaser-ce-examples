@@ -3,7 +3,8 @@ var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example', { preload: 
 
 function preload() {
 
-    game.load.image('bg', 'assets/skies/space1.png');
+    game.load.image('bg', 'assets/skies/sky1.png');
+    // game.load.image('particle', 'assets/sprites/aqua_ball.png');
     game.load.image('particle', 'assets/particles/yellow.png');
     game.load.image('logo', 'assets/sprites/phaser2.png');
 
@@ -23,7 +24,7 @@ function create() {
     game.add.image(0, 0, 'bg', 0, game.stage);
 
     //  Create the sprites
-    for (let i = 0; i < 1000; i++)
+    for (let i = 0; i < 500; i++)
     {
         var x = between(-64, 800);
         var y = between(-64, 600);
@@ -31,11 +32,13 @@ function create() {
         var image = game.add.image(x, y, 'particle', 0, game.stage);
 
         image.blendMode = Phaser.blendModes.ADD;
+        // image.blendMode = Phaser.blendModes.MULTIPLY;
 
         sprites.push({ s: image, r: 2 + Math.random() * 6 });
     }
 
     var logo = game.add.image(400, 300, 'logo', 0, game.stage);
+    logo.blendMode = Phaser.blendModes.ADD;
     // logo.blendMode = Phaser.blendModes.MULTIPLY;
     logo.anchor = 0.5;
     logo.scale = 1.2;
