@@ -7,13 +7,13 @@ function between (min, max)
 }
 
 var p;
-var data = { res: 2, pow: 10000, angle: 0.1, height: 6 };
+var data = { res: 4, pow: 10000, angle: 0.1, height: 6 };
 
 function create() {
 
     var hsv = Phaser.Color.HSVColorWheel();
 
-    p = game.add.pixelField(0, 0, 1, game.stage);
+    p = game.add.pixelField(0, 0, 2, game.stage);
 
     for (var x = -100; x <= 100; x += 2)
     {
