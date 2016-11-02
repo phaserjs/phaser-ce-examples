@@ -5,7 +5,8 @@ function preload() {
 
     game.load.image('bg', 'assets/skies/sky1.png');
     game.load.image('particle', 'assets/sprites/aqua_ball.png');
-    game.load.image('logo', 'assets/pics/agent-t-buggin-acf_logo.png');
+    // game.load.image('logo', 'assets/pics/agent-t-buggin-acf_logo.png');
+    game.load.image('logo', 'assets/sprites/phaser2.png');
 
 }
 
