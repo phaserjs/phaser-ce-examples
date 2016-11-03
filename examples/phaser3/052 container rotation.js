@@ -24,7 +24,7 @@ var container5;
 
 function create() {
 
-    // game.renderer.enableMultiTextureSupport(['ball1', 'ball2', 'ball3', 'ball4', 'ball5']);
+    game.renderer.enableMultiTextureSupport(['ball1', 'ball2', 'ball3', 'ball4', 'ball5']);
 
     for (var i = 1; i <= 5; i++)
     {
