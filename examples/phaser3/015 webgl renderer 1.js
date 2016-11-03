@@ -3,7 +3,7 @@ var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example', { preload: 
 
 function preload() {
 
-    game.load.image('einstein', 'assets/pics/ra_einstein.png');
+    game.load.image('einstein', 'assets/pics/bw-face.png');
 
 }
 
@@ -11,6 +11,6 @@ var image;
 
 function create() {
 
-    image = game.add.image(100, 0, 'einstein', null, game.stage);
+    image = game.add.image(0, 0, 'einstein', null, game.stage);
 
 }
