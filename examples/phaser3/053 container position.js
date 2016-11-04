@@ -36,7 +36,7 @@ function addSprites (container, qty, key) {
 
 function create() {
 
-    // game.renderer.enableMultiTextureSupport(['ball1', 'ball2', 'ball3', 'ball4', 'ball5']);
+    game.renderer.enableMultiTextureSupport(['ball1', 'ball2', 'ball3', 'ball4', 'ball5']);
 
     container1 = game.add.container(game.stage, 0, 0, 'container1');
 
@@ -63,5 +63,6 @@ function create() {
 }
 
 function update() {
+
 
 }
