@@ -24,13 +24,15 @@ test.create = function () {
 
     var i = this.add.image(0, 0, 'barbarian');
 
-    i.scale = 2;
+    window.bob = i;
+
+    // i.scale = 2;
 
 }
 
 test.update = function () {
 
-    this.rotation += 0.01;
+    this.sys.transform.rotation += 0.01;
 
 };
 

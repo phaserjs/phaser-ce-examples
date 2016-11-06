@@ -3,10 +3,10 @@ var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example', { preload: 
 
 function preload() {
 
-    game.load.image('bg', 'assets/skies/sky1.png');
-    game.load.image('particle', 'assets/sprites/aqua_ball.png');
-    // game.load.image('particle', 'assets/particles/yellow.png');
-    game.load.image('logo', 'assets/sprites/phaser2.png');
+    this.load.image('bg', 'assets/skies/sky1.png');
+    this.load.image('particle', 'assets/sprites/aqua_ball.png');
+    // this.load.image('particle', 'assets/particles/yellow.png');
+    this.load.image('logo', 'assets/sprites/phaser2.png');
 
 }
 
@@ -23,9 +23,9 @@ function create() {
 
     game.renderer.enableMultiTextureSupport(['particle', 'logo']);
 
-    game.add.image(0, 0, 'bg', 0, game.stage);
+    this.add.image(0, 0, 'bg');
 
-    p = game.add.pixelField(0, 0, 8, game.stage);
+    p = this.add.pixelField(0, 0, 8);
 
     for (var x = -100; x <= 100; x += 2)
     {
@@ -50,7 +50,7 @@ function create() {
         var x = between(-64, 800);
         var y = between(-64, 600);
 
-        var image = game.add.image(x, y, 'particle', 0, game.stage);
+        var image = this.add.image(x, y, 'particle');
 
         // image.blendMode = Phaser.blendModes.ADD;
         // image.blendMode = Phaser.blendModes.MULTIPLY;
@@ -58,13 +58,13 @@ function create() {
         sprites.push({ s: image, r: 2 + Math.random() * 6 });
     }
 
-    var logo = game.add.image(400, 300, 'logo', 0, game.stage);
+    var logo = this.add.image(400, 300, 'logo');
     logo.anchor = 0.5;
     logo.scale = 0.2;
 
-    game.add.tween(logo).to( { scaleX: 1, scaleY: 1 }, 3000, "Sine.easeInOut", true, 0, -1, true);
-    game.add.tween(data).to( { height: 12 }, 3000, "Sine.easeInOut", true, 4000, -1, true);
-    game.add.tween(data).to( { angle: 1.0 }, 4000, "Linear", true, 0, -1, true);
+    this.add.tween(logo).to( { scaleX: 1, scaleY: 1 }, 3000, "Sine.easeInOut", true, 0, -1, true);
+    this.add.tween(data).to( { height: 12 }, 3000, "Sine.easeInOut", true, 4000, -1, true);
+    this.add.tween(data).to( { angle: 1.0 }, 4000, "Linear", true, 0, -1, true);
 
 }
 

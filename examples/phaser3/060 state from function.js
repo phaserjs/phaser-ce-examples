@@ -16,7 +16,8 @@ MyGame.Boot.prototype = {
 
     create: function ()
     {
-        this.bob = this.add.image(0, 0, 'face');
+        this.bob = this.add.image(400, 300, 'face');
+        this.bob.anchor = 0.5;
     },
 
     update: function ()

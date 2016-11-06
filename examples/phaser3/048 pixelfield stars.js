@@ -13,7 +13,7 @@ var zz = [];
 
 function create() {
 
-    p = game.add.pixelField(0, 0, 2, game.stage);
+    p = this.add.pixelField(0, 0, 2);
 
     for (var i = 0; i < max; i++)
     {
