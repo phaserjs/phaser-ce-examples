@@ -1,4 +1,5 @@
 // Example by https://twitter.com/awapblog
+// Updated by https://twitter.com/boldbigflank
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
 
@@ -31,7 +32,7 @@ function create() {
     selectedGemStartPos = { x: 0, y: 0 };
     
     // used to disable input while gems are dropping down and respawning
-    allowInput = true;
+    allowInput = false;
 
     game.input.addMoveCallback(slideGem, this);
 
@@ -50,7 +51,33 @@ function releaseGem() {
     // 3) drop down gems above removed gems
     // 4) refill the board
 
-    checkAndKillGemMatches();
+    var canKill = checkAndKillGemMatches(selectedGem);
+    canKill = checkAndKillGemMatches(tempShiftedGem) || canKill;
+
+    if (! canKill) // there are no matches so swap the gems back to the original positions
+    {
+        var gem = selectedGem;
+
+        if (gem.posX !== selectedGemStartPos.x || gem.posY !== selectedGemStartPos.y)
+        {
+            if (selectedGemTween !== null)
+            {
+                game.tweens.remove(selectedGemTween);
+            }
+
+            selectedGemTween = tweenGemPos(gem, selectedGemStartPos.x, selectedGemStartPos.y);
+
+            if (tempShiftedGem !== null)
+            {
+                tweenGemPos(tempShiftedGem, gem.posX, gem.posY);
+            }
+
+            swapGemPosition(gem, tempShiftedGem);
+
+            tempShiftedGem = null;
+
+        }
+    }
 
     removeKilledGems();
 
@@ -132,9 +159,23 @@ function spawnBoard() {
             gem.events.onInputUp.add(releaseGem, this);
             randomizeGemColor(gem);
             setGemPos(gem, i, j); // each gem has a position on the board
+            gem.kill();
         }
     }
 
+    removeKilledGems();
+
+    var dropGemDuration = dropGems();
+
+    // delay board refilling until all existing gems have dropped down
+    game.time.events.add(dropGemDuration * 100, refillBoard);
+
+    allowInput = false;
+
+    selectedGem = null;
+    tempShiftedGem = null;
+
+    // refillBoard();
 }
 
 // select a gem and remember its starting position
@@ -248,82 +289,35 @@ function swapGemPosition(gem1, gem2) {
 // count how many gems of the same color are above, below, to the left and right
 // if there are more than 3 matched horizontally or vertically, kill those gems
 // if no match was made, move the gems back into their starting positions
-function checkAndKillGemMatches() {
+function checkAndKillGemMatches(gem) {
 
-    if (selectedGem === null) { return; }
-
-    if (tempShiftedGem === null ) { return; }
+    if (gem === null) { return; }
 
     var canKill = false;
 
     // process the selected gem
 
-    var countUp = countSameColorGems(selectedGem, 0, -1);
-    var countDown = countSameColorGems(selectedGem, 0, 1);
-    var countLeft = countSameColorGems(selectedGem, -1, 0);
-    var countRight = countSameColorGems(selectedGem, 1, 0);
+    var countUp = countSameColorGems(gem, 0, -1);
+    var countDown = countSameColorGems(gem, 0, 1);
+    var countLeft = countSameColorGems(gem, -1, 0);
+    var countRight = countSameColorGems(gem, 1, 0);
 
     var countHoriz = countLeft + countRight + 1;
     var countVert = countUp + countDown + 1;
 
     if (countVert >= MATCH_MIN)
     {
-        killGemRange(selectedGem.posX, selectedGem.posY - countUp, selectedGem.posX, selectedGem.posY + countDown);
+        killGemRange(gem.posX, gem.posY - countUp, gem.posX, gem.posY + countDown);
         canKill = true;
     }
 
     if (countHoriz >= MATCH_MIN)
     {
-        killGemRange(selectedGem.posX - countLeft, selectedGem.posY, selectedGem.posX + countRight, selectedGem.posY);
+        killGemRange(gem.posX - countLeft, gem.posY, gem.posX + countRight, gem.posY);
         canKill = true;
     }
 
-    // now process the shifted (swapped) gem
-
-    countUp = countSameColorGems(tempShiftedGem, 0, -1);
-    countDown = countSameColorGems(tempShiftedGem, 0, 1);
-    countLeft = countSameColorGems(tempShiftedGem, -1, 0);
-    countRight = countSameColorGems(tempShiftedGem, 1, 0);
-
-    countHoriz = countLeft + countRight + 1;
-    countVert = countUp + countDown + 1;
-
-    if (countVert >= MATCH_MIN)
-    {
-        killGemRange(tempShiftedGem.posX, tempShiftedGem.posY - countUp, tempShiftedGem.posX, tempShiftedGem.posY + countDown);
-        canKill = true;
-    }
-
-    if (countHoriz >= MATCH_MIN)
-    {
-        killGemRange(tempShiftedGem.posX - countLeft, tempShiftedGem.posY, tempShiftedGem.posX + countRight, tempShiftedGem.posY);
-        canKill = true;
-    }
-
-    if (! canKill) // there are no matches so swap the gems back to the original positions
-    {
-        var gem = selectedGem;
-
-        if (gem.posX !== selectedGemStartPos.x || gem.posY !== selectedGemStartPos.y)
-        {
-            if (selectedGemTween !== null)
-            {
-                game.tweens.remove(selectedGemTween);
-            }
-
-            selectedGemTween = tweenGemPos(gem, selectedGemStartPos.x, selectedGemStartPos.y);
-
-            if (tempShiftedGem !== null)
-            {
-                tweenGemPos(tempShiftedGem, gem.posX, gem.posY);
-            }
-
-            swapGemPosition(gem, tempShiftedGem);
-
-            tempShiftedGem = null;
-
-        }
-    }
+    return canKill;
 
 }
 
@@ -389,6 +383,7 @@ function dropGems() {
             }
             else if (dropRowCount > 0)
             {
+                gem.dirty = true;
                 setGemPos(gem, gem.posX, gem.posY + dropRowCount);
                 tweenGemPos(gem, gem.posX, gem.posY, dropRowCount);
             }
@@ -419,6 +414,7 @@ function refillBoard() {
                 gemsMissingFromCol++;
                 gem = gems.getFirstDead();
                 gem.reset(i * GEM_SIZE_SPACED, -gemsMissingFromCol * GEM_SIZE_SPACED);
+                gem.dirty = true;
                 randomizeGemColor(gem);
                 setGemPos(gem, i, j);
                 tweenGemPos(gem, gem.posX, gem.posY, gemsMissingFromCol * 2);
@@ -434,7 +430,28 @@ function refillBoard() {
 
 // when the board has finished refilling, re-enable player input
 function boardRefilled() {
+    var canKill = false;
+    for (var i = 0; i < BOARD_COLS; i++)
+    {
+        for (var j = BOARD_ROWS - 1; j >= 0; j--)
+        {
+            var gem = getGem(i, j);
 
-    allowInput = true;
+            if (gem.dirty)
+            {
+                gem.dirty = false;
+                canKill = checkAndKillGemMatches(gem) || canKill;
+            }
+        }
+    }
 
+    if(canKill){
+        removeKilledGems();
+        var dropGemDuration = dropGems();
+        // delay board refilling until all existing gems have dropped down
+        game.time.events.add(dropGemDuration * 100, refillBoard);
+        allowInput = false;
+    } else {
+        allowInput = true;
+    }
 }
