@@ -13,7 +13,7 @@ function create() {
 
     var hsv = Phaser.Color.HSVColorWheel();
 
-    p = game.add.pixelField(0, 0, 2, game.stage);
+    p = this.add.pixelField(0, 0, 2);
 
     for (var x = -100; x <= 100; x += 2)
     {
@@ -32,8 +32,8 @@ function create() {
 
     console.log(p.list.length);
 
-    game.add.tween(data).to( { height: 12 }, 3000, "Sine.easeInOut", true, 4000, -1, true);
-    game.add.tween(data).to( { angle: 1.0 }, 4000, "Linear", true, 0, -1, true);
+    this.add.tween(data).to( { height: 12 }, 3000, "Sine.easeInOut", true, 4000, -1, true);
+    this.add.tween(data).to( { angle: 1.0 }, 4000, "Linear", true, 0, -1, true);
 
 }
 

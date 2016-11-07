@@ -22,6 +22,60 @@ Demo.Backdrop.prototype = {
 
 };
 
+Demo.Particles = function ()
+{
+    this.partciles = [];
+
+    this.between = function (min, max)
+    {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    };
+}
+
+Demo.Particles.prototype.constructor = Demo.Particles;
+
+Demo.Particles.prototype = {
+
+    preload: function ()
+    {
+        this.load.image('particle', 'assets/sprites/aqua_ball.png');
+    },
+
+    create: function ()
+    {
+        for (var i = 0; i < 500; i++)
+        {
+            var x = this.between(-64, 800);
+            var y = this.between(-64, 600);
+
+            var image = this.add.image(x, y, 'particle');
+
+            // image.blendMode = Phaser.blendModes.ADD;
+            // image.blendMode = Phaser.blendModes.MULTIPLY;
+
+            this.partciles.push({ s: image, r: 4 + Math.random() * 8 });
+        }
+
+        this.sys.fbo.program = this.sys.fbo._twirl;
+    },
+
+    update: function ()
+    {
+        for (var i = 0; i < this.partciles.length; i++)
+        {
+            var particle = this.partciles[i].s;
+
+            particle.y -= this.partciles[i].r;
+
+            if (particle.y < -256)
+            {
+                particle.y = 700;
+            }
+        }
+    }
+
+};
+
 Demo.Stars = function ()
 {
     this.p;
@@ -110,6 +164,7 @@ window.onload = function() {
     var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example');
 
     game.state.add('Backdrop', Demo.Backdrop, true);
+    game.state.add('Particles', Demo.Particles, true);
     game.state.add('Stars', Demo.Stars, true);
     game.state.add('Logo', Demo.Logo, true);
 

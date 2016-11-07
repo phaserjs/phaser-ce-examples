@@ -12,7 +12,7 @@ function create() {
 
     var hsv = Phaser.Color.HSVColorWheel();
 
-    p = game.add.pixelField(0, 0, 4, game.stage);
+    p = this.add.pixelField(0, 0, 4);
 
     for (var i = 0; i < 359; i++)
     {
@@ -26,17 +26,5 @@ function create() {
 }
 
 function update() {
-
-    // for (var i = 0; i < sprites.length; i++)
-    // {
-    //     var sprite = sprites[i].s;
-
-    //     sprite.y -= sprites[i].r;
-
-    //     if (sprite.y < -256)
-    //     {
-    //         sprite.y = 700;
-    //     }
-    // }
 
 }
