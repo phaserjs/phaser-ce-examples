@@ -46,7 +46,7 @@ function create() {
 
         star.ox = star.x;
 
-        star.cx = game.math.wrap(y * 2, 0, xl);
+        star.cx = Phaser.Math.wrap(y * 2, 0, xl);
 
         star.anchor = 0.5;
 
