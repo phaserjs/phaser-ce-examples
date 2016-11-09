@@ -15,6 +15,6 @@ function create() {
     logo.anchor = 0.5;
     logo.scale = 0.2;
 
-    this.add.tween(logo).to( { scaleX: 1, scaleY: 1 }, 3000, "Sine.easeInOut", true, 0, -1, true);
+    // this.add.tween(logo).to( { scaleX: 1, scaleY: 1 }, 3000, "Sine.easeInOut", true, 0, -1, true);
 
 }
