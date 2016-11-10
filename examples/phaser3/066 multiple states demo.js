@@ -169,11 +169,14 @@ Demo.Eyes.prototype = {
         this.right = this.add.image(138, 90, 'eye');
         this.right.anchor = 0.5;
 
-        this.leftTarget = new Phaser.Line(44, 90, 44, 90);
+        this.leftTarget = new Phaser.Line(12, 35, 12, 35);
         this.rightTarget = new Phaser.Line(138, 90, 138, 90);
 
-        this.leftBase = new Phaser.Circle(44, 90, 64);
-        this.rightBase = new Phaser.Circle(138, 90, 64);
+        // this.leftBase = new Phaser.Circle(44, 90, 64);
+        // this.rightBase = new Phaser.Circle(138, 90, 64);
+
+        this.leftBase = new Phaser.Ellipse(44, 90, 32, 48);
+        this.rightBase = new Phaser.Ellipse(138, 90, 32, 48);
 
         var handle = this.state.getState('Main');
 
