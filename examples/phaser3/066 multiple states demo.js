@@ -3,11 +3,16 @@ var Demo = {};
 Demo.Backdrop = function ()
 {
     this.bg;
+    this.demosWindow;
 
-    this.starsWindow;
-    this.sineWindow;
-    this.eyesWindow;
-    this.jugglerWindow;
+    this.eyesIcon;
+    this.starsIcon;
+    this.copperIcon;
+    this.jugglerIcon;
+    this.twistIcon;
+    this.wavesIcon;
+
+    this.windows = {};
 }
 
 Demo.Backdrop.prototype.constructor = Demo.Backdrop;
@@ -17,10 +22,20 @@ Demo.Backdrop.prototype = {
     preload: function ()
     {
         this.load.image('bg', 'assets/phaser3/workbench.png');
-        this.load.image('starsWindow', 'assets/phaser3/stars.png');
-        this.load.image('sineWindow', 'assets/phaser3/sinewave.png');
+        this.load.image('demosWindow', 'assets/phaser3/demos-window.png');
+
+        this.load.image('eyesIcon', 'assets/phaser3/eyes-icon.png');
+        this.load.image('starsIcon', 'assets/phaser3/stars-icon.png');
+        this.load.image('copperIcon', 'assets/phaser3/copper-icon.png');
+        this.load.image('jugglerIcon', 'assets/phaser3/juggler-icon.png');
+        this.load.image('twistIcon', 'assets/phaser3/twist-icon.png');
+        this.load.image('wavesIcon', 'assets/phaser3/waves-icon.png');
+
+        this.load.image('starsWindow', 'assets/phaser3/stars-window.png');
+        this.load.image('sineWindow', 'assets/phaser3/sinewave-window.png');
         this.load.image('eyesWindow', 'assets/phaser3/eyes-window.png');
         this.load.image('jugglerWindow', 'assets/phaser3/juggler-window.png');
+
         this.load.image('particle', 'assets/particles/yellow.png');
     },
 
@@ -28,54 +43,57 @@ Demo.Backdrop.prototype = {
     {
         this.bg = this.add.image(0, 0, 'bg');
 
-        //  Starfield
+        this.demosWindow = this.add.image(900, 70, 'demosWindow');
 
-        this.starsWindow = this.add.image(100, 100, 'starsWindow');
-        this.starsWindow.data.set('handle', 'Stars');
+        this.demosContainer = this.add.container(this, 0, 0);
 
-        this.starsWindow.input = new Phaser.InputHandler(this.starsWindow);
-        this.starsWindow.input.start(0, true);
-        this.starsWindow.input.enableDrag();
-        this.starsWindow.input.onDragUpdate.add(this.onDragUpdate, this);
+        this.demosWindow.transform.add(this.demosContainer.transform);
 
-        //  Sine Wave
+        this.eyesIcon = this.add.image(32, 34, 'eyesIcon', 0, this.demosContainer);
+        this.jugglerIcon = this.add.image(64, 110, 'jugglerIcon', 0, this.demosContainer);
+        this.starsIcon = this.add.image(230, 40, 'starsIcon', 0, this.demosContainer);
+        this.wavesIcon = this.add.image(140, 50, 'wavesIcon', 0, this.demosContainer);
 
-        this.sineWindow = this.add.image(300, 200, 'sineWindow');
-        this.sineWindow.data.set('handle', 'SineWave');
+        this.eyesIcon.input = new Phaser.InputHandler(this.eyesIcon);
+        this.eyesIcon.input.start(0, true);
+        this.eyesIcon.input.onDown.add(this.createWindow, this, 0, 64, 400, 'eyesWindow', Demo.Eyes);
 
-        this.sineWindow.input = new Phaser.InputHandler(this.sineWindow);
-        this.sineWindow.input.start(0, true);
-        this.sineWindow.input.enableDrag();
-        this.sineWindow.input.onDragUpdate.add(this.onDragUpdate, this);
+        this.jugglerIcon.input = new Phaser.InputHandler(this.jugglerIcon);
+        this.jugglerIcon.input.start(0, true);
+        this.jugglerIcon.input.onDown.add(this.createWindow, this, 0, 500, 64, 'jugglerWindow', Demo.Juggler);
 
-        //  Eyes
+        this.starsIcon.input = new Phaser.InputHandler(this.starsIcon);
+        this.starsIcon.input.start(0, true);
+        this.starsIcon.input.onDown.add(this.createWindow, this, 0, 100, 100, 'starsWindow', Demo.Stars);
 
-        this.eyesWindow = this.add.image(64, 400, 'eyesWindow');
-        this.eyesWindow.data.set('handle', 'Eyes');
+        this.wavesIcon.input = new Phaser.InputHandler(this.wavesIcon);
+        this.wavesIcon.input.start(0, true);
+        this.wavesIcon.input.onDown.add(this.createWindow, this, 0, 300, 200, 'sineWindow', Demo.SineWave);
 
-        this.eyesWindow.input = new Phaser.InputHandler(this.eyesWindow);
-        this.eyesWindow.input.start(0, true);
-        this.eyesWindow.input.enableDrag();
-        this.eyesWindow.input.onDragUpdate.add(this.onDragUpdate, this);
+        this.demosWindow.input = new Phaser.InputHandler(this.demosWindow);
+        this.demosWindow.input.start(0, true);
+        this.demosWindow.input.enableDrag();
 
-        //  Juggler
+        // this.state.add('Plasma', Demo.Plasma, true);
 
-        this.jugglerWindow = this.add.image(500, 64, 'jugglerWindow');
-        this.jugglerWindow.data.set('handle', 'Juggler');
+    },
 
-        this.jugglerWindow.input = new Phaser.InputHandler(this.jugglerWindow);
-        this.jugglerWindow.input.start(0, true);
-        this.jugglerWindow.input.enableDrag();
-        this.jugglerWindow.input.onDragUpdate.add(this.onDragUpdate, this);
+    createWindow: function (image, pointer, x, y, handle, func)
+    {
+        var i = Object.keys(this.windows).length + 1;
+        var win = this.add.image(x, y, handle)
+        var winName = 'Window' + i;
 
-        //  Kick things off
+        win.data.set('handle', winName);
 
-        // game.state.add('Particles', Demo.Particles, true);
-        // this.state.add('Stars', Demo.Stars, true);
-        // this.state.add('SineWave', Demo.SineWave, true);
-        this.state.add('Eyes', Demo.Eyes, true);
-        // this.state.add('Juggler', Demo.Juggler, true);
+        this.windows[winName] = win;
 
+        win.input = new Phaser.InputHandler(win);
+        win.input.start(i, true);
+        win.input.enableDrag();
+        win.input.onDragUpdate.add(this.onDragUpdate, this);
+
+        this.state.add(winName, func, true);
     },
 
     onDragUpdate: function (win)
@@ -163,24 +181,25 @@ Demo.Eyes.prototype = {
     {
         this.add.image(0, 0, 'eyesWindow');
 
-        this.left = this.add.image(44, 90, 'eye');
+        this.left = this.add.image(46, 92, 'eye');
         this.left.anchor = 0.5;
 
-        this.right = this.add.image(138, 90, 'eye');
+        this.right = this.add.image(140, 92, 'eye');
         this.right.anchor = 0.5;
 
-        this.leftTarget = new Phaser.Line(12, 35, 12, 35);
-        this.rightTarget = new Phaser.Line(138, 90, 138, 90);
+        this.leftTarget = new Phaser.Line(this.left.x, this.left.y, 0, 0);
+        this.rightTarget = new Phaser.Line(this.right.x, this.right.y, 0, 0);
 
         // this.leftBase = new Phaser.Circle(44, 90, 64);
         // this.rightBase = new Phaser.Circle(138, 90, 64);
 
-        this.leftBase = new Phaser.Ellipse(44, 90, 32, 48);
-        this.rightBase = new Phaser.Ellipse(138, 90, 32, 48);
+        this.leftBase = new Phaser.Ellipse(this.left.x, this.left.y, 24, 40);
+        this.rightBase = new Phaser.Ellipse(this.right.x, this.right.y, 24, 40);
 
-        var handle = this.state.getState('Main');
+        var main = this.state.getState('Main');
+        var handle = main.windows[this.settings.key];
 
-        this.sys.fbo.setPosition(handle.eyesWindow.x, handle.eyesWindow.y);
+        this.sys.fbo.setPosition(handle.x, handle.y);
     },
 
     update: function ()
@@ -243,9 +262,10 @@ Demo.Juggler.prototype = {
 
         this.juggler = this.add.image(100, 22, 'juggler', 0);
 
-        var handle = this.state.getState('Main');
+        var main = this.state.getState('Main');
+        var handle = main.windows[this.settings.key];
 
-        this.sys.fbo.setPosition(handle.jugglerWindow.x, handle.jugglerWindow.y);
+        this.sys.fbo.setPosition(handle.x, handle.y);
     },
 
     update: function ()
@@ -258,6 +278,24 @@ Demo.Juggler.prototype = {
         }
 
         this.juggler.frame = this.juggler.texture.get(this.i);
+    }
+
+};
+
+Demo.Plasma = function ()
+{
+
+};
+
+Demo.Plasma.prototype.constructor = Demo.Plasma;
+
+Demo.Plasma.prototype = {
+
+    create: function ()
+    {
+        this.add.image(0, 0, 'bg');
+
+        this.sys.fbo.program = this.sys.fbo._twirl;
     }
 
 };
@@ -322,9 +360,10 @@ Demo.SineWave.prototype = {
             this.slices.push(star);
         }
 
-        var handle = this.state.getState('Main');
+        var main = this.state.getState('Main');
+        var handle = main.windows[this.settings.key];
 
-        this.sys.fbo.setPosition(handle.sineWindow.x, handle.sineWindow.y);
+        this.sys.fbo.setPosition(handle.x, handle.y);
 
     },
 
@@ -368,6 +407,8 @@ Demo.Stars.prototype = {
 
     create: function ()
     {
+        this.add.image(0, 0, 'starsWindow');
+
         this.p = this.add.pixelField(0, 0, 2);
 
         for (var i = 0; i < this.max; i++)
@@ -384,9 +425,10 @@ Demo.Stars.prototype = {
             this.p.add(x, y, 255, 255, 255, a);
         }
 
-        var handle = this.state.getState('Main');
+        var main = this.state.getState('Main');
+        var handle = main.windows[this.settings.key];
 
-        this.sys.fbo.setPosition(handle.starsWindow.x, handle.starsWindow.y);
+        this.sys.fbo.setPosition(handle.x, handle.y);
     },
 
     update: function (frameDelta)
