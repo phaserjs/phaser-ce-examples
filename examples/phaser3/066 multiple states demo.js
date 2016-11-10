@@ -6,6 +6,8 @@ Demo.Backdrop = function ()
 
     this.starsWindow;
     this.sineWindow;
+    this.eyesWindow;
+    this.jugglerWindow;
 }
 
 Demo.Backdrop.prototype.constructor = Demo.Backdrop;
@@ -18,6 +20,8 @@ Demo.Backdrop.prototype = {
         this.load.image('starsWindow', 'assets/phaser3/stars.png');
         this.load.image('sineWindow', 'assets/phaser3/sinewave.png');
         this.load.image('eyesWindow', 'assets/phaser3/eyes-window.png');
+        this.load.image('jugglerWindow', 'assets/phaser3/juggler-window.png');
+        this.load.image('particle', 'assets/particles/yellow.png');
     },
 
     create: function ()
@@ -54,12 +58,23 @@ Demo.Backdrop.prototype = {
         this.eyesWindow.input.enableDrag();
         this.eyesWindow.input.onDragUpdate.add(this.onDragUpdate, this);
 
+        //  Juggler
+
+        this.jugglerWindow = this.add.image(500, 64, 'jugglerWindow');
+        this.jugglerWindow.data.set('handle', 'Juggler');
+
+        this.jugglerWindow.input = new Phaser.InputHandler(this.jugglerWindow);
+        this.jugglerWindow.input.start(0, true);
+        this.jugglerWindow.input.enableDrag();
+        this.jugglerWindow.input.onDragUpdate.add(this.onDragUpdate, this);
+
         //  Kick things off
 
         // game.state.add('Particles', Demo.Particles, true);
         // this.state.add('Stars', Demo.Stars, true);
         // this.state.add('SineWave', Demo.SineWave, true);
         this.state.add('Eyes', Demo.Eyes, true);
+        // this.state.add('Juggler', Demo.Juggler, true);
 
     },
 
@@ -86,21 +101,16 @@ Demo.Particles.prototype.constructor = Demo.Particles;
 
 Demo.Particles.prototype = {
 
-    preload: function ()
-    {
-        this.load.image('particle', 'assets/sprites/aqua_ball.png');
-    },
-
     create: function ()
     {
         for (var i = 0; i < 500; i++)
         {
-            var x = this.between(-64, 800);
-            var y = this.between(-64, 600);
+            var x = this.between(-64, 1280);
+            var y = this.between(-64, 720);
 
             var image = this.add.image(x, y, 'particle');
 
-            // image.blendMode = Phaser.blendModes.ADD;
+            image.blendMode = Phaser.blendModes.ADD;
             // image.blendMode = Phaser.blendModes.MULTIPLY;
 
             this.particles.push({ s: image, r: 4 + Math.random() * 8 });
@@ -119,7 +129,7 @@ Demo.Particles.prototype = {
 
             if (particle.y < -256)
             {
-                particle.y = 700;
+                particle.y = 800;
             }
         }
     }
@@ -205,6 +215,46 @@ Demo.Eyes.prototype = {
 
         this.right.x = this.mid.x;
         this.right.y = this.mid.y;
+    }
+
+};
+
+Demo.Juggler = function ()
+{
+    this.juggler;
+    this.i = 0;
+};
+
+Demo.Juggler.prototype.constructor = Demo.Juggler;
+
+Demo.Juggler.prototype = {
+
+    preload: function ()
+    {
+        this.load.spritesheet('juggler', 'assets/phaser3/juggler.png', 128, 184);
+    },
+
+    create: function ()
+    {
+        this.add.image(0, 0, 'jugglerWindow');
+
+        this.juggler = this.add.image(100, 22, 'juggler', 0);
+
+        var handle = this.state.getState('Main');
+
+        this.sys.fbo.setPosition(handle.jugglerWindow.x, handle.jugglerWindow.y);
+    },
+
+    update: function ()
+    {
+        this.i++;
+
+        if (this.i === this.juggler.texture.frameTotal)
+        {
+            this.i = 0;
+        }
+
+        this.juggler.frame = this.juggler.texture.get(this.i);
     }
 
 };
@@ -357,31 +407,6 @@ Demo.Stars.prototype = {
             this.p.list[i].a = (x < 0 || x > 320 || y < 20 || y > 260) ? 0 : 1;
         }
     }
-};
-
-Demo.Logo = function ()
-{
-    this.logo;
-}
-
-Demo.Logo.prototype.constructor = Demo.Logo;
-
-Demo.Logo.prototype = {
-
-    preload: function ()
-    {
-        this.load.image('logo', 'assets/sprites/phaser2.png');
-    },
-
-    create: function ()
-    {
-        this.logo = this.add.image(400, 300, 'logo');
-        this.logo.anchor = 0.5;
-        this.logo.scale = 0.2;
-
-        this.add.tween(this.logo).to( { scaleX: 1, scaleY: 1 }, 3000, "Sine.easeInOut", true, 0, -1, true);
-    }
-
 };
 
 window.onload = function() {
