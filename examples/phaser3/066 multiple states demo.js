@@ -3,7 +3,9 @@ var Demo = {};
 Demo.Backdrop = function ()
 {
     this.bg;
-    this.stars;
+
+    this.starsWindow;
+    this.sineWindow;
 }
 
 Demo.Backdrop.prototype.constructor = Demo.Backdrop;
@@ -13,11 +15,59 @@ Demo.Backdrop.prototype = {
     preload: function ()
     {
         this.load.image('bg', 'assets/phaser3/workbench.png');
+        this.load.image('starsWindow', 'assets/phaser3/stars.png');
+        this.load.image('sineWindow', 'assets/phaser3/sinewave.png');
+        this.load.image('eyesWindow', 'assets/phaser3/eyes-window.png');
     },
 
     create: function ()
     {
         this.bg = this.add.image(0, 0, 'bg');
+
+        //  Starfield
+
+        this.starsWindow = this.add.image(100, 100, 'starsWindow');
+        this.starsWindow.data.set('handle', 'Stars');
+
+        this.starsWindow.input = new Phaser.InputHandler(this.starsWindow);
+        this.starsWindow.input.start(0, true);
+        this.starsWindow.input.enableDrag();
+        this.starsWindow.input.onDragUpdate.add(this.onDragUpdate, this);
+
+        //  Sine Wave
+
+        this.sineWindow = this.add.image(300, 200, 'sineWindow');
+        this.sineWindow.data.set('handle', 'SineWave');
+
+        this.sineWindow.input = new Phaser.InputHandler(this.sineWindow);
+        this.sineWindow.input.start(0, true);
+        this.sineWindow.input.enableDrag();
+        this.sineWindow.input.onDragUpdate.add(this.onDragUpdate, this);
+
+        //  Eyes
+
+        this.eyesWindow = this.add.image(64, 400, 'eyesWindow');
+        this.eyesWindow.data.set('handle', 'Eyes');
+
+        this.eyesWindow.input = new Phaser.InputHandler(this.eyesWindow);
+        this.eyesWindow.input.start(0, true);
+        this.eyesWindow.input.enableDrag();
+        this.eyesWindow.input.onDragUpdate.add(this.onDragUpdate, this);
+
+        //  Kick things off
+
+        // game.state.add('Particles', Demo.Particles, true);
+        // this.state.add('Stars', Demo.Stars, true);
+        // this.state.add('SineWave', Demo.SineWave, true);
+        this.state.add('Eyes', Demo.Eyes, true);
+
+    },
+
+    onDragUpdate: function (win)
+    {
+        var state = this.state.getState(win.data.get('handle'));
+
+        state.sys.fbo.setPosition(win.x, win.y);
     }
 
 };
@@ -76,6 +126,89 @@ Demo.Particles.prototype = {
 
 };
 
+Demo.Eyes = function ()
+{
+    this.left;
+    this.right;
+
+    this.leftTarget;
+    this.rightTarget;
+
+    this.leftBase;
+    this.rightBase;
+
+    this.mid = new Phaser.Point();
+}
+
+Demo.Eyes.prototype.constructor = Demo.Eyes;
+
+Demo.Eyes.prototype = {
+
+    preload: function ()
+    {
+        this.load.image('eye', 'assets/phaser3/eye.png');
+    },
+
+    create: function ()
+    {
+        this.add.image(0, 0, 'eyesWindow');
+
+        this.left = this.add.image(44, 90, 'eye');
+        this.left.anchor = 0.5;
+
+        this.right = this.add.image(138, 90, 'eye');
+        this.right.anchor = 0.5;
+
+        this.leftTarget = new Phaser.Line(44, 90, 44, 90);
+        this.rightTarget = new Phaser.Line(138, 90, 138, 90);
+
+        this.leftBase = new Phaser.Circle(44, 90, 64);
+        this.rightBase = new Phaser.Circle(138, 90, 64);
+
+        var handle = this.state.getState('Main');
+
+        this.sys.fbo.setPosition(handle.eyesWindow.x, handle.eyesWindow.y);
+    },
+
+    update: function ()
+    {
+        this.leftTarget.end.x = this.input.activePointer.x - this.sys.fbo.x;
+        this.leftTarget.end.y = this.input.activePointer.y - this.sys.fbo.y;
+
+        //  Within the circle?
+        if (this.leftBase.contains(this.leftTarget.end.x, this.leftTarget.end.y))
+        {
+            this.mid.x = this.leftTarget.end.x;
+            this.mid.y = this.leftTarget.end.y;
+        }
+        else
+        {
+            this.leftBase.circumferencePoint(this.leftTarget.angle, false, this.mid);
+        }
+
+        this.left.x = this.mid.x;
+        this.left.y = this.mid.y;
+
+        this.rightTarget.end.x = this.input.activePointer.x - this.sys.fbo.x;
+        this.rightTarget.end.y = this.input.activePointer.y - this.sys.fbo.y;
+
+        //  Within the circle?
+        if (this.rightBase.contains(this.rightTarget.end.x, this.rightTarget.end.y))
+        {
+            this.mid.x = this.rightTarget.end.x;
+            this.mid.y = this.rightTarget.end.y;
+        }
+        else
+        {
+            this.rightBase.circumferencePoint(this.rightTarget.angle, false, this.mid);
+        }
+
+        this.right.x = this.mid.x;
+        this.right.y = this.mid.y;
+    }
+
+};
+
 Demo.SineWave = function ()
 {
     this.slices;
@@ -91,16 +224,13 @@ Demo.SineWave.prototype = {
 
     preload: function ()
     {
-        //  573 x 400
-        this.load.image('sinewavePic', 'assets/phaser3/sinewave.png');
-
         //  373 x 378
         this.load.image('big3', 'assets/phaser3/big3.png');
     },
 
     create: function ()
     {
-        this.add.image(0, 0, 'sinewavePic');
+        this.add.image(0, 0, 'sineWindow');
 
         //  Generate our motion data
         var motion = { x: 10 };
@@ -139,7 +269,9 @@ Demo.SineWave.prototype = {
             this.slices.push(star);
         }
 
-        this.sys.fbo.setPosition(500, 100);
+        var handle = this.state.getState('Main');
+
+        this.sys.fbo.setPosition(handle.sineWindow.x, handle.sineWindow.y);
 
     },
 
@@ -161,7 +293,6 @@ Demo.SineWave.prototype = {
 
 };
 
-
 Demo.Stars = function ()
 {
     this.p;
@@ -182,15 +313,8 @@ Demo.Stars.prototype.constructor = Demo.Stars;
 
 Demo.Stars.prototype = {
 
-    preload: function ()
-    {
-        this.load.image('stars', 'assets/phaser3/stars.png');
-    },
-
     create: function ()
     {
-        this.stars = this.add.image(0, 0, 'stars');
-
         this.p = this.add.pixelField(0, 0, 2);
 
         for (var i = 0; i < this.max; i++)
@@ -207,8 +331,9 @@ Demo.Stars.prototype = {
             this.p.add(x, y, 255, 255, 255, a);
         }
 
-        // this.sys.fbo.setSize(320, 240);
-        this.sys.fbo.setPosition(64, 64);
+        var handle = this.state.getState('Main');
+
+        this.sys.fbo.setPosition(handle.starsWindow.x, handle.starsWindow.y);
     },
 
     update: function (frameDelta)
@@ -263,11 +388,7 @@ window.onload = function() {
 
     var game = new Phaser.Game(1280, 720, Phaser.WEBGL, 'phaser-example');
 
-    game.state.add('Backdrop', Demo.Backdrop, true);
-    // game.state.add('Particles', Demo.Particles, true);
-    game.state.add('SineWave', Demo.SineWave, true);
-    game.state.add('Stars', Demo.Stars, true);
-    // game.state.add('Logo', Demo.Logo, true);
+    game.state.add('Main', Demo.Backdrop, true);
 
     window.game = game;
 
