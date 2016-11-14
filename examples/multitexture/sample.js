@@ -11,16 +11,12 @@ function preload() {
 }
 
 function create() {
+
     game.renderer.setTexturePriority(['treasure_trap', 'bunny', 'cokecan', 'ilkke']);
 
-    //  This simply creates a sprite using the mushroom image we loaded above and positions it at 200 x 200
     var spriteA = game.add.sprite(0, 0, 'treasure_trap');
     var spriteB = game.add.sprite(127, 0, 'bunny');
     var spriteC = game.add.sprite(500, 0, 'cokecan');
     var spriteD = game.add.sprite(580, 0, 'ilkke');
-    spriteA.cacheAsBitmap = true;
-    spriteB.cacheAsBitmap = true;
-    spriteC.cacheAsBitmap = true;
-    spriteD.cacheAsBitmap = true;
 
 }
