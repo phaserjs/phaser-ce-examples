@@ -3,7 +3,7 @@
 
     $png = '';
     $filename = '';
-    $current = false;
+    $current = 'phaser3';
     $title = 'Index';
 
     if (isset($_GET['s']) && $_GET['s'] !== '')
