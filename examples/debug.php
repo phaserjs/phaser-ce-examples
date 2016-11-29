@@ -155,7 +155,7 @@
             {
                 if ($dist === 'php' && in_array($_SERVER['SERVER_NAME'], $config_hosts))
                 {
-                    $path = $config_phaser_path;
+                    $path = $config_phaser_path . '/v2';
                     require($path . '/build/config.php');
                 }
                 else
