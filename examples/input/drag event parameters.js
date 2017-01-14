@@ -15,7 +15,11 @@ function create() {
 
     game.add.sprite(0, 0, 'grid');
 
-    var atari = game.add.sprite(32, 100, 'atari');
+    var group = game.add.group();
+
+    group.inputEnableChildren = true;
+
+    var atari = group.create(32, 100, 'atari');
 
     //  Enable input and allow for dragging
     atari.inputEnabled = true;
@@ -23,12 +27,22 @@ function create() {
     atari.events.onDragStart.add(onDragStart, this);
     atari.events.onDragStop.add(onDragStop, this);
 
-    var sonic = game.add.sprite(300, 200, 'sonic');
+    var sonic = group.create(300, 200, 'sonic');
 
     sonic.inputEnabled = true;
     sonic.input.enableDrag();
     sonic.events.onDragStart.add(onDragStart, this);
     sonic.events.onDragStop.add(onDragStop, this);
+
+    group.onChildInputDown.add(onDown, this);
+
+}
+
+function onDown(sprite, pointer) {
+
+    result = "Down " + sprite.key;
+
+    console.log('down', sprite.key);
 
 }
 
@@ -41,6 +55,14 @@ function onDragStart(sprite, pointer) {
 function onDragStop(sprite, pointer) {
 
     result = sprite.key + " dropped at x:" + pointer.x + " y: " + pointer.y;
+
+    if (pointer.y > 400)
+    {
+        console.log('input disabled on', sprite.key);
+        sprite.input.enabled = false;
+
+        sprite.sendToBack();
+    }
 
 }
 

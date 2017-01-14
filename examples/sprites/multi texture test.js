@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 600, Phaser.WEBGL, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
 
@@ -35,7 +35,7 @@ function create() {
 
     // game.add.sprite(300, 0, 'bsquadron3');
 
-    // game.renderer.setTexturePriority(['bsquadron1', 'bsquadron2', 'bsquadron3', 'mixed', 'pwr2', 'desyrel']);
+    game.renderer.setTexturePriority(['bsquadron1', 'bsquadron2', 'bsquadron3', 'mixed', 'pwr2', 'desyrel']);
 
 }
 

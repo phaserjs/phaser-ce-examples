@@ -1,0 +1,84 @@
+{"frames": [
+
+{
+	"filename": "atari800xl",
+	"frame": {"x":749,"y":2,"w":237,"h":103},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":237,"h":103},
+	"sourceSize": {"w":237,"h":103},
+	"pivot": {"x":0.491561,"y":0.480583}
+},
+{
+	"filename": "contra1",
+	"frame": {"x":660,"y":2,"w":87,"h":173},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":87,"h":173},
+	"sourceSize": {"w":87,"h":173},
+	"pivot": {"x":0.477011,"y":0.488439}
+},
+{
+	"filename": "kirito_by_vali233",
+	"frame": {"x":882,"y":107,"w":63,"h":134},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":63,"h":134},
+	"sourceSize": {"w":63,"h":134},
+	"pivot": {"x":0.468254,"y":0.485075}
+},
+{
+	"filename": "shocktroopers_leon",
+	"frame": {"x":156,"y":2,"w":169,"h":204},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":169,"h":204},
+	"sourceSize": {"w":170,"h":205},
+	"pivot": {"x":0.488235,"y":0.490244}
+},
+{
+	"filename": "shocktroopers_lulu",
+	"frame": {"x":2,"y":2,"w":152,"h":212},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":152,"h":212},
+	"sourceSize": {"w":153,"h":228},
+	"pivot": {"x":0.486928,"y":0.491228}
+},
+{
+	"filename": "shocktroopers_toy",
+	"frame": {"x":507,"y":2,"w":151,"h":177},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":151,"h":177},
+	"sourceSize": {"w":152,"h":178},
+	"pivot": {"x":0.486842,"y":0.488764}
+},
+{
+	"filename": "spinObj_08",
+	"frame": {"x":327,"y":2,"w":178,"h":178},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":178},
+	"sourceSize": {"w":178,"h":178},
+	"pivot": {"x":0.488764,"y":0.488764}
+},
+{
+	"filename": "treasure_trap",
+	"frame": {"x":749,"y":107,"w":131,"h":147},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":131,"h":147},
+	"sourceSize": {"w":131,"h":147},
+	"pivot": {"x":0.484733,"y":0.486395}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "megasetHD-3.png",
+	"format": "RGBA8888",
+	"size": {"w":988,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:dd38a603015508376adf694b073b3a9a:d212aa7d5ef3a912a7f699c3795a8933:78287ab19df36dadeb0655d9b198cf32$"
+}
+}

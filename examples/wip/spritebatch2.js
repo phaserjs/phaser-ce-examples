@@ -1,10 +1,13 @@
-
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {
+	preload: preload,
+	create: create,
+	update: update
+});
 
 function preload() {
 
-    game.load.image('knightHawks', 'assets/fonts/KNIGHT3.png');
-    game.load.image('maggot', 'assets/sprites/ilkke.png');
+	game.load.image('knightHawks', 'assets/fonts/retroFonts/KNIGHT3.png');
+	game.load.image('maggot', 'assets/sprites/ilkke.png');
 
 }
 
@@ -16,8 +19,8 @@ var tick = 0;
 
 function create() {
 
-    font = game.add.bitmapFont(0, 0, 'knightHawks', 31, 25, Phaser.BitmapFont.TEXT_SET6, 10, 1, 1);
-    font.text = 'phaser';
+	font = game.add.bitmapFont(0, 0, 'knightHawks', 31, 25, Phaser.BitmapFont.TEXT_SET6, 10, 1, 1);
+	font.text = 'phaser';
 
 	batch = game.add.spriteBatch();
 
@@ -25,26 +28,24 @@ function create() {
 
 	console.log(font.width, font.height, font.bmd.width, font.bmd.height);
 
-	for (var i = 0; i < total; i++)
-	{
+	for (var i = 0; i < total; i++) {
 		var dude = batch.create(game.world.randomX, game.world.randomY, font.bmd);
 
 		dude.anchor.set(0.5);
 		// dude.scale.set(0.8 + Math.random() * 0.3);
 		dude.direction = Math.random() * Math.PI * 2;
 		dude.turningSpeed = Math.random() - 0.8;
-		dude.speed = (2 + Math.random() * 2) * 0.2;	
+		dude.speed = (2 + Math.random() * 2) * 0.2;
 		dude.offset = Math.random() * 100;
 	}
 
 }
 
 function update() {
-
-	batch.forEach(updateMaggot, this, false);
-
-	tick += 0.1;
-
+	if (batch) {
+		batch.forEach(updateMaggot, this, false);
+		tick += 0.1;
+	}
 }
 
 function updateMaggot(dude) {

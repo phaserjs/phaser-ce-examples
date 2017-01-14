@@ -155,12 +155,13 @@
             {
                 if ($dist === 'php' && in_array($_SERVER['SERVER_NAME'], $config_hosts))
                 {
-                    $path = $config_phaser_path;
+                    $path = $config_phaser_path . '/v2';
                     require($path . '/build/config.php');
                 }
                 else
                 {
                     echo '<script src="_site/phaser/' . $config_phaser_min . '" type="text/javascript"></script>';
+                    // echo '<script src="../../phaser/dist/phaser-test.js" type="text/javascript"></script>';
                 }
 
                 if ($modules['box2d'])

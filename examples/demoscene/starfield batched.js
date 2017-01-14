@@ -11,7 +11,7 @@ var distance = 300;
 var speed = 4;
 var stars;
 
-var max = 200;
+var max = 500;
 var xx = [];
 var yy = [];
 var zz = [];
@@ -20,7 +20,7 @@ function create() {
 
     if (game.renderType === Phaser.WEBGL)
     {
-        max = 2000;
+        max = 5000;
     }
 
     var sprites = game.add.spriteBatch();

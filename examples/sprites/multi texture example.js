@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
+var game = new Phaser.Game(800, 600, Phaser.WEBGL_MULTI, 'phaser-example', { preload: preload, create: create });
 
 function preload() {
 
@@ -61,12 +61,15 @@ function create() {
     group.align(16, -1, 50, 44, Phaser.CENTER);
 
     //  Using just one single GPU texture (the default) the above scene, with just
-    //  210 sprites, will require 212 WebGL draw operations and a staggering 1911 WebGL calls.
+    //  210 sprites, will require 212 WebGL draw operations and a massive 1489 WebGL calls.
 
     //  And using multiple GPU textures ...
-    game.renderer.setTexturePriority(keys);
+    var enabled = game.renderer.setTexturePriority(keys);
+
+    //  So we can see which textures were batched (varies per GPU)
+    console.log(enabled);
 
     //  The whole scene takes just 2 draw operations, one of which is clearing the screen,
-    //  and just 19 operations in total. The performance difference is staggering.
+    //  and just 17 operations in total. The performance difference is staggering.
 
 }

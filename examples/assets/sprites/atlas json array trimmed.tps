@@ -2,9 +2,11 @@
 <data version="1.0">
     <struct type="Settings">
         <key>fileFormatVersion</key>
-        <int>3</int>
+        <int>4</int>
         <key>texturePackerVersion</key>
-        <string>3.2.1</string>
+        <string>4.2.2</string>
+        <key>fileName</key>
+        <string>/Users/rich/Documents/phaser-examples/examples/assets/sprites/atlas json array trimmed.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -27,8 +29,6 @@
         </array>
         <key>allowRotation</key>
         <false/>
-        <key>premultiplyAlpha</key>
-        <false/>
         <key>shapeDebug</key>
         <false/>
         <key>dpi</key>
@@ -36,9 +36,25 @@
         <key>dataFormat</key>
         <string>json</string>
         <key>textureFileName</key>
-        <filename>atlas_hash_trim.png</filename>
+        <filename>atlas_with_font.png</filename>
         <key>flipPVR</key>
         <false/>
+        <key>pvrCompressionQuality</key>
+        <enum type="SettingsBase::PvrCompressionQuality">PVR_QUALITY_NORMAL</enum>
+        <key>atfCompressData</key>
+        <false/>
+        <key>mipMapMinSize</key>
+        <uint>32768</uint>
+        <key>etc1CompressionQuality</key>
+        <enum type="SettingsBase::Etc1CompressionQuality">ETC1_QUALITY_LOW_PERCEPTUAL</enum>
+        <key>dxtCompressionMode</key>
+        <enum type="SettingsBase::DxtCompressionMode">DXT_PERCEPTUAL</enum>
+        <key>jxrColorFormat</key>
+        <enum type="SettingsBase::JpegXrColorMode">JXR_YUV444</enum>
+        <key>jxrTrimFlexBits</key>
+        <uint>0</uint>
+        <key>jxrCompressionLevel</key>
+        <uint>0</uint>
         <key>ditherType</key>
         <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
         <key>backgroundColor</key>
@@ -59,6 +75,8 @@
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
         <uint>0</uint>
+        <key>webpQualityLevel</key>
+        <uint>101</uint>
         <key>textureSubPath</key>
         <string></string>
         <key>textureFormat</key>
@@ -68,9 +86,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>1024</int>
+            <int>2048</int>
             <key>height</key>
-            <int>1024</int>
+            <int>2048</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -79,8 +97,6 @@
             <key>height</key>
             <int>-1</int>
         </QSize>
-        <key>reduceBorderArtifacts</key>
-        <false/>
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
@@ -90,8 +106,6 @@
             <key>sizeConstraints</key>
             <enum type="AlgorithmSettings::SizeConstraints">AnySize</enum>
             <key>forceSquared</key>
-            <false/>
-            <key>forceWordAligned</key>
             <false/>
             <key>maxRects</key>
             <struct type="AlgorithmMaxRectsSettings">
@@ -127,7 +141,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>atlas_json_hash_trim.json</filename>
+                <filename>atlas_with_font.json</filename>
             </struct>
             <key>java</key>
             <struct type="DataFile">
@@ -141,6 +155,8 @@
         <false/>
         <key>outputFormat</key>
         <enum type="SettingsBase::OutputFormat">RGBA8888</enum>
+        <key>alphaHandling</key>
+        <enum type="SettingsBase::AlphaHandling">ClearTransparentPixels</enum>
         <key>contentProtection</key>
         <struct type="ContentProtection">
             <key>key</key>
@@ -150,25 +166,66 @@
         <true/>
         <key>trimSpriteNames</key>
         <true/>
-        <key>cleanTransparentPixels</key>
-        <true/>
+        <key>prependSmartFolderName</key>
+        <false/>
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
             <double>1</double>
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
-            <key>innerPadding</key>
-            <uint>0</uint>
             <key>extrude</key>
             <uint>0</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
+            <key>trimMargin</key>
+            <uint>1</uint>
             <key>trimMode</key>
             <enum type="SpriteSettings::TrimMode">Trim</enum>
+            <key>tracerTolerance</key>
+            <int>200</int>
             <key>heuristicMask</key>
             <false/>
+            <key>defaultPivotPoint</key>
+            <point_f>0.5,0.5</point_f>
+            <key>writePivotPoints</key>
+            <false/>
         </struct>
+        <key>individualSpriteSettings</key>
+        <map type="IndividualSpriteSettingsMap">
+            <key type="filename">../fonts/bitmapFonts/desyrel.png</key>
+            <key type="filename">../pics/cactuar.png</key>
+            <key type="filename">../pics/contra1.png</key>
+            <key type="filename">../pics/contra3.png</key>
+            <key type="filename">../pics/ladycop.png</key>
+            <key type="filename">../pics/nanoha_taiken_blue.png</key>
+            <key type="filename">../pics/shocktroopers_lulu2.png</key>
+            <key type="filename">../pics/spyro.png</key>
+            <key type="filename">../pics/titan_mech.png</key>
+            <key type="filename">carrot.png</key>
+            <key type="filename">darkwing_crazy.png</key>
+            <key type="filename">diamond.png</key>
+            <key type="filename">eggplant.png</key>
+            <key type="filename">firstaid.png</key>
+            <key type="filename">melon.png</key>
+            <key type="filename">mushroom.png</key>
+            <key type="filename">onion.png</key>
+            <key type="filename">oz_pov_melting_disk.png</key>
+            <key type="filename">pangball.png</key>
+            <key type="filename">pepper.png</key>
+            <key type="filename">phaser-dude.png</key>
+            <key type="filename">phaser_tiny.png</key>
+            <key type="filename">pineapple.png</key>
+            <key type="filename">slime.png</key>
+            <key type="filename">sonic_havok_sanity.png</key>
+            <key type="filename">thrust_ship.png</key>
+            <key type="filename">tomato.png</key>
+            <key type="filename">wizball.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+            </struct>
+        </map>
         <key>fileList</key>
         <array>
             <filename>../pics/titan_mech.png</filename>
@@ -198,6 +255,7 @@
             <filename>mushroom.png</filename>
             <filename>phaser_tiny.png</filename>
             <filename>carrot.png</filename>
+            <filename>../fonts/bitmapFonts/desyrel.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
@@ -209,5 +267,15 @@
         <uint>1</uint>
         <key>commonDivisorY</key>
         <uint>1</uint>
+        <key>packNormalMaps</key>
+        <false/>
+        <key>autodetectNormalMaps</key>
+        <true/>
+        <key>normalMapFilter</key>
+        <string></string>
+        <key>normalMapSuffix</key>
+        <string></string>
+        <key>normalMapSheetFileName</key>
+        <filename></filename>
     </struct>
 </data>
