@@ -1691,6 +1691,14 @@
     {
       "file": "tilemap+ray+cast.js",
       "title": "tilemap ray cast"
+    },
+    {
+      "file": "dig.js",
+      "title": "removing tiles"
+    },
+    {
+      "file": "multiple-layer-collision.js",
+      "title": "collision on multiple layers"
     }
   ],
   "time": [
