@@ -195,7 +195,7 @@
       "title": "process callback"
     },
     {
-      "file": "quadtree+-+collision+infos.js",
+      "file": "quadtree+collision+infos.js",
       "title": "quadtree - collision infos"
     },
     {
@@ -259,37 +259,37 @@
   ],
   "basics": [
     {
-      "file": "01+-+load+an+image.js",
+      "file": "01+load+an+image.js",
       "title": "01 - load an image",
       "jsbin": "http://jsbin.com/zagob/1/edit?js,output"
     },
     {
-      "file": "02+-+click+on+an+image.js",
+      "file": "02+click+on+an+image.js",
       "title": "02 - click on an image",
       "jsbin": "http://jsbin.com/zagob/6/edit?js,output"
     },
     {
-      "file": "03+-+move+an+image.js",
+      "file": "03+move+an+image.js",
       "title": "03 - move an image",
       "jsbin": "http://jsbin.com/zagob/7/edit?js,output"
     },
     {
-      "file": "04+-+image+follow+input.js",
+      "file": "04+image+follow+input.js",
       "title": "04 - image follow input",
       "jsbin": "http://jsbin.com/zagob/9/edit?js,output"
     },
     {
-      "file": "05+-+load+an+animation.js",
+      "file": "05+load+an+animation.js",
       "title": "05 - load an animation",
       "jsbin": "http://jsbin.com/zagob/10/edit?js,output"
     },
     {
-      "file": "06+-+render+text.js",
+      "file": "06+render+text.js",
       "title": "06 - render text",
       "jsbin": "http://jsbin.com/zagob/11/edit?js,output"
     },
     {
-      "file": "07+-+tween+an+image.js",
+      "file": "07+tween+an+image.js",
       "title": "07 - tween an image"
     }
   ],
@@ -877,11 +877,11 @@
       "title": "group scale"
     },
     {
-      "file": "group+transform+-+rotate.js",
+      "file": "group+transform+rotate.js",
       "title": "group transform - rotate"
     },
     {
-      "file": "group+transform+-+tween.js",
+      "file": "group+transform+tween.js",
       "title": "group transform - tween"
     },
     {
@@ -921,7 +921,7 @@
       "title": "set All"
     },
     {
-      "file": "sub+groups+-+group+length.js",
+      "file": "sub+groups+group+length.js",
       "title": "sub groups - group length"
     },
     {
@@ -1019,11 +1019,11 @@
       "title": "keyboard"
     },
     {
-      "file": "motion+lock+-+horizontal.js",
+      "file": "motion+lock+horizontal.js",
       "title": "motion lock - horizontal"
     },
     {
-      "file": "motion+lock+-+vertical.js",
+      "file": "motion+lock+vertical.js",
       "title": "motion lock - vertical"
     },
     {
@@ -1043,19 +1043,19 @@
       "title": "pixel perfect click detection"
     },
     {
-      "file": "pixelpick+-+atlas+scaled.js",
+      "file": "pixelpick+atlas+scaled.js",
       "title": "pixelpick - atlas scaled"
     },
     {
-      "file": "pixelpick+-+atlas.js",
+      "file": "pixelpick+atlas.js",
       "title": "pixelpick - atlas"
     },
     {
-      "file": "pixelpick+-+scrolling+effect.js",
+      "file": "pixelpick+scrolling+effect.js",
       "title": "pixelpick - scrolling effect"
     },
     {
-      "file": "pixelpick+-+spritesheet.js",
+      "file": "pixelpick+spritesheet.js",
       "title": "pixelpick - spritesheet"
     },
     {
