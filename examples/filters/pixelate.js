@@ -5,7 +5,7 @@ function preload() {
 
     game.load.image('phaser', 'assets/pics/mighty_no_09_cover_art_by_robduenas.jpg');
 
-    game.load.shader('pixelate', 'assets/shaders/pixelate.frag');
+    game.load.script('filter', 'https://cdn.rawgit.com/photonstorm/phaser/master/v2/filters/Pixelate.js');
 
 }
 
@@ -15,12 +15,10 @@ function create() {
 
 	logo.anchor.set(0.5);
 
-	var pixelate = game.add.filter('Pixelate', null, game.cache.getShader('pixelate'));
+    var filter = game.add.filter('Pixelate', 800, 600);
 
-    // filter = new Phaser.Filter(game, null, game.cache.getShader('bacteria'));
+	logo.filters = [filter];
 
-	logo.filters = [pixelate];
-
-    game.add.tween(pixelate).to( { sizeX: 100, sizeY: 100 }, 5000, "Quad.easeInOut", true, 0, -1, true);
+    game.add.tween(filter).to( { sizeX: 100, sizeY: 100 }, 5000, "Quad.easeInOut", true, 0, -1, true);
 
 }

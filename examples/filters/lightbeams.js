@@ -7,7 +7,7 @@ var filter;
 function preload() {
 
     game.load.image('phaser', 'assets/sprites/phaser2.png');
-    game.load.script('filter', '../filters/LightBeam.js');
+    game.load.script('filter', 'https://cdn.rawgit.com/photonstorm/phaser/master/v2/filters/LightBeam.js');
 
 }
 

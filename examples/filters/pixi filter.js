@@ -5,7 +5,7 @@ function preload() {
     game.load.image('phaser', 'assets/sprites/phaser2.png');
 
     //  Load your Pixi filters (the key you give them doesn't matter, but make sure it's unique)
-    game.load.script('filter1', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/pixi/RGBSplitFilter.js');
+    game.load.script('filter1', 'https://cdn.rawgit.com/photonstorm/phaser/master/v2/filters/pixi/RGBSplitFilter.js');
 
 }
 

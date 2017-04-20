@@ -15,10 +15,10 @@ function create() {
 
     filter = new Phaser.Filter(game, null, game.cache.getShader('blueDots'));
 
-    filter.setResolution(400, 600);
+    filter.setResolution(800, 600);
 
     sprite = game.add.sprite();
-    sprite.width = 400;
+    sprite.width = 800;
     sprite.height = 600;
 
     sprite.filters = [ filter ];
