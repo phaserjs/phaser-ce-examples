@@ -449,6 +449,10 @@
       "title": "debug draw"
     },
     {
+      "file": "debug+fps.js",
+      "title": "debug fps"
+    },
+    {
       "file": "debug+input.js",
       "title": "debug input"
     },
@@ -1496,6 +1500,10 @@
     }
   ],
   "text": [
+    {
+      "file": "add+char+by+char.js",
+      "title": "add char by char"
+    },
     {
       "file": "bitmap+fonts.js",
       "title": "bitmap fonts"
