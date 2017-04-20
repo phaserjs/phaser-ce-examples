@@ -2,7 +2,6 @@
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { create: create, render: render });
 
 var circle;
-var floor;
 
 function create() {
 
