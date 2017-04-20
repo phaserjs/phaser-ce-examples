@@ -2,6 +2,8 @@
 
 <img src="http://phaser.io/images/github/jump.jpg" align="right">
 
+Looking for [Phaser 3 Examples](https://github.com/photonstorm/phaser3-examples)? They are in their own repo.
+
 Phaser v2 is a fast, free and fun open source HTML5 game framework. It uses [Pixi.js](https://github.com/GoodBoyDigital/pixi.js/) for WebGL and Canvas rendering across desktop and mobile web browsers. Games can be compiled to iOS and Android apps via 3rd party tools.
 
 Along with the fantastic open source community Phaser is actively developed and maintained by [Photon Storm Limited](http://www.photonstorm.com). As a result of rapid support and a developer friendly API Phaser is currently one of the [most starred](https://github.com/showcases/javascript-game-engines) game frameworks on Github.
@@ -43,8 +45,6 @@ The [Game Mechanic Explorer](http://gamemechanicexplorer.com) is a great interac
 ### Mighty Editor - Visual Game Editor
 
 [MightyEditor](http://mightyfingers.com/) is a browser-based visual Phaser game editor. Create your maps with ease, position objects and share them in seconds. It also exports to native Phaser code. Excellent for quickly setting-up levels and scenes.
-
-![div](http://www.phaser.io/images/github/div.png)
 
 Written something cool that shows Phaser in use? Please tell us about it in our [forum][forum] or email: support@phaser.io
 
