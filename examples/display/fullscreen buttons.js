@@ -30,23 +30,23 @@ function create() {
     button = game.add.button(game.world.centerX - 95, 500, 'button', actionOnClick, this, 2, 1, 0);
     button.visible = false;
 
-    game.scale.enterFullScreen.add(onEnterFullScreen, this);
-    game.scale.leaveFullScreen.add(onLeaveFullScreen, this);
+    game.scale.onFullScreenChange.add(onFullScreenChange, this);
 
     game.input.onDown.add(gofull, this);
 
 }
 
-function onEnterFullScreen() {
+function onFullScreenChange(scale) {
 
-    button.visible = true;
+    if (scale.isFullScreen)
+    {
+        button.visible = true;
+    }
+    else
+    {
+        button.visible = false;
+    }
 
-}
-
-function onLeaveFullScreen() {
-
-    button.visible = false;
-    
 }
 
 function gofull() {
