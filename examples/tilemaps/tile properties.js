@@ -14,6 +14,7 @@ var marker;
 
 // var sprite;
 var cursors;
+var currentDataString;
 
 function create() {
 
@@ -48,6 +49,9 @@ function getTileProperties() {
     var y = layer.getTileY(game.input.activePointer.worldY);
 
     var tile = map.getTile(x, y, layer);
+    
+    // Note: JSON.stringify will convert the object tile properties to a string
+    currentDataString = JSON.stringify( tile.properties );
 
     tile.properties.wibble = true;
 
@@ -84,7 +88,9 @@ function update() {
 
 function render() {
 
-    // game.debug.text('Current Layer: ' + currentLayer.name, 16, 550);
-    // game.debug.text('1-3 Switch Layers. SPACE = Show All. Cursors = Move Camera', 16, 570);
-
+    if(currentDataString){
+        game.debug.text('Tile properties: ' + currentDataString, 16, 550);
+    } else {
+        game.debug.text("Click on a tile to reveal the properties of the tile", 16, 550);
+    }
 }
