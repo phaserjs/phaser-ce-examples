@@ -20,10 +20,10 @@ function create() {
         item.anchor.setTo(0.5,0.5);
 
         // Add a simple bounce tween to each character's position.
-        game.add.tween(item).to({y: 240}, 2400, Phaser.Easing.Bounce.Out, true, 1000 + 400 * i, false);
+        game.add.tween(item).to({y: 240}, 2400, Phaser.Easing.Bounce.Out, true, 1000 + 400 * i, 0);
 
         // Add another rotation tween to the same character.
-        game.add.tween(item).to({angle: 360}, 2400, Phaser.Easing.Cubic.In, true, 1000 + 400 * i, false);
+        game.add.tween(item).to({angle: 360}, 2400, Phaser.Easing.Cubic.In, true, 1000 + 400 * i, 0);
     }
 
 }
