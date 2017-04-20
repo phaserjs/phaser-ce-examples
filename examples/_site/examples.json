@@ -1,4 +1,34 @@
 {
+  "_plugins": [
+    {
+      "file": "CSS3Filters.js",
+      "title": "CSS3Filters"
+    },
+    {
+      "file": "ColorHarmony.js",
+      "title": "ColorHarmony"
+    },
+    {
+      "file": "ProTracker.js",
+      "title": "ProTracker"
+    },
+    {
+      "file": "QuadTree.js",
+      "title": "QuadTree"
+    },
+    {
+      "file": "SamplePlugin.js",
+      "title": "SamplePlugin"
+    },
+    {
+      "file": "Webcam.js",
+      "title": "Webcam"
+    },
+    {
+      "file": "YM.js",
+      "title": "YM"
+    }
+  ],
   "animation": [
     {
       "file": "animation+events.js",
@@ -11,6 +41,10 @@
     {
       "file": "change+texture+on+click.js",
       "title": "change texture on click"
+    },
+    {
+      "file": "destroy+animation.js",
+      "title": "destroy animation"
     },
     {
       "file": "dragonBones.js",
@@ -87,6 +121,10 @@
       "title": "asteroids movement"
     },
     {
+      "file": "body+debug.js",
+      "title": "body debug"
+    },
+    {
       "file": "body+enable.js",
       "title": "body enable"
     },
@@ -117,6 +155,14 @@
     {
       "file": "direct+body+movement.js",
       "title": "direct body movement"
+    },
+    {
+      "file": "distance+to+pointer.js",
+      "title": "distance to pointer"
+    },
+    {
+      "file": "global+pause.js",
+      "title": "global pause"
     },
     {
       "file": "gravity+and+drag.js",
@@ -211,6 +257,14 @@
       "title": "snake"
     },
     {
+      "file": "sort+direction+vertical.js",
+      "title": "sort direction vertical"
+    },
+    {
+      "file": "sort+direction.js",
+      "title": "sort direction"
+    },
+    {
       "file": "sprite+vs+group.js",
       "title": "sprite vs group"
     },
@@ -225,6 +279,10 @@
   ],
   "audio": [
     {
+      "file": "audio+sprite+json.js",
+      "title": "audio sprite json"
+    },
+    {
       "file": "audio+sprite.js",
       "title": "audio sprite"
     },
@@ -235,6 +293,10 @@
     {
       "file": "loop.js",
       "title": "loop"
+    },
+    {
+      "file": "marker+oncomplete.js",
+      "title": "marker oncomplete"
     },
     {
       "file": "pause+and+resume.js",
@@ -253,44 +315,42 @@
       "title": "restart sound"
     },
     {
+      "file": "sound+complete.js",
+      "title": "sound complete"
+    },
+    {
       "file": "ym.js",
       "title": "ym"
     }
   ],
   "basics": [
     {
-      "file": "01+-+load+an+image.js",
-      "title": "01 - load an image",
-      "jsbin": "http://jsbin.com/zagob/1/edit?js,output"
+      "file": "01+load+an+image.js",
+      "title": "01 load an image"
     },
     {
-      "file": "02+-+click+on+an+image.js",
-      "title": "02 - click on an image",
-      "jsbin": "http://jsbin.com/zagob/6/edit?js,output"
+      "file": "02+click+on+an+image.js",
+      "title": "02 click on an image"
     },
     {
-      "file": "03+-+move+an+image.js",
-      "title": "03 - move an image",
-      "jsbin": "http://jsbin.com/zagob/7/edit?js,output"
+      "file": "03+move+an+image.js",
+      "title": "03 move an image"
     },
     {
-      "file": "04+-+image+follow+input.js",
-      "title": "04 - image follow input",
-      "jsbin": "http://jsbin.com/zagob/9/edit?js,output"
+      "file": "04+image+follow+input.js",
+      "title": "04 image follow input"
     },
     {
-      "file": "05+-+load+an+animation.js",
-      "title": "05 - load an animation",
-      "jsbin": "http://jsbin.com/zagob/10/edit?js,output"
+      "file": "05+load+an+animation.js",
+      "title": "05 load an animation"
     },
     {
-      "file": "06+-+render+text.js",
-      "title": "06 - render text",
-      "jsbin": "http://jsbin.com/zagob/11/edit?js,output"
+      "file": "06+render+text.js",
+      "title": "06 render text"
     },
     {
-      "file": "07+-+tween+an+image.js",
-      "title": "07 - tween an image"
+      "file": "07+tween+an+image.js",
+      "title": "07 tween an image"
     }
   ],
   "bitmapdata": [
@@ -367,6 +427,10 @@
       "title": "text"
     },
     {
+      "file": "tint.js",
+      "title": "tint"
+    },
+    {
       "file": "wobble.js",
       "title": "wobble"
     }
@@ -433,6 +497,10 @@
     {
       "file": "world+sprite.js",
       "title": "world sprite"
+    },
+    {
+      "file": "zooming+the+camera.js",
+      "title": "zooming the camera"
     }
   ],
   "debug": [
@@ -499,6 +567,10 @@
       "title": "raster bounce"
     },
     {
+      "file": "raster+carpet.js",
+      "title": "raster carpet"
+    },
+    {
       "file": "raster+font.js",
       "title": "raster font"
     },
@@ -511,8 +583,12 @@
       "title": "sine wave"
     },
     {
-      "file": "starfield-batched.js",
-      "title": "starfield-batched"
+      "file": "springy.js",
+      "title": "springy"
+    },
+    {
+      "file": "starfield+batched.js",
+      "title": "starfield batched"
     },
     {
       "file": "starfield.js",
@@ -537,6 +613,14 @@
       "title": "arc"
     },
     {
+      "file": "circle.js",
+      "title": "circle"
+    },
+    {
+      "file": "ellipse.js",
+      "title": "ellipse"
+    },
+    {
       "file": "extract+mask.js",
       "title": "extract mask"
     },
@@ -547,6 +631,10 @@
     {
       "file": "fullscreen.js",
       "title": "fullscreen"
+    },
+    {
+      "file": "gradient.js",
+      "title": "gradient"
     },
     {
       "file": "graphics+2.js",
@@ -567,6 +655,10 @@
     {
       "file": "render+crisp.js",
       "title": "render crisp"
+    },
+    {
+      "file": "render+texture+image.js",
+      "title": "render texture image"
     },
     {
       "file": "render+texture+mirror.js",
@@ -807,6 +899,10 @@
       "title": "polygon"
     },
     {
+      "file": "rectangle+intersects.js",
+      "title": "rectangle intersects"
+    },
+    {
       "file": "rectangle.js",
       "title": "rectangle"
     },
@@ -857,6 +953,10 @@
       "title": "extending a group"
     },
     {
+      "file": "filter+by+property.js",
+      "title": "filter by property"
+    },
+    {
       "file": "for+each.js",
       "title": "for each"
     },
@@ -877,12 +977,12 @@
       "title": "group scale"
     },
     {
-      "file": "group+transform+-+rotate.js",
-      "title": "group transform - rotate"
+      "file": "group+transform+rotate.js",
+      "title": "group transform rotate"
     },
     {
-      "file": "group+transform+-+tween.js",
-      "title": "group transform - tween"
+      "file": "group+transform+tween.js",
+      "title": "group transform tween"
     },
     {
       "file": "group+transform.js",
@@ -921,8 +1021,8 @@
       "title": "set All"
     },
     {
-      "file": "sub+groups+-+group+length.js",
-      "title": "sub groups - group length"
+      "file": "sub+groups+group+length.js",
+      "title": "sub groups group length"
     },
     {
       "file": "swap+children+in+a+group.js",
@@ -930,6 +1030,14 @@
     }
   ],
   "input": [
+    {
+      "file": "bounds+rect.js",
+      "title": "bounds rect"
+    },
+    {
+      "file": "bounds+sprite.js",
+      "title": "bounds sprite"
+    },
     {
       "file": "bring+a+child+to+top.js",
       "title": "bring a child to top"
@@ -1019,12 +1127,12 @@
       "title": "keyboard"
     },
     {
-      "file": "motion+lock+-+horizontal.js",
-      "title": "motion lock - horizontal"
+      "file": "motion+lock+horizontal.js",
+      "title": "motion lock horizontal"
     },
     {
-      "file": "motion+lock+-+vertical.js",
-      "title": "motion lock - vertical"
+      "file": "motion+lock+vertical.js",
+      "title": "motion lock vertical"
     },
     {
       "file": "multi+touch.js",
@@ -1043,20 +1151,20 @@
       "title": "pixel perfect click detection"
     },
     {
-      "file": "pixelpick+-+atlas+scaled.js",
-      "title": "pixelpick - atlas scaled"
+      "file": "pixelpick+atlas+scaled.js",
+      "title": "pixelpick atlas scaled"
     },
     {
-      "file": "pixelpick+-+atlas.js",
-      "title": "pixelpick - atlas"
+      "file": "pixelpick+atlas.js",
+      "title": "pixelpick atlas"
     },
     {
-      "file": "pixelpick+-+scrolling+effect.js",
-      "title": "pixelpick - scrolling effect"
+      "file": "pixelpick+scrolling+effect.js",
+      "title": "pixelpick scrolling effect"
     },
     {
-      "file": "pixelpick+-+spritesheet.js",
-      "title": "pixelpick - spritesheet"
+      "file": "pixelpick+spritesheet.js",
+      "title": "pixelpick spritesheet"
     },
     {
       "file": "pointer+lock.js",
@@ -1065,6 +1173,10 @@
     {
       "file": "snap+on+drag.js",
       "title": "snap on drag"
+    },
+    {
+      "file": "touch+events.js",
+      "title": "touch events"
     },
     {
       "file": "touch+joystick.js",
@@ -1349,6 +1461,10 @@
       "title": "firestarter"
     },
     {
+      "file": "flow.js",
+      "title": "flow"
+    },
+    {
       "file": "glass.js",
       "title": "glass"
     },
@@ -1391,6 +1507,10 @@
     {
       "file": "when+particles+collide.js",
       "title": "when particles collide"
+    },
+    {
+      "file": "world+particles.js",
+      "title": "world particles"
     },
     {
       "file": "zero+gravity.js",
@@ -1611,6 +1731,10 @@
       "title": "tile sprite from animated sprite"
     },
     {
+      "file": "tiling+atlas+trim.js",
+      "title": "tiling atlas trim"
+    },
+    {
       "file": "tiling+sprite+atlas+32x32.js",
       "title": "tiling sprite atlas 32x32"
     },
@@ -1643,6 +1767,10 @@
     {
       "file": "csv+map.js",
       "title": "csv map"
+    },
+    {
+      "file": "features+test.js",
+      "title": "features test"
     },
     {
       "file": "fill+tiles.js",
@@ -1689,6 +1817,10 @@
       "title": "tile callbacks"
     },
     {
+      "file": "tile+properties.js",
+      "title": "tile properties"
+    },
+    {
       "file": "tilemap+ray+cast.js",
       "title": "tilemap ray cast"
     }
@@ -1713,6 +1845,10 @@
     {
       "file": "elapsed+seconds.js",
       "title": "elapsed seconds"
+    },
+    {
+      "file": "multiple+timers.js",
+      "title": "multiple timers"
     },
     {
       "file": "remove+event.js",
@@ -1765,8 +1901,16 @@
       "title": "generate data"
     },
     {
+      "file": "interpolation.js",
+      "title": "interpolation"
+    },
+    {
       "file": "pause+tween.js",
       "title": "pause tween"
+    },
+    {
+      "file": "repeat.js",
+      "title": "repeat"
     },
     {
       "file": "single+tween+reuse.js",
