@@ -1,5 +1,13 @@
-// mods by Patrick OReilly 
-// Twitter: @pato_reilly Web: http://patricko.byethost9.com
+/**
+* @description
+* Create two sprites - a ball and a player - that bounce off eachother.
+*
+* Use the arrow keys to move the player sprite; try to knock the ball around.
+*
+* @author Patrick OReilly (Twitter: @pato_reilly / Web: http://patricko.byethost9.com)
+*
+* @tags sprite collision keyboard arcade-physics
+*/
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 

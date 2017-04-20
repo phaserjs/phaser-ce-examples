@@ -1,3 +1,9 @@
+/**
+* @overview
+* Add an input event to a sprite.
+*
+* Click on the sprite to increase a counter which is displayed.
+*/
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
 

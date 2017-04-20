@@ -1,3 +1,7 @@
+/**
+* @overview
+* Move a sprite using the Arcade physics mode.
+*/
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
 

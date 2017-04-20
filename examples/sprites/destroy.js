@@ -1,3 +1,9 @@
+/**
+* @overview
+* Destroy (or 'remove') a sprite when it is clicked.
+*
+* Click the sprite to remove it; reload to reset the sprite.
+*/
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
 

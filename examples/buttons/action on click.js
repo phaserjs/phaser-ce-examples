@@ -1,4 +1,9 @@
-
+/**
+* @overview
+* Create a button and register events.
+*
+* Click on the button or move the cursor over the button.
+*/
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
 
 function preload() {

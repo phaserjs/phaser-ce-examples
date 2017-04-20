@@ -1,3 +1,9 @@
+/*
+* @description
+* Display some network / URL information.
+*
+* @tags utility network
+*/
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { render: render });
 

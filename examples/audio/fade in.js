@@ -1,3 +1,9 @@
+/**
+* @overview
+* Fade-in sound over a short duration.
+*
+* Reload the example to start over.
+*/
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, render: render });
 

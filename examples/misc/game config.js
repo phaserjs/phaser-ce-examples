@@ -1,7 +1,10 @@
+/**
+* @overview
+* Create a Game from a configuration object.
+*/
 
 //  You can pass in a configuration object to the Game constructor 
 //  instead of using the parameters, like this:
-
 var conf = {
     width: 800,
     height: 600,

@@ -1,4 +1,11 @@
-
+/**
+* @overview
+* Change the images used for the different button states.
+*
+* Hover over the button to see the default frame; then click on the button to change the frames used.
+*
+* Reload the example to reset.
+*/
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
 
 function preload() {

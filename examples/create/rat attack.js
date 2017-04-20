@@ -1,3 +1,9 @@
+/**
+* @overview
+* Create textures from in-line array data.
+*
+* Use the arrow keys to move the player to the bottom without getting eaten by a rat!
+*/
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { create: create, update: update });
 
