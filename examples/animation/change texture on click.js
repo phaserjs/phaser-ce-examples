@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, render: render });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
 
 function preload() {
 
@@ -29,11 +29,5 @@ function changeMummy() {
     bot.animations.add('walk');
 
     bot.animations.play('walk', 30, true);
-
-}
-
-function render() {
-
-    game.debug.body(bot);
 
 }
