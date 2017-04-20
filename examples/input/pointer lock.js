@@ -27,8 +27,8 @@ function move(pointer, x, y) {
 
     if (game.input.mouse.locked)
     {
-        sprite.x += game.input.mouse.event.webkitMovementX;
-        sprite.y += game.input.mouse.event.webkitMovementY;
+        sprite.x += game.input.mouse.event.movementX;
+        sprite.y += game.input.mouse.event.movementY;
     }
 
 }
