@@ -23,9 +23,11 @@ function requestLock() {
     game.input.mouse.requestPointerLock();
 }
 
-function move(pointer, x, y) {
+function move(pointer, x, y, click) {
 
-    if (game.input.mouse.locked)
+    //  If the cursor is locked to the game, and the callback was not fired from a 'click' event
+    //  (such as a mouse click or touch down) - as then it might contain incorrect movement values
+    if (game.input.mouse.locked && !click)
     {
         sprite.x += game.input.mouse.event.movementX;
         sprite.y += game.input.mouse.event.movementY;
