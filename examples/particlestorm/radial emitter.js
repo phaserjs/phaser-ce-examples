@@ -31,7 +31,7 @@ function create() {
     var data = {
         lifespan: 4000,
         image: '4x4',
-        velocity: { initial: 2, radial: { arcStart: -90, arcEnd: 90 }, control: [ { x: 0, y: 1 }, { x: 0.5, y: 0.5 }, { x: 1, y: 0 } ] }
+        velocity: { initial: 2, radial: { arcStart: 0, arcEnd: 360 }, control: [ { x: 0, y: 1 }, { x: 0.5, y: 0.5 }, { x: 1, y: 0 } ] }
     };
 
     manager.addData('basic', data);

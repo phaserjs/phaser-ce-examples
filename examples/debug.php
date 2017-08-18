@@ -212,6 +212,9 @@
                     echo "<script src=\"/phaser-particles-plugin/plugin/src/renderers/RenderTexture.js\" type=\"text/javascript\"></script>";
                     echo "<script src=\"/phaser-particles-plugin/plugin/src/renderers/SpriteBatch.js\" type=\"text/javascript\"></script>";
                 }
+
+                echo "<script src=\"/phaser-tiled/build/phaser-tiled.js\" type=\"text/javascript\"></script>";
+
             }
         ?>
     </head>
