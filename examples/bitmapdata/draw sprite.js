@@ -32,7 +32,7 @@ function create() {
 
 	bmd.draw(crab, 10, 10);
 
-    // game.input.addMoveCallback(paint, this);
+        game.input.addMoveCallback(paint, this);
 
 }
 
