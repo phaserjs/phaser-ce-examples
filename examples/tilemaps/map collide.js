@@ -35,8 +35,6 @@ function create() {
     
     layer = map.createLayer('World1');
 
-    layer.scale.set(0.5);
-
     //  Un-comment this on to see the collision tiles
     // layer.debug = true;
 
