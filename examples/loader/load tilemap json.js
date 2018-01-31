@@ -12,7 +12,7 @@ function preload() {
     //  parameter if you already have it loaded (maybe via a 3rd party source or pre-generated). In which case pass 'null' as the URL and
     //  the JSON object as the 3rd parameter.
 
-    //  The final one tells Phaser the foramt of the map data, in this case it's a JSON file exported from the Tiled map editor.
+    //  The final one tells Phaser the format of the map data, in this case it's a JSON file exported from the Tiled map editor.
     //  This could be Phaser.Tilemap.CSV too.
 
     game.load.tilemap('mario', 'assets/tilemaps/maps/super_mario.json', null, Phaser.Tilemap.TILED_JSON);
