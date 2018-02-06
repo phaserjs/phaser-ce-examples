@@ -101,22 +101,23 @@ function countDownTimer() {
 }
 
 function processClick() {
-   
+
     currentTile = map.getTile(layer.getTileX(marker.x), layer.getTileY(marker.y));
     currentTilePosition = ((layer.getTileY(game.input.activePointer.worldY)+1)*6)-(6-(layer.getTileX(game.input.activePointer.worldX)+1));
-        
+
     if (game.input.mousePointer.isDown)
-        {
+    {
         // check to make sure the tile is not already flipped
         if (currentTile.index == tileBack)
         {
             // get the corresponding item out of squareList
-                currentNum = squareList[currentTilePosition-1];
+            currentNum = squareList[currentTilePosition-1];
             flipOver();
-                squareCounter++;
-                clickCount++;
+            squareCounter++;
+            clickCount++;
+
             // is the second tile of pair flipped?
-            if  (squareCounter == 2) 
+            if  (squareCounter == 2)
             {
                 // reset squareCounter
                 squareCounter = 0;
@@ -124,33 +125,34 @@ function processClick() {
                 // check for match
                 if (square1Num == square2Num)
                 {
-                    masterCounter++;    
-                    
-                    if (masterCounter == 18) 
+                    masterCounter++;
+
+                    if (masterCounter == 18)
                     {
                         // go "win"
                         youWin = 'Got them all!';
                         if (clickCount == 18)
                         {
                             youWin = 'Hard-mode achieved';
-                    }                       
+                        }
+                    }
+                    else
+                    {
+                        savedSquareX2 = layer.getTileX(marker.x);
+                        savedSquareY2 = layer.getTileY(marker.y);
+                        flipFlag = true;
+                        timeCheck = game.time.totalElapsedSeconds();
+                    }
                 }
                 else
                 {
-                    savedSquareX2 = layer.getTileX(marker.x);
-                    savedSquareY2 = layer.getTileY(marker.y);
-                        flipFlag = true;
-                        timeCheck = game.time.totalElapsedSeconds();
-                }   
-            }   
-            else
-            {
-                savedSquareX1 = layer.getTileX(marker.x);
-                savedSquareY1 = layer.getTileY(marker.y);
+                    savedSquareX1 = layer.getTileX(marker.x);
+                    savedSquareY1 = layer.getTileY(marker.y);
                     square1Num = currentNum;
-            }           
-        }           
-    }    
+                }
+            }
+        }
+    }
 }
  
 function flipOver() {
