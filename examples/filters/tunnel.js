@@ -8,7 +8,7 @@ function preload() {
 
     game.load.image('phaser', 'assets/sprites/phaser.png');
     game.load.image('texture', 'assets/textures/ooze.png');
-    game.load.script('filter', 'https://cdn.rawgit.com/photonstorm/phaser/master/v2/filters/Tunnel.js');
+    game.load.script('filter', 'https://cdn.rawgit.com/photonstorm/phaser-ce/master/filters/Tunnel.js');
 
 }
 

@@ -7,7 +7,7 @@ var filter;
 function preload() {
 
     game.load.image('phaser', 'assets/sprites/phaser2.png');
-    game.load.script('filter', 'https://cdn.rawgit.com/photonstorm/phaser/master/v2/filters/Fire.js');
+    game.load.script('filter', 'https://cdn.rawgit.com/photonstorm/phaser-ce/master/filters/Fire.js');
 
 }
 

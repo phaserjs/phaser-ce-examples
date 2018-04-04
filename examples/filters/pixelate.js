@@ -5,7 +5,7 @@ function preload() {
 
     game.load.image('phaser', 'assets/pics/mighty_no_09_cover_art_by_robduenas.jpg');
 
-    game.load.script('filter', 'https://cdn.rawgit.com/photonstorm/phaser/master/v2/filters/Pixelate.js');
+    game.load.script('filter', 'https://cdn.rawgit.com/photonstorm/phaser-ce/master/filters/Pixelate.js');
 
 }
 
