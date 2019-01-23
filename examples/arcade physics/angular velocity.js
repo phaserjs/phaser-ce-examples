@@ -39,7 +39,10 @@ function update() {
     {
         game.physics.arcade.velocityFromAngle(sprite.angle, 300, sprite.body.velocity);
     }
-
+    else if (game.input.keyboard.isDown(Phaser.Keyboard.DOWN))
+    {
+        game.physics.arcade.velocityFromAngle(sprite.angel, -300,sprite.body.velocity)
+    } 
 }
 
 function render() {
