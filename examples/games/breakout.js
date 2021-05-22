@@ -153,9 +153,9 @@ function ballHitBrick (_ball, _brick) {
 
     _brick.kill();
 
-    score += 10;
+    score += 50;
 
-    scoreText.text = 'score: ' + score;
+    scoreText.text = 'score (~ ^ ~): ' + score;
 
     //  Are they any bricks left?
     if (bricks.countLiving() == 0)
