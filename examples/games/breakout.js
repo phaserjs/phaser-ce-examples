@@ -144,7 +144,7 @@ function gameOver () {
 
     ball.body.velocity.setTo(0, 0);
     
-    introText.text = 'Game Over!';
+    introText.text = 'Game Over!!!!';
     introText.visible = true;
 
 }
