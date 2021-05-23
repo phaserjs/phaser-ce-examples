@@ -47,7 +47,7 @@ Bomber.Game.prototype = {
         this.physics.arcade.enable( [ this.plane, this.bomb, this.land ] );
 
         this.plane.body.allowGravity = false;
-        this.plane.body.velocity.x = 100;
+        this.plane.body.velocity.x = 300;
 
         this.bomb.checkWorldBounds = true;
 
@@ -64,7 +64,7 @@ Bomber.Game.prototype = {
         this.physics.arcade.checkCollision = { up: false, down: true, left: false, right: false };
 
         this.emitter.makeParticles('particles', [0,1,2,3,4], 500, true, true);
-        this.emitter.gravity = 200;
+        this.emitter.gravity = 400;
         this.emitter.bounce.set(0.25);
         this.emitter.setXSpeed(-200, 200);
         this.emitter.setYSpeed(-50, 50);
